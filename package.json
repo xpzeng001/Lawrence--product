@@ -1,0 +1,11 @@
+{
+  "name": "shot-3-complete-identity",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "sh ./hyperframes-local.sh preview",
+    "check": "sh ./hyperframes-local.sh lint && sh ./hyperframes-local.sh inspect",
+    "render": "sh ./hyperframes-local.sh render",
+    "publish": "sh ./hyperframes-local.sh publish"
+  }
+}

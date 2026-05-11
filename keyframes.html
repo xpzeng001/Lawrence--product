@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shot 3 Keyframes</title>
+    <style>
+      :root {
+        --background: #faf8f6;
+        --foreground: #2c2421;
+        --primary: #8b5a4a;
+        --muted: #5c524d;
+        --border: #e8e2dc;
+        --card: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--background);
+        color: var(--foreground);
+        font-family: Inter, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      }
+
+      main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 40px 24px 64px;
+      }
+
+      header {
+        margin-bottom: 24px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 34px;
+        line-height: 1.15;
+      }
+
+      p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 22px;
+      }
+
+      figure {
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--card);
+        box-shadow: 0 14px 36px rgba(44, 36, 33, 0.08);
+      }
+
+      figcaption {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        color: var(--primary);
+        font-weight: 800;
+        border-bottom: 1px solid var(--border);
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Shot 3 关键帧预览</h1>
+        <p>完整入职身份 · 主标题先出，身份模块展开，再独立切到多渠道 logo 飞入 · 1920×1080 · HyperFrames</p>
+      </header>
+      <section class="grid">
+        <figure>
+          <figcaption><span>1.2s</span><span>主标题先入</span></figcaption>
+          <img src="snapshots/frame-00-at-1.2s.png" alt="Shot 3 keyframe at 1.2 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>2.2s</span><span>副标题跟进</span></figcaption>
+          <img src="snapshots/frame-01-at-2.2s.png" alt="Shot 3 keyframe at 2.2 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>3.4s</span><span>说明文案落定</span></figcaption>
+          <img src="snapshots/frame-02-at-3.4s.png" alt="Shot 3 keyframe at 3.4 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>5.6s</span><span>切换到电脑</span></figcaption>
+          <img src="snapshots/frame-03-at-5.6s.png" alt="Shot 3 keyframe at 5.6 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>10.1s</span><span>身份模块展开</span></figcaption>
+          <img src="snapshots/frame-04-at-10.1s.png" alt="Shot 3 keyframe at 10.1 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>12.6s</span><span>多渠道独立一幕</span></figcaption>
+          <img src="snapshots/frame-05-at-12.6s.png" alt="Shot 3 keyframe at 12.6 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>13.4s</span><span>logo 飞入中心</span></figcaption>
+          <img src="snapshots/frame-06-at-13.4s.png" alt="Shot 3 keyframe at 13.4 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>14.8s</span><span>logo 集合完成</span></figcaption>
+          <img src="snapshots/frame-07-at-14.8s.png" alt="Shot 3 keyframe at 14.8 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>16.4s</span><span>收尾定格</span></figcaption>
+          <img src="snapshots/frame-08-at-16.4s.png" alt="Shot 3 keyframe at 16.4 seconds" />
+        </figure>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shot 3 Voice Preview</title>
+    <style>
+      :root {
+        --background: #faf8f6;
+        --foreground: #2c2421;
+        --primary: #8b5a4a;
+        --muted: #5c524d;
+        --border: #e8e2dc;
+        --card: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background:
+          linear-gradient(rgba(139, 90, 74, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139, 90, 74, 0.045) 1px, transparent 1px),
+          var(--background);
+        background-size: 96px 72px;
+        color: var(--foreground);
+        font-family: Inter, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      }
+
+      main {
+        width: min(920px, calc(100vw - 48px));
+        margin: 0 auto;
+        padding: 40px 0 64px;
+      }
+
+      header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 22px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 30px;
+        line-height: 1.2;
+      }
+
+      p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 650;
+      }
+
+      a {
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .voice {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 18px;
+        align-items: center;
+        padding: 18px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.86);
+        box-shadow: 0 14px 36px rgba(44, 36, 33, 0.08);
+      }
+
+      .name {
+        font-size: 18px;
+        font-weight: 860;
+      }
+
+      .meta {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      audio {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>Shot 3 声音试听</h1>
+          <p>示例文案：我有自己的工作电脑、邮箱账号、飞书账号。</p>
+        </div>
+        <a href="video-preview.html">视频预览</a>
+      </header>
+
+      <section class="list">
+        <div class="voice">
+          <div>
+            <div class="name">Reed</div>
+            <div class="meta">中文男声 · 稳定清晰</div>
+          </div>
+          <audio controls preload="metadata" src="assets/voice-samples/reed.mp3"></audio>
+        </div>
+        <div class="voice">
+          <div>
+            <div class="name">Eddy</div>
+            <div class="meta">中文男声 · 年轻干净</div>
+          </div>
+          <audio controls preload="metadata" src="assets/voice-samples/eddy.mp3"></audio>
+        </div>
+        <div class="voice">
+          <div>
+            <div class="name">Rocko</div>
+            <div class="meta">中文男声 · 更有颗粒感</div>
+          </div>
+          <audio controls preload="metadata" src="assets/voice-samples/rocko.mp3"></audio>
+        </div>
+        <div class="voice">
+          <div>
+            <div class="name">Grandpa</div>
+            <div class="meta">中文男声 · 更成熟厚一点</div>
+          </div>
+          <audio controls preload="metadata" src="assets/voice-samples/grandpa.mp3"></audio>
+        </div>
+        <div class="voice">
+          <div>
+            <div class="name">Tingting</div>
+            <div class="meta">中文女声 · 原风格参考</div>
+          </div>
+          <audio controls preload="metadata" src="assets/voice-samples/tingting.mp3"></audio>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

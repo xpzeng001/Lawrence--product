@@ -18,14 +18,12 @@
         --border: #e8e2dc;
         --input: #d9d0c8;
         --text-tertiary: #8c8279;
-        --bg-hover: #f0ebe7;
         --cool: #6b7b8f;
         --cool-dark: #576878;
         --success: #00a544;
         --shine: #c49485;
         --gradient-primary: linear-gradient(180deg, #8b5a4a 0%, #74493c 100%);
         --gradient-secondary: linear-gradient(180deg, #6b7b8f 0%, #576878 100%);
-        --shadow-soft: 0 22px 70px rgba(44, 36, 33, 0.11);
       }
 
       * {
@@ -76,14 +74,14 @@
         position: absolute;
         inset: 0;
         background:
-          linear-gradient(90deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.22) 38%, rgba(255, 255, 255, 0.62) 100%),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.83) 0%, rgba(255, 255, 255, 0.2) 38%, rgba(255, 255, 255, 0.68) 100%),
           linear-gradient(180deg, rgba(139, 90, 74, 0.035), rgba(107, 123, 143, 0.04));
       }
 
       .intro-copy {
         position: absolute;
         left: 220px;
-        top: 350px;
+        top: 354px;
         width: 1480px;
         text-align: center;
         z-index: 12;
@@ -103,18 +101,10 @@
         z-index: -1;
       }
 
-      .kicker-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--primary);
-      }
-
       .main-title {
-        margin-top: 0;
         color: var(--foreground);
-        font-size: 118px;
-        line-height: 0.98;
+        font-size: 112px;
+        line-height: 1;
         font-weight: 860;
         letter-spacing: 0;
       }
@@ -126,7 +116,7 @@
         background: var(--gradient-primary);
         background-clip: text;
         -webkit-background-clip: text;
-        font-size: 96px;
+        font-size: 90px;
         line-height: 1;
         font-weight: 860;
         letter-spacing: 0;
@@ -136,7 +126,7 @@
         margin: 34px auto 0;
         max-width: 1080px;
         color: var(--muted-foreground);
-        font-size: 32px;
+        font-size: 31px;
         font-weight: 720;
         line-height: 1.42;
       }
@@ -145,27 +135,27 @@
         position: absolute;
         inset: 0;
         display: grid;
-        grid-template-columns: 610px 1fr;
+        grid-template-columns: 410px 330px 1fr;
         align-items: center;
-        gap: 86px;
-        padding: 48px 190px 48px 226px;
+        gap: 30px;
+        padding: 70px 54px 74px 92px;
         opacity: 0;
         z-index: 4;
       }
 
       .phone-wrap {
         position: relative;
-        width: 500px;
-        height: 982px;
+        width: 395px;
+        height: 812px;
         justify-self: center;
       }
 
       .phone-shadow {
         position: absolute;
-        left: 50px;
+        left: 48px;
         right: 30px;
-        bottom: -28px;
-        height: 92px;
+        bottom: -24px;
+        height: 76px;
         border-radius: 50%;
         background: radial-gradient(circle, rgba(44, 36, 33, 0.2) 0%, rgba(44, 36, 33, 0.09) 48%, transparent 76%);
         filter: blur(18px);
@@ -174,35 +164,13 @@
       .phone {
         position: absolute;
         inset: 0;
-        border-radius: 72px;
-        background:
-          linear-gradient(145deg, rgba(255, 255, 255, 0.32), rgba(28, 26, 25, 0.08)),
-          #191817;
+        padding: 13px;
+        border-radius: 58px;
+        background: #171615;
         box-shadow:
-          0 34px 80px rgba(44, 36, 33, 0.22),
+          0 30px 72px rgba(44, 36, 33, 0.22),
           0 0 0 2px rgba(255, 255, 255, 0.18) inset,
-          0 0 0 9px #171615 inset;
-        padding: 16px;
-      }
-
-      .phone::before,
-      .phone::after {
-        content: "";
-        position: absolute;
-        width: 5px;
-        border-radius: 999px;
-        background: linear-gradient(180deg, #242220, #11100f);
-        left: -5px;
-      }
-
-      .phone::before {
-        top: 218px;
-        height: 96px;
-      }
-
-      .phone::after {
-        top: 346px;
-        height: 128px;
+          0 0 0 7px #151413 inset;
       }
 
       .screen {
@@ -210,7 +178,7 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
-        border-radius: 56px;
+        border-radius: 45px;
         background:
           radial-gradient(circle at 78% 6%, rgba(139, 90, 74, 0.08), transparent 34%),
           linear-gradient(180deg, #fffefd 0%, #f7f3ef 100%);
@@ -219,9 +187,9 @@
       .dynamic-island {
         position: absolute;
         left: 50%;
-        top: 19px;
-        width: 138px;
-        height: 35px;
+        top: 16px;
+        width: 112px;
+        height: 29px;
         border-radius: 999px;
         background: #050505;
         transform: translateX(-50%);
@@ -229,132 +197,73 @@
       }
 
       .statusbar {
-        height: 74px;
+        height: 58px;
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        padding: 25px 34px 0;
+        padding: 20px 28px 0;
         color: #151312;
-        font-size: 18px;
+        font-size: 15px;
         font-weight: 820;
       }
 
-      .signals {
+      .tiny-bars {
         display: flex;
+        gap: 5px;
         align-items: center;
-        gap: 8px;
-        margin-top: 2px;
-      }
-
-      .signal-bars {
-        display: grid;
-        grid-template-columns: repeat(4, 4px);
-        align-items: end;
-        gap: 2px;
-        height: 14px;
-      }
-
-      .signal-bars span {
-        width: 4px;
-        border-radius: 2px;
-        background: #171615;
-      }
-
-      .signal-bars span:nth-child(1) {
-        height: 5px;
-      }
-
-      .signal-bars span:nth-child(2) {
-        height: 8px;
-      }
-
-      .signal-bars span:nth-child(3) {
-        height: 11px;
-      }
-
-      .signal-bars span:nth-child(4) {
-        height: 14px;
-      }
-
-      .wifi {
-        width: 17px;
-        height: 12px;
-        border: 3px solid #171615;
-        border-bottom: 0;
-        border-radius: 16px 16px 0 0;
-      }
-
-      .battery {
-        width: 28px;
-        height: 13px;
-        border: 2px solid #171615;
-        border-radius: 4px;
-        position: relative;
-      }
-
-      .battery::after {
-        content: "";
-        position: absolute;
-        right: -5px;
-        top: 3px;
-        width: 3px;
-        height: 5px;
-        border-radius: 0 3px 3px 0;
-        background: #171615;
+        font-size: 12px;
       }
 
       .chat-head {
-        height: 74px;
+        height: 60px;
         display: grid;
-        grid-template-columns: 30px minmax(0, 1fr) 74px;
+        grid-template-columns: 22px minmax(0, 1fr) 56px;
         align-items: center;
-        gap: 12px;
-        padding: 0 28px;
+        gap: 10px;
+        padding: 0 24px;
         border-bottom: 1px solid rgba(232, 226, 220, 0.68);
-        background: rgba(255, 255, 255, 0.72);
+        background: rgba(255, 255, 255, 0.78);
       }
 
       .back {
-        color: var(--foreground);
-        font-size: 36px;
-        font-weight: 400;
+        font-size: 31px;
         line-height: 1;
       }
 
       .contact-name {
         display: flex;
         align-items: center;
-        gap: 7px;
+        gap: 6px;
         color: var(--foreground);
-        font-size: 21px;
+        font-size: 17px;
         font-weight: 850;
       }
 
       .role-chip {
-        height: 23px;
-        padding: 0 9px;
+        height: 19px;
+        padding: 0 7px;
         display: inline-flex;
         align-items: center;
         border-radius: 999px;
         background: rgba(196, 148, 133, 0.24);
         color: var(--primary);
-        font-size: 11px;
+        font-size: 9px;
         font-weight: 840;
       }
 
       .online {
-        margin-top: 4px;
+        margin-top: 3px;
         color: var(--muted-foreground);
-        font-size: 14px;
+        font-size: 11px;
         font-weight: 760;
       }
 
       .online::after {
         content: "";
         display: inline-block;
-        width: 8px;
-        height: 8px;
-        margin-left: 6px;
+        width: 7px;
+        height: 7px;
+        margin-left: 5px;
         border-radius: 50%;
         background: var(--success);
       }
@@ -362,222 +271,141 @@
       .head-icons {
         display: flex;
         justify-content: flex-end;
-        gap: 16px;
-        color: var(--foreground);
-        font-size: 25px;
+        gap: 11px;
+        font-size: 20px;
         font-weight: 700;
       }
 
       .chat-body {
         position: relative;
-        height: 720px;
-        padding: 32px 26px 24px;
+        height: 610px;
+        padding: 24px 21px 18px;
         overflow: hidden;
       }
 
       .date {
         color: var(--text-tertiary);
         text-align: center;
-        font-size: 15px;
+        font-size: 12px;
         font-weight: 680;
       }
 
       .avatar {
         position: absolute;
-        left: 26px;
-        width: 42px;
-        height: 42px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 14px;
+        left: 21px;
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
         overflow: hidden;
-        background: var(--card);
+        background:
+          url("assets/lawrence-avatar.png") center / cover no-repeat,
+          var(--card);
         border: 1px solid rgba(139, 90, 74, 0.16);
-        box-shadow: 0 10px 24px rgba(139, 90, 74, 0.22);
-      }
-
-      .avatar img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        box-shadow: 0 10px 24px rgba(139, 90, 74, 0.18);
       }
 
       .message {
         position: absolute;
-        max-width: 308px;
-        padding: 16px 18px;
-        border-radius: 17px;
-        font-size: 16.5px;
-        line-height: 1.48;
+        max-width: 250px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        font-size: 13px;
+        line-height: 1.42;
         font-weight: 760;
         color: var(--foreground);
-        box-shadow: 0 14px 34px rgba(44, 36, 33, 0.07);
+        box-shadow: 0 12px 30px rgba(44, 36, 33, 0.07);
         opacity: 0;
       }
 
       .message.user {
-        right: 26px;
+        right: 21px;
         background:
           linear-gradient(180deg, rgba(245, 237, 235, 0.96), rgba(255, 249, 244, 0.96)),
           #f8efe7;
       }
 
       .message.lawrence {
-        left: 80px;
+        left: 66px;
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(243, 247, 252, 0.94)),
           #eef4fb;
       }
 
-      .voice-msg {
-        top: 98px;
-        width: 300px;
-      }
-
-      .voice-text {
-        margin-bottom: 14px;
-      }
-
-      .wave-row {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        height: 27px;
-      }
-
-      .wave {
-        width: 4px;
-        border-radius: 999px;
-        background: var(--shine);
-        transform-origin: center;
-      }
-
-      .wave:nth-child(odd) {
-        background: var(--primary);
-      }
-
-      .wave:nth-child(1) {
-        height: 13px;
-      }
-
-      .wave:nth-child(2) {
-        height: 24px;
-      }
-
-      .wave:nth-child(3) {
-        height: 18px;
-      }
-
-      .wave:nth-child(4) {
-        height: 27px;
-      }
-
-      .wave:nth-child(5) {
-        height: 17px;
-      }
-
-      .wave:nth-child(6) {
-        height: 24px;
-      }
-
-      .wave:nth-child(7) {
-        height: 13px;
-      }
-
-      .wave:nth-child(8) {
-        height: 22px;
-      }
-
-      .voice-time {
-        margin-left: auto;
-        color: var(--muted-foreground);
-        font-size: 15px;
-        font-weight: 760;
-      }
-
-      .play {
-        width: 24px;
-        height: 24px;
-        margin-left: 6px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: var(--foreground);
-        color: #fff;
-        font-size: 11px;
-      }
-
-      .reply {
-        top: 256px;
-        width: 292px;
-      }
-
-      .reply-avatar {
-        top: 258px;
-      }
-
-      .text-msg {
-        top: 418px;
-        width: 262px;
+      .task-msg {
+        top: 72px;
+        width: 248px;
       }
 
       .file-card {
-        top: 514px;
-        width: 292px;
-        padding: 13px 14px;
+        top: 154px;
+        width: 220px;
+        padding: 10px 12px;
       }
 
       .file-card-inner {
-        height: 72px;
+        height: 56px;
         display: grid;
-        grid-template-columns: 44px 1fr;
-        gap: 10px;
+        grid-template-columns: 34px 1fr;
+        gap: 9px;
         align-items: center;
-        padding: 10px 12px;
+        padding: 7px 9px;
         border: 1px solid rgba(232, 226, 220, 0.9);
-        border-radius: 13px;
-        background: rgba(255, 255, 255, 0.65);
+        border-radius: 11px;
+        background: rgba(255, 255, 255, 0.68);
       }
 
       .pdf {
-        width: 39px;
-        height: 39px;
+        width: 31px;
+        height: 31px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 10px;
+        border-radius: 8px;
         background: linear-gradient(180deg, #ef5750, #d73b36);
         color: #fff;
-        font-size: 13px;
+        font-size: 10px;
         font-weight: 900;
       }
 
       .file-name {
-        color: var(--foreground);
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 820;
       }
 
-      .file-size {
-        margin-top: 4px;
+      .file-size,
+      .file-status {
+        margin-top: 3px;
         color: var(--text-tertiary);
-        font-size: 13px;
+        font-size: 10px;
         font-weight: 700;
       }
 
-      .file-status {
-        margin-top: 8px;
-        color: var(--text-tertiary);
-        font-size: 13px;
-        font-weight: 720;
+      .ack-avatar {
+        top: 272px;
       }
 
-      .second-text {
-        top: 616px;
-        width: 304px;
+      .ack-msg {
+        top: 270px;
+        width: 238px;
+      }
+
+      .working-avatar {
+        top: 424px;
+      }
+
+      .working-msg {
+        top: 422px;
+        width: 248px;
+      }
+
+      .result-avatar {
+        top: 500px;
+      }
+
+      .result-msg {
+        top: 498px;
+        width: 258px;
+        border: 1px solid rgba(0, 165, 68, 0.12);
       }
 
       .input-bar {
@@ -585,12 +413,12 @@
         left: 0;
         right: 0;
         bottom: 0;
-        height: 82px;
+        height: 70px;
         display: grid;
-        grid-template-columns: 42px 1fr 42px 42px;
-        gap: 9px;
+        grid-template-columns: 34px 1fr 34px 34px;
+        gap: 8px;
         align-items: center;
-        padding: 12px 24px 18px;
+        padding: 10px 22px 15px;
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.98), #ffffff),
           #ffffff;
@@ -599,113 +427,380 @@
       }
 
       .round-icon {
-        width: 40px;
-        height: 40px;
+        width: 32px;
+        height: 32px;
         display: flex;
         align-items: center;
         justify-content: center;
         border: 2px solid var(--foreground);
         border-radius: 50%;
-        color: var(--foreground);
-        font-size: 20px;
+        font-size: 15px;
         font-weight: 850;
       }
 
       .hold {
-        height: 48px;
+        height: 38px;
         display: flex;
         align-items: center;
-        padding: 0 19px;
-        border-radius: 14px;
+        padding: 0 15px;
+        border-radius: 12px;
         background: #eaf1f8;
-        color: var(--foreground);
-        font-size: 16px;
+        font-size: 13px;
         font-weight: 760;
       }
 
-      .content-panel {
-        align-self: center;
-        max-width: 792px;
-        padding-top: 10px;
+      .flow {
+        position: relative;
+        width: 330px;
+        height: 630px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 28px;
       }
 
-      .eyebrow-line {
-        width: 72px;
-        height: 4px;
-        margin-top: 42px;
-        background: linear-gradient(90deg, var(--primary), var(--shine));
-        border-radius: 999px;
-      }
-
-      .panel-title {
-        color: var(--foreground);
-        font-size: 66px;
-        line-height: 1.12;
-        font-weight: 860;
-        letter-spacing: 0;
-      }
-
-      .feature-list {
-        margin-top: 50px;
+      .flow-card {
+        position: relative;
+        height: 118px;
         display: grid;
-        gap: 38px;
-      }
-
-      .feature {
-        display: grid;
-        grid-template-columns: 112px 1fr;
-        gap: 26px;
+        grid-template-columns: 74px 1fr;
         align-items: center;
+        gap: 15px;
+        padding: 16px 18px;
+        border: 1px solid rgba(232, 226, 220, 0.92);
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at 24% 16%, rgba(255, 255, 255, 0.96), transparent 42%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(245, 237, 235, 0.74)),
+          var(--card);
+        box-shadow: 0 22px 60px rgba(44, 36, 33, 0.08);
         opacity: 0;
       }
 
-      .feature-icon {
-        width: 112px;
-        height: 112px;
-        position: relative;
+      .flow-icon {
+        width: 64px;
+        height: 64px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 22px;
-        background:
-          radial-gradient(circle at 34% 20%, rgba(255, 255, 255, 0.96), transparent 42%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(245, 237, 235, 0.74)),
-          var(--accent);
-        border: 1px solid rgba(232, 226, 220, 0.58);
-        box-shadow:
-          0 18px 46px rgba(44, 36, 33, 0.075),
-          0 1px 0 rgba(255, 255, 255, 0.9) inset;
+        border-radius: 18px;
+        background: rgba(196, 148, 133, 0.12);
         color: #b47c61;
       }
 
-      .feature-icon::after {
-        content: "";
-        position: absolute;
-        inset: 14px;
-        border-radius: 17px;
-        border: 1px solid rgba(196, 148, 133, 0.08);
-        pointer-events: none;
-      }
-
-      .feature-icon svg {
-        width: 60px;
-        height: 60px;
+      .flow-icon svg {
+        width: 42px;
+        height: 42px;
         fill: currentColor;
-        filter: drop-shadow(0 6px 12px rgba(139, 90, 74, 0.08));
       }
 
-      .feature-title {
+      .flow-title {
         color: var(--foreground);
-        font-size: 30px;
+        font-size: 24px;
+        line-height: 1.08;
         font-weight: 860;
       }
 
-      .feature-desc {
-        margin-top: 12px;
+      .flow-desc {
+        margin-top: 8px;
         color: var(--muted-foreground);
-        font-size: 24px;
+        font-size: 16px;
+        font-weight: 680;
+      }
+
+      .arrow {
+        position: absolute;
+        height: 0;
+        border-top: 3px dashed rgba(44, 36, 33, 0.54);
+        opacity: 0;
+      }
+
+      .arrow::after {
+        content: "";
+        position: absolute;
+        right: -2px;
+        top: -8px;
+        width: 0;
+        height: 0;
+        border-left: 12px solid rgba(44, 36, 33, 0.7);
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+      }
+
+      .arrow.phone-to-flow {
+        left: 402px;
+        top: 394px;
+        width: 78px;
+      }
+
+      .arrow.flow-to-laptop {
+        left: 806px;
+        top: 394px;
+        width: 108px;
+      }
+
+      .arrow.return {
+        left: 402px;
+        top: 772px;
+        width: 520px;
+        transform-origin: right center;
+      }
+
+      .arrow.return::after {
+        left: -2px;
+        right: auto;
+        border-left: 0;
+        border-right: 12px solid rgba(44, 36, 33, 0.7);
+      }
+
+      .laptop-zone {
+        position: relative;
+        width: 960px;
+        height: 650px;
+        justify-self: center;
+        perspective: 1500px;
+      }
+
+      .macbook-art {
+        position: absolute;
+        left: 0;
+        top: 38px;
+        width: 960px;
+        height: auto;
+        display: block;
+        filter: drop-shadow(0 30px 42px rgba(44, 36, 33, 0.16));
+        z-index: 2;
+      }
+
+      .laptop-shadow {
+        position: absolute;
+        left: 38px;
+        right: 24px;
+        bottom: 48px;
+        height: 84px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(44, 36, 33, 0.24) 0%, rgba(44, 36, 33, 0.12) 43%, transparent 76%);
+        filter: blur(20px);
+      }
+
+      .laptop-screen {
+        position: absolute;
+        left: 111px;
+        top: 70px;
+        width: 737px;
+        height: 461px;
+        padding: 0;
+        overflow: hidden;
+        border-radius: 3px;
+        background: #fffefd;
+        z-index: 4;
+      }
+
+      .notch,
+      .camera-dot,
+      .laptop-base,
+      .laptop-base::before,
+      .laptop-lip,
+      .hinge,
+      .keyboard,
+      .trackpad {
+        display: none;
+      }
+
+      .backend {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        padding: 22px 28px;
+        border: 0;
+        border-radius: 0;
+        background:
+          radial-gradient(circle at 84% 5%, rgba(139, 90, 74, 0.08), transparent 32%),
+          linear-gradient(180deg, #fffefd 0%, #f7f4f0 100%);
+      }
+
+      .backend-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+      }
+
+      .backend-title {
+        font-size: 21px;
+        font-weight: 860;
+      }
+
+      .run-badge {
+        height: 31px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 14px;
+        border-radius: 9px;
+        background: var(--gradient-primary);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .task-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .task-row-card {
+        min-height: 78px;
+        padding: 13px 15px;
+        border: 1px solid rgba(232, 226, 220, 0.9);
+        border-radius: 13px;
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: 0 12px 30px rgba(44, 36, 33, 0.045);
+      }
+
+      .task-row-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .task-name {
+        font-size: 14px;
+        font-weight: 850;
+      }
+
+      .task-chip {
+        height: 22px;
+        padding: 0 8px;
+        border-radius: 999px;
+        background: rgba(139, 90, 74, 0.08);
+        color: var(--primary);
+        font-size: 10px;
+        font-weight: 850;
+      }
+
+      .task-meta {
+        margin-top: 7px;
+        color: var(--text-tertiary);
+        font-size: 10px;
+        font-weight: 650;
+      }
+
+      .progress-shell {
+        width: 100%;
+        height: 8px;
+        margin-top: 10px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: var(--secondary);
+      }
+
+      .progress {
+        width: 0%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--primary), var(--shine));
+      }
+
+      .analysis-panel {
+        position: absolute;
+        right: 48px;
+        top: 204px;
+        width: 310px;
+        padding: 18px;
+        border: 1px solid rgba(139, 90, 74, 0.16);
+        border-radius: 18px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(245, 237, 235, 0.9)),
+          var(--card);
+        box-shadow: 0 28px 72px rgba(44, 36, 33, 0.11);
+        opacity: 0;
+        z-index: 8;
+      }
+
+      .analysis-title {
+        color: var(--primary);
+        font-size: 15px;
+        font-weight: 860;
+      }
+
+      .analysis-lines {
+        display: grid;
+        gap: 9px;
+        margin-top: 14px;
+      }
+
+      .analysis-line {
+        height: 9px;
+        border-radius: 999px;
+        background: var(--secondary);
+      }
+
+      .analysis-line.hot {
+        width: 90%;
+        background: linear-gradient(90deg, var(--primary), var(--shine));
+      }
+
+      .analysis-line.mid {
+        width: 74%;
+      }
+
+      .analysis-line.short {
+        width: 52%;
+      }
+
+      .key-row {
+        display: grid;
+        grid-template-columns: repeat(14, 1fr);
+        gap: 4px;
+      }
+
+      .key-row.second {
+        padding: 0 16px;
+      }
+
+      .key-row.third {
+        padding: 0 46px;
+      }
+
+      .key {
+        height: 8px;
+        border-radius: 3px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(91, 102, 110, 0.26)),
+          rgba(78, 90, 99, 0.3);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.34) inset;
+      }
+
+      .caption-row {
+        position: absolute;
+        left: 152px;
+        right: 152px;
+        bottom: 34px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 240px;
+        z-index: 9;
+      }
+
+      .caption-item {
+        opacity: 0;
+      }
+
+      .caption-title {
+        color: var(--foreground);
+        font-size: 30px;
+        line-height: 1.12;
+        font-weight: 860;
+      }
+
+      .caption-copy {
+        margin-top: 14px;
+        color: var(--muted-foreground);
+        font-size: 18px;
         line-height: 1.42;
-        font-weight: 640;
+        font-weight: 660;
       }
 
       .light-sweep {
@@ -727,16 +822,16 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="15.2"
+      data-duration="12.6"
       data-width="1920"
       data-height="1080"
     >
       <audio
         id="voiceover"
-        data-start="0.55"
+        data-start="0"
         data-track-index="3"
         data-volume="1"
-        src="assets/shot-4-narration.wav"
+        src="assets/shot-5-narration.wav"
       ></audio>
 
       <div class="scene" data-layout-allow-overflow="true" data-layout-ignore="true">
@@ -744,38 +839,21 @@
         <div class="paper-grid"></div>
 
         <section
-          class="intro-copy clip"
-          id="intro-copy"
-          data-start="0"
-          data-duration="4.25"
-          data-track-index="1"
-          data-layout-ignore="true"
-        >
-          <h1 class="main-title" id="headline">一句话下任务</h1>
-          <div class="subtitle-title" id="subtitle">资料直接发给 Lawrence</div>
-          <p class="desc" id="desc">手机端飞书聊天里，语音、文字和文件就是完整任务入口。</p>
-        </section>
-
-        <section
           class="main-stage clip"
           id="main-stage"
-          data-start="4.25"
-          data-duration="10.95"
+          data-start="0"
+          data-duration="12.6"
           data-track-index="1"
           data-layout-allow-overflow="true"
         >
           <div class="phone-wrap" id="phone-wrap">
             <div class="phone-shadow"></div>
-            <div class="phone" id="phone">
+            <div class="phone">
               <div class="screen">
                 <div class="dynamic-island"></div>
                 <div class="statusbar">
                   <div>9:41</div>
-                  <div class="signals">
-                    <div class="signal-bars"><span></span><span></span><span></span><span></span></div>
-                    <div class="wifi"></div>
-                    <div class="battery"></div>
-                  </div>
+                  <div class="tiny-bars">▮▮▮ ))) ▰</div>
                 </div>
                 <div class="chat-head">
                   <div class="back">‹</div>
@@ -787,22 +865,8 @@
                 </div>
                 <div class="chat-body">
                   <div class="date">今天 09:41</div>
-                  <div class="message user voice-msg" id="voice-msg">
-                    <div class="voice-text">帮我分析一下这份合同的风险点，重点关注违约责任和终止条款。</div>
-                    <div class="wave-row">
-                      <span class="wave"></span><span class="wave"></span><span class="wave"></span><span class="wave"></span>
-                      <span class="wave"></span><span class="wave"></span><span class="wave"></span><span class="wave"></span>
-                      <span class="voice-time">00:18</span><span class="play">▶</span>
-                    </div>
-                  </div>
-                  <div class="avatar reply-avatar" id="reply-avatar">
-                    <img src="assets/lawrence-avatar.png" alt="Lawrence" />
-                  </div>
-                  <div class="message lawrence reply" id="reply-msg">
-                    好的，我已收到你的语音指令。请把需要分析的合同文件发给我，我会尽快为你处理。
-                  </div>
-                  <div class="message user text-msg" id="text-msg">
-                    好的，文件已上传，请查收。
+                  <div class="message user task-msg" id="task-msg">
+                    请帮我审查这份合同中的风险点，重点关注违约责任和终止条款。
                   </div>
                   <div class="message user file-card" id="file-card">
                     <div class="file-card-inner">
@@ -814,8 +878,17 @@
                     </div>
                     <div class="file-status">已发送</div>
                   </div>
-                  <div class="message user second-text" id="second-text">
-                    另外，帮我整理一下类似案例，明天上午 10 点前给我初步意见。
+                  <div class="avatar ack-avatar" id="ack-avatar" aria-label="Lawrence"></div>
+                  <div class="message lawrence ack-msg" id="ack-msg">
+                    好的，我已收到任务和文件，会在后台分析并整理初步意见。
+                  </div>
+                  <div class="avatar working-avatar" id="working-avatar" aria-label="Lawrence"></div>
+                  <div class="message lawrence working-msg" id="working-msg">
+                    已为你启动任务：读取文件、识别条款、提炼风险点。
+                  </div>
+                  <div class="avatar result-avatar" id="result-avatar" aria-label="Lawrence"></div>
+                  <div class="message lawrence result-msg" id="result-msg">
+                    分析完成。已整理 3 类风险点和初步修改建议，可继续追问。
                   </div>
                 </div>
                 <div class="input-bar">
@@ -828,47 +901,129 @@
             </div>
           </div>
 
-          <div class="content-panel" id="content-panel">
-            <h2 class="panel-title" id="panel-title">用语音、文字给 Lawrence 下任务</h2>
-            <div class="eyebrow-line" id="eyebrow-line"></div>
-            <div class="feature-list">
-              <div class="feature" id="feature-voice">
-                <div class="feature-icon">
-                  <svg viewBox="0 0 64 64" aria-hidden="true">
-                    <path d="M32 12c-11.05 0-20 7.46-20 16.68 0 5.38 3.03 10.16 7.74 13.21l-3.05 7.03c-.42.96.59 1.89 1.5 1.38l8.58-4.78c1.67.38 3.42.58 5.23.58 11.05 0 20-7.46 20-16.68S43.05 12 32 12Zm-7.2 14.2h14.4a2.05 2.05 0 0 1 0 4.1H24.8a2.05 2.05 0 0 1 0-4.1Zm0 7.9h8.6a2.05 2.05 0 0 1 0 4.1h-8.6a2.05 2.05 0 0 1 0-4.1Z" />
-                  </svg>
-                </div>
-                <div>
-                  <div class="feature-title">语音输入</div>
-                  <div class="feature-desc">长按说话，快速下达复杂指令。</div>
-                </div>
+          <div class="flow" id="flow">
+            <div class="flow-card" id="flow-receive">
+              <div class="flow-icon">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <path d="M32 13c9.9 0 18 7.1 18 15.8 0 7.7-6.3 14.1-14.7 15.5l-7.7 6.1c-.9.7-2.2-.1-2-1.2l1.1-5.1C19.4 42.1 14 36.1 14 28.8 14 20.1 22.1 13 32 13Zm-8.4 14.2a2.3 2.3 0 0 0 0 4.6h16.8a2.3 2.3 0 1 0 0-4.6H23.6Zm0 8.1a2.3 2.3 0 0 0 0 4.6h9.8a2.3 2.3 0 0 0 0-4.6h-9.8Z" />
+                </svg>
               </div>
-              <div class="feature" id="feature-file">
-                <div class="feature-icon">
-                  <svg viewBox="0 0 64 64" aria-hidden="true">
-                    <path d="M20 8h20.1L50 17.9V54a2 2 0 0 1-2 2H20a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2Zm19 3.9V20a2 2 0 0 0 2 2h8.1L39 11.9ZM27 31a2 2 0 1 0 0 4h14a2 2 0 1 0 0-4H27Zm0 8a2 2 0 1 0 0 4h14a2 2 0 1 0 0-4H27Zm0 8a2 2 0 1 0 0 4h8a2 2 0 1 0 0-4h-8Z" />
-                  </svg>
-                </div>
-                <div>
-                  <div class="feature-title">发送文件</div>
-                  <div class="feature-desc">一键上传合同、资料，Lawrence 即刻处理。</div>
-                </div>
+              <div>
+                <div class="flow-title">任务接收</div>
+                <div class="flow-desc">Lawrence 接收任务</div>
               </div>
-              <div class="feature" id="feature-task">
-                <div class="feature-icon">
-                  <svg viewBox="0 0 64 64" aria-hidden="true">
-                    <path d="M55.34 9.4a2.8 2.8 0 0 1 .26 3.95l-7.25 8.25a2.8 2.8 0 0 1-4.08.15l-3.55-3.55a2.8 2.8 0 1 1 3.96-3.96l1.44 1.44 5.27-6a2.8 2.8 0 0 1 3.95-.28Z" />
-                    <path d="M32 13.5c2.6 0 5.08.46 7.39 1.3a6.8 6.8 0 0 0-.6 2.82 6.9 6.9 0 0 0 2.03 4.88l3.55 3.55a6.85 6.85 0 0 0 4.86 2.02h.34c.14 1.1.2 2.24.2 3.43C49.77 42.86 41.82 51 32 51s-17.77-8.14-17.77-19.5S22.18 13.5 32 13.5Zm10.73 13.82a2.5 2.5 0 0 0-3.53.2L29.88 38 24.9 33.02a2.5 2.5 0 0 0-3.54 3.54l6.88 6.87a2.5 2.5 0 0 0 3.65-.13l11.03-12.45a2.5 2.5 0 0 0-.19-3.53Z" />
-                  </svg>
-                </div>
-                <div>
-                  <div class="feature-title">明确任务</div>
-                  <div class="feature-desc">补充要求与截止时间，执行目标更清晰。</div>
-                </div>
+            </div>
+            <div class="flow-card" id="flow-execute">
+              <div class="flow-icon">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <path d="M28.5 8h7l2.1 6.1c1.5.5 2.9 1.1 4.2 1.8l5.8-2.8 4.9 4.9-2.8 5.8c.7 1.3 1.3 2.7 1.8 4.2l6.1 2.1v7l-6.1 2.1c-.5 1.5-1.1 2.9-1.8 4.2l2.8 5.8-4.9 4.9-5.8-2.8c-1.3.7-2.7 1.3-4.2 1.8L35.5 59h-7l-2.1-5.9c-1.5-.5-2.9-1.1-4.2-1.8l-5.8 2.8-4.9-4.9 2.8-5.8c-.7-1.3-1.3-2.7-1.8-4.2L6.4 37v-7l6.1-2.1c.5-1.5 1.1-2.9 1.8-4.2l-2.8-5.8 4.9-4.9 5.8 2.8c1.3-.7 2.7-1.3 4.2-1.8L28.5 8ZM32 24.3a8.2 8.2 0 1 0 0 16.4 8.2 8.2 0 0 0 0-16.4Z" />
+                </svg>
+              </div>
+              <div>
+                <div class="flow-title">后台执行</div>
+                <div class="flow-desc">读取文件、分析要点</div>
+              </div>
+            </div>
+            <div class="flow-card" id="flow-return">
+              <div class="flow-icon">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <path d="M32 12c11 0 20 8.2 20 18.3S43 48.6 32 48.6c-1.9 0-3.8-.2-5.5-.7l-8.6 5.1c-1 .6-2.2-.3-1.9-1.4l2.1-7.8C14.4 40.5 12 35.7 12 30.3 12 20.2 21 12 32 12Zm12 11.7L29.5 38.3l-7-7a2.8 2.8 0 0 0-4 4l8.9 8.9c1.1 1.1 2.9 1.1 4 0l16.6-16.6a2.8 2.8 0 0 0-4-3.9Z" />
+                </svg>
+              </div>
+              <div>
+                <div class="flow-title">完成并返回</div>
+                <div class="flow-desc">结果原路返回飞书</div>
               </div>
             </div>
           </div>
+
+          <div class="laptop-zone" id="laptop-zone">
+            <div class="laptop-shadow"></div>
+            <img class="macbook-art" src="assets/macbook.svg" alt="MacBook Pro" />
+            <div class="notch"></div>
+            <div class="camera-dot"></div>
+            <div class="laptop-screen">
+              <div class="backend">
+                <div class="backend-head">
+                  <div class="backend-title">Lawrence 工作区</div>
+                  <div class="run-badge">后台执行中</div>
+                </div>
+                <div class="task-list">
+                  <div class="task-row-card" id="row-contract">
+                    <div class="task-row-top">
+                      <div class="task-name">Contract Review</div>
+                      <div class="task-chip">运行中</div>
+                    </div>
+                    <div class="task-meta">文件：合作协议_终稿.pdf · 上下文：飞书任务</div>
+                    <div class="progress-shell"><div class="progress" id="progress-contract"></div></div>
+                  </div>
+                  <div class="task-row-card" id="row-extract">
+                    <div class="task-row-top">
+                      <div class="task-name">Clause Extraction</div>
+                      <div class="task-chip">排队</div>
+                    </div>
+                    <div class="task-meta">违约责任 · 终止条款 · 风险等级</div>
+                    <div class="progress-shell"><div class="progress" id="progress-extract"></div></div>
+                  </div>
+                  <div class="task-row-card" id="row-report">
+                    <div class="task-row-top">
+                      <div class="task-name">Draft Opinion</div>
+                      <div class="task-chip">待生成</div>
+                    </div>
+                    <div class="task-meta">初步意见 · 修改建议 · 可追问摘要</div>
+                    <div class="progress-shell"><div class="progress" id="progress-report"></div></div>
+                  </div>
+                  <div class="task-row-card">
+                    <div class="task-row-top">
+                      <div class="task-name">Legal Research</div>
+                      <div class="task-chip">待命</div>
+                    </div>
+                    <div class="task-meta">案例检索 · 法条引用 · 交叉校验</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="analysis-panel" id="analysis-panel">
+              <div class="analysis-title">结果生成</div>
+              <div class="analysis-lines">
+                <div class="analysis-line hot"></div>
+                <div class="analysis-line mid"></div>
+                <div class="analysis-line"></div>
+                <div class="analysis-line short"></div>
+              </div>
+            </div>
+            <div class="hinge"></div>
+            <div class="laptop-base"></div>
+            <div class="keyboard" aria-hidden="true">
+              <div class="key-row">
+                <span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
+              </div>
+              <div class="key-row second">
+                <span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
+              </div>
+              <div class="key-row third">
+                <span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span><span class="key"></span>
+              </div>
+            </div>
+            <div class="trackpad"></div>
+            <div class="laptop-lip"></div>
+          </div>
+
+          <div class="arrow phone-to-flow" id="arrow-phone"></div>
+          <div class="arrow flow-to-laptop" id="arrow-laptop"></div>
+          <div class="arrow return" id="arrow-return"></div>
         </section>
+
+        <div class="caption-row">
+          <div class="caption-item" id="cap-submit">
+            <div class="caption-title">1. 飞书提交任务</div>
+            <div class="caption-copy">用户在飞书里提交任务并上传文件，Lawrence 立即接收上下文。</div>
+          </div>
+          <div class="caption-item" id="cap-execute">
+            <div class="caption-title">2. Lawrence 后台执行</div>
+            <div class="caption-copy">工作电脑后台读取文件、分析条款、生成结果，并返回飞书聊天。</div>
+          </div>
+        </div>
 
         <div class="light-sweep" id="light-sweep" data-layout-allow-overflow="true"></div>
       </div>
@@ -880,35 +1035,26 @@
 
       const tl = gsap.timeline({ paused: true });
 
-      tl.from("#headline", { opacity: 0, y: 46, scale: 0.96, duration: 0.82, ease: "expo.out" }, 0.65)
-        .from("#subtitle", { opacity: 0, y: 42, scale: 0.965, duration: 0.82, ease: "expo.out" }, 1.55)
-        .to("#intro-copy", { y: -58, duration: 0.58, ease: "power2.inOut" }, 2.36)
-        .from("#desc", { opacity: 0, y: 30, duration: 0.64 }, 2.68)
-        .to("#intro-copy", { opacity: 0, y: -104, scale: 0.982, duration: 0.58, ease: "power2.inOut" }, 3.72)
-        .fromTo(
-          "#main-stage",
-          { opacity: 0, y: 64, scale: 0.965 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.86, ease: "expo.out" },
-          4.25,
-        )
-        .from("#phone-wrap", { opacity: 0, x: -90, rotation: -3, duration: 0.78, ease: "expo.out" }, 4.38)
-        .from("#content-panel", { opacity: 0, x: 90, duration: 0.72, ease: "expo.out" }, 4.55)
-        .from("#panel-title", { opacity: 0, y: 34, duration: 0.66 }, 4.8)
-        .from("#eyebrow-line", { opacity: 0, scaleX: 0, transformOrigin: "left center", duration: 0.44 }, 5.05)
-        .fromTo("#voice-msg", { opacity: 0, y: 34, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "back.out(1.22)" }, 5.36)
-        .fromTo(".wave", { scaleY: 0.35 }, { scaleY: 1.18, duration: 0.28, stagger: 0.045, yoyo: true, repeat: 9, ease: "sine.inOut" }, 5.72)
-        .fromTo("#feature-voice", { opacity: 0, y: 34, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.56, ease: "back.out(1.2)" }, 5.85)
-        .fromTo("#reply-avatar", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.36, ease: "back.out(1.5)" }, 6.8)
-        .fromTo("#reply-msg", { opacity: 0, y: 28, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "back.out(1.2)" }, 6.94)
-        .fromTo("#text-msg", { opacity: 0, y: 30, scale: 0.93 }, { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "back.out(1.2)" }, 7.95)
-        .fromTo("#file-card", { opacity: 0, y: 30, scale: 0.93 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(1.2)" }, 8.58)
-        .fromTo("#feature-file", { opacity: 0, y: 34, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.56, ease: "back.out(1.2)" }, 8.78)
-        .fromTo("#second-text", { opacity: 0, y: 30, scale: 0.93 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(1.2)" }, 10.0)
-        .fromTo("#feature-task", { opacity: 0, y: 34, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.56, ease: "back.out(1.2)" }, 10.22)
-        .to("#phone-wrap", { y: -10, duration: 0.72, ease: "sine.inOut" }, 11.72)
-        .to("#phone-wrap", { y: 0, duration: 0.72, ease: "sine.inOut" }, 12.38)
-        .to("#light-sweep", { opacity: 1, x: 2180, duration: 1.15, ease: "power2.inOut" }, 13.25)
-        .to("#light-sweep", { opacity: 0, duration: 0.28 }, 14.22);
+      tl.set(["#main-stage", "#task-msg", "#file-card"], { opacity: 1, y: 0, scale: 1 }, 0)
+        .from("#laptop-zone", { opacity: 0, x: 92, y: 26, scale: 0.94, duration: 0.82, ease: "expo.out" }, 0.35)
+        .fromTo(["#ack-avatar", "#ack-msg"], { opacity: 0, y: 24, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.22)", stagger: 0.05 }, 0.86)
+        .fromTo("#flow-receive", { opacity: 0, y: 34, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "back.out(1.2)" }, 1.28)
+        .fromTo("#arrow-phone", { opacity: 0, scaleX: 0, transformOrigin: "left center" }, { opacity: 1, scaleX: 1, duration: 0.48 }, 1.58)
+        .fromTo("#flow-execute", { opacity: 0, y: 34, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "back.out(1.2)" }, 2.08)
+        .fromTo("#arrow-laptop", { opacity: 0, scaleX: 0, transformOrigin: "left center" }, { opacity: 1, scaleX: 1, duration: 0.48 }, 2.42)
+        .to("#progress-contract", { width: "76%", duration: 1.8, ease: "power2.inOut" }, 2.7)
+        .to("#progress-extract", { width: "62%", duration: 1.6, ease: "power2.inOut" }, 3.12)
+        .to("#progress-report", { width: "38%", duration: 1.35, ease: "power2.inOut" }, 3.72)
+        .fromTo(["#working-avatar", "#working-msg"], { opacity: 0, y: 22, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.22)", stagger: 0.05 }, 3.35)
+        .fromTo("#analysis-panel", { opacity: 0, x: 38, y: -18, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.58, ease: "back.out(1.2)" }, 4.96)
+        .to(["#progress-contract", "#progress-extract", "#progress-report"], { width: "100%", duration: 0.9, ease: "power2.inOut", stagger: 0.08 }, 5.42)
+        .fromTo("#flow-return", { opacity: 0, y: 34, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "back.out(1.2)" }, 6.24)
+        .fromTo("#arrow-return", { opacity: 0, scaleX: 0, transformOrigin: "right center" }, { opacity: 1, scaleX: 1, duration: 0.56 }, 6.86)
+        .fromTo(["#result-avatar", "#result-msg"], { opacity: 0, y: 22, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.22)", stagger: 0.05 }, 7.42)
+        .fromTo("#cap-submit", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5 }, 8.05)
+        .fromTo("#cap-execute", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5 }, 8.28)
+        .to("#light-sweep", { opacity: 1, x: 2180, duration: 1.15, ease: "power2.inOut" }, 10.45)
+        .to("#light-sweep", { opacity: 0, duration: 0.28 }, 11.4);
 
       window.__timelines["main"] = tl;
     </script>

@@ -287,22 +287,30 @@
       }
 
       .risk-card {
-        padding: 18px;
-        margin-bottom: 14px;
+        padding: 14px 16px;
+        margin-bottom: 0;
         border-radius: 16px;
         background: rgba(255, 255, 255, 0.86);
         border: 1px solid rgba(139, 90, 74, 0.1);
       }
 
+      .review-checks {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 18px;
+      }
+
       .risk-tag {
         display: inline-flex;
-        height: 25px;
+        height: 23px;
         align-items: center;
-        padding: 0 10px;
+        padding: 0 9px;
         border-radius: 999px;
         color: #ffffff;
         background: var(--danger);
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 850;
       }
 
@@ -316,6 +324,11 @@
         letter-spacing: 0;
       }
 
+      .review-checks .risk-card h3 {
+        margin: 9px 0 5px;
+        font-size: 18px;
+      }
+
       .risk-card p,
       .case-card p,
       .company-card p,
@@ -327,17 +340,38 @@
         font-weight: 680;
       }
 
+      .review-checks .risk-card p {
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .review-summary {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        min-height: 86px;
+        padding: 12px 16px;
+        border-radius: 18px;
+        background: rgba(139, 90, 74, 0.055);
+        border: 1px solid rgba(139, 90, 74, 0.1);
+      }
+
+      .review-summary-copy {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.38;
+        font-weight: 720;
+      }
+
       .score-ring {
-        position: absolute;
-        right: 44px;
-        bottom: 42px;
-        width: 130px;
-        height: 130px;
+        flex: 0 0 auto;
+        width: 78px;
+        height: 78px;
         border-radius: 50%;
         display: grid;
         place-items: center;
         color: var(--primary);
-        font-size: 32px;
+        font-size: 23px;
         font-weight: 880;
         background:
           radial-gradient(circle, rgba(255, 255, 255, 0.9) 54%, transparent 55%),
@@ -389,6 +423,27 @@
         overflow: hidden;
       }
 
+      .citation-links {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        color: rgba(139, 90, 74, 0.34);
+        pointer-events: none;
+      }
+
+      .citation-links path {
+        stroke: currentColor;
+        stroke-width: 2;
+        fill: none;
+      }
+
+      .citation-links circle {
+        fill: rgba(208, 160, 79, 0.86);
+        stroke: rgba(255, 255, 255, 0.9);
+        stroke-width: 3;
+      }
+
       .citation-node,
       .company-node,
       .control-node {
@@ -404,6 +459,50 @@
         font-size: 15px;
         line-height: 1.35;
         font-weight: 820;
+      }
+
+      .citation-node.query {
+        width: 176px;
+        min-height: 94px;
+        color: #ffffff;
+        background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+        border-color: rgba(139, 90, 74, 0.2);
+      }
+
+      .citation-node.query small {
+        color: rgba(255, 255, 255, 0.76);
+        font-weight: 760;
+      }
+
+      .citation-node.conclusion {
+        width: 162px;
+        min-height: 128px;
+        border-color: rgba(31, 159, 104, 0.22);
+        background: rgba(247, 255, 251, 0.92);
+      }
+
+      .citation-node.conclusion span {
+        display: inline-flex;
+        margin-top: 10px;
+        height: 24px;
+        align-items: center;
+        padding: 0 9px;
+        border-radius: 999px;
+        color: var(--green);
+        background: rgba(31, 159, 104, 0.1);
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      .citation-node.mini {
+        width: 154px;
+        min-height: 74px;
+        padding: 13px 14px;
+        font-size: 13px;
+      }
+
+      .citation-node.source {
+        border-color: rgba(139, 90, 74, 0.16);
       }
 
       .citation-node small,
@@ -428,6 +527,11 @@
         min-height: 100px;
         color: #ffffff;
         background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+      }
+
+      .company-node.main small {
+        color: rgba(255, 255, 255, 0.76);
+        font-weight: 760;
       }
 
       .matrix {
@@ -632,18 +736,36 @@
                 <div class="doc-line mid"></div>
                 <div class="doc-line"></div>
               </div>
-              <div class="insight-panel" style="padding: 22px;">
+              <div class="insight-panel review-checks">
                 <div class="risk-card">
                   <span class="risk-tag">HIGH</span>
                   <h3>终止条款不对等</h3>
                   <p>建议补充提前通知期与违约救济路径。</p>
                 </div>
                 <div class="risk-card">
+                  <span class="risk-tag">HIGH</span>
+                  <h3>违约责任过宽</h3>
+                  <p>违约金、损害赔偿和间接损失边界需收窄。</p>
+                </div>
+                <div class="risk-card">
                   <span class="risk-tag" style="background: var(--gold);">MEDIUM</span>
                   <h3>责任上限缺失</h3>
                   <p>赔偿范围需要与合同金额或固定上限绑定。</p>
                 </div>
-                <div class="score-ring">68</div>
+                <div class="risk-card">
+                  <span class="risk-tag" style="background: var(--gold);">MEDIUM</span>
+                  <h3>付款验收节点模糊</h3>
+                  <p>交付标准、验收期限和付款触发条件需明确。</p>
+                </div>
+                <div class="risk-card">
+                  <span class="risk-tag" style="background: var(--blue);">LOW</span>
+                  <h3>争议解决表述不完整</h3>
+                  <p>建议统一管辖法院、适用法律和送达地址。</p>
+                </div>
+                <div class="review-summary">
+                  <div class="score-ring">68</div>
+                  <div class="review-summary-copy">已识别 5 个审查点，其中 2 项高风险，建议优先进入谈判清单。</div>
+                </div>
               </div>
             </div>
           </div>
@@ -681,15 +803,31 @@
                   <h3>最高院裁判观点</h3>
                   <p>结合事实构成、举证责任与善意第三人保护路径。</p>
                 </div>
+                <div class="case-card">
+                  <h3>裁判规则摘要</h3>
+                  <p>自动提炼争议焦点、裁判理由与可引用结论。</p>
+                </div>
               </div>
               <div class="graph-panel citation-map">
-                <div class="map-line" style="left: 120px; top: 236px; width: 290px; transform: rotate(-18deg);"></div>
-                <div class="map-line" style="left: 330px; top: 290px; width: 260px; transform: rotate(22deg);"></div>
-                <div class="map-line" style="left: 220px; top: 420px; width: 310px; transform: rotate(-8deg);"></div>
-                <div class="citation-node" style="left: 78px; top: 108px;">法规条文<small>Company Law</small></div>
-                <div class="citation-node" style="left: 374px; top: 92px;">司法解释<small>Validity Rule</small></div>
-                <div class="citation-node" style="left: 486px; top: 306px;">类案观点<small>Case Cluster</small></div>
-                <div class="citation-node" style="left: 194px; top: 414px;">研究结论<small>Traceable Opinion</small></div>
+                <svg class="citation-links" viewBox="0 0 644 600" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M216 300 L250 148"></path>
+                  <path d="M216 300 L250 300"></path>
+                  <path d="M216 300 L250 452"></path>
+                  <path d="M404 148 L462 300"></path>
+                  <path d="M404 300 L462 300"></path>
+                  <path d="M404 452 L462 300"></path>
+                  <path d="M140 300 L216 300"></path>
+                  <path d="M462 300 L502 300"></path>
+                  <circle cx="216" cy="300" r="7"></circle>
+                  <circle cx="462" cy="300" r="7"></circle>
+                </svg>
+                <div class="citation-node query" style="left: 38px; top: 254px;">股权代持效力<small>Issue Center</small></div>
+                <div class="citation-node mini source" style="left: 250px; top: 111px;">法规条文<small>Company Law</small></div>
+                <div class="citation-node mini source" style="left: 250px; top: 263px;">司法解释<small>Validity Rule</small></div>
+                <div class="citation-node mini source" style="left: 250px; top: 415px;">类案裁判<small>Case Cluster</small></div>
+                <div class="citation-node mini" style="left: 470px; top: 104px;">裁判规则<small>Judgement Rule</small></div>
+                <div class="citation-node mini" style="left: 470px; top: 408px;">举证责任<small>Evidence</small></div>
+                <div class="citation-node conclusion" style="left: 470px; top: 236px;">研究结论<small>Traceable Opinion</small><span>可引用</span></div>
               </div>
             </div>
           </div>
@@ -727,13 +865,17 @@
                 </div>
               </div>
               <div class="graph-panel citation-map">
-                <div class="map-line" style="left: 250px; top: 246px; width: 210px; transform: rotate(-28deg);"></div>
-                <div class="map-line" style="left: 250px; top: 278px; width: 230px; transform: rotate(24deg);"></div>
-                <div class="map-line" style="left: 90px; top: 326px; width: 220px; transform: rotate(-18deg);"></div>
-                <div class="company-node main" style="left: 240px; top: 214px;">目标公司<small>Subject</small></div>
-                <div class="company-node" style="left: 462px; top: 96px;">控股股东<small>72%</small></div>
-                <div class="company-node" style="left: 480px; top: 392px;">关联企业<small>8 entities</small></div>
-                <div class="company-node" style="left: 76px; top: 410px;">风险事件<small>Litigation</small></div>
+                <svg class="citation-links" viewBox="0 0 644 600" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M236 258 L204 174"></path>
+                  <path d="M426 258 L440 174"></path>
+                  <path d="M236 328 L204 410"></path>
+                  <path d="M426 328 L440 410"></path>
+                </svg>
+                <div class="company-node main" style="left: 236px; top: 242px;">目标公司<small>Subject</small></div>
+                <div class="company-node" style="left: 50px; top: 104px;">控股股东<small>72%</small></div>
+                <div class="company-node" style="left: 440px; top: 104px;">关联企业<small>8 entities</small></div>
+                <div class="company-node" style="left: 50px; top: 410px;">诉讼风险<small>Litigation</small></div>
+                <div class="company-node" style="left: 440px; top: 410px;">负面舆情<small>Public Risk</small></div>
               </div>
             </div>
           </div>
@@ -848,15 +990,15 @@
         if (scene === "#scene-research") {
           tl.from(`${scene} .search-box`, { opacity: 0, y: -20, duration: 0.38 }, start + 0.62)
             .from(`${scene} .case-card`, { opacity: 0, y: 28, duration: 0.38, stagger: 0.11 }, start + 0.86)
-            .from(`${scene} .map-line`, { opacity: 0, scaleX: 0, transformOrigin: "left center", duration: 0.38, stagger: 0.08 }, start + 1.05)
-            .from(`${scene} .citation-node`, { opacity: 0, scale: 0.78, y: 24, duration: 0.42, ease: "back.out(1.12)", stagger: 0.08 }, start + 1.18);
+            .from(`${scene} .citation-links path`, { opacity: 0, duration: 0.34, stagger: 0.05 }, start + 1.02)
+            .from(`${scene} .citation-node`, { opacity: 0, scale: 0.78, y: 24, duration: 0.42, ease: "back.out(1.12)", stagger: 0.06 }, start + 1.14);
         }
 
         if (scene === "#scene-dd") {
           tl.from(`${scene} .company-card`, { opacity: 0, y: 30, duration: 0.38 }, start + 0.62)
             .from(`${scene} .matrix-cell`, { opacity: 0, y: 24, duration: 0.34, stagger: 0.06 }, start + 0.86)
             .from(`${scene} .meter span`, { scaleX: 0, transformOrigin: "left center", duration: 0.46, stagger: 0.05 }, start + 1.08)
-            .from(`${scene} .map-line`, { opacity: 0, scaleX: 0, transformOrigin: "left center", duration: 0.36, stagger: 0.08 }, start + 1.16)
+            .from(`${scene} .citation-links path`, { opacity: 0, duration: 0.34, stagger: 0.06 }, start + 1.16)
             .from(`${scene} .company-node`, { opacity: 0, scale: 0.76, y: 22, duration: 0.42, ease: "back.out(1.12)", stagger: 0.08 }, start + 1.24);
         }
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Shot 7 · Legal Workflows Flash</title>
+    <title>Shot 8 · Office & Marketing Workflows</title>
     <style>
       :root {
         --background: #faf8f6;
@@ -13,16 +13,12 @@
         --primary-dark: #70483d;
         --border: #e8e2dc;
         --card: #ffffff;
-        --soft: #f5edeb;
         --green: #1f9f68;
         --gold: #d0a04f;
         --blue: #5f7082;
-        --danger: #b45c52;
       }
 
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
 
       body {
         margin: 0;
@@ -38,7 +34,7 @@
         color: var(--foreground);
         background:
           radial-gradient(ellipse 56% 46% at 50% 42%, rgba(139, 90, 74, 0.13), transparent 68%),
-          radial-gradient(ellipse 36% 30% at 88% 16%, rgba(95, 112, 130, 0.1), transparent 72%),
+          radial-gradient(ellipse 34% 30% at 88% 16%, rgba(95, 112, 130, 0.1), transparent 72%),
           linear-gradient(180deg, #fbf9f7 0%, #f5f0ec 58%, #eee7e1 100%);
       }
 
@@ -58,8 +54,8 @@
         position: absolute;
         inset: 0;
         background:
-          linear-gradient(90deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.78) 100%),
-          linear-gradient(180deg, rgba(139, 90, 74, 0.03), rgba(95, 112, 130, 0.04));
+          linear-gradient(90deg, rgba(255,255,255,0.88), rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.78)),
+          linear-gradient(180deg, rgba(139,90,74,0.03), rgba(95,112,130,0.04));
       }
 
       .stage {
@@ -68,7 +64,7 @@
         opacity: 0;
       }
 
-      .flash-scene {
+      .workflow {
         position: absolute;
         inset: 0;
         padding: 92px 112px 84px;
@@ -79,23 +75,22 @@
         opacity: 0;
       }
 
-      .scene-label {
+      .label {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        width: fit-content;
         height: 34px;
         padding: 0 16px;
-        border: 1px solid rgba(139, 90, 74, 0.14);
+        border: 1px solid rgba(139,90,74,0.14);
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.74);
+        background: rgba(255,255,255,0.74);
         color: var(--primary);
         font-size: 14px;
         font-weight: 860;
-        box-shadow: 0 12px 32px rgba(44, 36, 33, 0.06);
+        box-shadow: 0 12px 32px rgba(44,36,33,0.06);
       }
 
-      .scene-label::before {
+      .label::before {
         content: "";
         width: 8px;
         height: 8px;
@@ -103,7 +98,7 @@
         background: var(--primary);
       }
 
-      .scene-title {
+      .title {
         margin: 26px 0 0;
         font-size: 70px;
         line-height: 1.06;
@@ -111,11 +106,9 @@
         font-weight: 880;
       }
 
-      .scene-title .accent {
-        color: var(--primary);
-      }
+      .title .accent { color: var(--primary); }
 
-      .scene-copy {
+      .copy {
         margin-top: 22px;
         color: var(--muted);
         font-size: 25px;
@@ -123,40 +116,38 @@
         font-weight: 720;
       }
 
-      .meta-stack {
+      .meta {
         display: grid;
         gap: 12px;
         margin-top: 32px;
       }
 
-      .meta-row {
+      .meta div {
         display: flex;
         align-items: center;
         gap: 12px;
-        color: rgba(92, 82, 77, 0.9);
+        color: rgba(92,82,77,0.9);
         font-size: 16px;
         font-weight: 780;
       }
 
-      .meta-dot {
+      .meta span {
         width: 10px;
         height: 10px;
         border-radius: 50%;
         background: var(--gold);
-        box-shadow: 0 0 0 8px rgba(208, 160, 79, 0.13);
+        box-shadow: 0 0 0 8px rgba(208,160,79,0.13);
       }
 
       .interface {
         position: relative;
         height: 720px;
-        border: 1px solid rgba(139, 90, 74, 0.12);
+        border: 1px solid rgba(139,90,74,0.12);
         border-radius: 28px;
         background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.78)),
-          radial-gradient(circle at 78% 10%, rgba(139, 90, 74, 0.11), transparent 32%);
-        box-shadow:
-          0 32px 82px rgba(44, 36, 33, 0.13),
-          0 1px 0 rgba(255, 255, 255, 0.8) inset;
+          linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.78)),
+          radial-gradient(circle at 78% 10%, rgba(139,90,74,0.11), transparent 32%);
+        box-shadow: 0 32px 82px rgba(44,36,33,0.13), 0 1px 0 rgba(255,255,255,0.8) inset;
         overflow: hidden;
       }
 
@@ -165,13 +156,13 @@
         position: absolute;
         inset: 0;
         background-image:
-          linear-gradient(rgba(139, 90, 74, 0.045) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(139, 90, 74, 0.045) 1px, transparent 1px);
+          linear-gradient(rgba(139,90,74,0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139,90,74,0.045) 1px, transparent 1px);
         background-size: 84px 72px;
         opacity: 0.58;
       }
 
-      .window-top {
+      .topbar {
         position: relative;
         z-index: 2;
         height: 68px;
@@ -179,160 +170,78 @@
         align-items: center;
         justify-content: space-between;
         padding: 0 28px;
-        border-bottom: 1px solid rgba(139, 90, 74, 0.1);
-        background: rgba(255, 255, 255, 0.72);
+        border-bottom: 1px solid rgba(139,90,74,0.1);
+        background: rgba(255,255,255,0.72);
       }
 
-      .window-title {
+      .topbar b {
         display: flex;
         align-items: center;
         gap: 12px;
         font-size: 18px;
-        font-weight: 860;
       }
 
-      .window-title svg {
+      svg {
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .topbar svg {
         width: 28px;
         height: 28px;
         color: var(--primary);
         stroke-width: 2.35;
       }
 
-      .status-pill {
+      .pill {
         height: 30px;
         padding: 0 12px;
         display: inline-flex;
         align-items: center;
         border-radius: 999px;
-        background: rgba(31, 159, 104, 0.1);
+        background: rgba(31,159,104,0.1);
         color: var(--green);
         font-size: 13px;
         font-weight: 850;
       }
 
-      .screen-body {
+      .body {
         position: relative;
         z-index: 2;
         height: calc(100% - 68px);
-        padding: 26px 28px;
+        padding: 28px;
       }
 
-      .review-layout {
+      .grid-two {
         display: grid;
-        grid-template-columns: 56% 1fr;
+        grid-template-columns: 42% 1fr;
         gap: 22px;
         height: 100%;
       }
 
-      .document-panel,
-      .insight-panel,
-      .research-panel,
-      .graph-panel,
-      .monitor-panel,
-      .profile-panel {
-        border: 1px solid rgba(139, 90, 74, 0.1);
+      .panel, .card {
+        border: 1px solid rgba(139,90,74,0.1);
         border-radius: 20px;
-        background: rgba(255, 255, 255, 0.78);
-        box-shadow: 0 18px 48px rgba(44, 36, 33, 0.06);
+        background: rgba(255,255,255,0.82);
+        box-shadow: 0 18px 48px rgba(44,36,33,0.06);
       }
 
-      .document-panel {
-        padding: 24px;
-      }
+      .panel { padding: 22px; }
 
-      .doc-line {
-        height: 13px;
-        border-radius: 999px;
-        background: rgba(92, 82, 77, 0.2);
-        margin-bottom: 18px;
-      }
-
-      .doc-line.short {
-        width: 62%;
-      }
-
-      .doc-line.mid {
-        width: 78%;
-      }
-
-      .highlight {
-        position: relative;
-        height: 78px;
-        margin: 20px 0;
-        border-radius: 14px;
-        background: rgba(180, 92, 82, 0.08);
-        border: 1px solid rgba(180, 92, 82, 0.14);
-      }
-
-      .highlight::before {
-        content: "";
-        position: absolute;
-        left: 18px;
-        top: 18px;
-        width: 74%;
-        height: 13px;
-        border-radius: 999px;
-        background: rgba(180, 92, 82, 0.42);
-      }
-
-      .highlight::after {
-        content: "";
-        position: absolute;
-        left: 18px;
-        top: 44px;
-        width: 52%;
-        height: 11px;
-        border-radius: 999px;
-        background: rgba(180, 92, 82, 0.24);
-      }
-
-      .risk-card {
-        padding: 14px 16px;
-        margin-bottom: 0;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.86);
-        border: 1px solid rgba(139, 90, 74, 0.1);
-      }
-
-      .review-checks {
-        position: relative;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
+      .card {
         padding: 18px;
+        margin-bottom: 14px;
       }
 
-      .risk-tag {
-        display: inline-flex;
-        height: 23px;
-        align-items: center;
-        padding: 0 9px;
-        border-radius: 999px;
-        color: #ffffff;
-        background: var(--danger);
-        font-size: 11px;
-        font-weight: 850;
-      }
-
-      .risk-card h3,
-      .case-card h3,
-      .company-card h3,
-      .alert-card h3 {
-        margin: 12px 0 8px;
+      .card h3 {
+        margin: 0 0 9px;
         font-size: 22px;
-        line-height: 1.16;
-        letter-spacing: 0;
+        line-height: 1.18;
       }
 
-      .review-checks .risk-card h3 {
-        margin: 9px 0 5px;
-        font-size: 18px;
-      }
-
-      .risk-card p,
-      .case-card p,
-      .company-card p,
-      .alert-card p {
+      .card p {
         margin: 0;
         color: var(--muted);
         font-size: 15px;
@@ -340,325 +249,148 @@
         font-weight: 680;
       }
 
-      .review-checks .risk-card p {
-        font-size: 13px;
-        line-height: 1.35;
+      .line {
+        height: 12px;
+        border-radius: 999px;
+        background: rgba(92,82,77,0.18);
+        margin-bottom: 16px;
       }
 
-      .review-summary {
+      .line.short { width: 56%; }
+      .line.mid { width: 76%; }
+
+      .note-row {
+        display: grid;
+        grid-template-columns: 76px 1fr;
+        gap: 16px;
+        align-items: start;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(139,90,74,0.08);
+      }
+
+      .time {
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 860;
+      }
+
+      .brief-cover {
+        display: grid;
+        place-items: center;
+        min-height: 250px;
+        border-radius: 22px;
+        color: #fff;
+        background: linear-gradient(135deg, var(--primary), var(--blue));
+      }
+
+      .brief-cover strong {
+        display: block;
+        font-size: 36px;
+        line-height: 1.14;
+        text-align: center;
+      }
+
+      .email-box {
+        border-radius: 18px;
+        background: rgba(255,255,255,0.86);
+        border: 1px solid rgba(139,90,74,0.1);
+        padding: 18px;
+      }
+
+      .subject {
+        height: 42px;
         display: flex;
         align-items: center;
-        gap: 16px;
-        min-height: 86px;
-        padding: 12px 16px;
-        border-radius: 18px;
-        background: rgba(139, 90, 74, 0.055);
-        border: 1px solid rgba(139, 90, 74, 0.1);
+        padding: 0 14px;
+        border-radius: 12px;
+        background: rgba(139,90,74,0.07);
+        color: var(--primary);
+        font-weight: 850;
       }
 
-      .review-summary-copy {
+      .kanban {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        height: 100%;
+      }
+
+      .col {
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.76);
+        border: 1px solid rgba(139,90,74,0.1);
+      }
+
+      .col h3 {
+        margin: 0 0 16px;
+        font-size: 18px;
+      }
+
+      .task {
+        min-height: 82px;
+        padding: 14px;
+        margin-bottom: 12px;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.9);
         color: var(--muted);
         font-size: 14px;
-        line-height: 1.38;
         font-weight: 720;
+        box-shadow: 0 12px 28px rgba(44,36,33,0.06);
       }
 
-      .score-ring {
-        flex: 0 0 auto;
-        width: 78px;
-        height: 78px;
-        border-radius: 50%;
+      .social-card {
         display: grid;
-        place-items: center;
-        color: var(--primary);
-        font-size: 23px;
-        font-weight: 880;
-        background:
-          radial-gradient(circle, rgba(255, 255, 255, 0.9) 54%, transparent 55%),
-          conic-gradient(var(--danger) 0deg 118deg, rgba(139, 90, 74, 0.12) 118deg 360deg);
-      }
-
-      .research-layout,
-      .dd-layout,
-      .monitor-layout {
-        display: grid;
-        grid-template-columns: 40% 1fr;
-        gap: 22px;
-        height: 100%;
-      }
-
-      .search-box {
-        height: 64px;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 0 20px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.88);
-        border: 1px solid rgba(139, 90, 74, 0.12);
-        color: var(--foreground);
-        font-size: 17px;
-        font-weight: 780;
-      }
-
-      .search-box svg {
-        width: 25px;
-        height: 25px;
-        color: var(--primary);
-      }
-
-      .case-card,
-      .company-card,
-      .alert-card {
-        padding: 20px;
-        margin-top: 16px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.82);
-        border: 1px solid rgba(139, 90, 74, 0.1);
-      }
-
-      .citation-map {
-        position: relative;
-        height: 100%;
-        overflow: hidden;
-      }
-
-      .citation-links {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        color: rgba(139, 90, 74, 0.34);
-        pointer-events: none;
-      }
-
-      .citation-links path {
-        stroke: currentColor;
-        stroke-width: 2;
-        fill: none;
-      }
-
-      .citation-links circle {
-        fill: rgba(208, 160, 79, 0.86);
-        stroke: rgba(255, 255, 255, 0.9);
-        stroke-width: 3;
-      }
-
-      .citation-node,
-      .company-node,
-      .control-node {
-        position: absolute;
-        width: 154px;
-        min-height: 82px;
-        padding: 16px;
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.88);
-        border: 1px solid rgba(139, 90, 74, 0.12);
-        box-shadow: 0 16px 42px rgba(44, 36, 33, 0.08);
-        color: var(--foreground);
-        font-size: 15px;
-        line-height: 1.35;
-        font-weight: 820;
-      }
-
-      .citation-node.query {
-        width: 176px;
-        min-height: 94px;
-        color: #ffffff;
-        background: linear-gradient(180deg, var(--primary), var(--primary-dark));
-        border-color: rgba(139, 90, 74, 0.2);
-      }
-
-      .citation-node.query small {
-        color: rgba(255, 255, 255, 0.76);
-        font-weight: 760;
-      }
-
-      .citation-node.conclusion {
-        width: 162px;
-        min-height: 128px;
-        border-color: rgba(31, 159, 104, 0.22);
-        background: rgba(247, 255, 251, 0.92);
-      }
-
-      .citation-node.conclusion span {
-        display: inline-flex;
-        margin-top: 10px;
-        height: 24px;
-        align-items: center;
-        padding: 0 9px;
-        border-radius: 999px;
-        color: var(--green);
-        background: rgba(31, 159, 104, 0.1);
-        font-size: 11px;
-        font-weight: 850;
-      }
-
-      .citation-node.mini {
-        width: 154px;
-        min-height: 74px;
-        padding: 13px 14px;
-        font-size: 13px;
-      }
-
-      .citation-node.source {
-        border-color: rgba(139, 90, 74, 0.16);
-      }
-
-      .citation-node small,
-      .company-node small,
-      .control-node small {
-        display: block;
-        margin-top: 6px;
-        color: var(--muted);
-        font-size: 12px;
-        font-weight: 720;
-      }
-
-      .map-line {
-        position: absolute;
-        height: 2px;
-        background: rgba(139, 90, 74, 0.26);
-        transform-origin: left center;
-      }
-
-      .company-node.main {
-        width: 190px;
-        min-height: 100px;
-        color: #ffffff;
-        background: linear-gradient(180deg, var(--primary), var(--primary-dark));
-      }
-
-      .company-node.main small {
-        color: rgba(255, 255, 255, 0.76);
-        font-weight: 760;
-      }
-
-      .matrix {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
-        margin-top: 18px;
-      }
-
-      .matrix-cell {
-        min-height: 104px;
-        padding: 16px;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.82);
-        border: 1px solid rgba(139, 90, 74, 0.1);
-      }
-
-      .matrix-cell b {
-        display: block;
-        font-size: 18px;
-        margin-bottom: 10px;
-      }
-
-      .meter {
-        height: 9px;
-        border-radius: 999px;
-        background: rgba(139, 90, 74, 0.12);
-        overflow: hidden;
-      }
-
-      .meter span {
-        display: block;
-        height: 100%;
-        border-radius: inherit;
-        background: var(--primary);
-      }
-
-      .monitor-feed {
-        display: grid;
-        gap: 14px;
-      }
-
-      .alert-card {
-        display: grid;
-        grid-template-columns: 52px 1fr 96px;
-        align-items: center;
-        gap: 16px;
-        margin-top: 0;
-      }
-
-      .alert-icon {
-        width: 52px;
-        height: 52px;
-        border-radius: 16px;
-        display: grid;
-        place-items: center;
-        background: rgba(31, 159, 104, 0.1);
-        color: var(--green);
-      }
-
-      .alert-icon svg {
-        width: 27px;
-        height: 27px;
-      }
-
-      .alert-state {
-        justify-self: end;
-        height: 30px;
-        padding: 0 12px;
-        display: inline-flex;
-        align-items: center;
-        border-radius: 999px;
-        color: var(--primary);
-        background: rgba(139, 90, 74, 0.09);
-        font-size: 12px;
-        font-weight: 850;
-      }
-
-      .radar {
-        position: relative;
-        height: 100%;
-        min-height: 480px;
+        grid-template-columns: 180px 1fr;
+        gap: 18px;
+        padding: 18px;
         border-radius: 22px;
+        background: rgba(255,255,255,0.84);
+        border: 1px solid rgba(139,90,74,0.1);
+      }
+
+      .thumb {
+        height: 148px;
+        border-radius: 18px;
         background:
-          radial-gradient(circle, rgba(31, 159, 104, 0.08) 0%, rgba(31, 159, 104, 0.03) 36%, transparent 67%),
-          rgba(255, 255, 255, 0.64);
-        border: 1px solid rgba(139, 90, 74, 0.1);
-        overflow: hidden;
+          radial-gradient(circle at 42% 38%, rgba(208,160,79,0.45), transparent 32%),
+          linear-gradient(135deg, rgba(139,90,74,0.9), rgba(95,112,130,0.86));
       }
 
-      .radar-ring {
+      .script-timeline {
+        position: relative;
+        display: grid;
+        gap: 16px;
+        padding-left: 34px;
+      }
+
+      .script-timeline::before {
+        content: "";
         position: absolute;
-        left: 50%;
-        top: 50%;
+        left: 10px;
+        top: 8px;
+        bottom: 8px;
+        width: 2px;
+        background: rgba(139,90,74,0.22);
+      }
+
+      .beat {
+        position: relative;
+        padding: 16px;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.86);
+        border: 1px solid rgba(139,90,74,0.1);
+      }
+
+      .beat::before {
+        content: "";
+        position: absolute;
+        left: -31px;
+        top: 22px;
+        width: 12px;
+        height: 12px;
         border-radius: 50%;
-        border: 1px solid rgba(139, 90, 74, 0.14);
-        transform: translate(-50%, -50%);
-      }
-
-      .radar-ring.one {
-        width: 180px;
-        height: 180px;
-      }
-
-      .radar-ring.two {
-        width: 310px;
-        height: 310px;
-      }
-
-      .radar-ring.three {
-        width: 440px;
-        height: 440px;
-      }
-
-      .radar-sweep {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 220px;
-        height: 2px;
-        background: linear-gradient(90deg, rgba(31, 159, 104, 0.75), transparent);
-        transform-origin: left center;
-      }
-
-      .control-node {
-        width: 136px;
-        min-height: 70px;
+        background: var(--gold);
       }
 
       .flash-bar {
@@ -668,37 +400,26 @@
         width: 18%;
         height: 100%;
         transform: skewX(-18deg);
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.82), transparent);
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.82), transparent);
         opacity: 0;
         z-index: 20;
         pointer-events: none;
       }
 
-      .progress-dots {
+      .progress {
         position: absolute;
         left: 112px;
         bottom: 52px;
         display: flex;
-        gap: 12px;
+        gap: 10px;
         z-index: 30;
       }
 
-      .progress-dots span {
-        width: 46px;
+      .progress span {
+        width: 34px;
         height: 5px;
         border-radius: 999px;
-        background: rgba(139, 90, 74, 0.16);
-      }
-
-      .progress-dots span.active {
-        background: var(--primary);
-      }
-
-      svg {
-        fill: none;
-        stroke: currentColor;
-        stroke-linecap: round;
-        stroke-linejoin: round;
+        background: rgba(139,90,74,0.16);
       }
     </style>
   </head>
@@ -707,237 +428,131 @@
       <div class="paper-grid"></div>
       <div class="wash"></div>
       <div class="stage clip" id="stage" data-start="0" data-duration="16" data-track-index="1" data-layout-allow-overflow="true">
-        <section class="flash-scene" id="scene-contract">
-          <div class="scene-copy-block">
-            <div class="scene-label">CONTRACT REVIEW</div>
-            <h1 class="scene-title">合同审查<br /><span class="accent">风险定位</span></h1>
-            <p class="scene-copy">Lawrence 读取合同文本，标记责任、终止、赔偿与管辖条款。</p>
-            <div class="meta-stack">
-              <div class="meta-row"><span class="meta-dot"></span><span>逐条定位高风险条款</span></div>
-              <div class="meta-row"><span class="meta-dot"></span><span>生成修改建议与谈判要点</span></div>
-            </div>
+        <section class="workflow" id="meeting">
+          <div>
+            <div class="label">MEETING NOTES</div>
+            <h1 class="title">会议纪要<br /><span class="accent">自动整理</span></h1>
+            <p class="copy">从会议录音与聊天上下文里提炼议题、决议、行动项和负责人。</p>
+            <div class="meta"><div><span></span>识别发言人与任务归属</div><div><span></span>输出待办和跟进时间</div></div>
           </div>
           <div class="interface">
-            <div class="window-top">
-              <div class="window-title">
-                <svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
-                Contract Review
+            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg>Meeting Minutes</b><span class="pill">Summarizing</span></div>
+            <div class="body grid-two">
+              <div class="panel">
+                <div class="note-row"><div class="time">09:12</div><div><b>客户预算确认</b><p>预算区间进入下一轮方案测算。</p></div></div>
+                <div class="note-row"><div class="time">09:28</div><div><b>交付节点调整</b><p>方案初稿提前到周四 18:00。</p></div></div>
+                <div class="note-row"><div class="time">09:44</div><div><b>行动项</b><p>销售同步客户名单，市场补充行业材料。</p></div></div>
               </div>
-              <div class="status-pill">Risk scanning</div>
-            </div>
-            <div class="screen-body review-layout">
-              <div class="document-panel">
-                <div class="doc-line"></div>
-                <div class="doc-line mid"></div>
-                <div class="highlight"></div>
-                <div class="doc-line"></div>
-                <div class="doc-line short"></div>
-                <div class="highlight"></div>
-                <div class="doc-line mid"></div>
-                <div class="doc-line"></div>
-              </div>
-              <div class="insight-panel review-checks">
-                <div class="risk-card">
-                  <span class="risk-tag">HIGH</span>
-                  <h3>终止条款不对等</h3>
-                  <p>建议补充提前通知期与违约救济路径。</p>
-                </div>
-                <div class="risk-card">
-                  <span class="risk-tag">HIGH</span>
-                  <h3>违约责任过宽</h3>
-                  <p>违约金、损害赔偿和间接损失边界需收窄。</p>
-                </div>
-                <div class="risk-card">
-                  <span class="risk-tag" style="background: var(--gold);">MEDIUM</span>
-                  <h3>责任上限缺失</h3>
-                  <p>赔偿范围需要与合同金额或固定上限绑定。</p>
-                </div>
-                <div class="risk-card">
-                  <span class="risk-tag" style="background: var(--gold);">MEDIUM</span>
-                  <h3>付款验收节点模糊</h3>
-                  <p>交付标准、验收期限和付款触发条件需明确。</p>
-                </div>
-                <div class="risk-card">
-                  <span class="risk-tag" style="background: var(--blue);">LOW</span>
-                  <h3>争议解决表述不完整</h3>
-                  <p>建议统一管辖法院、适用法律和送达地址。</p>
-                </div>
-                <div class="review-summary">
-                  <div class="score-ring">68</div>
-                  <div class="review-summary-copy">已识别 5 个审查点，其中 2 项高风险，建议优先进入谈判清单。</div>
-                </div>
+              <div class="panel">
+                <div class="card"><h3>决议摘要</h3><p>统一采用分阶段推进，先交付客户简报，再进入报价沟通。</p></div>
+                <div class="card"><h3>待办列表</h3><p>3 个负责人、5 个动作、2 个截止时间已自动拆分。</p></div>
+                <div class="card"><h3>风险提醒</h3><p>客户尚未确认最终预算，报价口径需要保守。</p></div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="flash-scene" id="scene-research">
-          <div class="scene-copy-block">
-            <div class="scene-label">LEGAL RESEARCH</div>
-            <h1 class="scene-title">法律研究<br /><span class="accent">引用追踪</span></h1>
-            <p class="scene-copy">从问题出发，自动检索法规、案例和裁判观点，并建立引用关系。</p>
-            <div class="meta-stack">
-              <div class="meta-row"><span class="meta-dot"></span><span>法规、案例、观点联动</span></div>
-              <div class="meta-row"><span class="meta-dot"></span><span>输出可追溯研究结论</span></div>
-            </div>
+        <section class="workflow" id="brief">
+          <div>
+            <div class="label">CLIENT BRIEF</div>
+            <h1 class="title">客户简报<br /><span class="accent">一键成稿</span></h1>
+            <p class="copy">把客户背景、痛点、方案卖点和下一步动作整理成可直接汇报的简报。</p>
+            <div class="meta"><div><span></span>客户画像与业务痛点</div><div><span></span>方案价值与下一步建议</div></div>
           </div>
           <div class="interface">
-            <div class="window-top">
-              <div class="window-title">
-                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                Legal Research
-              </div>
-              <div class="status-pill">Searching</div>
-            </div>
-            <div class="screen-body research-layout">
-              <div class="research-panel" style="padding: 22px;">
-                <div class="search-box">
-                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                  股权代持协议效力与风险
-                </div>
-                <div class="case-card">
-                  <h3>公司法解释 · 第三方效力</h3>
-                  <p>检索到 34 条关联法规和 128 个相似裁判观点。</p>
-                </div>
-                <div class="case-card">
-                  <h3>最高院裁判观点</h3>
-                  <p>结合事实构成、举证责任与善意第三人保护路径。</p>
-                </div>
-                <div class="case-card">
-                  <h3>裁判规则摘要</h3>
-                  <p>自动提炼争议焦点、裁判理由与可引用结论。</p>
-                </div>
-              </div>
-              <div class="graph-panel citation-map">
-                <svg class="citation-links" viewBox="0 0 644 600" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M216 300 L250 148"></path>
-                  <path d="M216 300 L250 300"></path>
-                  <path d="M216 300 L250 452"></path>
-                  <path d="M404 148 L462 300"></path>
-                  <path d="M404 300 L462 300"></path>
-                  <path d="M404 452 L462 300"></path>
-                  <path d="M140 300 L216 300"></path>
-                  <path d="M462 300 L502 300"></path>
-                  <circle cx="216" cy="300" r="7"></circle>
-                  <circle cx="462" cy="300" r="7"></circle>
-                </svg>
-                <div class="citation-node query" style="left: 38px; top: 254px;">股权代持效力<small>Issue Center</small></div>
-                <div class="citation-node mini source" style="left: 250px; top: 111px;">法规条文<small>Company Law</small></div>
-                <div class="citation-node mini source" style="left: 250px; top: 263px;">司法解释<small>Validity Rule</small></div>
-                <div class="citation-node mini source" style="left: 250px; top: 415px;">类案裁判<small>Case Cluster</small></div>
-                <div class="citation-node mini" style="left: 470px; top: 104px;">裁判规则<small>Judgement Rule</small></div>
-                <div class="citation-node mini" style="left: 470px; top: 408px;">举证责任<small>Evidence</small></div>
-                <div class="citation-node conclusion" style="left: 470px; top: 236px;">研究结论<small>Traceable Opinion</small><span>可引用</span></div>
+            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M3 3h18v14H3z"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>Client Brief</b><span class="pill">Draft ready</span></div>
+            <div class="body grid-two">
+              <div class="brief-cover"><strong>客户沟通简报<br />Q2 Growth Plan</strong></div>
+              <div class="panel">
+                <div class="card"><h3>客户背景</h3><p>华东区新增渠道，采购周期缩短，关注交付确定性。</p></div>
+                <div class="card"><h3>核心诉求</h3><p>降本、提效、统一数据口径，减少跨部门沟通成本。</p></div>
+                <div class="card"><h3>推荐策略</h3><p>先以试点场景切入，再扩展到全量客户运营。</p></div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="flash-scene" id="scene-dd">
-          <div class="scene-copy-block">
-            <div class="scene-label">DUE DILIGENCE</div>
-            <h1 class="scene-title">企业尽调<br /><span class="accent">关系穿透</span></h1>
-            <p class="scene-copy">把工商、股权、诉讼、负面舆情汇聚成一张可执行的风险图谱。</p>
-            <div class="meta-stack">
-              <div class="meta-row"><span class="meta-dot"></span><span>穿透股权和实控人链路</span></div>
-              <div class="meta-row"><span class="meta-dot"></span><span>自动汇总异常与待核查项</span></div>
-            </div>
+        <section class="workflow" id="email">
+          <div>
+            <div class="label">EMAIL DRAFT</div>
+            <h1 class="title">邮件起草<br /><span class="accent">语气适配</span></h1>
+            <p class="copy">根据对象、目的和上下文生成得体邮件，并保留可修改的关键段落。</p>
+            <div class="meta"><div><span></span>自动补齐背景与附件说明</div><div><span></span>不同语气版本快速切换</div></div>
           </div>
           <div class="interface">
-            <div class="window-top">
-              <div class="window-title">
-                <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M9 17h1"/></svg>
-                Enterprise Due Diligence
-              </div>
-              <div class="status-pill">Profiling</div>
-            </div>
-            <div class="screen-body dd-layout">
-              <div class="profile-panel" style="padding: 22px;">
-                <div class="company-card">
-                  <h3>目标公司画像</h3>
-                  <p>注册资本、经营范围、核心人员、关联主体同步整理。</p>
-                </div>
-                <div class="matrix">
-                  <div class="matrix-cell"><b>诉讼</b><div class="meter"><span style="width: 72%;"></span></div></div>
-                  <div class="matrix-cell"><b>股权</b><div class="meter"><span style="width: 58%;"></span></div></div>
-                  <div class="matrix-cell"><b>舆情</b><div class="meter"><span style="width: 34%;"></span></div></div>
-                  <div class="matrix-cell"><b>资质</b><div class="meter"><span style="width: 46%;"></span></div></div>
-                </div>
-              </div>
-              <div class="graph-panel citation-map">
-                <svg class="citation-links" viewBox="0 0 644 600" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M236 258 L204 174"></path>
-                  <path d="M426 258 L440 174"></path>
-                  <path d="M236 328 L204 410"></path>
-                  <path d="M426 328 L440 410"></path>
-                </svg>
-                <div class="company-node main" style="left: 236px; top: 242px;">目标公司<small>Subject</small></div>
-                <div class="company-node" style="left: 50px; top: 104px;">控股股东<small>72%</small></div>
-                <div class="company-node" style="left: 440px; top: 104px;">关联企业<small>8 entities</small></div>
-                <div class="company-node" style="left: 50px; top: 410px;">诉讼风险<small>Litigation</small></div>
-                <div class="company-node" style="left: 440px; top: 410px;">负面舆情<small>Public Risk</small></div>
+            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>Email Composer</b><span class="pill">Polished</span></div>
+            <div class="body">
+              <div class="email-box">
+                <div class="subject">主题：关于本周客户方案初稿与后续沟通安排</div>
+                <div style="height: 24px;"></div>
+                <div class="line"></div><div class="line mid"></div><div class="line"></div><div class="line short"></div>
+                <div class="card"><h3>语气建议</h3><p>正式但不生硬，强调已完成事项、待确认问题和下一步时间。</p></div>
+                <div class="card"><h3>附件说明</h3><p>自动加入客户简报、会议纪要与项目排期文件。</p></div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="flash-scene" id="scene-compliance">
-          <div class="scene-copy-block">
-            <div class="scene-label">COMPLIANCE MONITOR</div>
-            <h1 class="scene-title">合规监控<br /><span class="accent">持续预警</span></h1>
-            <p class="scene-copy">规则、业务和外部事件持续对齐，自动识别偏离并生成处置任务。</p>
-            <div class="meta-stack">
-              <div class="meta-row"><span class="meta-dot"></span><span>政策变化实时进入规则库</span></div>
-              <div class="meta-row"><span class="meta-dot"></span><span>异常事件触发留痕和跟进</span></div>
-            </div>
+        <section class="workflow" id="report">
+          <div>
+            <div class="label">PROJECT REPORT</div>
+            <h1 class="title">项目汇报<br /><span class="accent">进度可视</span></h1>
+            <p class="copy">把跨团队进展整理成状态、阻塞、里程碑和下一步计划。</p>
+            <div class="meta"><div><span></span>任务状态自动归类</div><div><span></span>风险和资源缺口前置展示</div></div>
           </div>
           <div class="interface">
-            <div class="window-top">
-              <div class="window-title">
-                <svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.7 8.9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.5a1.3 1.3 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-                Compliance Monitor
-              </div>
-              <div class="status-pill">Live</div>
+            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15v3"/><path d="M12 9v9"/><path d="M17 12v6"/></svg>Project Dashboard</b><span class="pill">Live update</span></div>
+            <div class="body kanban">
+              <div class="col"><h3>进行中</h3><div class="task">客户访谈资料整理</div><div class="task">演示脚本补充案例</div></div>
+              <div class="col"><h3>待确认</h3><div class="task">报价口径</div><div class="task">试点范围与时间表</div></div>
+              <div class="col"><h3>已完成</h3><div class="task">会议纪要</div><div class="task">客户简报第一版</div></div>
             </div>
-            <div class="screen-body monitor-layout">
-              <div class="monitor-panel" style="padding: 22px;">
-                <div class="monitor-feed">
-                  <div class="alert-card">
-                    <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></div>
-                    <div><h3>新规匹配</h3><p>广告合规规则更新，需复核 3 个活动。</p></div>
-                    <span class="alert-state">待处理</span>
-                  </div>
-                  <div class="alert-card">
-                    <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
-                    <div><h3>异常波动</h3><p>供应商风险评级上升，自动生成核查任务。</p></div>
-                    <span class="alert-state">跟进中</span>
-                  </div>
-                  <div class="alert-card">
-                    <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-                    <div><h3>审计留痕</h3><p>处置链路写入日志，支持复盘和追责。</p></div>
-                    <span class="alert-state">已记录</span>
-                  </div>
-                </div>
+          </div>
+        </section>
+
+        <section class="workflow" id="social">
+          <div>
+            <div class="label">SOCIAL CONTENT</div>
+            <h1 class="title">新媒体文案<br /><span class="accent">多平台适配</span></h1>
+            <p class="copy">同一素材自动改写为公众号、小红书、LinkedIn 和短视频口径。</p>
+            <div class="meta"><div><span></span>标题、正文、话题标签同步生成</div><div><span></span>品牌语气保持一致</div></div>
+          </div>
+          <div class="interface">
+            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 12h8"/><path d="M8 8h8"/><path d="M8 16h5"/></svg>Content Studio</b><span class="pill">Variants</span></div>
+            <div class="body">
+              <div class="social-card"><div class="thumb"></div><div><div class="card"><h3>公众号长文</h3><p>以行业洞察开场，承接客户案例和方法论。</p></div><div class="card"><h3>小红书短帖</h3><p>突出痛点、步骤和可收藏清单。</p></div></div></div>
+              <div style="height: 16px;"></div>
+              <div class="social-card"><div class="thumb"></div><div><div class="card"><h3>LinkedIn</h3><p>使用更国际化的 B2B 表述，强调效率和团队协作。</p></div><div class="card"><h3>短视频标题</h3><p>3 秒抓住问题，再给出清晰转化钩子。</p></div></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="workflow" id="script">
+          <div>
+            <div class="label">VIDEO SCRIPT</div>
+            <h1 class="title">视频脚本<br /><span class="accent">节奏拆分</span></h1>
+            <p class="copy">把营销目标转成镜头、旁白、字幕和关键画面，方便直接进入制作。</p>
+            <div class="meta"><div><span></span>镜头结构与口播同步</div><div><span></span>适配销售演示与短视频素材</div></div>
+          </div>
+          <div class="interface">
+            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>Video Script</b><span class="pill">Storyboard</span></div>
+            <div class="body grid-two">
+              <div class="panel script-timeline">
+                <div class="beat"><h3>开场 0-3s</h3><p>提出客户真实工作场景。</p></div>
+                <div class="beat"><h3>中段 4-10s</h3><p>展示 Lawrence 处理流程。</p></div>
+                <div class="beat"><h3>收尾 11-16s</h3><p>回到业务价值和交付结果。</p></div>
               </div>
-              <div class="radar">
-                <div class="radar-ring one"></div>
-                <div class="radar-ring two"></div>
-                <div class="radar-ring three"></div>
-                <div class="radar-sweep"></div>
-                <div class="control-node" style="left: 92px; top: 126px;">合同<small>rules</small></div>
-                <div class="control-node" style="right: 92px; top: 112px;">供应商<small>risk</small></div>
-                <div class="control-node" style="left: 140px; bottom: 92px;">营销<small>policy</small></div>
-                <div class="control-node" style="right: 118px; bottom: 118px;">审计<small>logs</small></div>
+              <div class="panel">
+                <div class="card"><h3>画面建议</h3><p>办公室、文档、邮件、社媒编辑器快速切换。</p></div>
+                <div class="card"><h3>口播片段</h3><p>“除了法律工作，我也能处理日常办公和营销内容。”</p></div>
+                <div class="card"><h3>输出物</h3><p>脚本、字幕、分镜、标题和素材清单。</p></div>
               </div>
             </div>
           </div>
         </section>
 
-        <div class="progress-dots">
-          <span id="dot-contract"></span>
-          <span id="dot-research"></span>
-          <span id="dot-dd"></span>
-          <span id="dot-compliance"></span>
+        <div class="progress">
+          <span id="dot-meeting"></span><span id="dot-brief"></span><span id="dot-email"></span><span id="dot-report"></span><span id="dot-social"></span><span id="dot-script"></span>
         </div>
         <div class="flash-bar" id="flash-bar" data-layout-allow-overflow="true"></div>
       </div>
@@ -949,70 +564,43 @@
       gsap.defaults({ ease: "power3.out" });
 
       const tl = gsap.timeline({ paused: true });
-      const scenes = ["#scene-contract", "#scene-research", "#scene-dd", "#scene-compliance"];
-      const dots = ["#dot-contract", "#dot-research", "#dot-dd", "#dot-compliance"];
+      const scenes = ["#meeting", "#brief", "#email", "#report", "#social", "#script"];
+      const dots = ["#dot-meeting", "#dot-brief", "#dot-email", "#dot-report", "#dot-social", "#dot-script"];
+
+      function flash(time) {
+        tl.fromTo("#flash-bar", { opacity: 0, x: 0 }, { opacity: 0.7, x: 2350, duration: 0.38, ease: "power2.inOut" }, time)
+          .to("#flash-bar", { opacity: 0, duration: 0.12 }, time + 0.38);
+      }
 
       function activateDot(index, time) {
         dots.forEach((dot, dotIndex) => {
-          tl.to(dot, { backgroundColor: dotIndex === index ? "#8b5a4a" : "rgba(139, 90, 74, 0.16)", duration: 0.18 }, time);
+          tl.to(dot, { backgroundColor: dotIndex === index ? "#8b5a4a" : "rgba(139, 90, 74, 0.16)", duration: 0.16 }, time);
         });
-      }
-
-      function flash(time) {
-        tl.fromTo("#flash-bar", { opacity: 0, x: 0 }, { opacity: 0.72, x: 2350, duration: 0.42, ease: "power2.inOut" }, time)
-          .to("#flash-bar", { opacity: 0, duration: 0.12 }, time + 0.42);
       }
 
       tl.fromTo("#stage", { opacity: 0 }, { opacity: 1, duration: 0.28 }, 0);
 
       scenes.forEach((scene, index) => {
-        const start = index * 3.72;
-        const end = start + 3.14;
-        const copy = `${scene} .scene-copy-block`;
-        const iface = `${scene} .interface`;
-
+        const start = index * 2.55;
+        const end = start + 2.18;
+        const contentItems = `${scene} .card, ${scene} .note-row, ${scene} .task, ${scene} .beat, ${scene} .social-card`;
+        const lineItems = `${scene} .line`;
         activateDot(index, start + 0.02);
-        flash(start + 0.06);
-
-        tl.fromTo(scene, { opacity: 0, y: 42, scale: 0.985 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "expo.out" }, start)
-          .from(copy, { opacity: 0, x: -64, duration: 0.58, ease: "expo.out" }, start + 0.12)
-          .from(iface, { opacity: 0, x: 86, scale: 0.94, duration: 0.64, ease: "expo.out" }, start + 0.2)
-          .from(`${scene} .window-title svg`, { opacity: 0, scale: 0.5, rotation: -16, duration: 0.42, ease: "back.out(1.3)" }, start + 0.46)
-          .from(`${scene} .status-pill`, { opacity: 0, x: 28, duration: 0.36 }, start + 0.56);
-
-        if (scene === "#scene-contract") {
-          tl.from(`${scene} .doc-line`, { opacity: 0, scaleX: 0, transformOrigin: "left center", duration: 0.28, stagger: 0.035 }, start + 0.62)
-            .from(`${scene} .highlight`, { opacity: 0, x: -24, duration: 0.36, stagger: 0.12 }, start + 0.86)
-            .from(`${scene} .risk-card`, { opacity: 0, y: 28, scale: 0.95, duration: 0.38, stagger: 0.12 }, start + 1.05)
-            .from(`${scene} .score-ring`, { opacity: 0, scale: 0.72, duration: 0.48, ease: "back.out(1.2)" }, start + 1.42);
+        flash(start + 0.04);
+        tl.fromTo(scene, { opacity: 0, y: 40, scale: 0.985 }, { opacity: 1, y: 0, scale: 1, duration: 0.46, ease: "expo.out" }, start)
+          .from(`${scene} .label`, { opacity: 0, y: 18, duration: 0.34 }, start + 0.08)
+          .from(`${scene} .title`, { opacity: 0, x: -54, duration: 0.5, ease: "expo.out" }, start + 0.12)
+          .from(`${scene} .copy`, { opacity: 0, x: -32, duration: 0.42 }, start + 0.28)
+          .from(`${scene} .interface`, { opacity: 0, x: 76, scale: 0.94, duration: 0.58, ease: "expo.out" }, start + 0.18)
+          .from(`${scene} .topbar svg`, { opacity: 0, scale: 0.5, rotation: -16, duration: 0.36, ease: "back.out(1.3)" }, start + 0.42)
+        if (document.querySelector(contentItems)) {
+          tl.from(contentItems, { opacity: 0, y: 26, scale: 0.96, duration: 0.34, stagger: 0.055 }, start + 0.62);
         }
-
-        if (scene === "#scene-research") {
-          tl.from(`${scene} .search-box`, { opacity: 0, y: -20, duration: 0.38 }, start + 0.62)
-            .from(`${scene} .case-card`, { opacity: 0, y: 28, duration: 0.38, stagger: 0.11 }, start + 0.86)
-            .from(`${scene} .citation-links path`, { opacity: 0, duration: 0.34, stagger: 0.05 }, start + 1.02)
-            .from(`${scene} .citation-node`, { opacity: 0, scale: 0.78, y: 24, duration: 0.42, ease: "back.out(1.12)", stagger: 0.06 }, start + 1.14);
+        if (document.querySelector(lineItems)) {
+          tl.from(lineItems, { opacity: 0, scaleX: 0, transformOrigin: "left center", duration: 0.25, stagger: 0.035 }, start + 0.72);
         }
-
-        if (scene === "#scene-dd") {
-          tl.from(`${scene} .company-card`, { opacity: 0, y: 30, duration: 0.38 }, start + 0.62)
-            .from(`${scene} .matrix-cell`, { opacity: 0, y: 24, duration: 0.34, stagger: 0.06 }, start + 0.86)
-            .from(`${scene} .meter span`, { scaleX: 0, transformOrigin: "left center", duration: 0.46, stagger: 0.05 }, start + 1.08)
-            .from(`${scene} .citation-links path`, { opacity: 0, duration: 0.34, stagger: 0.06 }, start + 1.16)
-            .from(`${scene} .company-node`, { opacity: 0, scale: 0.76, y: 22, duration: 0.42, ease: "back.out(1.12)", stagger: 0.08 }, start + 1.24);
-        }
-
-        if (scene === "#scene-compliance") {
-          tl.from(`${scene} .alert-card`, { opacity: 0, x: -38, duration: 0.4, stagger: 0.13 }, start + 0.68)
-            .from(`${scene} .radar-ring`, { opacity: 0, scale: 0.72, duration: 0.42, stagger: 0.08 }, start + 0.88)
-            .from(`${scene} .control-node`, { opacity: 0, scale: 0.8, y: 22, duration: 0.38, stagger: 0.08 }, start + 1.12)
-            .fromTo(`${scene} .radar-sweep`, { opacity: 0, rotation: -80 }, { opacity: 0.9, rotation: 250, duration: 1.5, ease: "sine.inOut" }, start + 1.04);
-        }
-
         if (index < scenes.length - 1) {
-          tl.to(scene, { opacity: 0, y: -36, scale: 0.988, duration: 0.44, ease: "power2.inOut" }, end);
-        } else {
-          tl.to(scene, { scale: 1.01, duration: 0.42, ease: "sine.inOut" }, 15.2);
+          tl.to(scene, { opacity: 0, y: -34, scale: 0.988, duration: 0.36, ease: "power2.inOut" }, end);
         }
       });
 

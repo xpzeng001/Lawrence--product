@@ -3,18 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Shot 9 & 10 · Compliance Skill Hub</title>
+    <title>Shot 11 & 12 · Secure Local Workspace</title>
     <style>
       :root {
-        --foreground: #2c2421;
+        --bg: #faf8f6;
+        --ink: #2c2421;
         --muted: #5c524d;
         --primary: #8b5a4a;
-        --primary-dark: #70483d;
+        --primary-dark: #74493c;
         --border: #e8e2dc;
-        --green: #1f9f68;
+        --card: #ffffff;
         --gold: #d0a04f;
-        --blue: #5f7082;
-        --danger: #b45c52;
+        --green: #1f9f68;
+        --cool: #6b7b8f;
       }
 
       * { box-sizing: border-box; }
@@ -31,31 +32,40 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
-        color: var(--foreground);
+        color: var(--ink);
         background:
-          radial-gradient(ellipse 56% 46% at 50% 42%, rgba(139, 90, 74, 0.13), transparent 68%),
-          radial-gradient(ellipse 34% 30% at 88% 16%, rgba(31, 159, 104, 0.08), transparent 72%),
+          radial-gradient(ellipse 46% 42% at 50% 42%, rgba(139,90,74,0.12), transparent 70%),
+          radial-gradient(ellipse 30% 24% at 82% 18%, rgba(31,159,104,0.08), transparent 72%),
+          linear-gradient(180deg, #fbf9f7 0%, #f5f0ec 58%, #eee7e1 100%);
+      }
+
+      .base-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 46% 42% at 50% 42%, rgba(139,90,74,0.12), transparent 70%),
+          radial-gradient(ellipse 30% 24% at 82% 18%, rgba(31,159,104,0.08), transparent 72%),
           linear-gradient(180deg, #fbf9f7 0%, #f5f0ec 58%, #eee7e1 100%);
       }
 
       .paper-grid {
         position: absolute;
         inset: 64px;
-        border: 1px solid rgba(139, 90, 74, 0.08);
+        border: 1px solid rgba(139,90,74,0.08);
         border-radius: 34px;
         background-image:
-          linear-gradient(rgba(139, 90, 74, 0.052) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(139, 90, 74, 0.052) 1px, transparent 1px);
+          linear-gradient(rgba(139,90,74,0.052) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139,90,74,0.052) 1px, transparent 1px);
         background-size: 150px 126px;
-        opacity: 0.78;
+        opacity: 0.76;
       }
 
       .wash {
         position: absolute;
         inset: 0;
         background:
-          linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.14) 52%, rgba(255,255,255,0.78)),
-          linear-gradient(180deg, rgba(139,90,74,0.03), rgba(95,112,130,0.04));
+          linear-gradient(90deg, rgba(255,255,255,0.92), rgba(255,255,255,0.15) 52%, rgba(255,255,255,0.78)),
+          linear-gradient(180deg, rgba(139,90,74,0.02), rgba(95,112,130,0.04));
       }
 
       .stage {
@@ -64,26 +74,17 @@
         opacity: 0;
       }
 
-      .base-bg {
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(ellipse 56% 46% at 50% 42%, rgba(139, 90, 74, 0.13), transparent 68%),
-          radial-gradient(ellipse 34% 30% at 88% 16%, rgba(31, 159, 104, 0.08), transparent 72%),
-          linear-gradient(180deg, #fbf9f7 0%, #f5f0ec 58%, #eee7e1 100%);
-      }
-
       .scene {
         position: absolute;
         inset: 0;
-        padding: 92px 118px 92px;
-        display: grid;
-        grid-template-columns: 1fr;
-        align-items: center;
+        padding: 88px 116px;
         opacity: 0;
       }
 
-      .kicker {
+      .frame-label {
+        position: absolute;
+        left: 116px;
+        top: 86px;
         display: inline-flex;
         align-items: center;
         gap: 10px;
@@ -91,14 +92,14 @@
         padding: 0 16px;
         border: 1px solid rgba(139,90,74,0.14);
         border-radius: 999px;
-        background: rgba(255,255,255,0.76);
+        background: rgba(255,255,255,0.82);
         color: var(--primary);
         font-size: 14px;
         font-weight: 860;
         box-shadow: 0 12px 32px rgba(44,36,33,0.06);
       }
 
-      .kicker::before {
+      .frame-label::before {
         content: "";
         width: 8px;
         height: 8px;
@@ -106,112 +107,77 @@
         background: var(--primary);
       }
 
-      h1 {
-        margin: 24px 0 0;
-        font-size: 66px;
-        line-height: 1.06;
-        letter-spacing: 0;
-        font-weight: 880;
+      .hero-copy {
+        position: absolute;
+        left: 116px;
+        bottom: 82px;
+        width: 610px;
+        color: rgba(44,36,33,0.86);
+        font-size: 30px;
+        line-height: 1.28;
+        font-weight: 860;
+        opacity: 0;
       }
 
-      h1 span { color: var(--primary); }
+      .hero-copy span { color: var(--primary); }
 
-      .copy {
-        margin: 22px 0 0;
-        color: var(--muted);
-        font-size: 24px;
-        line-height: 1.45;
-        font-weight: 720;
-      }
-
-      .meta {
-        display: grid;
-        gap: 12px;
-        margin-top: 30px;
-      }
-
-      .meta div {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        color: rgba(92,82,77,0.9);
-        font-size: 16px;
-        font-weight: 780;
-      }
-
-      .meta span {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--gold);
-        box-shadow: 0 0 0 8px rgba(208,160,79,0.13);
-      }
-
-      .board {
-        position: relative;
-        width: min(1560px, 100%);
-        height: 820px;
-        margin: 0 auto;
+      .panel {
+        position: absolute;
         border: 1px solid rgba(139,90,74,0.12);
         border-radius: 30px;
         background:
           linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.78)),
-          radial-gradient(circle at 78% 12%, rgba(139,90,74,0.11), transparent 34%);
-        box-shadow: 0 32px 82px rgba(44,36,33,0.13), 0 1px 0 rgba(255,255,255,0.8) inset;
+          radial-gradient(circle at 80% 10%, rgba(139,90,74,0.08), transparent 36%);
+        box-shadow: 0 30px 78px rgba(44,36,33,0.12);
+      }
+
+      .secure-map {
+        left: 160px;
+        top: 142px;
+        width: 1030px;
+        height: 720px;
         overflow: hidden;
       }
 
-      .board::before {
+      .secure-map::before,
+      .local-flow::before {
         content: "";
         position: absolute;
         inset: 0;
         background-image:
           linear-gradient(rgba(139,90,74,0.045) 1px, transparent 1px),
           linear-gradient(90deg, rgba(139,90,74,0.045) 1px, transparent 1px);
-        background-size: 84px 72px;
+        background-size: 86px 72px;
         opacity: 0.58;
       }
 
-      #scene-hub .board {
-        border-color: transparent;
-        background: transparent;
-        box-shadow: none;
-        overflow: visible;
-      }
-
-      #scene-hub .board::before {
-        display: none;
-      }
-
-      .office-grid {
-        position: relative;
-        z-index: 2;
-        height: 100%;
-        padding: 38px;
+      .workspace-core {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 224px;
+        height: 224px;
+        margin: -112px 0 0 -112px;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-        align-items: stretch;
+        place-items: center;
+        border-radius: 50%;
+        text-align: center;
+        background: rgba(255,255,255,0.92);
+        border: 1px solid rgba(139,90,74,0.16);
+        box-shadow: 0 0 0 34px rgba(208,160,79,0.08), 0 0 0 106px rgba(139,90,74,0.045), 0 28px 72px rgba(44,36,33,0.12);
+        z-index: 4;
       }
 
-      .work-card {
-        position: relative;
-        min-height: 640px;
-        padding: 26px;
-        border: 1px solid rgba(139,90,74,0.12);
-        border-radius: 24px;
-        background: rgba(255,255,255,0.86);
-        box-shadow: 0 22px 58px rgba(44,36,33,0.1);
-        overflow: hidden;
-      }
-
-      .card-head {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 24px;
-        font-size: 24px;
-        font-weight: 860;
+      .core-mark {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 14px;
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        box-shadow: 0 16px 34px rgba(139,90,74,0.25);
       }
 
       svg {
@@ -221,187 +187,18 @@
         stroke-linejoin: round;
       }
 
-      .card-head svg {
-        width: 30px;
-        height: 30px;
-        color: var(--primary);
+      .core-mark svg {
+        width: 34px;
+        height: 34px;
         stroke-width: 2.3;
       }
 
-      .line {
-        height: 12px;
-        border-radius: 999px;
-        background: rgba(92,82,77,0.17);
-        margin-bottom: 16px;
-      }
-
-      .line.short { width: 54%; }
-      .line.mid { width: 74%; }
-      .line.accent { background: rgba(139,90,74,0.25); }
-
-      .section-box {
-        margin: 22px 0;
-        padding: 18px;
-        border-radius: 16px;
-        border: 1px solid rgba(139,90,74,0.1);
-        background: rgba(255,255,255,0.72);
-      }
-
-      .section-box b {
+      .workspace-core b {
         display: block;
-        margin-bottom: 8px;
-        font-size: 20px;
-      }
-
-      .section-box p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 15px;
-        line-height: 1.45;
-        font-weight: 680;
-      }
-
-      .compliance-tag {
-        position: absolute;
-        left: 26px;
-        right: 26px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        min-height: 72px;
-        padding: 16px 18px;
-        border-radius: 18px;
-        border: 1px solid rgba(208,160,79,0.28);
-        background: rgba(255,250,238,0.92);
-        box-shadow: 0 18px 42px rgba(208,160,79,0.14);
-        opacity: 0;
-      }
-
-      .tag-left {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .tag-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: var(--gold);
-        box-shadow: 0 0 0 8px rgba(208,160,79,0.16);
-      }
-
-      .tag-title {
-        font-size: 18px;
-        font-weight: 850;
-      }
-
-      .tag-sub {
-        color: var(--muted);
-        font-size: 13px;
-        font-weight: 720;
-      }
-
-      .tag-status {
-        color: var(--green);
-        font-size: 13px;
-        font-weight: 860;
-      }
-
-      .scan-line {
-        position: absolute;
-        z-index: 5;
-        left: 36px;
-        right: 36px;
-        top: 120px;
-        height: 2px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, transparent, rgba(208,160,79,0.88), transparent);
-        opacity: 0;
-        box-shadow: 0 0 24px rgba(208,160,79,0.35);
-      }
-
-      .screen-text {
-        position: absolute;
-        z-index: 6;
-        left: 50%;
-        bottom: 42px;
-        transform: translateX(-50%);
-        padding: 18px 28px;
-        border-radius: 999px;
-        color: var(--primary-dark);
-        background: rgba(255,255,255,0.86);
-        border: 1px solid rgba(139,90,74,0.13);
-        box-shadow: 0 18px 44px rgba(44,36,33,0.11);
         font-size: 25px;
-        font-weight: 880;
-        opacity: 0;
       }
 
-      .hub-board {
-        position: relative;
-        z-index: 2;
-        height: 100%;
-      }
-
-      .hub-core {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 260px;
-        height: 260px;
-        margin: -130px 0 0 -130px;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        text-align: center;
-        border: 1px solid rgba(139,90,74,0.16);
-        background:
-          radial-gradient(circle at 50% 42%, rgba(255,255,255,0.98), rgba(255,255,255,0.78) 58%, rgba(139,90,74,0.1)),
-          linear-gradient(180deg, rgba(255,255,255,0.96), rgba(245,240,236,0.92));
-        box-shadow: 0 34px 90px rgba(44,36,33,0.14), 0 0 0 28px rgba(208,160,79,0.08), 0 0 0 86px rgba(139,90,74,0.045);
-      }
-
-      .hub-core::before,
-      .hub-core::after {
-        content: "";
-        position: absolute;
-        inset: -106px;
-        border-radius: 50%;
-        border: 1px solid rgba(139,90,74,0.12);
-      }
-
-      .hub-core::after {
-        inset: -188px;
-        border-style: dashed;
-        opacity: 0.65;
-      }
-
-      .hub-mark {
-        width: 62px;
-        height: 62px;
-        margin: 0 auto 15px;
-        border-radius: 18px;
-        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-        box-shadow: 0 16px 34px rgba(139,90,74,0.24);
-        display: grid;
-        place-items: center;
-      }
-
-      .hub-mark svg {
-        width: 35px;
-        height: 35px;
-        color: rgba(255,255,255,0.94);
-        stroke-width: 2.25;
-      }
-
-      .hub-core b {
-        display: block;
-        font-size: 27px;
-        line-height: 1.12;
-      }
-
-      .hub-core small {
+      .workspace-core small {
         display: block;
         margin-top: 8px;
         color: var(--muted);
@@ -411,136 +208,494 @@
         text-transform: uppercase;
       }
 
-      .stage-card {
+      .zone {
         position: absolute;
-        width: 250px;
-        min-height: 104px;
-        padding: 18px 20px;
-        border-radius: 22px;
-        border: 1px solid rgba(139,90,74,0.13);
-        background: rgba(255,255,255,0.88);
-        box-shadow: 0 20px 52px rgba(44,36,33,0.1);
+        width: 270px;
+        min-height: 132px;
+        padding: 20px;
+        border-radius: 24px;
+        border: 1px solid rgba(139,90,74,0.14);
+        background: rgba(255,255,255,0.9);
+        box-shadow: 0 20px 54px rgba(44,36,33,0.1);
+        z-index: 6;
         opacity: 0;
       }
 
-      .stage-card b {
-        display: block;
-        font-size: 20px;
-        line-height: 1.2;
+      .zone-top-left { left: 62px; top: 58px; }
+      .zone-top-right { right: 62px; top: 58px; }
+      .zone-bottom-left { left: 62px; bottom: 60px; }
+      .zone-bottom-right { right: 62px; bottom: 60px; }
+
+      .zone-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
       }
 
-      .stage-card small {
-        display: block;
-        margin-top: 8px;
+      .zone b {
+        font-size: 22px;
+        line-height: 1.18;
+      }
+
+      .lock {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        color: var(--primary);
+        background: rgba(139,90,74,0.08);
+      }
+
+      .lock svg { width: 21px; height: 21px; stroke-width: 2.4; }
+
+      .zone p {
+        margin: 0;
         color: var(--muted);
-        font-size: 13px;
-        line-height: 1.25;
+        font-size: 14px;
+        line-height: 1.45;
         font-weight: 720;
       }
 
-      .p1 { left: 56px; top: 64px; }
-      .p2 { left: 395px; top: 42px; }
-      .p3 { right: 56px; top: 64px; }
-      .p4 { left: 64px; top: 304px; }
-      .p5 { right: 64px; top: 304px; }
-      .p6 { left: 56px; bottom: 64px; }
-      .p7 { left: 405px; bottom: 42px; }
-      .p8 { right: 405px; bottom: 42px; }
-      .p9 { right: 56px; bottom: 64px; }
-
-      .skill-panel {
-        position: absolute;
-        z-index: 12;
-        left: 50%;
-        top: 50%;
-        width: 700px;
-        min-height: 256px;
-        margin-left: -350px;
-        margin-top: -128px;
-        padding: 24px;
-        border-radius: 26px;
-        border: 1px solid rgba(139,90,74,0.14);
-        background: #fffdfb;
-        box-shadow: 0 28px 82px rgba(44,36,33,0.16);
-        opacity: 0;
-      }
-
-      .skill-panel h2 {
-        margin: 0 0 18px;
-        font-size: 28px;
-        line-height: 1.15;
-      }
-
-      .chip-grid {
+      .zone-status {
         display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
+        gap: 8px;
+        margin-top: 15px;
       }
 
-      .skill-chip {
-        padding: 12px 15px;
-        border-radius: 999px;
-        border: 1px solid rgba(139,90,74,0.14);
-        background: rgba(255,255,255,0.88);
-        color: var(--foreground);
-        font-size: 15px;
-        font-weight: 780;
-        box-shadow: 0 10px 24px rgba(44,36,33,0.06);
-      }
-
-      .skill-cloud {
-        position: absolute;
-        z-index: 11;
-        inset: 0;
-        pointer-events: none;
-      }
-
-      .skill-node {
-        position: absolute;
-        width: var(--node-width, 150px);
-        height: 28px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+      .pill {
+        height: 25px;
         padding: 0 10px;
         border-radius: 999px;
-        border: 1px solid rgba(139,90,74,0.14);
-        background: rgba(255,255,255,0.92);
-        color: rgba(44,36,33,0.9);
-        box-shadow: 0 12px 28px rgba(44,36,33,0.09);
+        display: inline-flex;
+        align-items: center;
+        color: var(--primary-dark);
+        background: rgba(255,255,255,0.84);
+        border: 1px solid rgba(139,90,74,0.12);
         font-size: 11px;
-        font-weight: 820;
-        line-height: 1;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        opacity: 0;
+        font-weight: 860;
       }
 
-      .skill-node[data-domain="多法域"] { color: var(--primary-dark); }
-      .skill-node[data-domain="中国香港"] { color: var(--blue); }
-      .skill-node[data-domain="中国内地"] { color: rgba(44,36,33,0.92); }
+      .firewall {
+        position: absolute;
+        border: 1px dashed rgba(139,90,74,0.2);
+        opacity: 0;
+        z-index: 2;
+      }
 
-      .cert-row {
+      .firewall-v {
+        left: 50%;
+        top: 48px;
+        width: 0;
+        height: 624px;
+      }
+
+      .firewall-h {
+        left: 70px;
+        top: 50%;
+        width: 890px;
+        height: 0;
+      }
+
+      .connection {
         position: absolute;
         left: 50%;
-        top: 592px;
-        transform: translateX(-50%) scale(0.92);
-        display: flex;
-        gap: 10px;
+        top: 50%;
+        width: 1px;
+        height: var(--len);
+        transform-origin: top center;
+        transform: rotate(var(--rot));
+        background: linear-gradient(180deg, rgba(139,90,74,0.3), transparent);
         opacity: 0;
-        z-index: 14;
+        z-index: 1;
       }
 
-      .cert {
-        padding: 9px 15px;
+      .c1 { --len: 260px; --rot: -52deg; }
+      .c2 { --len: 260px; --rot: 52deg; }
+      .c3 { --len: 260px; --rot: -128deg; }
+      .c4 { --len: 260px; --rot: 128deg; }
+
+      .audit-panel {
+        right: 116px;
+        top: 178px;
+        width: 430px;
+        height: 620px;
+        padding: 28px;
+        z-index: 8;
+        overflow: hidden;
+      }
+
+      .audit-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: 880;
+      }
+
+      .audit-title svg {
+        width: 28px;
+        height: 28px;
+        color: var(--primary);
+        stroke-width: 2.3;
+      }
+
+      .audit-row {
+        display: grid;
+        grid-template-columns: 74px 1fr auto;
+        align-items: center;
+        gap: 12px;
+        min-height: 70px;
+        margin-bottom: 14px;
+        padding: 14px;
+        border-radius: 18px;
+        border: 1px solid rgba(139,90,74,0.1);
+        background: rgba(255,255,255,0.8);
+        box-shadow: 0 12px 28px rgba(44,36,33,0.06);
+        opacity: 0;
+      }
+
+      .audit-row time {
+        color: var(--primary);
+        font-size: 13px;
+        font-weight: 850;
+      }
+
+      .audit-row b {
+        display: block;
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
+
+      .audit-row span {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 720;
+      }
+
+      .audit-ok {
+        color: var(--green);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .screen-text {
+        position: absolute;
+        left: 50%;
+        bottom: 52px;
+        transform: translateX(-50%);
+        min-width: 620px;
+        padding: 18px 30px;
         border-radius: 999px;
+        text-align: center;
         color: var(--primary-dark);
+        background: rgba(255,255,255,0.9);
+        border: 1px solid rgba(139,90,74,0.13);
+        box-shadow: 0 18px 44px rgba(44,36,33,0.11);
+        font-size: 25px;
+        font-weight: 880;
+        opacity: 0;
+        z-index: 30;
+      }
+
+      .local-flow {
+        left: 150px;
+        top: 142px;
+        width: 1620px;
+        height: 720px;
+        overflow: hidden;
+      }
+
+      .local-grid {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+      }
+
+      .local-device {
+        position: absolute;
+        left: 92px;
+        top: 168px;
+        width: 350px;
+        height: 300px;
+        border-radius: 28px;
+        border: 1px solid rgba(139,90,74,0.12);
         background: rgba(255,255,255,0.88);
-        border: 1px solid rgba(139,90,74,0.14);
+        box-shadow: 0 24px 58px rgba(44,36,33,0.1);
+        display: grid;
+        place-items: center;
+        text-align: center;
+      }
+
+      .device-screen {
+        width: 230px;
+        height: 150px;
+        border-radius: 18px;
+        border: 8px solid #2c2421;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245,240,236,0.86)),
+          linear-gradient(rgba(139,90,74,0.07) 1px, transparent 1px);
+        background-size: auto, 34px 28px;
+        box-shadow: 0 16px 30px rgba(44,36,33,0.16);
+      }
+
+      .device-base {
+        width: 270px;
+        height: 16px;
+        margin: -12px auto 0;
+        border-radius: 999px;
+        background: #d9d0c8;
+        box-shadow: 0 10px 20px rgba(44,36,33,0.08);
+      }
+
+      .local-device b,
+      .sovereignty b {
+        display: block;
+        margin-top: 18px;
+        font-size: 24px;
+      }
+
+      .local-device small,
+      .sovereignty small {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 760;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .model-core {
+        position: absolute;
+        left: 615px;
+        top: 170px;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        border: 1px solid rgba(139,90,74,0.16);
+        background:
+          radial-gradient(circle, rgba(255,255,255,0.98), rgba(255,255,255,0.76) 62%, rgba(139,90,74,0.1)),
+          linear-gradient(180deg, #fff, #f5f0ec);
+        box-shadow: 0 0 0 28px rgba(208,160,79,0.08), 0 0 0 86px rgba(139,90,74,0.045), 0 24px 68px rgba(44,36,33,0.12);
+      }
+
+      .model-icon {
+        width: 68px;
+        height: 68px;
+        margin: 0 auto 15px;
+        border-radius: 22px;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      }
+
+      .model-icon svg {
+        width: 36px;
+        height: 36px;
+        stroke-width: 2.1;
+      }
+
+      .model-core b {
+        display: block;
+        font-size: 26px;
+      }
+
+      .model-core small {
+        color: var(--muted);
+        font-weight: 820;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .process-stack {
+        position: absolute;
+        left: 1010px;
+        top: 120px;
+        width: 455px;
+      }
+
+      .process-card {
+        position: relative;
+        min-height: 118px;
+        margin-bottom: 18px;
+        padding: 18px 20px;
+        border-radius: 22px;
+        border: 1px solid rgba(139,90,74,0.12);
+        background: rgba(255,255,255,0.88);
+        box-shadow: 0 18px 46px rgba(44,36,33,0.09);
+        overflow: hidden;
+        opacity: 0;
+      }
+
+      .process-card b {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 21px;
+      }
+
+      .process-card p {
+        margin: 0;
+        color: var(--muted);
         font-size: 14px;
+        line-height: 1.45;
+        font-weight: 720;
+      }
+
+      .redaction {
+        display: flex;
+        gap: 8px;
+        margin-top: 13px;
+      }
+
+      .redaction span {
+        height: 18px;
+        border-radius: 999px;
+        background: rgba(139,90,74,0.18);
+      }
+
+      .redaction span:nth-child(1) { width: 112px; }
+      .redaction span:nth-child(2) { width: 74px; background: rgba(44,36,33,0.16); }
+      .redaction span:nth-child(3) { width: 92px; background: rgba(31,159,104,0.17); }
+
+      .slice-row {
+        position: absolute;
+        left: 510px;
+        top: 520px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .slice {
+        position: relative;
+        width: 72px;
+        height: 72px;
+        border-radius: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        border: 1px solid rgba(139,90,74,0.12);
+        background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(248,244,238,0.88));
+        box-shadow: 0 14px 30px rgba(44,36,33,0.08);
+        color: var(--primary);
+        font-size: 11px;
+        font-weight: 900;
+        opacity: 0;
+      }
+
+      .slice::before {
+        content: "";
+        position: absolute;
+        right: -10px;
+        top: 50%;
+        width: 10px;
+        height: 1px;
+        background: rgba(208,160,79,0.38);
+      }
+
+      .slice:last-child::before {
+        display: none;
+      }
+
+      .slice svg {
+        width: 24px;
+        height: 24px;
+        stroke: var(--primary);
+        fill: none;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .slice span {
+        display: block;
+        letter-spacing: 0;
+      }
+
+      .data-line {
+        position: absolute;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, transparent, rgba(208,160,79,0.8), rgba(31,159,104,0.55), transparent);
+        opacity: 0;
+        transform-origin: left center;
+      }
+
+      .dl1 { left: 440px; top: 330px; width: 180px; }
+      .dl2 { left: 910px; top: 330px; width: 100px; }
+      .dl3 { left: 638px; top: 500px; width: 470px; transform: rotate(15deg); }
+
+      .cloud-block {
+        position: absolute;
+        right: 138px;
+        bottom: 110px;
+        width: 190px;
+        height: 92px;
+        display: grid;
+        place-items: center;
+        border-radius: 24px;
+        border: 1px dashed rgba(139,90,74,0.24);
+        color: rgba(92,82,77,0.5);
+        background: rgba(255,255,255,0.38);
+        font-size: 15px;
         font-weight: 860;
-        box-shadow: 0 14px 32px rgba(44,36,33,0.08);
+        opacity: 0;
+      }
+
+      .cloud-block::after {
+        content: "";
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        top: 50%;
+        height: 2px;
+        transform: rotate(-12deg);
+        background: rgba(180,92,82,0.62);
+      }
+
+      .sovereignty {
+        position: absolute;
+        right: 94px;
+        top: 342px;
+        width: 260px;
+        height: 230px;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        border-radius: 30px;
+        border: 1px solid rgba(31,159,104,0.16);
+        background: rgba(255,255,255,0.9);
+        box-shadow: 0 24px 66px rgba(44,36,33,0.1);
+        opacity: 0;
+      }
+
+      .shield {
+        width: 76px;
+        height: 76px;
+        display: grid;
+        place-items: center;
+        margin: 0 auto;
+        border-radius: 24px;
+        color: #fff;
+        background: linear-gradient(135deg, var(--green), #14784e);
+        box-shadow: 0 18px 38px rgba(31,159,104,0.24);
+      }
+
+      .shield svg {
+        width: 42px;
+        height: 42px;
+        stroke-width: 2.2;
       }
 
       .flash-bar {
@@ -552,7 +707,7 @@
         transform: skewX(-18deg);
         background: linear-gradient(90deg, transparent, rgba(255,255,255,0.82), transparent);
         opacity: 0;
-        z-index: 20;
+        z-index: 40;
         pointer-events: none;
       }
     </style>
@@ -563,60 +718,111 @@
       <div class="paper-grid clip" id="paper-grid" data-start="0" data-duration="16" data-track-index="1"></div>
       <div class="wash clip" id="wash-layer" data-start="0" data-duration="16" data-track-index="2"></div>
       <div class="stage clip" id="stage" data-start="0" data-duration="16" data-track-index="3" data-layout-allow-overflow="true">
-        <section class="scene" id="scene-office">
-          <div class="board">
-            <div class="office-grid">
-              <article class="work-card office-card card-contract">
-                <div class="card-head"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/></svg>合同</div>
-                <div class="line"></div><div class="line mid"></div><div class="section-box"><b>付款与验收条款</b><p>自动识别交付标准、验收期限和触发条件。</p></div><div class="line short"></div>
-                <div class="compliance-tag tag-contract" style="top: 330px;"><div class="tag-left"><span class="tag-dot"></span><div><div class="tag-title">责任边界提醒</div><div class="tag-sub">建议补充赔偿上限</div></div></div><div class="tag-status">CHECK</div></div>
-              </article>
-              <article class="work-card office-card card-meeting">
-                <div class="card-head"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>会议纪要</div>
-                <div class="section-box"><b>预算确认</b><p>进入下一轮方案测算。</p></div><div class="section-box"><b>行动项</b><p>同步客户名单和行业材料。</p></div><div class="section-box"><b>负责人</b><p>销售、市场、交付三方联动。</p></div>
-                <div class="compliance-tag tag-meeting" style="top: 420px;"><div class="tag-left"><span class="tag-dot"></span><div><div class="tag-title">审批节点补齐</div><div class="tag-sub">涉及报价口径需留痕</div></div></div><div class="tag-status">TRACE</div></div>
-              </article>
-              <article class="work-card office-card card-email">
-                <div class="card-head"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>邮件 / 营销文案</div>
-                <div class="section-box"><b>客户方案初稿</b><p>生成正式但不生硬的跟进邮件。</p></div><div class="line"></div><div class="line mid"></div><div class="section-box"><b>新媒体短帖</b><p>突出痛点、步骤和可收藏清单。</p></div>
-                <div class="compliance-tag tag-email" style="top: 360px;"><div class="tag-left"><span class="tag-dot"></span><div><div class="tag-title">敏感表述建议</div><div class="tag-sub">营销承诺需保守表达</div></div></div><div class="tag-status">SAFE</div></div>
-              </article>
+        <section class="scene" id="scene-secure">
+          <div class="frame-label">SHOT 11 · SECURE WORKSPACE</div>
+          <div class="panel secure-map">
+            <div class="connection c1"></div>
+            <div class="connection c2"></div>
+            <div class="connection c3"></div>
+            <div class="connection c4"></div>
+            <div class="firewall firewall-v"></div>
+            <div class="firewall firewall-h"></div>
+            <div class="workspace-core">
+              <div>
+                <div class="core-mark"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.3 8 8 9 4.7-1 8-4 8-9V7z"/><path d="m9 12 2 2 4-5"/></svg></div>
+                <b>独立工作区</b>
+                <small>Secure Workspace</small>
+              </div>
             </div>
-            <div class="scan-line"></div>
-            <div class="screen-text">合规是底色｜效率与风险一起管理</div>
+            <article class="zone zone-top-left">
+              <div class="zone-head"><b>客户 A</b><span class="lock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></div>
+              <p>合同、资料和上下文在独立空间运行。</p>
+              <div class="zone-status"><span class="pill">Isolated</span><span class="pill">Private</span></div>
+            </article>
+            <article class="zone zone-top-right">
+              <div class="zone-head"><b>客户 B</b><span class="lock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></div>
+              <p>权限边界清晰，客户数据互不串扰。</p>
+              <div class="zone-status"><span class="pill">Access Bound</span><span class="pill">Logged</span></div>
+            </article>
+            <article class="zone zone-bottom-left">
+              <div class="zone-head"><b>案件 001</b><span class="lock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></div>
+              <p>材料、任务、账号按案件隔离管理。</p>
+              <div class="zone-status"><span class="pill">Sandbox</span><span class="pill">Traceable</span></div>
+            </article>
+            <article class="zone zone-bottom-right">
+              <div class="zone-head"><b>项目 Alpha</b><span class="lock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span></div>
+              <p>项目成员和文件权限按角色收敛。</p>
+              <div class="zone-status"><span class="pill">Least Privilege</span></div>
+            </article>
           </div>
+          <div class="panel audit-panel">
+            <div class="audit-title"><svg viewBox="0 0 24 24"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>审计日志</div>
+            <div class="audit-row"><time>09:41</time><div><b>文件访问</b><span>客户 A / 合同终稿.pdf</span></div><em class="audit-ok">OK</em></div>
+            <div class="audit-row"><time>09:43</time><div><b>权限变更</b><span>项目 Alpha / 只读授权</span></div><em class="audit-ok">OK</em></div>
+            <div class="audit-row"><time>09:46</time><div><b>跨区请求</b><span>客户 B 数据访问被拦截</span></div><em class="audit-ok">BLOCK</em></div>
+            <div class="audit-row"><time>09:50</time><div><b>结果导出</b><span>案件 001 / 生成追踪记录</span></div><em class="audit-ok">LOG</em></div>
+          </div>
+          <div class="hero-copy">不同客户、案件、项目进入各自的<span>安全沙箱</span>，权限隔离，操作可追踪。</div>
         </section>
 
-        <section class="scene" id="scene-hub">
-          <div class="board">
-            <div class="hub-board">
-              <div class="hub-core"><div><div class="hub-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.4"/><rect x="14" y="4" width="6" height="6" rx="1.4"/><rect x="4" y="14" width="6" height="6" rx="1.4"/><rect x="14" y="14" width="6" height="6" rx="1.4"/><path d="M10 7h4M7 10v4M17 10v4M10 17h4"/></svg></div><b>WiseLaw Skill Hub</b><small>53 Skills</small></div></div>
-              <div class="stage-card p1"><b>案件接待与初步研判</b><small>谈案笔录、企业尽调、模拟裁判</small></div>
-              <div class="stage-card p2"><b>法律检索与案例研究</b><small>法规检索、类案检索、法律备忘录</small></div>
-              <div class="stage-card p3"><b>合同审查</b><small>多法域合同、股权交易、劳动人事</small></div>
-              <div class="stage-card p4"><b>合同与文书起草</b><small>合同起草、律师函、公司决议</small></div>
-              <div class="stage-card p5"><b>尽职调查与合规</b><small>披露追踪、ESG审查、商标组合</small></div>
-              <div class="stage-card p6"><b>庭前准备</b><small>庭前准备、证据分析</small></div>
-              <div class="stage-card p7"><b>庭审实战</b><small>庭审发问策略</small></div>
-              <div class="stage-card p8"><b>案件归档与知识管理</b><small>律师办案小结</small></div>
-              <div class="stage-card p9"><b>翻译与双语支持</b><small>年报翻译、双语术语表</small></div>
-              <div class="skill-panel skill-contract">
-                <h2>合同审查 Skill</h2>
-                <div class="chip-grid"><span class="skill-chip">合同审查（多法域）</span><span class="skill-chip">股权交易合同审查</span><span class="skill-chip">IP/软件开发合同审查</span><span class="skill-chip">劳动人事合同审查</span><span class="skill-chip">广告合同审查</span></div>
+        <section class="scene" id="scene-local">
+          <div class="frame-label">SHOT 12 · LOCAL DATA SOVEREIGNTY</div>
+          <div class="panel local-flow">
+            <div class="local-grid">
+              <div class="local-device">
+                <div>
+                  <div class="device-screen"></div>
+                  <div class="device-base"></div>
+                  <b>本地部署</b>
+                  <small>Local Deployment</small>
+                </div>
               </div>
-              <div class="skill-panel skill-research">
-                <h2>法律检索与案例研究 Skill</h2>
-                <div class="chip-grid"><span class="skill-chip">中国内地法规检索</span><span class="skill-chip">中国香港法规检索</span><span class="skill-chip">类案检索报告</span><span class="skill-chip">争议焦点分析</span><span class="skill-chip">法律备忘录起草</span></div>
+              <div class="data-line dl1"></div>
+              <div class="model-core">
+                <div>
+                  <div class="model-icon"><svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M5 7a4 4 0 0 1 7-2 4 4 0 0 1 7 2"/><path d="M5 17a4 4 0 0 0 7 2 4 4 0 0 0 7-2"/><path d="M4 12h16"/></svg></div>
+                  <b>本地小模型</b>
+                  <small>Private Model</small>
+                </div>
               </div>
-              <div class="skill-panel skill-compliance">
-                <h2>尽职调查与合规 Skill</h2>
-                <div class="chip-grid"><span class="skill-chip">中国内地企业尽调</span><span class="skill-chip">中国香港企业尽调</span><span class="skill-chip">监管披露追踪</span><span class="skill-chip">ESG报告审查</span><span class="skill-chip">商标组合管理</span></div>
+              <div class="data-line dl2"></div>
+              <div class="data-line dl3"></div>
+              <div class="slice-row">
+                <div class="slice"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg><span>片段 A</span></div>
+                <div class="slice"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg><span>片段 B</span></div>
+                <div class="slice"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg><span>片段 C</span></div>
+                <div class="slice"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg><span>片段 D</span></div>
               </div>
-              <div class="skill-cloud" aria-label="53 个 WiseLaw Skill 全名单"></div>
-              <div class="cert-row"><span class="cert">专业审核</span><span class="cert">专家共创</span><span class="cert">真实验证</span><span class="cert">持续迭代</span></div>
+              <div class="process-stack">
+                <article class="process-card">
+                  <b>文件切片</b>
+                  <p>合同、邮件、资料先在本地拆分为可控片段。</p>
+                </article>
+                <article class="process-card">
+                  <b>脱敏处理</b>
+                  <p>敏感字段进入模型前先被遮蔽和过滤。</p>
+                  <div class="redaction"><span></span><span></span><span></span></div>
+                </article>
+                <article class="process-card">
+                  <b>本地闭环</b>
+                  <p>数据流只在本地工作区内循环，不越过主权边界。</p>
+                </article>
+              </div>
+              <div class="cloud-block">External Cloud</div>
+              <div class="sovereignty">
+                <div>
+                  <div class="shield"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.3 8 8 9 4.7-1 8-4 8-9V7z"/><path d="m9 12 2 2 4-5"/></svg></div>
+                  <b>数据主权</b>
+                  <small>Data Sovereignty</small>
+                </div>
+              </div>
             </div>
           </div>
+          <div class="hero-copy">资料可以本地部署、本地小模型和本地脱敏处理，尽可能把<span>数据主权</span>掌握在自己手里。</div>
         </section>
+
+        <div class="screen-text" id="secure-screen-text">独立工作区｜安全沙箱｜权限隔离｜审计追踪</div>
+        <div class="screen-text" id="local-screen-text">本地部署｜本地小模型｜脱敏处理｜数据主权</div>
         <div class="flash-bar" id="flash-bar" data-layout-allow-overflow="true"></div>
       </div>
     </div>
@@ -626,121 +832,52 @@
       window.__timelines = window.__timelines || {};
       gsap.defaults({ ease: "power3.out" });
       const tl = gsap.timeline({ paused: true });
-      const skillList = [
-        ["律师谈案笔录", "多法域"], ["中国内地企业尽调", "中国内地"], ["中国香港企业尽调", "中国香港"],
-        ["中国内地模拟裁判报告", "中国内地"], ["中国香港模拟裁判报告", "中国香港"], ["家事案件接待", "中国内地"],
-        ["案件时间线构建", "多法域"], ["法律文档分类器", "多法域"], ["律师联系人管理", "多法域"],
-        ["中国内地法规检索", "中国内地"], ["中国香港法规检索", "中国香港"], ["中国内地类案检索", "中国内地"],
-        ["中国香港类案检索", "中国香港"], ["类案检索报告", "多法域"], ["中国内地争议焦点分析", "中国内地"],
-        ["中国香港争议焦点分析", "中国香港"], ["CityU Lexis数据库检索", "中国香港"], ["法律研究方法论", "多法域"],
-        ["法律备忘录起草", "多法域"], ["中国内地合同预审", "中国内地"], ["合同审查（多法域）", "多法域"],
-        ["著作权合同审查", "中国内地"], ["商标合同审查", "中国内地"], ["IP/软件开发合同审查", "中国内地"],
-        ["知识产权质押合同审查", "中国内地"], ["广告合同审查", "中国内地"], ["IP许可协议分析", "多法域"],
-        ["股权交易合同审查", "中国内地"], ["私募投资协议审查", "中国内地"], ["合伙协议审查", "中国内地"],
-        ["特许经营合同审查", "中国内地"], ["劳动人事合同审查", "中国内地"], ["租赁合同审查", "中国内地"],
-        ["民间借贷合同审查", "中国内地"], ["保管合同审查", "中国内地"], ["离婚协议审查", "中国内地"],
-        ["合同起草助手", "多法域"], ["律师函撰写", "多法域"], ["公司决议起草", "多法域"],
-        ["尽调清单生成", "多法域"], ["中国香港联交所年报审查", "中国香港"], ["ESG报告审查", "中国香港"],
-        ["监管披露追踪", "多法域"], ["商标组合管理", "多法域"], ["科创项目评估", "多法域"],
-        ["中国内地庭前准备", "中国内地"], ["中国香港庭前准备", "中国香港"], ["中国内地证据分析", "中国内地"],
-        ["中国香港证据分析", "中国香港"], ["庭审发问策略", "中国内地"], ["律师办案小结", "多法域"],
-        ["年报翻译", "多法域"], ["双语术语表构建", "多法域"]
-      ];
-      const skillPositions = [
-        [-610,-365],[-455,-365],[-300,-365],[-145,-365],[145,-365],[300,-365],[455,-365],[610,-365],
-        [-690,-270],[-505,-270],[-320,-270],[320,-270],[505,-270],[690,-270],
-        [-720,-170],[-540,-170],[-360,-170],[360,-170],[540,-170],[720,-170],
-        [-740,-70],[-560,-70],[-380,-70],[380,-70],[560,-70],[740,-70],
-        [-740,52],[-560,52],[-380,52],[380,52],[560,52],[740,52],
-        [-720,168],[-540,168],[-360,168],[360,168],[540,168],[720,168],
-        [-690,272],[-505,272],[-320,272],[320,272],[505,272],[690,272],
-        [-610,368],[-455,368],[-300,368],[-145,368],[145,368],[300,368],[455,368],[610,368],[0,368]
-      ];
-      const skillCloud = document.querySelector(".skill-cloud");
-      skillList.forEach(([name, domain], index) => {
-        const node = document.createElement("span");
-        const [tx, ty] = skillPositions[index];
-        const width = name.length > 9 ? 178 : name.length > 7 ? 156 : 132;
-        node.className = "skill-node";
-        node.textContent = name;
-        node.dataset.domain = domain;
-        node.dataset.tx = tx;
-        node.dataset.ty = ty;
-        node.style.left = `calc(50% + ${tx}px - ${width / 2}px)`;
-        node.style.top = `calc(50% + ${ty}px - 14px)`;
-        node.style.setProperty("--node-width", `${width}px`);
-        skillCloud.appendChild(node);
-      });
 
       function flash(time) {
-        tl.fromTo("#flash-bar", { opacity: 0, visibility: "visible", x: 0 }, { opacity: 0.72, x: 2350, duration: 0.38, ease: "power2.inOut" }, time)
+        tl.fromTo("#flash-bar", { opacity: 0, x: 0 }, { opacity: 0.72, x: 2350, duration: 0.38, ease: "power2.inOut" }, time)
           .to("#flash-bar", { opacity: 0, duration: 0.12 }, time + 0.38)
           .set("#flash-bar", { opacity: 0, visibility: "hidden" }, time + 0.5);
       }
 
       tl.fromTo("#stage", { opacity: 0 }, { opacity: 1, duration: 0.28 }, 0)
-        .fromTo("#scene-office", { opacity: 0, y: 38, scale: 0.988 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "expo.out" }, 0)
-        .from("#scene-office .board", { opacity: 0, y: 46, scale: 0.95, duration: 0.56, ease: "expo.out" }, 0.18)
-        .from("#scene-office .office-card", { opacity: 0, y: 38, scale: 0.95, duration: 0.48, stagger: 0.14, ease: "back.out(1.1)" }, 0.72)
-        .from("#scene-office .line, #scene-office .section-box", { opacity: 0, y: 18, scale: 0.98, duration: 0.32, stagger: 0.035 }, 1.18)
-        .fromTo(".scan-line", { opacity: 0, y: 0 }, { opacity: 1, y: 472, duration: 1.7, ease: "sine.inOut" }, 1.6)
-        .to(".scan-line", { opacity: 0, duration: 0.18 }, 3.3)
-        .set(".scan-line", { opacity: 0, visibility: "hidden" }, 3.48)
-        .fromTo(".tag-contract", { opacity: 0, y: 24, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.36, ease: "back.out(1.15)" }, 2.0)
-        .fromTo(".tag-meeting", { opacity: 0, y: 24, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.36, ease: "back.out(1.15)" }, 2.58)
-        .fromTo(".tag-email", { opacity: 0, y: 24, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.36, ease: "back.out(1.15)" }, 3.16)
-        .to("#scene-office .board", { scale: 1.018, x: -10, duration: 1.0, ease: "sine.inOut" }, 3.68)
-        .fromTo(".screen-text", { opacity: 0, y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.48, ease: "expo.out" }, 4.25)
-        .to("#scene-office", { opacity: 0, y: -34, scale: 0.99, duration: 0.5, ease: "power2.inOut" }, 7.1)
-        .set("#scene-office", { opacity: 0, visibility: "hidden" }, 7.6);
+        .fromTo("#scene-secure", { opacity: 0, y: 34, scale: 0.988 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "expo.out" }, 0)
+        .from("#scene-secure .frame-label", { opacity: 0, y: 14, duration: 0.28 }, 0.08)
+        .from("#scene-secure .secure-map", { opacity: 0, y: 44, scale: 0.95, duration: 0.52, ease: "expo.out" }, 0.18)
+        .from(".workspace-core", { opacity: 0, scale: 0.58, rotation: -8, duration: 0.54, ease: "expo.out" }, 0.45)
+        .fromTo(".connection", { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.5, stagger: 0.06, ease: "power2.out" }, 0.9)
+        .fromTo(".zone", { opacity: 0, scale: 0.82, y: 24 }, { opacity: 1, scale: 1, y: 0, duration: 0.42, stagger: 0.12, ease: "back.out(1.25)" }, 1.18)
+        .fromTo(".firewall", { opacity: 0, scale: 0.72 }, { opacity: 1, scale: 1, duration: 0.45, stagger: 0.08, ease: "power2.out" }, 2.15)
+        .from("#scene-secure .audit-panel", { opacity: 0, x: 60, scale: 0.95, duration: 0.48, ease: "expo.out" }, 2.42)
+        .fromTo(".audit-row", { opacity: 0, y: 24, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.34, stagger: 0.2, ease: "back.out(1.15)" }, 2.82)
+        .fromTo("#scene-secure .hero-copy", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 4.35)
+        .fromTo("#secure-screen-text", { opacity: 0, y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.46, ease: "expo.out" }, 5.05)
+        .to("#scene-secure", { opacity: 0, y: -32, scale: 0.99, duration: 0.52, ease: "power2.inOut" }, 7.05)
+        .to("#secure-screen-text", { opacity: 0, duration: 0.24 }, 7.02)
+        .set("#scene-secure", { opacity: 0, visibility: "hidden" }, 7.58)
+        .set("#secure-screen-text", { opacity: 0, visibility: "hidden" }, 7.26);
 
-      flash(0.22);
-      flash(6.95);
+      flash(0.16);
+      flash(6.92);
 
-      tl.fromTo("#scene-hub", { opacity: 0, y: 36, scale: 0.988 }, { opacity: 1, y: 0, scale: 1, duration: 0.54, ease: "expo.out" }, 7.35)
-        .from("#scene-hub .board", { opacity: 0, y: 48, scale: 0.95, duration: 0.5, ease: "expo.out" }, 7.54)
-        .from(".hub-core", { opacity: 0, scale: 0.58, rotation: -12, duration: 0.58, ease: "expo.out" }, 8.0)
-        .from(".stage-card", { opacity: 0, scale: 0.72, y: 24, duration: 0.46, stagger: 0.055, ease: "back.out(1.1)" }, 8.42)
-        .to(".stage-card", { opacity: 0.34, scale: 0.94, duration: 0.26, ease: "power2.out" }, 10.0)
-        .fromTo(".skill-contract", { opacity: 0, y: 28, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "expo.out" }, 10.08)
-        .from(".skill-contract .skill-chip", { opacity: 0, y: 16, scale: 0.92, duration: 0.26, stagger: 0.045, ease: "back.out(1.1)" }, 10.34)
-        .to(".skill-contract", { opacity: 0, y: -18, scale: 0.96, duration: 0.28, ease: "power2.inOut" }, 11.18)
-        .set(".skill-contract", { opacity: 0, visibility: "hidden" }, 11.46)
-        .fromTo(".skill-research", { opacity: 0, y: 28, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "expo.out" }, 11.3)
-        .from(".skill-research .skill-chip", { opacity: 0, y: 16, scale: 0.92, duration: 0.26, stagger: 0.045, ease: "back.out(1.1)" }, 11.56)
-        .to(".skill-research", { opacity: 0, y: -18, scale: 0.96, duration: 0.28, ease: "power2.inOut" }, 12.38)
-        .set(".skill-research", { opacity: 0, visibility: "hidden" }, 12.66)
-        .fromTo(".skill-compliance", { opacity: 0, y: 28, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "expo.out" }, 12.5)
-        .from(".skill-compliance .skill-chip", { opacity: 0, y: 16, scale: 0.92, duration: 0.26, stagger: 0.045, ease: "back.out(1.1)" }, 12.76)
-        .to(".skill-compliance", { opacity: 0, y: -18, scale: 0.96, duration: 0.28, ease: "power2.inOut" }, 13.64)
-        .set(".skill-compliance", { opacity: 0, visibility: "hidden" }, 13.92)
-        .to(".stage-card", { opacity: 1, scale: 1, duration: 0.34, stagger: 0.025, ease: "power2.out" }, 13.78)
-        .to(".stage-card", { opacity: 0, scale: 0.88, y: 8, duration: 0.28, ease: "power2.inOut" }, 14.0)
-        .set(".stage-card", { opacity: 0, visibility: "hidden" }, 14.28)
-        .fromTo(".skill-node",
-          {
-            opacity: 0,
-            scale: 0.2,
-            x: (index, target) => -Number(target.dataset.tx),
-            y: (index, target) => -Number(target.dataset.ty),
-            rotation: (index) => (index % 2 === 0 ? -8 : 8)
-          },
-          {
-            opacity: 1,
-            scale: 1,
-            x: 0,
-            y: 0,
-            rotation: 0,
-            duration: 0.58,
-            stagger: { each: 0.012, from: "center" },
-            ease: "back.out(1.35)"
-          },
-          14.14
-        )
-        .fromTo(".cert-row", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.36, ease: "expo.out" }, 15.18)
-        .from(".cert", { opacity: 0, scale: 0.82, rotation: -4, duration: 0.28, stagger: 0.08, ease: "back.out(1.35)" }, 15.28)
-        .to(".hub-core", { scale: 1.05, duration: 0.24, ease: "sine.inOut" }, 15.12)
-        .to(".hub-core", { scale: 1, duration: 0.28, ease: "sine.inOut" }, 15.42);
+      tl.fromTo("#scene-local", { opacity: 0, y: 36, scale: 0.988 }, { opacity: 1, y: 0, scale: 1, duration: 0.54, ease: "expo.out" }, 7.32)
+        .from("#scene-local .frame-label", { opacity: 0, y: 14, duration: 0.28 }, 7.42)
+        .from("#scene-local .local-flow", { opacity: 0, y: 44, scale: 0.95, duration: 0.5, ease: "expo.out" }, 7.5)
+        .from(".local-device", { opacity: 0, x: -50, scale: 0.92, duration: 0.48, ease: "expo.out" }, 7.82)
+        .fromTo(".dl1", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.36, ease: "power2.out" }, 8.22)
+        .from(".model-core", { opacity: 0, scale: 0.62, rotation: -10, duration: 0.52, ease: "expo.out" }, 8.45)
+        .fromTo(".slice", { opacity: 0, y: 24, scale: 0.72 }, { opacity: 1, y: 0, scale: 1, duration: 0.34, stagger: 0.07, ease: "back.out(1.25)" }, 9.02)
+        .fromTo(".dl2", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.34, ease: "power2.out" }, 9.48)
+        .fromTo(".process-card", { opacity: 0, x: 42, scale: 0.95 }, { opacity: 1, x: 0, scale: 1, duration: 0.42, stagger: 0.18, ease: "back.out(1.08)" }, 9.72)
+        .from(".redaction span", { opacity: 0, scaleX: 0, duration: 0.28, stagger: 0.08, transformOrigin: "left center", ease: "power2.out" }, 10.55)
+        .fromTo(".dl3", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.46, ease: "power2.out" }, 11.22)
+        .fromTo(".cloud-block", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "power2.out" }, 11.52)
+        .to(".cloud-block", { opacity: 0.36, scale: 0.95, duration: 0.32, ease: "power2.out" }, 12.06)
+        .fromTo(".sovereignty", { opacity: 0, y: 26, scale: 0.82 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.2)" }, 12.3)
+        .fromTo("#scene-local .hero-copy", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 13.0)
+        .fromTo("#local-screen-text", { opacity: 0, visibility: "visible", y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.46, ease: "expo.out" }, 14.15)
+        .to("#local-screen-text", { color: "#14784e", duration: 0.25 }, 14.4)
+        .to(".model-core, .sovereignty", { scale: 1.035, duration: 0.28, ease: "sine.inOut" }, 15.1)
+        .to(".model-core, .sovereignty", { scale: 1, duration: 0.28, ease: "sine.inOut" }, 15.42);
 
       window.__timelines["main"] = tl;
     </script>

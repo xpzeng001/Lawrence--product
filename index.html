@@ -3,26 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Shot 8 · Office & Marketing Workflows</title>
+    <title>Shot 9 & 10 · Compliance Skill Hub</title>
     <style>
       :root {
-        --background: #faf8f6;
         --foreground: #2c2421;
         --muted: #5c524d;
         --primary: #8b5a4a;
         --primary-dark: #70483d;
         --border: #e8e2dc;
-        --card: #ffffff;
         --green: #1f9f68;
         --gold: #d0a04f;
         --blue: #5f7082;
+        --danger: #b45c52;
       }
 
       * { box-sizing: border-box; }
 
+      html,
       body {
         margin: 0;
-        background: #0d0c0b;
+        background: #f5f0ec;
         font-family: Inter, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
       }
 
@@ -34,7 +34,7 @@
         color: var(--foreground);
         background:
           radial-gradient(ellipse 56% 46% at 50% 42%, rgba(139, 90, 74, 0.13), transparent 68%),
-          radial-gradient(ellipse 34% 30% at 88% 16%, rgba(95, 112, 130, 0.1), transparent 72%),
+          radial-gradient(ellipse 34% 30% at 88% 16%, rgba(31, 159, 104, 0.08), transparent 72%),
           linear-gradient(180deg, #fbf9f7 0%, #f5f0ec 58%, #eee7e1 100%);
       }
 
@@ -54,7 +54,7 @@
         position: absolute;
         inset: 0;
         background:
-          linear-gradient(90deg, rgba(255,255,255,0.88), rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.78)),
+          linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.14) 52%, rgba(255,255,255,0.78)),
           linear-gradient(180deg, rgba(139,90,74,0.03), rgba(95,112,130,0.04));
       }
 
@@ -64,19 +64,26 @@
         opacity: 0;
       }
 
-      .workflow {
+      .base-bg {
         position: absolute;
         inset: 0;
-        padding: 92px 112px 84px;
-        display: grid;
-        grid-template-columns: 470px minmax(0, 1fr);
-        gap: 58px;
-        align-items: center;
-        opacity: 0;
-        will-change: transform, opacity;
+        background:
+          radial-gradient(ellipse 56% 46% at 50% 42%, rgba(139, 90, 74, 0.13), transparent 68%),
+          radial-gradient(ellipse 34% 30% at 88% 16%, rgba(31, 159, 104, 0.08), transparent 72%),
+          linear-gradient(180deg, #fbf9f7 0%, #f5f0ec 58%, #eee7e1 100%);
       }
 
-      .label {
+      .scene {
+        position: absolute;
+        inset: 0;
+        padding: 92px 118px 92px;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        opacity: 0;
+      }
+
+      .kicker {
         display: inline-flex;
         align-items: center;
         gap: 10px;
@@ -84,14 +91,14 @@
         padding: 0 16px;
         border: 1px solid rgba(139,90,74,0.14);
         border-radius: 999px;
-        background: rgba(255,255,255,0.74);
+        background: rgba(255,255,255,0.76);
         color: var(--primary);
         font-size: 14px;
         font-weight: 860;
         box-shadow: 0 12px 32px rgba(44,36,33,0.06);
       }
 
-      .label::before {
+      .kicker::before {
         content: "";
         width: 8px;
         height: 8px;
@@ -99,20 +106,20 @@
         background: var(--primary);
       }
 
-      .title {
-        margin: 26px 0 0;
-        font-size: 70px;
+      h1 {
+        margin: 24px 0 0;
+        font-size: 66px;
         line-height: 1.06;
         letter-spacing: 0;
         font-weight: 880;
       }
 
-      .title .accent { color: var(--primary); }
+      h1 span { color: var(--primary); }
 
       .copy {
-        margin-top: 22px;
+        margin: 22px 0 0;
         color: var(--muted);
-        font-size: 25px;
+        font-size: 24px;
         line-height: 1.45;
         font-weight: 720;
       }
@@ -120,7 +127,7 @@
       .meta {
         display: grid;
         gap: 12px;
-        margin-top: 32px;
+        margin-top: 30px;
       }
 
       .meta div {
@@ -140,20 +147,21 @@
         box-shadow: 0 0 0 8px rgba(208,160,79,0.13);
       }
 
-      .interface {
+      .board {
         position: relative;
-        height: 720px;
+        width: min(1560px, 100%);
+        height: 820px;
+        margin: 0 auto;
         border: 1px solid rgba(139,90,74,0.12);
-        border-radius: 28px;
+        border-radius: 30px;
         background:
           linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.78)),
-          radial-gradient(circle at 78% 10%, rgba(139,90,74,0.11), transparent 32%);
+          radial-gradient(circle at 78% 12%, rgba(139,90,74,0.11), transparent 34%);
         box-shadow: 0 32px 82px rgba(44,36,33,0.13), 0 1px 0 rgba(255,255,255,0.8) inset;
         overflow: hidden;
-        will-change: transform, opacity;
       }
 
-      .interface::before {
+      .board::before {
         content: "";
         position: absolute;
         inset: 0;
@@ -164,23 +172,46 @@
         opacity: 0.58;
       }
 
-      .topbar {
-        position: relative;
-        z-index: 2;
-        height: 68px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 28px;
-        border-bottom: 1px solid rgba(139,90,74,0.1);
-        background: rgba(255,255,255,0.72);
+      #scene-hub .board {
+        border-color: transparent;
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
       }
 
-      .topbar b {
+      #scene-hub .board::before {
+        display: none;
+      }
+
+      .office-grid {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        padding: 38px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        align-items: stretch;
+      }
+
+      .work-card {
+        position: relative;
+        min-height: 640px;
+        padding: 26px;
+        border: 1px solid rgba(139,90,74,0.12);
+        border-radius: 24px;
+        background: rgba(255,255,255,0.86);
+        box-shadow: 0 22px 58px rgba(44,36,33,0.1);
+        overflow: hidden;
+      }
+
+      .card-head {
         display: flex;
         align-items: center;
         gap: 12px;
-        font-size: 18px;
+        margin-bottom: 24px;
+        font-size: 24px;
+        font-weight: 860;
       }
 
       svg {
@@ -190,61 +221,39 @@
         stroke-linejoin: round;
       }
 
-      .topbar svg {
-        width: 28px;
-        height: 28px;
-        color: var(--primary);
-        stroke-width: 2.35;
-      }
-
-      .pill {
+      .card-head svg {
+        width: 30px;
         height: 30px;
-        padding: 0 12px;
-        display: inline-flex;
-        align-items: center;
+        color: var(--primary);
+        stroke-width: 2.3;
+      }
+
+      .line {
+        height: 12px;
         border-radius: 999px;
-        background: rgba(31,159,104,0.1);
-        color: var(--green);
-        font-size: 13px;
-        font-weight: 850;
+        background: rgba(92,82,77,0.17);
+        margin-bottom: 16px;
       }
 
-      .body {
-        position: relative;
-        z-index: 2;
-        height: calc(100% - 68px);
-        padding: 28px;
-      }
+      .line.short { width: 54%; }
+      .line.mid { width: 74%; }
+      .line.accent { background: rgba(139,90,74,0.25); }
 
-      .grid-two {
-        display: grid;
-        grid-template-columns: 42% 1fr;
-        gap: 22px;
-        height: 100%;
-      }
-
-      .panel, .card {
-        border: 1px solid rgba(139,90,74,0.1);
-        border-radius: 20px;
-        background: rgba(255,255,255,0.82);
-        box-shadow: 0 18px 48px rgba(44,36,33,0.06);
-      }
-
-      .panel { padding: 22px; }
-
-      .card {
+      .section-box {
+        margin: 22px 0;
         padding: 18px;
-        margin-bottom: 14px;
-        will-change: transform, opacity;
+        border-radius: 16px;
+        border: 1px solid rgba(139,90,74,0.1);
+        background: rgba(255,255,255,0.72);
       }
 
-      .card h3 {
-        margin: 0 0 9px;
-        font-size: 22px;
-        line-height: 1.18;
+      .section-box b {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 20px;
       }
 
-      .card p {
+      .section-box p {
         margin: 0;
         color: var(--muted);
         font-size: 15px;
@@ -252,151 +261,286 @@
         font-weight: 680;
       }
 
-      .line {
-        height: 12px;
-        border-radius: 999px;
-        background: rgba(92,82,77,0.18);
-        margin-bottom: 16px;
-      }
-
-      .line.short { width: 56%; }
-      .line.mid { width: 76%; }
-
-      .note-row {
-        display: grid;
-        grid-template-columns: 76px 1fr;
-        gap: 16px;
-        align-items: start;
-        padding: 14px 0;
-        border-bottom: 1px solid rgba(139,90,74,0.08);
-        will-change: transform, opacity;
-      }
-
-      .time {
-        color: var(--primary);
-        font-size: 14px;
-        font-weight: 860;
-      }
-
-      .brief-cover {
-        display: grid;
-        place-items: center;
-        min-height: 250px;
-        border-radius: 22px;
-        color: #fff;
-        background: linear-gradient(135deg, var(--primary), var(--blue));
-      }
-
-      .brief-cover strong {
-        display: block;
-        font-size: 36px;
-        line-height: 1.14;
-        text-align: center;
-      }
-
-      .email-box {
-        border-radius: 18px;
-        background: rgba(255,255,255,0.86);
-        border: 1px solid rgba(139,90,74,0.1);
-        padding: 18px;
-      }
-
-      .subject {
-        height: 42px;
+      .compliance-tag {
+        position: absolute;
+        left: 26px;
+        right: 26px;
         display: flex;
         align-items: center;
-        padding: 0 14px;
-        border-radius: 12px;
-        background: rgba(139,90,74,0.07);
-        color: var(--primary);
-        font-weight: 850;
-      }
-
-      .kanban {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
-        height: 100%;
-      }
-
-      .col {
-        padding: 16px;
+        justify-content: space-between;
+        min-height: 72px;
+        padding: 16px 18px;
         border-radius: 18px;
-        background: rgba(255,255,255,0.76);
-        border: 1px solid rgba(139,90,74,0.1);
+        border: 1px solid rgba(208,160,79,0.28);
+        background: rgba(255,250,238,0.92);
+        box-shadow: 0 18px 42px rgba(208,160,79,0.14);
+        opacity: 0;
       }
 
-      .col h3 {
-        margin: 0 0 16px;
-        font-size: 18px;
+      .tag-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
       }
 
-      .task {
-        min-height: 82px;
-        padding: 14px;
-        margin-bottom: 12px;
-        border-radius: 14px;
-        background: rgba(255,255,255,0.9);
-        color: var(--muted);
-        font-size: 14px;
-        font-weight: 720;
-        box-shadow: 0 12px 28px rgba(44,36,33,0.06);
-        will-change: transform, opacity;
-      }
-
-      .social-card {
-        display: grid;
-        grid-template-columns: 180px 1fr;
-        gap: 18px;
-        padding: 18px;
-        border-radius: 22px;
-        background: rgba(255,255,255,0.84);
-        border: 1px solid rgba(139,90,74,0.1);
-        will-change: transform, opacity;
-      }
-
-      .thumb {
-        height: 148px;
-        border-radius: 18px;
-        background:
-          radial-gradient(circle at 42% 38%, rgba(208,160,79,0.45), transparent 32%),
-          linear-gradient(135deg, rgba(139,90,74,0.9), rgba(95,112,130,0.86));
-      }
-
-      .script-timeline {
-        position: relative;
-        display: grid;
-        gap: 16px;
-        padding-left: 34px;
-      }
-
-      .script-timeline::before {
-        content: "";
-        position: absolute;
-        left: 10px;
-        top: 8px;
-        bottom: 8px;
-        width: 2px;
-        background: rgba(139,90,74,0.22);
-      }
-
-      .beat {
-        position: relative;
-        padding: 16px;
-        border-radius: 16px;
-        background: rgba(255,255,255,0.86);
-        border: 1px solid rgba(139,90,74,0.1);
-      }
-
-      .beat::before {
-        content: "";
-        position: absolute;
-        left: -31px;
-        top: 22px;
+      .tag-dot {
         width: 12px;
         height: 12px;
         border-radius: 50%;
         background: var(--gold);
+        box-shadow: 0 0 0 8px rgba(208,160,79,0.16);
+      }
+
+      .tag-title {
+        font-size: 18px;
+        font-weight: 850;
+      }
+
+      .tag-sub {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 720;
+      }
+
+      .tag-status {
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 860;
+      }
+
+      .scan-line {
+        position: absolute;
+        z-index: 5;
+        left: 36px;
+        right: 36px;
+        top: 120px;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, transparent, rgba(208,160,79,0.88), transparent);
+        opacity: 0;
+        box-shadow: 0 0 24px rgba(208,160,79,0.35);
+      }
+
+      .screen-text {
+        position: absolute;
+        z-index: 6;
+        left: 50%;
+        bottom: 42px;
+        transform: translateX(-50%);
+        padding: 18px 28px;
+        border-radius: 999px;
+        color: var(--primary-dark);
+        background: rgba(255,255,255,0.86);
+        border: 1px solid rgba(139,90,74,0.13);
+        box-shadow: 0 18px 44px rgba(44,36,33,0.11);
+        font-size: 25px;
+        font-weight: 880;
+        opacity: 0;
+      }
+
+      .hub-board {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+      }
+
+      .hub-core {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 260px;
+        height: 260px;
+        margin: -130px 0 0 -130px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        text-align: center;
+        border: 1px solid rgba(139,90,74,0.16);
+        background:
+          radial-gradient(circle at 50% 42%, rgba(255,255,255,0.98), rgba(255,255,255,0.78) 58%, rgba(139,90,74,0.1)),
+          linear-gradient(180deg, rgba(255,255,255,0.96), rgba(245,240,236,0.92));
+        box-shadow: 0 34px 90px rgba(44,36,33,0.14), 0 0 0 28px rgba(208,160,79,0.08), 0 0 0 86px rgba(139,90,74,0.045);
+      }
+
+      .hub-core::before,
+      .hub-core::after {
+        content: "";
+        position: absolute;
+        inset: -106px;
+        border-radius: 50%;
+        border: 1px solid rgba(139,90,74,0.12);
+      }
+
+      .hub-core::after {
+        inset: -188px;
+        border-style: dashed;
+        opacity: 0.65;
+      }
+
+      .hub-mark {
+        width: 62px;
+        height: 62px;
+        margin: 0 auto 15px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        box-shadow: 0 16px 34px rgba(139,90,74,0.24);
+        display: grid;
+        place-items: center;
+      }
+
+      .hub-mark svg {
+        width: 35px;
+        height: 35px;
+        color: rgba(255,255,255,0.94);
+        stroke-width: 2.25;
+      }
+
+      .hub-core b {
+        display: block;
+        font-size: 27px;
+        line-height: 1.12;
+      }
+
+      .hub-core small {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 820;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .stage-card {
+        position: absolute;
+        width: 250px;
+        min-height: 104px;
+        padding: 18px 20px;
+        border-radius: 22px;
+        border: 1px solid rgba(139,90,74,0.13);
+        background: rgba(255,255,255,0.88);
+        box-shadow: 0 20px 52px rgba(44,36,33,0.1);
+        opacity: 0;
+      }
+
+      .stage-card b {
+        display: block;
+        font-size: 20px;
+        line-height: 1.2;
+      }
+
+      .stage-card small {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.25;
+        font-weight: 720;
+      }
+
+      .p1 { left: 56px; top: 64px; }
+      .p2 { left: 395px; top: 42px; }
+      .p3 { right: 56px; top: 64px; }
+      .p4 { left: 64px; top: 304px; }
+      .p5 { right: 64px; top: 304px; }
+      .p6 { left: 56px; bottom: 64px; }
+      .p7 { left: 405px; bottom: 42px; }
+      .p8 { right: 405px; bottom: 42px; }
+      .p9 { right: 56px; bottom: 64px; }
+
+      .skill-panel {
+        position: absolute;
+        z-index: 12;
+        left: 50%;
+        top: 50%;
+        width: 700px;
+        min-height: 256px;
+        margin-left: -350px;
+        margin-top: -128px;
+        padding: 24px;
+        border-radius: 26px;
+        border: 1px solid rgba(139,90,74,0.14);
+        background: #fffdfb;
+        box-shadow: 0 28px 82px rgba(44,36,33,0.16);
+        opacity: 0;
+      }
+
+      .skill-panel h2 {
+        margin: 0 0 18px;
+        font-size: 28px;
+        line-height: 1.15;
+      }
+
+      .chip-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .skill-chip {
+        padding: 12px 15px;
+        border-radius: 999px;
+        border: 1px solid rgba(139,90,74,0.14);
+        background: rgba(255,255,255,0.88);
+        color: var(--foreground);
+        font-size: 15px;
+        font-weight: 780;
+        box-shadow: 0 10px 24px rgba(44,36,33,0.06);
+      }
+
+      .skill-cloud {
+        position: absolute;
+        z-index: 11;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .skill-node {
+        position: absolute;
+        width: var(--node-width, 150px);
+        height: 28px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(139,90,74,0.14);
+        background: rgba(255,255,255,0.92);
+        color: rgba(44,36,33,0.9);
+        box-shadow: 0 12px 28px rgba(44,36,33,0.09);
+        font-size: 11px;
+        font-weight: 820;
+        line-height: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        opacity: 0;
+      }
+
+      .skill-node[data-domain="多法域"] { color: var(--primary-dark); }
+      .skill-node[data-domain="中国香港"] { color: var(--blue); }
+      .skill-node[data-domain="中国内地"] { color: rgba(44,36,33,0.92); }
+
+      .cert-row {
+        position: absolute;
+        left: 50%;
+        top: 592px;
+        transform: translateX(-50%) scale(0.92);
+        display: flex;
+        gap: 10px;
+        opacity: 0;
+        z-index: 14;
+      }
+
+      .cert {
+        padding: 9px 15px;
+        border-radius: 999px;
+        color: var(--primary-dark);
+        background: rgba(255,255,255,0.88);
+        border: 1px solid rgba(139,90,74,0.14);
+        font-size: 14px;
+        font-weight: 860;
+        box-shadow: 0 14px 32px rgba(44,36,33,0.08);
       }
 
       .flash-bar {
@@ -411,155 +555,68 @@
         z-index: 20;
         pointer-events: none;
       }
-
-      .progress {
-        position: absolute;
-        left: 112px;
-        bottom: 52px;
-        display: flex;
-        gap: 10px;
-        z-index: 30;
-      }
-
-      .progress span {
-        width: 34px;
-        height: 5px;
-        border-radius: 999px;
-        background: rgba(139,90,74,0.16);
-      }
     </style>
   </head>
   <body>
     <div id="main" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="16">
-      <div class="paper-grid"></div>
-      <div class="wash"></div>
-      <div class="stage clip" id="stage" data-start="0" data-duration="16" data-track-index="1" data-layout-allow-overflow="true">
-        <section class="workflow" id="meeting">
-          <div>
-            <div class="label">MEETING NOTES</div>
-            <h1 class="title">会议纪要<br /><span class="accent">自动整理</span></h1>
-            <p class="copy">从会议录音与聊天上下文里提炼议题、决议、行动项和负责人。</p>
-            <div class="meta"><div><span></span>识别发言人与任务归属</div><div><span></span>输出待办和跟进时间</div></div>
-          </div>
-          <div class="interface">
-            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg>Meeting Minutes</b><span class="pill">Summarizing</span></div>
-            <div class="body grid-two">
-              <div class="panel">
-                <div class="note-row"><div class="time">09:12</div><div><b>客户预算确认</b><p>预算区间进入下一轮方案测算。</p></div></div>
-                <div class="note-row"><div class="time">09:28</div><div><b>交付节点调整</b><p>方案初稿提前到周四 18:00。</p></div></div>
-                <div class="note-row"><div class="time">09:44</div><div><b>行动项</b><p>销售同步客户名单，市场补充行业材料。</p></div></div>
-              </div>
-              <div class="panel">
-                <div class="card"><h3>决议摘要</h3><p>统一采用分阶段推进，先交付客户简报，再进入报价沟通。</p></div>
-                <div class="card"><h3>待办列表</h3><p>3 个负责人、5 个动作、2 个截止时间已自动拆分。</p></div>
-                <div class="card"><h3>风险提醒</h3><p>客户尚未确认最终预算，报价口径需要保守。</p></div>
-              </div>
+      <div class="base-bg clip" id="base-bg" data-start="0" data-duration="16" data-track-index="0"></div>
+      <div class="paper-grid clip" id="paper-grid" data-start="0" data-duration="16" data-track-index="1"></div>
+      <div class="wash clip" id="wash-layer" data-start="0" data-duration="16" data-track-index="2"></div>
+      <div class="stage clip" id="stage" data-start="0" data-duration="16" data-track-index="3" data-layout-allow-overflow="true">
+        <section class="scene" id="scene-office">
+          <div class="board">
+            <div class="office-grid">
+              <article class="work-card office-card card-contract">
+                <div class="card-head"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/></svg>合同</div>
+                <div class="line"></div><div class="line mid"></div><div class="section-box"><b>付款与验收条款</b><p>自动识别交付标准、验收期限和触发条件。</p></div><div class="line short"></div>
+                <div class="compliance-tag tag-contract" style="top: 330px;"><div class="tag-left"><span class="tag-dot"></span><div><div class="tag-title">责任边界提醒</div><div class="tag-sub">建议补充赔偿上限</div></div></div><div class="tag-status">CHECK</div></div>
+              </article>
+              <article class="work-card office-card card-meeting">
+                <div class="card-head"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>会议纪要</div>
+                <div class="section-box"><b>预算确认</b><p>进入下一轮方案测算。</p></div><div class="section-box"><b>行动项</b><p>同步客户名单和行业材料。</p></div><div class="section-box"><b>负责人</b><p>销售、市场、交付三方联动。</p></div>
+                <div class="compliance-tag tag-meeting" style="top: 420px;"><div class="tag-left"><span class="tag-dot"></span><div><div class="tag-title">审批节点补齐</div><div class="tag-sub">涉及报价口径需留痕</div></div></div><div class="tag-status">TRACE</div></div>
+              </article>
+              <article class="work-card office-card card-email">
+                <div class="card-head"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>邮件 / 营销文案</div>
+                <div class="section-box"><b>客户方案初稿</b><p>生成正式但不生硬的跟进邮件。</p></div><div class="line"></div><div class="line mid"></div><div class="section-box"><b>新媒体短帖</b><p>突出痛点、步骤和可收藏清单。</p></div>
+                <div class="compliance-tag tag-email" style="top: 360px;"><div class="tag-left"><span class="tag-dot"></span><div><div class="tag-title">敏感表述建议</div><div class="tag-sub">营销承诺需保守表达</div></div></div><div class="tag-status">SAFE</div></div>
+              </article>
             </div>
+            <div class="scan-line"></div>
+            <div class="screen-text">合规是底色｜效率与风险一起管理</div>
           </div>
         </section>
 
-        <section class="workflow" id="brief">
-          <div>
-            <div class="label">CLIENT BRIEF</div>
-            <h1 class="title">客户简报<br /><span class="accent">一键成稿</span></h1>
-            <p class="copy">把客户背景、痛点、方案卖点和下一步动作整理成可直接汇报的简报。</p>
-            <div class="meta"><div><span></span>客户画像与业务痛点</div><div><span></span>方案价值与下一步建议</div></div>
-          </div>
-          <div class="interface">
-            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M3 3h18v14H3z"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>Client Brief</b><span class="pill">Draft ready</span></div>
-            <div class="body grid-two">
-              <div class="brief-cover"><strong>客户沟通简报<br />Q2 Growth Plan</strong></div>
-              <div class="panel">
-                <div class="card"><h3>客户背景</h3><p>华东区新增渠道，采购周期缩短，关注交付确定性。</p></div>
-                <div class="card"><h3>核心诉求</h3><p>降本、提效、统一数据口径，减少跨部门沟通成本。</p></div>
-                <div class="card"><h3>推荐策略</h3><p>先以试点场景切入，再扩展到全量客户运营。</p></div>
+        <section class="scene" id="scene-hub">
+          <div class="board">
+            <div class="hub-board">
+              <div class="hub-core"><div><div class="hub-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.4"/><rect x="14" y="4" width="6" height="6" rx="1.4"/><rect x="4" y="14" width="6" height="6" rx="1.4"/><rect x="14" y="14" width="6" height="6" rx="1.4"/><path d="M10 7h4M7 10v4M17 10v4M10 17h4"/></svg></div><b>WiseLaw Skill Hub</b><small>53 Skills</small></div></div>
+              <div class="stage-card p1"><b>案件接待与初步研判</b><small>谈案笔录、企业尽调、模拟裁判</small></div>
+              <div class="stage-card p2"><b>法律检索与案例研究</b><small>法规检索、类案检索、法律备忘录</small></div>
+              <div class="stage-card p3"><b>合同审查</b><small>多法域合同、股权交易、劳动人事</small></div>
+              <div class="stage-card p4"><b>合同与文书起草</b><small>合同起草、律师函、公司决议</small></div>
+              <div class="stage-card p5"><b>尽职调查与合规</b><small>披露追踪、ESG审查、商标组合</small></div>
+              <div class="stage-card p6"><b>庭前准备</b><small>庭前准备、证据分析</small></div>
+              <div class="stage-card p7"><b>庭审实战</b><small>庭审发问策略</small></div>
+              <div class="stage-card p8"><b>案件归档与知识管理</b><small>律师办案小结</small></div>
+              <div class="stage-card p9"><b>翻译与双语支持</b><small>年报翻译、双语术语表</small></div>
+              <div class="skill-panel skill-contract">
+                <h2>合同审查 Skill</h2>
+                <div class="chip-grid"><span class="skill-chip">合同审查（多法域）</span><span class="skill-chip">股权交易合同审查</span><span class="skill-chip">IP/软件开发合同审查</span><span class="skill-chip">劳动人事合同审查</span><span class="skill-chip">广告合同审查</span></div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="workflow" id="email">
-          <div>
-            <div class="label">EMAIL DRAFT</div>
-            <h1 class="title">邮件起草<br /><span class="accent">语气适配</span></h1>
-            <p class="copy">根据对象、目的和上下文生成得体邮件，并保留可修改的关键段落。</p>
-            <div class="meta"><div><span></span>自动补齐背景与附件说明</div><div><span></span>不同语气版本快速切换</div></div>
-          </div>
-          <div class="interface">
-            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>Email Composer</b><span class="pill">Polished</span></div>
-            <div class="body">
-              <div class="email-box">
-                <div class="subject">主题：关于本周客户方案初稿与后续沟通安排</div>
-                <div style="height: 24px;"></div>
-                <div class="line"></div><div class="line mid"></div><div class="line"></div><div class="line short"></div>
-                <div class="card"><h3>语气建议</h3><p>正式但不生硬，强调已完成事项、待确认问题和下一步时间。</p></div>
-                <div class="card"><h3>附件说明</h3><p>自动加入客户简报、会议纪要与项目排期文件。</p></div>
+              <div class="skill-panel skill-research">
+                <h2>法律检索与案例研究 Skill</h2>
+                <div class="chip-grid"><span class="skill-chip">中国内地法规检索</span><span class="skill-chip">中国香港法规检索</span><span class="skill-chip">类案检索报告</span><span class="skill-chip">争议焦点分析</span><span class="skill-chip">法律备忘录起草</span></div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="workflow" id="report">
-          <div>
-            <div class="label">PROJECT REPORT</div>
-            <h1 class="title">项目汇报<br /><span class="accent">进度可视</span></h1>
-            <p class="copy">把跨团队进展整理成状态、阻塞、里程碑和下一步计划。</p>
-            <div class="meta"><div><span></span>任务状态自动归类</div><div><span></span>风险和资源缺口前置展示</div></div>
-          </div>
-          <div class="interface">
-            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15v3"/><path d="M12 9v9"/><path d="M17 12v6"/></svg>Project Dashboard</b><span class="pill">Live update</span></div>
-            <div class="body kanban">
-              <div class="col"><h3>进行中</h3><div class="task">客户访谈资料整理</div><div class="task">演示脚本补充案例</div></div>
-              <div class="col"><h3>待确认</h3><div class="task">报价口径</div><div class="task">试点范围与时间表</div></div>
-              <div class="col"><h3>已完成</h3><div class="task">会议纪要</div><div class="task">客户简报第一版</div></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="workflow" id="social">
-          <div>
-            <div class="label">SOCIAL CONTENT</div>
-            <h1 class="title">新媒体文案<br /><span class="accent">多平台适配</span></h1>
-            <p class="copy">同一素材自动改写为公众号、小红书、LinkedIn 和短视频口径。</p>
-            <div class="meta"><div><span></span>标题、正文、话题标签同步生成</div><div><span></span>品牌语气保持一致</div></div>
-          </div>
-          <div class="interface">
-            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 12h8"/><path d="M8 8h8"/><path d="M8 16h5"/></svg>Content Studio</b><span class="pill">Variants</span></div>
-            <div class="body">
-              <div class="social-card"><div class="thumb"></div><div><div class="card"><h3>公众号长文</h3><p>以行业洞察开场，承接客户案例和方法论。</p></div><div class="card"><h3>小红书短帖</h3><p>突出痛点、步骤和可收藏清单。</p></div></div></div>
-              <div style="height: 16px;"></div>
-              <div class="social-card"><div class="thumb"></div><div><div class="card"><h3>LinkedIn</h3><p>使用更国际化的 B2B 表述，强调效率和团队协作。</p></div><div class="card"><h3>短视频标题</h3><p>3 秒抓住问题，再给出清晰转化钩子。</p></div></div></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="workflow" id="script">
-          <div>
-            <div class="label">VIDEO SCRIPT</div>
-            <h1 class="title">视频脚本<br /><span class="accent">节奏拆分</span></h1>
-            <p class="copy">把营销目标转成镜头、旁白、字幕和关键画面，方便直接进入制作。</p>
-            <div class="meta"><div><span></span>镜头结构与口播同步</div><div><span></span>适配销售演示与短视频素材</div></div>
-          </div>
-          <div class="interface">
-            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>Video Script</b><span class="pill">Storyboard</span></div>
-            <div class="body grid-two">
-              <div class="panel script-timeline">
-                <div class="beat"><h3>开场 0-3s</h3><p>提出客户真实工作场景。</p></div>
-                <div class="beat"><h3>中段 4-10s</h3><p>展示 Lawrence 处理流程。</p></div>
-                <div class="beat"><h3>收尾 11-16s</h3><p>回到业务价值和交付结果。</p></div>
+              <div class="skill-panel skill-compliance">
+                <h2>尽职调查与合规 Skill</h2>
+                <div class="chip-grid"><span class="skill-chip">中国内地企业尽调</span><span class="skill-chip">中国香港企业尽调</span><span class="skill-chip">监管披露追踪</span><span class="skill-chip">ESG报告审查</span><span class="skill-chip">商标组合管理</span></div>
               </div>
-              <div class="panel">
-                <div class="card"><h3>画面建议</h3><p>办公室、文档、邮件、社媒编辑器快速切换。</p></div>
-                <div class="card"><h3>口播片段</h3><p>“除了法律工作，我也能处理日常办公和营销内容。”</p></div>
-                <div class="card"><h3>输出物</h3><p>脚本、字幕、分镜、标题和素材清单。</p></div>
-              </div>
+              <div class="skill-cloud" aria-label="53 个 WiseLaw Skill 全名单"></div>
+              <div class="cert-row"><span class="cert">专业审核</span><span class="cert">专家共创</span><span class="cert">真实验证</span><span class="cert">持续迭代</span></div>
             </div>
           </div>
         </section>
-
-        <div class="progress">
-          <span id="dot-meeting"></span><span id="dot-brief"></span><span id="dot-email"></span><span id="dot-report"></span><span id="dot-social"></span><span id="dot-script"></span>
-        </div>
         <div class="flash-bar" id="flash-bar" data-layout-allow-overflow="true"></div>
       </div>
     </div>
@@ -568,71 +625,122 @@
     <script>
       window.__timelines = window.__timelines || {};
       gsap.defaults({ ease: "power3.out" });
-
       const tl = gsap.timeline({ paused: true });
-      const scenes = ["#meeting", "#brief", "#email", "#report", "#social", "#script"];
-      const dots = ["#dot-meeting", "#dot-brief", "#dot-email", "#dot-report", "#dot-social", "#dot-script"];
+      const skillList = [
+        ["律师谈案笔录", "多法域"], ["中国内地企业尽调", "中国内地"], ["中国香港企业尽调", "中国香港"],
+        ["中国内地模拟裁判报告", "中国内地"], ["中国香港模拟裁判报告", "中国香港"], ["家事案件接待", "中国内地"],
+        ["案件时间线构建", "多法域"], ["法律文档分类器", "多法域"], ["律师联系人管理", "多法域"],
+        ["中国内地法规检索", "中国内地"], ["中国香港法规检索", "中国香港"], ["中国内地类案检索", "中国内地"],
+        ["中国香港类案检索", "中国香港"], ["类案检索报告", "多法域"], ["中国内地争议焦点分析", "中国内地"],
+        ["中国香港争议焦点分析", "中国香港"], ["CityU Lexis数据库检索", "中国香港"], ["法律研究方法论", "多法域"],
+        ["法律备忘录起草", "多法域"], ["中国内地合同预审", "中国内地"], ["合同审查（多法域）", "多法域"],
+        ["著作权合同审查", "中国内地"], ["商标合同审查", "中国内地"], ["IP/软件开发合同审查", "中国内地"],
+        ["知识产权质押合同审查", "中国内地"], ["广告合同审查", "中国内地"], ["IP许可协议分析", "多法域"],
+        ["股权交易合同审查", "中国内地"], ["私募投资协议审查", "中国内地"], ["合伙协议审查", "中国内地"],
+        ["特许经营合同审查", "中国内地"], ["劳动人事合同审查", "中国内地"], ["租赁合同审查", "中国内地"],
+        ["民间借贷合同审查", "中国内地"], ["保管合同审查", "中国内地"], ["离婚协议审查", "中国内地"],
+        ["合同起草助手", "多法域"], ["律师函撰写", "多法域"], ["公司决议起草", "多法域"],
+        ["尽调清单生成", "多法域"], ["中国香港联交所年报审查", "中国香港"], ["ESG报告审查", "中国香港"],
+        ["监管披露追踪", "多法域"], ["商标组合管理", "多法域"], ["科创项目评估", "多法域"],
+        ["中国内地庭前准备", "中国内地"], ["中国香港庭前准备", "中国香港"], ["中国内地证据分析", "中国内地"],
+        ["中国香港证据分析", "中国香港"], ["庭审发问策略", "中国内地"], ["律师办案小结", "多法域"],
+        ["年报翻译", "多法域"], ["双语术语表构建", "多法域"]
+      ];
+      const skillPositions = [
+        [-610,-365],[-455,-365],[-300,-365],[-145,-365],[145,-365],[300,-365],[455,-365],[610,-365],
+        [-690,-270],[-505,-270],[-320,-270],[320,-270],[505,-270],[690,-270],
+        [-720,-170],[-540,-170],[-360,-170],[360,-170],[540,-170],[720,-170],
+        [-740,-70],[-560,-70],[-380,-70],[380,-70],[560,-70],[740,-70],
+        [-740,52],[-560,52],[-380,52],[380,52],[560,52],[740,52],
+        [-720,168],[-540,168],[-360,168],[360,168],[540,168],[720,168],
+        [-690,272],[-505,272],[-320,272],[320,272],[505,272],[690,272],
+        [-610,368],[-455,368],[-300,368],[-145,368],[145,368],[300,368],[455,368],[610,368],[0,368]
+      ];
+      const skillCloud = document.querySelector(".skill-cloud");
+      skillList.forEach(([name, domain], index) => {
+        const node = document.createElement("span");
+        const [tx, ty] = skillPositions[index];
+        const width = name.length > 9 ? 178 : name.length > 7 ? 156 : 132;
+        node.className = "skill-node";
+        node.textContent = name;
+        node.dataset.domain = domain;
+        node.dataset.tx = tx;
+        node.dataset.ty = ty;
+        node.style.left = `calc(50% + ${tx}px - ${width / 2}px)`;
+        node.style.top = `calc(50% + ${ty}px - 14px)`;
+        node.style.setProperty("--node-width", `${width}px`);
+        skillCloud.appendChild(node);
+      });
 
       function flash(time) {
-        tl.fromTo("#flash-bar", { opacity: 0, x: 0 }, { opacity: 0.7, x: 2350, duration: 0.38, ease: "power2.inOut" }, time)
-          .to("#flash-bar", { opacity: 0, duration: 0.12 }, time + 0.38);
+        tl.fromTo("#flash-bar", { opacity: 0, visibility: "visible", x: 0 }, { opacity: 0.72, x: 2350, duration: 0.38, ease: "power2.inOut" }, time)
+          .to("#flash-bar", { opacity: 0, duration: 0.12 }, time + 0.38)
+          .set("#flash-bar", { opacity: 0, visibility: "hidden" }, time + 0.5);
       }
 
-      function activateDot(index, time) {
-        dots.forEach((dot, dotIndex) => {
-          tl.to(dot, { backgroundColor: dotIndex === index ? "#8b5a4a" : "rgba(139, 90, 74, 0.16)", duration: 0.16 }, time);
-        });
-      }
+      tl.fromTo("#stage", { opacity: 0 }, { opacity: 1, duration: 0.28 }, 0)
+        .fromTo("#scene-office", { opacity: 0, y: 38, scale: 0.988 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "expo.out" }, 0)
+        .from("#scene-office .board", { opacity: 0, y: 46, scale: 0.95, duration: 0.56, ease: "expo.out" }, 0.18)
+        .from("#scene-office .office-card", { opacity: 0, y: 38, scale: 0.95, duration: 0.48, stagger: 0.14, ease: "back.out(1.1)" }, 0.72)
+        .from("#scene-office .line, #scene-office .section-box", { opacity: 0, y: 18, scale: 0.98, duration: 0.32, stagger: 0.035 }, 1.18)
+        .fromTo(".scan-line", { opacity: 0, y: 0 }, { opacity: 1, y: 472, duration: 1.7, ease: "sine.inOut" }, 1.6)
+        .to(".scan-line", { opacity: 0, duration: 0.18 }, 3.3)
+        .set(".scan-line", { opacity: 0, visibility: "hidden" }, 3.48)
+        .fromTo(".tag-contract", { opacity: 0, y: 24, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.36, ease: "back.out(1.15)" }, 2.0)
+        .fromTo(".tag-meeting", { opacity: 0, y: 24, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.36, ease: "back.out(1.15)" }, 2.58)
+        .fromTo(".tag-email", { opacity: 0, y: 24, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.36, ease: "back.out(1.15)" }, 3.16)
+        .to("#scene-office .board", { scale: 1.018, x: -10, duration: 1.0, ease: "sine.inOut" }, 3.68)
+        .fromTo(".screen-text", { opacity: 0, y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.48, ease: "expo.out" }, 4.25)
+        .to("#scene-office", { opacity: 0, y: -34, scale: 0.99, duration: 0.5, ease: "power2.inOut" }, 7.1)
+        .set("#scene-office", { opacity: 0, visibility: "hidden" }, 7.6);
 
-      tl.fromTo("#stage", { opacity: 0 }, { opacity: 1, duration: 0.28 }, 0);
+      flash(0.22);
+      flash(6.95);
 
-      function animateContentFlow(scene, start) {
-        const flowingItems = `${scene} .card, ${scene} .note-row, ${scene} .task, ${scene} .beat, ${scene} .social-card`;
-        const lineItems = `${scene} .line`;
-
-        if (document.querySelector(flowingItems)) {
-          tl.fromTo(
-            flowingItems,
-            { opacity: 0, y: 34, scale: 0.95 },
-            { opacity: 1, y: 0, scale: 1, duration: 0.42, stagger: 0.05, ease: "back.out(1.15)" },
-            start + 0.38
-          )
-            .to(flowingItems, { y: -22, duration: 1.12, stagger: 0.045, ease: "sine.inOut" }, start + 0.86);
-        }
-
-        if (document.querySelector(lineItems)) {
-          tl.fromTo(
-            lineItems,
-            { opacity: 0, scaleX: 0, transformOrigin: "left center" },
-            { opacity: 1, scaleX: 1, duration: 0.26, stagger: 0.035, ease: "power2.out" },
-            start + 0.48
-          )
-            .to(lineItems, { x: 18, duration: 0.9, stagger: 0.025, ease: "sine.inOut" }, start + 0.92);
-        }
-      }
-
-      scenes.forEach((scene, index) => {
-        const start = index * 2.22;
-        const end = start + 1.9;
-        const contentItems = `${scene} .card, ${scene} .note-row, ${scene} .task, ${scene} .beat, ${scene} .social-card`;
-        activateDot(index, start + 0.02);
-        flash(start + 0.04);
-        tl.fromTo(scene, { opacity: 0, y: 34, scale: 0.99 }, { opacity: 1, y: 0, scale: 1, duration: 0.34, ease: "expo.out" }, start)
-          .from(`${scene} .label`, { opacity: 0, y: 14, duration: 0.22 }, start + 0.04)
-          .from(`${scene} .title`, { opacity: 0, x: -42, duration: 0.36, ease: "expo.out" }, start + 0.08)
-          .from(`${scene} .copy`, { opacity: 0, x: -26, duration: 0.32 }, start + 0.18)
-          .from(`${scene} .meta div`, { opacity: 0, x: -18, duration: 0.26, stagger: 0.04 }, start + 0.28)
-          .fromTo(`${scene} .interface`, { opacity: 0, x: 70, scale: 0.94 }, { opacity: 1, x: 0, scale: 1, duration: 0.44, ease: "expo.out" }, start + 0.12)
-          .to(`${scene} .interface`, { scale: 1.018, x: -10, duration: 0.92, ease: "sine.inOut" }, start + 0.66)
-          .to(`${scene} .interface`, { scale: 1, x: 0, duration: 0.42, ease: "sine.inOut" }, start + 1.48)
-          .from(`${scene} .topbar svg`, { opacity: 0, scale: 0.5, rotation: -16, duration: 0.28, ease: "back.out(1.3)" }, start + 0.28);
-
-        animateContentFlow(scene, start);
-
-        if (index < scenes.length - 1) {
-          tl.to(scene, { opacity: 0, y: -30, scale: 0.992, duration: 0.26, ease: "power2.inOut" }, end);
-        }
-      });
+      tl.fromTo("#scene-hub", { opacity: 0, y: 36, scale: 0.988 }, { opacity: 1, y: 0, scale: 1, duration: 0.54, ease: "expo.out" }, 7.35)
+        .from("#scene-hub .board", { opacity: 0, y: 48, scale: 0.95, duration: 0.5, ease: "expo.out" }, 7.54)
+        .from(".hub-core", { opacity: 0, scale: 0.58, rotation: -12, duration: 0.58, ease: "expo.out" }, 8.0)
+        .from(".stage-card", { opacity: 0, scale: 0.72, y: 24, duration: 0.46, stagger: 0.055, ease: "back.out(1.1)" }, 8.42)
+        .to(".stage-card", { opacity: 0.34, scale: 0.94, duration: 0.26, ease: "power2.out" }, 10.0)
+        .fromTo(".skill-contract", { opacity: 0, y: 28, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "expo.out" }, 10.08)
+        .from(".skill-contract .skill-chip", { opacity: 0, y: 16, scale: 0.92, duration: 0.26, stagger: 0.045, ease: "back.out(1.1)" }, 10.34)
+        .to(".skill-contract", { opacity: 0, y: -18, scale: 0.96, duration: 0.28, ease: "power2.inOut" }, 11.18)
+        .set(".skill-contract", { opacity: 0, visibility: "hidden" }, 11.46)
+        .fromTo(".skill-research", { opacity: 0, y: 28, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "expo.out" }, 11.3)
+        .from(".skill-research .skill-chip", { opacity: 0, y: 16, scale: 0.92, duration: 0.26, stagger: 0.045, ease: "back.out(1.1)" }, 11.56)
+        .to(".skill-research", { opacity: 0, y: -18, scale: 0.96, duration: 0.28, ease: "power2.inOut" }, 12.38)
+        .set(".skill-research", { opacity: 0, visibility: "hidden" }, 12.66)
+        .fromTo(".skill-compliance", { opacity: 0, y: 28, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "expo.out" }, 12.5)
+        .from(".skill-compliance .skill-chip", { opacity: 0, y: 16, scale: 0.92, duration: 0.26, stagger: 0.045, ease: "back.out(1.1)" }, 12.76)
+        .to(".skill-compliance", { opacity: 0, y: -18, scale: 0.96, duration: 0.28, ease: "power2.inOut" }, 13.64)
+        .set(".skill-compliance", { opacity: 0, visibility: "hidden" }, 13.92)
+        .to(".stage-card", { opacity: 1, scale: 1, duration: 0.34, stagger: 0.025, ease: "power2.out" }, 13.78)
+        .to(".stage-card", { opacity: 0, scale: 0.88, y: 8, duration: 0.28, ease: "power2.inOut" }, 14.0)
+        .set(".stage-card", { opacity: 0, visibility: "hidden" }, 14.28)
+        .fromTo(".skill-node",
+          {
+            opacity: 0,
+            scale: 0.2,
+            x: (index, target) => -Number(target.dataset.tx),
+            y: (index, target) => -Number(target.dataset.ty),
+            rotation: (index) => (index % 2 === 0 ? -8 : 8)
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            x: 0,
+            y: 0,
+            rotation: 0,
+            duration: 0.58,
+            stagger: { each: 0.012, from: "center" },
+            ease: "back.out(1.35)"
+          },
+          14.14
+        )
+        .fromTo(".cert-row", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.36, ease: "expo.out" }, 15.18)
+        .from(".cert", { opacity: 0, scale: 0.82, rotation: -4, duration: 0.28, stagger: 0.08, ease: "back.out(1.35)" }, 15.28)
+        .to(".hub-core", { scale: 1.05, duration: 0.24, ease: "sine.inOut" }, 15.12)
+        .to(".hub-core", { scale: 1, duration: 0.28, ease: "sine.inOut" }, 15.42);
 
       window.__timelines["main"] = tl;
     </script>

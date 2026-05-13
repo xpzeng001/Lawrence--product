@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>S9&S10 Keyframes</title>
+    <style>
+      :root {
+        --background: #faf8f6;
+        --foreground: #2c2421;
+        --primary: #8b5a4a;
+        --muted: #5c524d;
+        --border: #e8e2dc;
+        --card: #ffffff;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--background);
+        color: var(--foreground);
+        font-family: Inter, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      }
+
+      main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 40px 24px 64px;
+      }
+
+      header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 24px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 34px;
+        line-height: 1.15;
+      }
+
+      p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      a {
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .grid { display: grid; gap: 22px; }
+
+      figure {
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--card);
+        box-shadow: 0 14px 36px rgba(44, 36, 33, 0.08);
+      }
+
+      figcaption {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        color: var(--primary);
+        font-weight: 800;
+        border-bottom: 1px solid var(--border);
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>S9&S10 关键帧预览</h1>
+          <p>合规嵌入日常办公 · WiseLaw Skill Hub · 简体中文 Skill 分类 · 1920×1080 · HyperFrames</p>
+        </div>
+        <a href="video-preview.html">视频预览</a>
+      </header>
+      <section class="grid">
+        <figure>
+          <figcaption><span>0.8s</span><span>办公工作台入场</span></figcaption>
+          <img src="snapshots/s9s10/frame-0.8.png" alt="S9&S10 keyframe at 0.8 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>2.3s</span><span>合规扫描命中合同</span></figcaption>
+          <img src="snapshots/s9s10/frame-2.3.png" alt="S9&S10 keyframe at 2.3 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>4.6s</span><span>合规底色字幕</span></figcaption>
+          <img src="snapshots/s9s10/frame-4.6.png" alt="S9&S10 keyframe at 4.6 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>8.6s</span><span>Skill Hub 展开</span></figcaption>
+          <img src="snapshots/s9s10/frame-8.6.png" alt="S9&S10 keyframe at 8.6 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>10.5s</span><span>合同审查 Skill</span></figcaption>
+          <img src="snapshots/s9s10/frame-10.5.png" alt="S9&S10 keyframe at 10.5 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>12.9s</span><span>尽调与合规 Skill</span></figcaption>
+          <img src="snapshots/s9s10/frame-12.9.png" alt="S9&S10 keyframe at 12.9 seconds" />
+        </figure>
+        <figure>
+          <figcaption><span>15.2s</span><span>专业审核机制定格</span></figcaption>
+          <img src="snapshots/s9s10/frame-15.2.png" alt="S9&S10 keyframe at 15.2 seconds" />
+        </figure>
+      </section>
+    </main>
+  </body>
+</html>

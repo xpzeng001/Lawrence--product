@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shot 13 · WiseLaw School Enablement</title>
+    <style>
+      :root {
+        --bg: #faf8f6;
+        --ink: #2c2421;
+        --muted: #5c524d;
+        --soft: #f5f2ef;
+        --card: #ffffff;
+        --line: #e8e2dc;
+        --primary: #8b5a4a;
+        --primary-dark: #74493c;
+        --gold: #d0a04f;
+        --green: #1f9f68;
+        --cool: #6b7b8f;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        font-family: Inter, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      }
+
+      #main {
+        position: relative;
+        overflow: hidden;
+        width: 1920px;
+        height: 1080px;
+        color: var(--ink);
+        background: var(--bg);
+      }
+
+      .clip { position: absolute; inset: 0; }
+
+      .base-bg {
+        background:
+          radial-gradient(circle at 50% 44%, rgba(208, 160, 79, 0.13), transparent 36%),
+          radial-gradient(circle at 18% 74%, rgba(139, 90, 74, 0.08), transparent 32%),
+          linear-gradient(110deg, rgba(255,255,255,0.9), rgba(245,242,239,0.62));
+      }
+
+      .paper-grid {
+        opacity: 0.55;
+        background:
+          linear-gradient(rgba(139, 90, 74, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139, 90, 74, 0.045) 1px, transparent 1px);
+        background-size: 96px 72px;
+        mask-image: radial-gradient(circle at center, #000 12%, transparent 78%);
+      }
+
+      .stage {
+        padding: 74px 100px 88px;
+      }
+
+      .frame-label {
+        position: absolute;
+        left: 132px;
+        top: 74px;
+        z-index: 5;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        height: 36px;
+        padding: 0 18px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255,255,255,0.78);
+        box-shadow: 0 10px 24px rgba(44,36,33,0.06);
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      .frame-label::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      .orbital-system {
+        position: absolute;
+        inset: 130px 120px 150px;
+        border: 1px solid rgba(232,226,220,0.72);
+        border-radius: 42px;
+        background: rgba(255,255,255,0.32);
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.58);
+      }
+
+      .connector-layer {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+
+      .connector {
+        fill: none;
+        stroke: rgba(139,90,74,0.28);
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-dasharray: 8 11;
+      }
+
+      .ring {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 430px;
+        height: 430px;
+        border-radius: 50%;
+        border: 1px solid rgba(139,90,74,0.12);
+        transform: translate(-50%, -50%);
+      }
+
+      .ring.r2 {
+        width: 600px;
+        height: 600px;
+        border-style: dashed;
+        border-color: rgba(208,160,79,0.18);
+      }
+
+      .ring-fill {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 330px;
+        height: 330px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(255,255,255,0.92), rgba(245,242,239,0.7) 58%, transparent 70%);
+        box-shadow: 0 22px 58px rgba(44,36,33,0.08);
+      }
+
+      .school-core {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 4;
+        width: 330px;
+        height: 330px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border: 1px solid rgba(232,226,220,0.9);
+        background: rgba(255,255,255,0.94);
+        box-shadow: 0 24px 60px rgba(44,36,33,0.12);
+      }
+
+      .school-core .core-icon {
+        width: 62px;
+        height: 62px;
+        margin: 0 auto 18px;
+        border-radius: 20px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        box-shadow: 0 16px 28px rgba(139,90,74,0.22);
+      }
+
+      svg.icon {
+        width: 31px;
+        height: 31px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .core-icon svg { color: white; }
+
+      .school-core b {
+        display: block;
+        font-size: 32px;
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .school-core small {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 950;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .service-card {
+        position: absolute;
+        z-index: 3;
+        width: 320px;
+        min-height: 172px;
+        padding: 28px 28px 24px;
+        border: 1px solid rgba(232,226,220,0.9);
+        border-radius: 24px;
+        background: rgba(255,255,255,0.9);
+        box-shadow: 0 24px 56px rgba(44,36,33,0.11);
+      }
+
+      .service-card.training { left: 136px; top: 96px; }
+      .service-card.copilot { right: 136px; top: 96px; }
+      .service-card.builder { right: 136px; bottom: 92px; }
+      .service-card.workflow { left: 136px; bottom: 92px; }
+
+      .card-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 18px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        color: var(--primary);
+        background: rgba(139,90,74,0.08);
+      }
+
+      .service-card b {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 30px;
+        line-height: 1.1;
+        letter-spacing: 0;
+      }
+
+      .service-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.42;
+        font-weight: 720;
+      }
+
+      .status-pill {
+        position: absolute;
+        right: 22px;
+        top: 22px;
+        height: 28px;
+        padding: 0 12px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        background: rgba(31,159,104,0.1);
+        color: var(--green);
+        font-size: 11px;
+        font-weight: 950;
+        text-transform: uppercase;
+      }
+
+      .callout {
+        position: absolute;
+        left: 50%;
+        bottom: 34px;
+        z-index: 6;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        height: 76px;
+        padding: 0 36px;
+        border: 1px solid rgba(232,226,220,0.92);
+        border-radius: 999px;
+        background: rgba(255,255,255,0.86);
+        box-shadow: 0 24px 52px rgba(44,36,33,0.12);
+        color: var(--primary-dark);
+        font-size: 28px;
+        font-weight: 950;
+        letter-spacing: 0;
+        white-space: nowrap;
+      }
+
+      .callout span {
+        color: var(--green);
+      }
+
+      .spark {
+        position: absolute;
+        z-index: 1;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 8px rgba(208,160,79,0.12);
+      }
+
+      .spark.s1 { left: 530px; top: 184px; }
+      .spark.s2 { right: 522px; top: 184px; }
+      .spark.s3 { right: 540px; bottom: 176px; }
+      .spark.s4 { left: 520px; bottom: 176px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="main" data-start="0" data-duration="16" data-width="1920" data-height="1080">
+      <div id="base-bg" class="clip base-bg" data-start="0" data-duration="16" data-track-index="0"></div>
+      <div id="paper-grid" class="clip paper-grid" data-start="0" data-duration="16" data-track-index="1"></div>
+      <main id="shot13-stage" class="clip stage" data-start="0" data-duration="16" data-track-index="2">
+        <section class="orbital-system">
+          <svg class="connector-layer" viewBox="0 0 1680 800" preserveAspectRatio="none" aria-hidden="true">
+            <path class="connector c1" d="M 456 188 C 560 190, 640 304, 800 385" />
+            <path class="connector c2" d="M 1224 188 C 1120 190, 1040 304, 880 385" />
+            <path class="connector c3" d="M 1224 624 C 1114 620, 1036 506, 880 415" />
+            <path class="connector c4" d="M 456 624 C 566 620, 644 506, 800 415" />
+          </svg>
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring-fill"></div>
+          <div class="spark s1"></div>
+          <div class="spark s2"></div>
+          <div class="spark s3"></div>
+          <div class="spark s4"></div>
+
+          <article class="service-card training">
+            <span class="status-pill">Learning</span>
+            <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M22 10v6"/></svg></div>
+            <b>课程培训</b>
+            <p>系统学习法律、办公和营销 Skill 的使用方式。</p>
+          </article>
+          <article class="service-card copilot">
+            <span class="status-pill">Co-run</span>
+            <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M3 17 9 11l4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+            <b>场景陪跑</b>
+            <p>结合真实项目，把能力带进合同、会议和客户流程。</p>
+          </article>
+          <article class="service-card builder">
+            <span class="status-pill">Build</span>
+            <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M10 3H3v7h7V3Z"/><path d="M21 3h-7v7h7V3Z"/><path d="M21 14h-7v7h7v-7Z"/><path d="M10 14H3v7h7v-7Z"/></svg></div>
+            <b>创建 Skill</b>
+            <p>沉淀企业自己的模板、流程、检查项和交付标准。</p>
+          </article>
+          <article class="service-card workflow">
+            <span class="status-pill">Deploy</span>
+            <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3v12"/><path d="M18 9v12"/><path d="M6 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/><path d="M18 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/><path d="M9 18h6"/><path d="M9 6h6"/></svg></div>
+            <b>融入流程</b>
+            <p>接入日常工作流，让 Skill 长期稳定地被调用。</p>
+          </article>
+
+          <div class="school-core">
+            <div>
+              <div class="core-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5V6.5A2.5 2.5 0 0 1 6.5 4H20v14H6.5A2.5 2.5 0 0 0 4 20.5"/><path d="M8 8h8"/><path d="M8 12h6"/></svg></div>
+              <b>WiseLaw School</b>
+              <small>Skill Enablement</small>
+            </div>
+          </div>
+
+        </section>
+
+        <div class="callout">课程培训｜场景陪跑｜创建 <span>Skill</span>｜融入流程</div>
+      </main>
+
+      <script src="assets/gsap.min.js"></script>
+      <script>
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+
+        gsap.set([".service-card", ".connector", ".spark", ".callout"], { opacity: 0 });
+        gsap.set(".callout", { y: 26, scale: 0.96 });
+
+        tl.from(".orbital-system", { opacity: 0, scale: 0.985, duration: 0.8, ease: "power2.out" }, 0)
+          .from(".school-core", { opacity: 0, scale: 0.74, duration: 0.86, ease: "back.out(1.35)" }, 0.28)
+          .from(".ring-fill", { opacity: 0, scale: 0.78, duration: 0.75, ease: "power3.out" }, 0.36)
+          .from(".ring", { opacity: 0, scale: 0.68, duration: 1.1, stagger: 0.12, ease: "power3.out" }, 0.48)
+
+          .fromTo(".connector.c1", { opacity: 0, strokeDashoffset: 220 }, { opacity: 1, strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 1.35)
+          .fromTo(".training", { opacity: 0, x: -52, y: 20, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.62, ease: "back.out(1.25)" }, 1.65)
+          .fromTo(".spark.s1", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.5)" }, 2.18)
+
+          .fromTo(".connector.c2", { opacity: 0, strokeDashoffset: 220 }, { opacity: 1, strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 2.65)
+          .fromTo(".copilot", { opacity: 0, x: 52, y: 20, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.62, ease: "back.out(1.25)" }, 2.92)
+          .fromTo(".spark.s2", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.5)" }, 3.48)
+
+          .fromTo(".connector.c3", { opacity: 0, strokeDashoffset: 220 }, { opacity: 1, strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 4.08)
+          .fromTo(".builder", { opacity: 0, x: 52, y: -20, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.62, ease: "back.out(1.25)" }, 4.34)
+          .fromTo(".spark.s3", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.5)" }, 4.88)
+
+          .fromTo(".connector.c4", { opacity: 0, strokeDashoffset: 220 }, { opacity: 1, strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 5.45)
+          .fromTo(".workflow", { opacity: 0, x: -52, y: -20, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.62, ease: "back.out(1.25)" }, 5.72)
+          .fromTo(".spark.s4", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.5)" }, 6.28)
+
+          .to(".school-core", { scale: 1.045, duration: 0.42, yoyo: true, repeat: 1, ease: "power1.inOut" }, 8.0)
+          .to(".ring.r2", { rotation: 10, duration: 3.2, ease: "none" }, 8.0)
+          .to(".orbital-system", { scale: 1.012, duration: 3.4, ease: "power1.inOut" }, 8.0)
+
+          .to(".service-card", { y: -6, duration: 0.55, stagger: 0.05, yoyo: true, repeat: 1, ease: "power1.inOut" }, 11.12)
+          .fromTo(".callout", { opacity: 0, y: 26, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.65, ease: "back.out(1.15)" }, 12.35)
+          .to(".connector", { stroke: "rgba(31,159,104,0.28)", duration: 0.8, ease: "power2.out" }, 12.7)
+          .to(".spark", { backgroundColor: "#1f9f68", scale: 1.14, duration: 0.38, stagger: 0.08, yoyo: true, repeat: 1, ease: "power1.inOut" }, 13.05)
+          .to(".school-core", { scale: 1.018, duration: 2.4, ease: "power1.inOut" }, 13.4);
+
+        window.__timelines["main"] = tl;
+      </script>
+    </div>
+  </body>
+</html>

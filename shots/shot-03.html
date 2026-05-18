@@ -1,0 +1,1422 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <base href="../" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      :root {
+        --background: #faf8f6;
+        --foreground: #2c2421;
+        --card: #ffffff;
+        --primary: #8b5a4a;
+        --primary-dark: #74493c;
+        --primary-foreground: #ffffff;
+        --secondary: #f5f2ef;
+        --muted-foreground: #5c524d;
+        --accent: #f5edeb;
+        --border: #e8e2dc;
+        --input: #d9d0c8;
+        --text-tertiary: #8c8279;
+        --bg-hover: #f0ebe7;
+        --bg-active: #ebdad6;
+        --cool: #6b7b8f;
+        --cool-dark: #576878;
+        --success: #00a544;
+        --shine: #c49485;
+        --gradient-primary: linear-gradient(180deg, #8b5a4a 0%, #74493c 100%);
+        --gradient-secondary: linear-gradient(180deg, #6b7b8f 0%, #576878 100%);
+        --shadow-soft: 0 22px 70px rgba(44, 36, 33, 0.11);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--background);
+        color: var(--foreground);
+        font-family: Inter, "SF Pro Display", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      }
+
+      body,
+      #root,
+      .scene {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .scene {
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse 72% 54% at 52% -8%, rgba(139, 90, 74, 0.09) 0%, transparent 68%),
+          linear-gradient(117deg, #faf6f5 0%, rgba(255, 255, 255, 0) 80%),
+          linear-gradient(180deg, #faf8f6 0%, #f6f2ef 56%, #efe8e2 100%);
+      }
+
+      .paper-grid {
+        position: absolute;
+        inset: 68px;
+        border: 1px solid rgba(139, 90, 74, 0.07);
+        border-radius: 34px;
+        background-image:
+          linear-gradient(rgba(139, 90, 74, 0.055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139, 90, 74, 0.055) 1px, transparent 1px);
+        background-size: 160px 132px;
+        opacity: 0.72;
+      }
+
+      .wash {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.2) 36%, rgba(255, 255, 255, 0.58) 100%),
+          linear-gradient(180deg, rgba(139, 90, 74, 0.035), rgba(107, 123, 143, 0.04));
+      }
+
+      .copy {
+        position: absolute;
+        left: 220px;
+        top: 372px;
+        width: 1480px;
+        text-align: center;
+        perspective: 1200px;
+        z-index: 8;
+      }
+
+      .copy::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 46px;
+        width: 1120px;
+        height: 560px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(139, 90, 74, 0.12) 0%, rgba(139, 90, 74, 0.045) 38%, transparent 68%);
+        filter: blur(20px);
+        transform: translateX(-50%);
+        z-index: -1;
+      }
+
+      .kicker-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      .main-title {
+        margin-top: 42px;
+        color: var(--foreground);
+        font-size: 138px;
+        line-height: 0.92;
+        font-weight: 840;
+        letter-spacing: 0;
+        transform-style: preserve-3d;
+      }
+
+      .title-char {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(76px) rotateX(-72deg) scale(0.86);
+        filter: blur(12px);
+        transform-origin: center 78%;
+        backface-visibility: hidden;
+        font-kerning: none;
+        text-rendering: optimizeSpeed;
+        will-change: transform, opacity;
+      }
+
+      .subtitle-title {
+        display: block;
+        margin-top: 26px;
+        color: transparent;
+        background: var(--gradient-primary);
+        background-clip: text;
+        -webkit-background-clip: text;
+        font-size: 116px;
+        line-height: 0.96;
+        font-weight: 840;
+        letter-spacing: 0;
+        transform-style: preserve-3d;
+      }
+
+      .subtitle-title .title-char {
+        color: transparent;
+        background: var(--gradient-primary);
+        background-clip: text;
+        -webkit-background-clip: text;
+      }
+
+      .desc {
+        margin-top: 42px;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+        color: var(--muted-foreground);
+        font-size: 34px;
+        font-weight: 720;
+        line-height: 1.42;
+      }
+
+      .stage {
+        position: absolute;
+        left: 400px;
+        top: 166px;
+        width: 1120px;
+        height: 720px;
+        perspective: 1600px;
+        opacity: 0;
+        transform-origin: center bottom;
+        z-index: 3;
+      }
+
+      .desk-shadow {
+        position: absolute;
+        left: 136px;
+        right: 162px;
+        bottom: 96px;
+        height: 96px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(44, 36, 33, 0.2) 0%, rgba(44, 36, 33, 0.09) 46%, transparent 72%);
+        filter: blur(18px);
+      }
+
+      .laptop {
+        position: absolute;
+        inset: 0;
+        transform-style: preserve-3d;
+      }
+
+      .s3-laptop-zone {
+        position: absolute;
+        left: 38px;
+        top: 28px;
+        width: 1044px;
+        height: 668px;
+        transform-origin: center bottom;
+      }
+
+      .s3-macbook-art {
+        position: absolute;
+        left: 0;
+        top: 30px;
+        width: 1044px;
+        height: auto;
+        display: block;
+        filter: drop-shadow(0 34px 48px rgba(44, 36, 33, 0.16));
+        z-index: 2;
+      }
+
+      .s3-laptop-screen {
+        position: absolute;
+        left: 121px;
+        top: 66px;
+        width: 802px;
+        height: 502px;
+        overflow: hidden;
+        border-radius: 4px;
+        background: #fffefd;
+        z-index: 4;
+      }
+
+      .s3-backend {
+        width: 100%;
+        height: 100%;
+        padding: 26px 34px;
+        box-sizing: border-box;
+        background:
+          radial-gradient(circle at 82% 0%, rgba(139, 90, 74, 0.07), transparent 34%),
+          linear-gradient(180deg, #fffefd 0%, #f7f4f0 100%);
+      }
+
+      .s3-backend-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+      }
+
+      .s3-backend-title {
+        color: var(--foreground);
+        font-size: 24px;
+        font-weight: 880;
+        letter-spacing: -0.01em;
+      }
+
+      .s3-run-badge {
+        padding: 8px 14px;
+        border-radius: 9px;
+        background: linear-gradient(180deg, #ad765f, #8d5f50);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 850;
+        box-shadow: 0 8px 18px rgba(139, 90, 74, 0.18);
+      }
+
+      .s3-work-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .s3-work-row {
+        min-height: 76px;
+        padding: 14px 16px;
+        border: 1px solid rgba(232, 226, 220, 0.96);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: 0 10px 24px rgba(44, 36, 33, 0.05);
+      }
+
+      .s3-work-row.active {
+        border-left: 4px solid rgba(34, 197, 139, 0.7);
+      }
+
+      .s3-work-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .s3-work-name {
+        color: var(--foreground);
+        font-size: 14px;
+        font-weight: 860;
+      }
+
+      .s3-work-chip {
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(139, 90, 74, 0.08);
+        color: var(--primary);
+        font-size: 10px;
+        font-weight: 820;
+      }
+
+      .s3-work-meta {
+        margin-top: 8px;
+        color: var(--text-tertiary);
+        font-size: 11px;
+        font-weight: 650;
+      }
+
+      .s3-progress-shell {
+        height: 8px;
+        margin-top: 10px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(232, 226, 220, 0.72);
+      }
+
+      .s3-progress {
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #9d6a58, #c89d87);
+      }
+
+      .s3-progress.p1 {
+        width: 74%;
+      }
+
+      .s3-progress.p2 {
+        width: 42%;
+      }
+
+      .s3-progress.p3 {
+        width: 8%;
+      }
+
+      .real-laptop {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 30px 46px rgba(44, 36, 33, 0.2));
+        transform-origin: center bottom;
+      }
+
+      .screen {
+        position: absolute;
+        left: 55px;
+        top: 0;
+        width: 522px;
+        height: 350px;
+        padding: 9px;
+        border-radius: 26px 26px 20px 20px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(217, 208, 200, 0.95) 18%, rgba(122, 132, 143, 0.95) 100%),
+          #d9d0c8;
+        box-shadow:
+          0 28px 72px rgba(44, 36, 33, 0.18),
+          0 2px 0 rgba(255, 255, 255, 0.74) inset,
+          0 -2px 0 rgba(44, 36, 33, 0.08) inset;
+        transform-origin: 50% 100%;
+        transform-style: preserve-3d;
+        z-index: 4;
+      }
+
+      .screen-inner {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        padding: 18px 18px 16px;
+        border: 1px solid rgba(12, 12, 12, 0.72);
+        border-radius: 19px 19px 14px 14px;
+        background:
+          radial-gradient(circle at 70% 12%, rgba(255, 255, 255, 0.09), transparent 28%),
+          linear-gradient(180deg, #1b1715 0%, #0e0d0c 100%);
+        position: relative;
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+          0 16px 36px rgba(0, 0, 0, 0.18) inset;
+      }
+
+      .screen-inner::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 8px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #060606;
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.1),
+          0 0 8px rgba(255, 255, 255, 0.08);
+        transform: translateX(-50%);
+        z-index: 3;
+      }
+
+      .screen-inner::after {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border-radius: 12px;
+        pointer-events: none;
+        background: linear-gradient(118deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 28%);
+        mix-blend-mode: screen;
+        z-index: 2;
+      }
+
+      .chrome {
+        height: 32px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 0 14px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.76);
+        border-radius: 11px 11px 0 0;
+        position: relative;
+        z-index: 1;
+      }
+
+      .chrome-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--input);
+      }
+
+      .url {
+        margin-left: 12px;
+        width: 214px;
+        height: 12px;
+        border-radius: 999px;
+        background: var(--secondary);
+      }
+
+      .dashboard {
+        padding: 18px 24px;
+        background:
+          radial-gradient(circle at 78% 4%, rgba(139, 90, 74, 0.08), transparent 34%),
+          linear-gradient(180deg, #fffefd 0%, #f7f3f0 100%);
+        border-radius: 0 0 11px 11px;
+        min-height: calc(100% - 32px);
+        position: relative;
+        z-index: 1;
+      }
+
+      .profile {
+        height: 72px;
+        display: grid;
+        grid-template-columns: 48px 1fr auto;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 15px;
+        background: var(--gradient-primary);
+        color: var(--primary-foreground);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        font-weight: 850;
+      }
+
+      .profile-name {
+        color: var(--foreground);
+        font-size: 21px;
+        font-weight: 850;
+      }
+
+      .profile-role {
+        margin-top: 6px;
+        color: var(--text-tertiary);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .status {
+        height: 26px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(0, 165, 68, 0.1);
+        color: var(--success);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--success);
+      }
+
+      .screen-grid {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .mini {
+        height: 68px;
+        padding: 14px;
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.78);
+      }
+
+      .mini-title {
+        color: var(--primary);
+        font-size: 13px;
+        font-weight: 850;
+      }
+
+      .mini-line {
+        margin-top: 12px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--secondary);
+      }
+
+      .mini-line.short {
+        width: 64%;
+      }
+
+      .base {
+        position: absolute;
+        left: 0;
+        top: 344px;
+        width: 632px;
+        height: 126px;
+        border-radius: 3px 3px 56px 56px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(217, 208, 200, 0.98) 18%, rgba(174, 182, 190, 0.98) 63%, rgba(116, 128, 141, 0.98) 100%),
+          #aeb6be;
+        clip-path: polygon(9% 0, 91% 0, 100% 100%, 0 100%);
+        box-shadow:
+          0 28px 54px rgba(44, 36, 33, 0.18),
+          0 2px 0 rgba(255, 255, 255, 0.58) inset,
+          0 -14px 24px rgba(51, 62, 73, 0.16) inset;
+        z-index: 2;
+      }
+
+      .base-lip {
+        position: absolute;
+        left: 34px;
+        top: 456px;
+        width: 564px;
+        height: 14px;
+        border-radius: 0 0 56px 56px;
+        background: linear-gradient(90deg, rgba(116, 128, 141, 0.08), rgba(56, 66, 76, 0.34), rgba(116, 128, 141, 0.08));
+        z-index: 3;
+      }
+
+      .hinge {
+        position: absolute;
+        left: 208px;
+        top: 342px;
+        width: 216px;
+        height: 16px;
+        border-radius: 0 0 999px 999px;
+        background: linear-gradient(180deg, rgba(70, 77, 84, 0.42), rgba(209, 203, 196, 0.22));
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+        z-index: 5;
+      }
+
+      .keyboard {
+        position: absolute;
+        left: 158px;
+        top: 368px;
+        width: 316px;
+        height: 44px;
+        display: grid;
+        gap: 5px;
+        z-index: 4;
+        opacity: 0.78;
+      }
+
+      .key-row {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 4px;
+      }
+
+      .key {
+        height: 8px;
+        border-radius: 3px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(117, 126, 136, 0.34)),
+          rgba(92, 99, 107, 0.38);
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.34) inset;
+      }
+
+      .key-row.second {
+        padding: 0 12px;
+      }
+
+      .key-row.third {
+        padding: 0 34px;
+      }
+
+      .trackpad {
+        position: absolute;
+        left: 243px;
+        top: 418px;
+        width: 146px;
+        height: 34px;
+        border-radius: 9px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(94, 104, 114, 0.16)),
+          rgba(210, 215, 219, 0.42);
+        border: 1px solid rgba(86, 96, 106, 0.22);
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.48) inset,
+          0 -1px 0 rgba(44, 36, 33, 0.08) inset;
+        z-index: 4;
+      }
+
+      .screen-sweep {
+        position: absolute;
+        top: -40px;
+        left: -120px;
+        width: 90px;
+        height: 430px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.82), transparent);
+        filter: blur(10px);
+        transform: rotate(15deg);
+      }
+
+      .identity-card {
+        position: absolute;
+        width: 350px;
+        min-height: 144px;
+        padding: 20px 22px;
+        border: 1px solid rgba(232, 226, 220, 0.98);
+        border-radius: 16px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.82)),
+          var(--card);
+        box-shadow:
+          0 24px 72px rgba(44, 36, 33, 0.1),
+          0 1px 0 rgba(255, 255, 255, 0.72) inset;
+        backdrop-filter: blur(16px);
+        opacity: 0;
+        z-index: 5;
+      }
+
+      .identity-card.primary {
+        border-color: rgba(139, 90, 74, 0.25);
+        background:
+          linear-gradient(180deg, rgba(245, 237, 235, 0.92), rgba(255, 255, 255, 0.86)),
+          #ffffff;
+      }
+
+      .card-computer {
+        left: 104px;
+        top: 604px;
+      }
+
+      .card-email {
+        left: 104px;
+        top: 304px;
+      }
+
+      .card-feishu {
+        left: 1466px;
+        top: 304px;
+      }
+
+      .card-workspace {
+        left: 1466px;
+        top: 604px;
+      }
+
+      .card-task {
+        left: 724px;
+        top: 846px;
+        width: 472px;
+        min-height: 126px;
+        padding: 16px 22px;
+        z-index: 6;
+      }
+
+      .card-task .card-icon {
+        width: 42px;
+        height: 42px;
+      }
+
+      .card-task .card-title {
+        margin-top: 8px;
+        font-size: 26px;
+      }
+
+      .card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+
+      .card-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 15px;
+        background: var(--accent);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 900;
+      }
+
+      .card-chip {
+        height: 24px;
+        padding: 0 10px;
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        background: rgba(139, 90, 74, 0.08);
+        color: var(--primary);
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      .card-title {
+        margin-top: 14px;
+        color: var(--foreground);
+        font-size: 27px;
+        line-height: 1.1;
+        font-weight: 850;
+      }
+
+      .card-note {
+        margin-top: 10px;
+        color: var(--muted-foreground);
+        font-size: 15.5px;
+        line-height: 1.42;
+        font-weight: 680;
+      }
+
+      .task-rows {
+        margin-top: 16px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .card-task .task-rows {
+        margin-top: 10px;
+        gap: 7px;
+      }
+
+      .task-row {
+        height: 10px;
+        border-radius: 999px;
+        background: var(--secondary);
+      }
+
+      .card-task .task-row {
+        height: 8px;
+      }
+
+      .task-row.hot {
+        width: 84%;
+        background: linear-gradient(90deg, var(--primary), var(--shine));
+      }
+
+      .task-row.mid {
+        width: 70%;
+      }
+
+      .task-row.short {
+        width: 48%;
+      }
+
+      .connector {
+        position: absolute;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(139, 90, 74, 0), rgba(139, 90, 74, 0.34), rgba(139, 90, 74, 0));
+        transform-origin: center center;
+        opacity: 0;
+        z-index: 2;
+      }
+
+      .connector.c-email {
+        left: 454px;
+        top: 390px;
+        width: 304px;
+        transform: rotate(-5deg);
+      }
+
+      .connector.c-feishu {
+        left: 1174px;
+        top: 390px;
+        width: 292px;
+        transform: rotate(5deg);
+      }
+
+      .connector.c-computer {
+        left: 444px;
+        top: 676px;
+        width: 286px;
+        transform: rotate(-10deg);
+      }
+
+      .connector.c-workspace {
+        left: 1190px;
+        top: 676px;
+        width: 276px;
+        transform: rotate(10deg);
+      }
+
+      .connector.c-task {
+        left: 959px;
+        top: 798px;
+        width: 2px;
+        height: 62px;
+        background: linear-gradient(180deg, rgba(139, 90, 74, 0), rgba(139, 90, 74, 0.34), rgba(139, 90, 74, 0));
+      }
+
+      .channel-panel {
+        position: absolute;
+        left: 508px;
+        top: 842px;
+        width: 904px;
+        padding: 16px 18px;
+        border: 1px solid rgba(232, 226, 220, 0.98);
+        border-radius: 20px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.76)),
+          var(--card);
+        box-shadow: 0 22px 62px rgba(44, 36, 33, 0.09);
+        backdrop-filter: blur(12px);
+        z-index: 6;
+      }
+
+      .channel-scene {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 112px 120px 104px;
+        opacity: 0;
+        transform: translateY(24px) scale(0.985);
+        z-index: 9;
+      }
+
+      .channel-scene::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 980px;
+        height: 520px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(139, 90, 74, 0.14) 0%, rgba(139, 90, 74, 0.055) 42%, transparent 72%);
+        filter: blur(24px);
+        transform: translate(-50%, -50%);
+      }
+
+      .channel-head {
+        position: relative;
+        text-align: center;
+        z-index: 2;
+      }
+
+      .channel-kicker-large {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        height: 38px;
+        padding: 0 18px;
+        border: 1px solid rgba(139, 90, 74, 0.18);
+        border-radius: 999px;
+        background: rgba(245, 237, 235, 0.92);
+        color: var(--primary);
+        font-size: 15px;
+        font-weight: 860;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .channel-head h2 {
+        margin-top: 26px;
+        color: var(--foreground);
+        font-size: 96px;
+        line-height: 0.96;
+        font-weight: 860;
+        letter-spacing: 0;
+      }
+
+      .logo-cloud {
+        position: relative;
+        width: 1180px;
+        height: 330px;
+        margin-top: 54px;
+        z-index: 2;
+      }
+
+      .logo-card {
+        position: absolute;
+        width: 178px;
+        height: 178px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        border: 1px solid rgba(232, 226, 220, 0.96);
+        border-radius: 30px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.78)),
+          var(--card);
+        box-shadow:
+          0 30px 82px rgba(44, 36, 33, 0.13),
+          0 1px 0 rgba(255, 255, 255, 0.78) inset;
+        backdrop-filter: blur(16px);
+        color: var(--foreground);
+        font-size: 18px;
+        font-weight: 840;
+        opacity: 0;
+      }
+
+      .logo-symbol {
+        width: 76px;
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 24px;
+        color: #ffffff;
+      }
+
+      .logo-symbol svg {
+        width: 42px;
+        height: 42px;
+      }
+
+      .logo-whatsapp {
+        left: 18px;
+        top: 86px;
+      }
+
+      .logo-whatsapp .logo-symbol {
+        background: #25d366;
+      }
+
+      .logo-telegram {
+        left: 246px;
+        top: 20px;
+      }
+
+      .logo-telegram .logo-symbol {
+        background: #229ed9;
+      }
+
+      .logo-feishu {
+        left: 501px;
+        top: 78px;
+        width: 178px;
+        height: 178px;
+      }
+
+      .logo-feishu .logo-symbol {
+        background: #ffffff;
+        border: 1px solid rgba(232, 226, 220, 0.96);
+        overflow: hidden;
+      }
+
+      .logo-feishu .logo-symbol img {
+        width: 56px;
+        height: 56px;
+        display: block;
+        object-fit: contain;
+      }
+
+      .logo-mail {
+        left: 756px;
+        top: 20px;
+      }
+
+      .logo-mail .logo-symbol {
+        border-radius: 20px;
+        background: linear-gradient(180deg, #78caff 0%, #2497ff 48%, #0878f4 100%);
+        box-shadow: 0 16px 30px rgba(8, 120, 244, 0.22), 0 1px 0 rgba(255, 255, 255, 0.45) inset;
+      }
+
+      .logo-mail .logo-symbol svg {
+        width: 50px;
+        height: 50px;
+        filter: drop-shadow(0 2px 4px rgba(0, 68, 150, 0.16));
+      }
+
+      .logo-desktop {
+        left: 984px;
+        top: 86px;
+      }
+
+      .logo-desktop .logo-symbol {
+        background: var(--gradient-secondary);
+      }
+
+      .channel-label {
+        color: var(--text-tertiary);
+        font-size: 13px;
+        font-weight: 850;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .channels {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+      }
+
+      .channel {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid var(--border);
+        border-radius: 13px;
+        background: var(--card);
+        color: var(--foreground);
+        font-size: 15px;
+        font-weight: 820;
+      }
+
+      .channel-mark {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      .screen-text {
+        position: absolute;
+        left: 480px;
+        width: 960px;
+        bottom: 36px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(139, 90, 74, 0.18);
+        border-radius: 999px;
+        background: rgba(245, 237, 235, 0.92);
+        color: var(--primary);
+        box-shadow: 0 14px 44px rgba(139, 90, 74, 0.11);
+        font-size: 32px;
+        font-weight: 860;
+        letter-spacing: 0;
+        z-index: 7;
+      }
+
+      .light-sweep {
+        display: none;
+        position: absolute;
+        left: -260px;
+        top: 0;
+        width: 180px;
+        height: 1080px;
+        background: linear-gradient(90deg, transparent, rgba(255, 250, 244, 0.92), transparent);
+        filter: blur(16px);
+        transform: skewX(-15deg);
+        opacity: 0;
+        z-index: 12;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="shot-03"
+      data-start="0"
+      data-duration="17.2"
+      data-width="1920"
+      data-height="1080"
+    >
+      <audio
+        id="voiceover"
+        data-start="0.35"
+        data-track-index="2"
+        data-volume="0"
+        src="assets/shot-3-narration.wav"
+      ></audio>
+
+      <div class="scene" data-layout-allow-overflow="true" data-layout-ignore="true">
+        <div class="wash"></div>
+        <div class="paper-grid"></div>
+
+        <section
+          class="copy clip"
+          id="copy"
+          data-start="0"
+          data-duration="4.85"
+          data-track-index="1"
+          data-layout-ignore="true"
+        >
+          <h1 class="main-title" id="headline">
+            <span class="title-char">真</span><span class="title-char">正</span><span class="title-char">上</span><span class="title-char">岗</span>
+          </h1>
+          <div class="subtitle-title" id="subtitle">
+            <span class="title-char">完</span><span class="title-char">整</span><span class="title-char">员</span><span class="title-char">工</span><span class="title-char">身</span><span class="title-char">份</span>
+          </div>
+          <p class="desc" id="desc">不是临时打开一个聊天框，而是给 Lawrence 配好工作电脑、账号、工作区和任务入口。</p>
+        </section>
+
+        <div class="identity-card card-email" id="card-email">
+          <div class="card-top">
+            <div class="card-icon">@</div>
+            <div class="card-chip">EMAIL READY</div>
+          </div>
+          <div class="card-title">邮箱账号</div>
+          <div class="card-note">专属收发件身份，自动接收任务、草拟回复、归档线索。</div>
+        </div>
+
+        <div class="identity-card primary card-task" id="card-task">
+          <div class="card-top">
+            <div class="card-icon">T</div>
+            <div class="card-chip">TASK SYSTEM</div>
+          </div>
+          <div class="card-title">任务系统</div>
+          <div class="task-rows">
+            <div class="task-row hot"></div>
+            <div class="task-row mid"></div>
+            <div class="task-row short"></div>
+          </div>
+        </div>
+
+        <div class="identity-card card-feishu" id="card-feishu">
+          <div class="card-top">
+            <div class="card-icon">飞</div>
+            <div class="card-chip">TEAM CHAT</div>
+          </div>
+          <div class="card-title">飞书账号</div>
+          <div class="card-note">进入团队协作流，读取上下文、接收指令、同步进展。</div>
+        </div>
+
+        <div class="identity-card card-computer" id="card-computer">
+          <div class="card-top">
+            <div class="card-icon">MB</div>
+            <div class="card-chip">WORK DEVICE</div>
+          </div>
+          <div class="card-title">工作电脑</div>
+          <div class="card-note">独立运行环境，文件、工具链、桌面端长期在线。</div>
+        </div>
+
+        <div class="identity-card card-workspace" id="card-workspace">
+          <div class="card-top">
+            <div class="card-icon">W</div>
+            <div class="card-chip">WORKSPACE</div>
+          </div>
+          <div class="card-title">工作区</div>
+          <div class="card-note">按客户、案件、业务线隔离，形成可追踪的长期记忆。</div>
+        </div>
+
+        <div class="connector c-email" id="line-email"></div>
+        <div class="connector c-feishu" id="line-feishu"></div>
+        <div class="connector c-computer" id="line-computer"></div>
+        <div class="connector c-workspace" id="line-workspace"></div>
+        <div class="connector c-task" id="line-task"></div>
+
+        <div class="stage" id="stage">
+          <div class="desk-shadow" id="desk-shadow"></div>
+          <div class="laptop" id="laptop">
+            <div class="s3-laptop-zone" id="s3-laptop-zone">
+              <img class="s3-macbook-art" src="assets/macbook.svg" alt="MacBook Pro" />
+              <div class="s3-laptop-screen">
+                <div class="s3-backend">
+                  <div class="s3-backend-head">
+                    <div class="s3-backend-title">Lawrence 工作区</div>
+                    <div class="s3-run-badge">后台执行中</div>
+                  </div>
+                  <div class="s3-work-list">
+                    <div class="s3-work-row active">
+                      <div class="s3-work-top">
+                        <div class="s3-work-name">Contract Review</div>
+                        <div class="s3-work-chip">运行中</div>
+                      </div>
+                      <div class="s3-work-meta">文件：合作协议_终稿.pdf · 上下文：飞书任务</div>
+                      <div class="s3-progress-shell"><div class="s3-progress p1"></div></div>
+                    </div>
+                    <div class="s3-work-row">
+                      <div class="s3-work-top">
+                        <div class="s3-work-name">Clause Extraction</div>
+                        <div class="s3-work-chip">排队</div>
+                      </div>
+                      <div class="s3-work-meta">违约责任 · 终止条款 · 风险等级</div>
+                      <div class="s3-progress-shell"><div class="s3-progress p2"></div></div>
+                    </div>
+                    <div class="s3-work-row">
+                      <div class="s3-work-top">
+                        <div class="s3-work-name">Draft Opinion</div>
+                        <div class="s3-work-chip">待生成</div>
+                      </div>
+                      <div class="s3-work-meta">初步意见 · 修改建议 · 可追问摘要</div>
+                      <div class="s3-progress-shell"><div class="s3-progress p3"></div></div>
+                    </div>
+                    <div class="s3-work-row">
+                      <div class="s3-work-top">
+                        <div class="s3-work-name">Legal Research</div>
+                        <div class="s3-work-chip">待命</div>
+                      </div>
+                      <div class="s3-work-meta">案例检索 · 法条引用 · 交叉校验</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section
+          class="channel-scene clip"
+          id="channel-scene"
+          data-start="11.95"
+          data-duration="5.25"
+          data-track-index="1"
+          data-layout-allow-overflow="true"
+        >
+          <div class="channel-head" id="channel-head">
+            <div class="channel-kicker-large"><span class="kicker-dot"></span>Multi-channel access</div>
+            <h2>多渠道接入</h2>
+          </div>
+          <div class="logo-cloud" id="logo-cloud">
+            <div class="logo-card logo-whatsapp" id="logo-whatsapp">
+              <div class="logo-symbol">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M12 2.1A9.86 9.86 0 0 0 3.44 16.9L2.2 21.4l4.64-1.21A9.86 9.86 0 1 0 12 2.1Zm5.62 13.92c-.23.65-1.28 1.2-1.82 1.27-.47.07-1.08.1-1.74-.11-.4-.13-.92-.3-1.59-.58-2.79-1.2-4.6-3.99-4.75-4.18-.14-.19-1.13-1.51-1.13-2.89s.72-2.05.98-2.33c.26-.28.56-.35.75-.35h.54c.18 0 .41-.07.64.49.24.57.8 1.96.87 2.1.07.14.12.31.02.49-.1.18-.14.3-.28.47-.14.16-.3.37-.43.5-.14.14-.29.29-.12.57.16.28.72 1.18 1.54 1.91 1.06.95 1.96 1.25 2.24 1.39.28.14.45.12.61-.07.16-.19.7-.81.89-1.09.19-.28.37-.23.63-.14.26.09 1.63.77 1.91.91.28.14.47.21.54.33.07.12.07.7-.16 1.35Z"
+                  />
+                </svg>
+              </div>
+              <div>WhatsApp</div>
+            </div>
+            <div class="logo-card logo-telegram" id="logo-telegram">
+              <div class="logo-symbol">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M21.7 3.34 18.33 20.1c-.25 1.12-.9 1.39-1.82.87l-5.04-3.72-2.43 2.34c-.27.27-.5.5-1.02.5l.36-5.14L17.73 6.5c.41-.36-.09-.56-.63-.2L5.55 13.57.58 12.02c-1.08-.34-1.1-1.08.23-1.6L20.25 2.9c.9-.34 1.69.2 1.45.44Z" />
+                </svg>
+              </div>
+              <div>Telegram</div>
+            </div>
+            <div class="logo-card logo-feishu" id="logo-feishu">
+              <div class="logo-symbol">
+                <img src="assets/feishu.svg" alt="" aria-hidden="true" />
+              </div>
+              <div>飞书</div>
+            </div>
+            <div class="logo-card logo-mail" id="logo-mail">
+              <div class="logo-symbol">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <rect x="10" y="16" width="44" height="32" rx="6" fill="rgba(255,255,255,0.96)" />
+                  <path d="M13.5 20.5 32 35.5l18.5-15" fill="none" stroke="#0f7ef7" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M14 44 27.2 31.7M50 44 36.8 31.7" fill="none" stroke="#0f7ef7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.88" />
+                </svg>
+              </div>
+              <div>邮件</div>
+            </div>
+            <div class="logo-card logo-desktop" id="logo-desktop">
+              <div class="logo-symbol">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-6v2h3a1 1 0 1 1 0 2H7a1 1 0 1 1 0-2h3v-2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v10h16V6H4Z" />
+                </svg>
+              </div>
+              <div>桌面端</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="light-sweep" id="light-sweep" data-layout-allow-overflow="true"></div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      gsap.defaults({ ease: "power3.out" });
+
+      const tl = gsap.timeline({ paused: true });
+
+      tl.set(".title-char", { opacity: 0, y: 76, rotationX: -72, scale: 0.86, filter: "blur(12px)" }, 0)
+        .fromTo("#headline", { y: 16, scale: 0.98 }, { y: 0, scale: 1, duration: 0.8, ease: "expo.out" }, 0.42)
+        .to("#headline .title-char", {
+          opacity: 1,
+          y: 0,
+          rotationX: 0,
+          scale: 1,
+          filter: "blur(0px)",
+          duration: 0.64,
+          stagger: 0.075,
+          ease: "power4.out",
+        }, 0.5)
+        .fromTo("#subtitle", { y: 22, scale: 0.98 }, { y: 0, scale: 1, duration: 0.84, ease: "expo.out" }, 0.92)
+        .to("#subtitle .title-char", {
+          opacity: 1,
+          y: 0,
+          rotationX: 0,
+          scale: 1,
+          filter: "blur(0px)",
+          duration: 0.7,
+          stagger: 0.06,
+          ease: "power4.out",
+        }, 1.02)
+        .to("#copy", { y: -74, duration: 0.68, ease: "power2.inOut" }, 2.34)
+        .from("#desc", { opacity: 0, y: 30, duration: 0.64 }, 1.72)
+        .to("#copy", { opacity: 0, y: -112, scale: 0.982, duration: 0.58, ease: "power2.inOut" }, 4.25)
+        .fromTo(
+          "#stage",
+          { opacity: 0, y: 70, scale: 0.9 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.92, ease: "expo.out" },
+          4.9,
+        )
+        .fromTo(
+          "#card-computer",
+          { opacity: 0, x: 180, y: -40, scale: 0.84 },
+          { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.68, ease: "back.out(1.3)" },
+          6.7,
+        )
+        .fromTo("#line-computer", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.38 }, 6.88)
+        .fromTo(
+          "#card-email",
+          { opacity: 0, x: 160, y: 70, scale: 0.84 },
+          { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.68, ease: "back.out(1.3)" },
+          7.35,
+        )
+        .fromTo("#line-email", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.38 }, 7.53)
+        .fromTo(
+          "#card-feishu",
+          { opacity: 0, x: -160, y: 70, scale: 0.84 },
+          { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.68, ease: "back.out(1.3)" },
+          8.0,
+        )
+        .fromTo("#line-feishu", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.38 }, 8.18)
+        .fromTo(
+          "#card-workspace",
+          { opacity: 0, x: -180, y: -40, scale: 0.84 },
+          { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.68, ease: "back.out(1.3)" },
+          8.65,
+        )
+        .fromTo("#line-workspace", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.38 }, 8.83)
+        .fromTo(
+          "#card-task",
+          { opacity: 0, y: -70, scale: 0.86 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.68, ease: "back.out(1.25)" },
+          9.3,
+        )
+        .fromTo(
+          "#line-task",
+          { opacity: 0, scaleY: 0, transformOrigin: "center top" },
+          { opacity: 1, scaleY: 1, transformOrigin: "center top", duration: 0.42 },
+          9.5,
+        )
+        .to(
+          [
+            "#stage",
+            "#card-email",
+            "#card-feishu",
+            "#card-computer",
+            "#card-workspace",
+            "#card-task",
+            ".connector",
+          ],
+          { opacity: 0, y: -28, scale: 0.965, duration: 0.72, ease: "power2.inOut" },
+          11.42,
+        )
+        .to("#channel-scene", { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "power2.out" }, 11.95)
+        .from("#channel-head", { opacity: 0, y: 32, duration: 0.58 }, 12.12)
+        .fromTo(
+          "#logo-whatsapp",
+          { opacity: 0, x: -720, y: 150, scale: 0.5, rotation: -14 },
+          { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 0.78, ease: "back.out(1.35)" },
+          12.78,
+        )
+        .fromTo(
+          "#logo-telegram",
+          { opacity: 0, x: -360, y: -220, scale: 0.52, rotation: -10 },
+          { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 0.78, ease: "back.out(1.35)" },
+          12.94,
+        )
+        .fromTo(
+          "#logo-feishu",
+          { opacity: 0, y: -320, scale: 0.48, rotation: 8 },
+          { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 0.78, ease: "back.out(1.35)" },
+          13.1,
+        )
+        .fromTo(
+          "#logo-mail",
+          { opacity: 0, x: 360, y: -220, scale: 0.52, rotation: 10 },
+          { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 0.78, ease: "back.out(1.35)" },
+          13.26,
+        )
+        .fromTo(
+          "#logo-desktop",
+          { opacity: 0, x: 720, y: 150, scale: 0.5, rotation: 14 },
+          { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 0.78, ease: "back.out(1.35)" },
+          13.42,
+        )
+        .to(".logo-card", { y: -8, duration: 0.72, ease: "sine.inOut", stagger: 0.04 }, 15.18)
+        .to(".logo-card", { y: 0, duration: 0.72, ease: "sine.inOut", stagger: 0.04 }, 15.86)
+        .to("#light-sweep", { opacity: 1, x: 2180, duration: 1.15, ease: "power2.inOut" }, 15.8)
+        .to("#light-sweep", { opacity: 0, duration: 0.28 }, 16.82);
+
+      window.__timelines["shot-03"] = tl;
+    </script>
+  </body>
+</html>

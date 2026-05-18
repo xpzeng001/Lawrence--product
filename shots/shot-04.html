@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <base href="../" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      :root {
+        --background: #faf8f6;
+        --foreground: #2c2421;
+        --card: #ffffff;
+        --primary: #8b5a4a;
+        --primary-dark: #74493c;
+        --primary-foreground: #ffffff;
+        --secondary: #f5f2ef;
+        --muted-foreground: #5c524d;
+        --accent: #f5edeb;
+        --border: #e8e2dc;
+        --input: #d9d0c8;
+        --text-tertiary: #8c8279;
+        --bg-hover: #f0ebe7;
+        --cool: #6b7b8f;
+        --cool-dark: #576878;
+        --success: #00a544;
+        --shine: #c49485;
+        --gradient-primary: linear-gradient(180deg, #8b5a4a 0%, #74493c 100%);
+        --gradient-secondary: linear-gradient(180deg, #6b7b8f 0%, #576878 100%);
+        --shadow-soft: 0 22px 70px rgba(44, 36, 33, 0.11);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--background);
+        color: var(--foreground);
+        font-family: Inter, "SF Pro Display", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      }
+
+      body,
+      #root,
+      .scene {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .scene {
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse 76% 56% at 50% -10%, rgba(139, 90, 74, 0.1) 0%, transparent 68%),
+          linear-gradient(117deg, #faf6f5 0%, rgba(255, 255, 255, 0) 78%),
+          linear-gradient(180deg, #faf8f6 0%, #f6f2ef 56%, #efe8e2 100%);
+      }
+
+      .paper-grid {
+        position: absolute;
+        inset: 68px;
+        border: 1px solid rgba(139, 90, 74, 0.07);
+        border-radius: 34px;
+        background-image:
+          linear-gradient(rgba(139, 90, 74, 0.052) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139, 90, 74, 0.052) 1px, transparent 1px);
+        background-size: 160px 132px;
+        opacity: 0.72;
+      }
+
+      .wash {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.22) 38%, rgba(255, 255, 255, 0.62) 100%),
+          linear-gradient(180deg, rgba(139, 90, 74, 0.035), rgba(107, 123, 143, 0.04));
+      }
+
+      .intro-copy {
+        position: absolute;
+        left: 220px;
+        top: 350px;
+        width: 1480px;
+        text-align: center;
+        z-index: 12;
+      }
+
+      .intro-copy::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 54px;
+        width: 1160px;
+        height: 520px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(139, 90, 74, 0.13) 0%, rgba(139, 90, 74, 0.045) 40%, transparent 70%);
+        filter: blur(20px);
+        transform: translateX(-50%);
+        z-index: -1;
+      }
+
+      .kicker-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      .main-title {
+        margin-top: 0;
+        color: var(--foreground);
+        font-size: 118px;
+        line-height: 0.98;
+        font-weight: 860;
+        letter-spacing: 0;
+      }
+
+      .subtitle-title {
+        display: block;
+        margin-top: 22px;
+        color: transparent;
+        background: var(--gradient-primary);
+        background-clip: text;
+        -webkit-background-clip: text;
+        font-size: 96px;
+        line-height: 1;
+        font-weight: 860;
+        letter-spacing: 0;
+      }
+
+      .desc {
+        margin: 34px auto 0;
+        max-width: 1080px;
+        color: var(--muted-foreground);
+        font-size: 32px;
+        font-weight: 720;
+        line-height: 1.42;
+      }
+
+      .main-stage {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        grid-template-columns: 610px 1fr;
+        align-items: center;
+        gap: 86px;
+        padding: 48px 190px 48px 226px;
+        opacity: 0;
+        z-index: 4;
+      }
+
+      .phone-wrap {
+        position: relative;
+        width: 500px;
+        height: 982px;
+        justify-self: center;
+        transform: scale(0.78);
+        transform-origin: center center;
+      }
+
+      .phone-shadow {
+        position: absolute;
+        left: 50px;
+        right: 30px;
+        bottom: -28px;
+        height: 92px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(44, 36, 33, 0.2) 0%, rgba(44, 36, 33, 0.09) 48%, transparent 76%);
+        filter: blur(18px);
+      }
+
+      .phone {
+        position: absolute;
+        inset: 0;
+        border-radius: 72px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.32), rgba(28, 26, 25, 0.08)),
+          #191817;
+        box-shadow:
+          0 34px 80px rgba(44, 36, 33, 0.22),
+          0 0 0 2px rgba(255, 255, 255, 0.18) inset,
+          0 0 0 9px #171615 inset;
+        padding: 16px;
+      }
+
+      .phone::before,
+      .phone::after {
+        content: "";
+        position: absolute;
+        width: 5px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #242220, #11100f);
+        left: -5px;
+      }
+
+      .phone::before {
+        top: 218px;
+        height: 96px;
+      }
+
+      .phone::after {
+        top: 346px;
+        height: 128px;
+      }
+
+      .screen {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 56px;
+        background:
+          radial-gradient(circle at 78% 6%, rgba(139, 90, 74, 0.08), transparent 34%),
+          linear-gradient(180deg, #fffefd 0%, #f7f3ef 100%);
+      }
+
+      .dynamic-island {
+        position: absolute;
+        left: 50%;
+        top: 19px;
+        width: 138px;
+        height: 35px;
+        border-radius: 999px;
+        background: #050505;
+        transform: translateX(-50%);
+        z-index: 6;
+      }
+
+      .statusbar {
+        height: 74px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 25px 34px 0;
+        color: #151312;
+        font-size: 18px;
+        font-weight: 820;
+      }
+
+      .signals {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 2px;
+      }
+
+      .signal-bars {
+        display: grid;
+        grid-template-columns: repeat(4, 4px);
+        align-items: end;
+        gap: 2px;
+        height: 14px;
+      }
+
+      .signal-bars span {
+        width: 4px;
+        border-radius: 2px;
+        background: #171615;
+      }
+
+      .signal-bars span:nth-child(1) {
+        height: 5px;
+      }
+
+      .signal-bars span:nth-child(2) {
+        height: 8px;
+      }
+
+      .signal-bars span:nth-child(3) {
+        height: 11px;
+      }
+
+      .signal-bars span:nth-child(4) {
+        height: 14px;
+      }
+
+      .wifi {
+        width: 17px;
+        height: 12px;
+        border: 3px solid #171615;
+        border-bottom: 0;
+        border-radius: 16px 16px 0 0;
+      }
+
+      .battery {
+        width: 28px;
+        height: 13px;
+        border: 2px solid #171615;
+        border-radius: 4px;
+        position: relative;
+      }
+
+      .battery::after {
+        content: "";
+        position: absolute;
+        right: -5px;
+        top: 3px;
+        width: 3px;
+        height: 5px;
+        border-radius: 0 3px 3px 0;
+        background: #171615;
+      }
+
+      .chat-head {
+        height: 74px;
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr) 74px;
+        align-items: center;
+        gap: 12px;
+        padding: 0 28px;
+        border-bottom: 1px solid rgba(232, 226, 220, 0.68);
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .back {
+        color: var(--foreground);
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      .contact-name {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        color: var(--foreground);
+        font-size: 21px;
+        font-weight: 850;
+      }
+
+      .role-chip {
+        height: 23px;
+        padding: 0 9px;
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        background: rgba(196, 148, 133, 0.24);
+        color: var(--primary);
+        font-size: 11px;
+        font-weight: 840;
+      }
+
+      .online {
+        margin-top: 4px;
+        color: var(--muted-foreground);
+        font-size: 14px;
+        font-weight: 760;
+      }
+
+      .online::after {
+        content: "";
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-left: 6px;
+        border-radius: 50%;
+        background: var(--success);
+      }
+
+      .head-icons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+        color: var(--foreground);
+        font-size: 25px;
+        font-weight: 700;
+      }
+
+      .chat-body {
+        position: relative;
+        height: 720px;
+        padding: 32px 26px 24px;
+        overflow: hidden;
+      }
+
+      .date {
+        color: var(--text-tertiary);
+        text-align: center;
+        font-size: 15px;
+        font-weight: 680;
+      }
+
+      .avatar {
+        position: absolute;
+        left: 26px;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--card);
+        border: 1px solid rgba(139, 90, 74, 0.16);
+        box-shadow: 0 10px 24px rgba(139, 90, 74, 0.22);
+      }
+
+      .avatar img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .message {
+        position: absolute;
+        max-width: 308px;
+        padding: 16px 18px;
+        border-radius: 17px;
+        font-size: 16.5px;
+        line-height: 1.48;
+        font-weight: 760;
+        color: var(--foreground);
+        box-shadow: 0 14px 34px rgba(44, 36, 33, 0.07);
+        opacity: 0;
+      }
+
+      .message.user {
+        right: 26px;
+        background:
+          linear-gradient(180deg, rgba(245, 237, 235, 0.96), rgba(255, 249, 244, 0.96)),
+          #f8efe7;
+      }
+
+      .message.lawrence {
+        left: 80px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(243, 247, 252, 0.94)),
+          #eef4fb;
+      }
+
+      .voice-msg {
+        top: 98px;
+        width: 300px;
+      }
+
+      .voice-text {
+        margin-bottom: 14px;
+      }
+
+      .wave-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        height: 27px;
+      }
+
+      .wave {
+        width: 4px;
+        border-radius: 999px;
+        background: var(--shine);
+        transform-origin: center;
+      }
+
+      .wave:nth-child(odd) {
+        background: var(--primary);
+      }
+
+      .wave:nth-child(1) {
+        height: 13px;
+      }
+
+      .wave:nth-child(2) {
+        height: 24px;
+      }
+
+      .wave:nth-child(3) {
+        height: 18px;
+      }
+
+      .wave:nth-child(4) {
+        height: 27px;
+      }
+
+      .wave:nth-child(5) {
+        height: 17px;
+      }
+
+      .wave:nth-child(6) {
+        height: 24px;
+      }
+
+      .wave:nth-child(7) {
+        height: 13px;
+      }
+
+      .wave:nth-child(8) {
+        height: 22px;
+      }
+
+      .voice-time {
+        margin-left: auto;
+        color: var(--muted-foreground);
+        font-size: 15px;
+        font-weight: 760;
+      }
+
+      .play {
+        width: 24px;
+        height: 24px;
+        margin-left: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--foreground);
+        color: #fff;
+        font-size: 11px;
+      }
+
+      .reply {
+        top: 256px;
+        width: 292px;
+      }
+
+      .reply-avatar {
+        top: 258px;
+      }
+
+      .text-msg {
+        top: 418px;
+        width: 262px;
+      }
+
+      .file-card {
+        top: 514px;
+        width: 292px;
+        padding: 13px 14px;
+      }
+
+      .file-card-inner {
+        height: 72px;
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 12px;
+        border: 1px solid rgba(232, 226, 220, 0.9);
+        border-radius: 13px;
+        background: rgba(255, 255, 255, 0.65);
+      }
+
+      .pdf {
+        width: 39px;
+        height: 39px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        background: linear-gradient(180deg, #ef5750, #d73b36);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .file-name {
+        color: var(--foreground);
+        font-size: 14px;
+        font-weight: 820;
+      }
+
+      .file-size {
+        margin-top: 4px;
+        color: var(--text-tertiary);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .file-status {
+        margin-top: 8px;
+        color: var(--text-tertiary);
+        font-size: 13px;
+        font-weight: 720;
+      }
+
+      .second-text {
+        top: 616px;
+        width: 304px;
+      }
+
+      .input-bar {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 82px;
+        display: grid;
+        grid-template-columns: 42px 1fr 42px 42px;
+        gap: 9px;
+        align-items: center;
+        padding: 12px 24px 18px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.98), #ffffff),
+          #ffffff;
+        border-top: 1px solid rgba(232, 226, 220, 0.72);
+        box-shadow: 0 -12px 26px rgba(255, 255, 255, 0.92);
+      }
+
+      .round-icon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--foreground);
+        border-radius: 50%;
+        color: var(--foreground);
+        font-size: 20px;
+        font-weight: 850;
+      }
+
+      .hold {
+        height: 48px;
+        display: flex;
+        align-items: center;
+        padding: 0 19px;
+        border-radius: 14px;
+        background: #eaf1f8;
+        color: var(--foreground);
+        font-size: 16px;
+        font-weight: 760;
+      }
+
+      .content-panel {
+        align-self: center;
+        max-width: 792px;
+        padding-top: 10px;
+      }
+
+      .eyebrow-line {
+        width: 72px;
+        height: 4px;
+        margin-top: 42px;
+        background: linear-gradient(90deg, var(--primary), var(--shine));
+        border-radius: 999px;
+      }
+
+      .panel-title {
+        color: var(--foreground);
+        font-size: 66px;
+        line-height: 1.12;
+        font-weight: 860;
+        letter-spacing: 0;
+      }
+
+      .feature-list {
+        margin-top: 50px;
+        display: grid;
+        gap: 38px;
+      }
+
+      .feature {
+        display: grid;
+        grid-template-columns: 112px 1fr;
+        gap: 26px;
+        align-items: center;
+        opacity: 0;
+      }
+
+      .feature-icon {
+        width: 112px;
+        height: 112px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 22px;
+        background:
+          radial-gradient(circle at 34% 20%, rgba(255, 255, 255, 0.96), transparent 42%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(245, 237, 235, 0.74)),
+          var(--accent);
+        border: 1px solid rgba(232, 226, 220, 0.58);
+        box-shadow:
+          0 18px 46px rgba(44, 36, 33, 0.075),
+          0 1px 0 rgba(255, 255, 255, 0.9) inset;
+        color: #b47c61;
+      }
+
+      .feature-icon::after {
+        content: "";
+        position: absolute;
+        inset: 14px;
+        border-radius: 17px;
+        border: 1px solid rgba(196, 148, 133, 0.08);
+        pointer-events: none;
+      }
+
+      .feature-icon svg {
+        width: 60px;
+        height: 60px;
+        fill: currentColor;
+        filter: drop-shadow(0 6px 12px rgba(139, 90, 74, 0.08));
+      }
+
+      .feature-title {
+        color: var(--foreground);
+        font-size: 30px;
+        font-weight: 860;
+      }
+
+      .feature-desc {
+        margin-top: 12px;
+        color: var(--muted-foreground);
+        font-size: 24px;
+        line-height: 1.42;
+        font-weight: 640;
+      }
+
+      .light-sweep {
+        display: none;
+        position: absolute;
+        left: -260px;
+        top: 0;
+        width: 180px;
+        height: 1080px;
+        background: linear-gradient(90deg, transparent, rgba(255, 250, 244, 0.92), transparent);
+        filter: blur(16px);
+        transform: skewX(-15deg);
+        opacity: 0;
+        z-index: 16;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="shot-04"
+      data-start="0"
+      data-duration="15.2"
+      data-width="1920"
+      data-height="1080"
+    >
+      <audio
+        id="voiceover"
+        data-start="0.55"
+        data-track-index="3"
+        data-volume="0"
+        src="assets/shot-4-narration.wav"
+      ></audio>
+
+      <div class="scene" data-layout-allow-overflow="true" data-layout-ignore="true">
+        <div class="wash"></div>
+        <div class="paper-grid"></div>
+
+        <section
+          class="intro-copy clip"
+          id="intro-copy"
+          data-start="0"
+          data-duration="4.25"
+          data-track-index="1"
+          data-layout-ignore="true"
+        >
+          <h1 class="main-title" id="headline">一句话下任务</h1>
+          <div class="subtitle-title" id="subtitle">资料直接发给 Lawrence</div>
+          <p class="desc" id="desc">手机端飞书聊天里，语音、文字和文件就是完整任务入口。</p>
+        </section>
+
+        <section
+          class="main-stage clip"
+          id="main-stage"
+          data-start="4.25"
+          data-duration="10.95"
+          data-track-index="1"
+          data-layout-allow-overflow="true"
+        >
+          <div class="phone-wrap" id="phone-wrap">
+            <div class="phone-shadow"></div>
+            <div class="phone" id="phone">
+              <div class="screen">
+                <div class="dynamic-island"></div>
+                <div class="statusbar">
+                  <div>9:41</div>
+                  <div class="signals">
+                    <div class="signal-bars"><span></span><span></span><span></span><span></span></div>
+                    <div class="wifi"></div>
+                    <div class="battery"></div>
+                  </div>
+                </div>
+                <div class="chat-head">
+                  <div class="back">‹</div>
+                  <div>
+                    <div class="contact-name">Lawrence <span class="role-chip">AI 律师助理</span></div>
+                    <div class="online">在线</div>
+                  </div>
+                  <div class="head-icons"><span>⌕</span><span>⋯</span></div>
+                </div>
+                <div class="chat-body">
+                  <div class="date">今天 09:41</div>
+                  <div class="message user voice-msg" id="voice-msg">
+                    <div class="voice-text">帮我分析一下这份合同的风险点，重点关注违约责任和终止条款。</div>
+                    <div class="wave-row">
+                      <span class="wave"></span><span class="wave"></span><span class="wave"></span><span class="wave"></span>
+                      <span class="wave"></span><span class="wave"></span><span class="wave"></span><span class="wave"></span>
+                      <span class="voice-time">00:18</span><span class="play">▶</span>
+                    </div>
+                  </div>
+                  <div class="avatar reply-avatar" id="reply-avatar">
+                    <img src="assets/lawrence-avatar.png" alt="Lawrence" />
+                  </div>
+                  <div class="message lawrence reply" id="reply-msg">
+                    好的，我已收到你的语音指令。请把需要分析的合同文件发给我，我会尽快为你处理。
+                  </div>
+                  <div class="message user text-msg" id="text-msg">
+                    好的，文件已上传，请查收。
+                  </div>
+                  <div class="message user file-card" id="file-card">
+                    <div class="file-card-inner">
+                      <div class="pdf">PDF</div>
+                      <div>
+                        <div class="file-name">合作协议_终稿.pdf</div>
+                        <div class="file-size">2.4 MB</div>
+                      </div>
+                    </div>
+                    <div class="file-status">已发送</div>
+                  </div>
+                  <div class="message user second-text" id="second-text">
+                    另外，帮我整理一下类似案例，明天上午 10 点前给我初步意见。
+                  </div>
+                </div>
+                <div class="input-bar">
+                  <div class="round-icon">◉</div>
+                  <div class="hold">按住 说话</div>
+                  <div class="round-icon">☺</div>
+                  <div class="round-icon">＋</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-panel" id="content-panel">
+            <h2 class="panel-title" id="panel-title">用语音、文字给 Lawrence 下任务</h2>
+            <div class="eyebrow-line" id="eyebrow-line"></div>
+            <div class="feature-list">
+              <div class="feature" id="feature-voice">
+                <div class="feature-icon">
+                  <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <path d="M32 12c-11.05 0-20 7.46-20 16.68 0 5.38 3.03 10.16 7.74 13.21l-3.05 7.03c-.42.96.59 1.89 1.5 1.38l8.58-4.78c1.67.38 3.42.58 5.23.58 11.05 0 20-7.46 20-16.68S43.05 12 32 12Zm-7.2 14.2h14.4a2.05 2.05 0 0 1 0 4.1H24.8a2.05 2.05 0 0 1 0-4.1Zm0 7.9h8.6a2.05 2.05 0 0 1 0 4.1h-8.6a2.05 2.05 0 0 1 0-4.1Z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="feature-title">语音输入</div>
+                  <div class="feature-desc">长按说话，快速下达复杂指令。</div>
+                </div>
+              </div>
+              <div class="feature" id="feature-file">
+                <div class="feature-icon">
+                  <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <path d="M20 8h20.1L50 17.9V54a2 2 0 0 1-2 2H20a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2Zm19 3.9V20a2 2 0 0 0 2 2h8.1L39 11.9ZM27 31a2 2 0 1 0 0 4h14a2 2 0 1 0 0-4H27Zm0 8a2 2 0 1 0 0 4h14a2 2 0 1 0 0-4H27Zm0 8a2 2 0 1 0 0 4h8a2 2 0 1 0 0-4h-8Z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="feature-title">发送文件</div>
+                  <div class="feature-desc">一键上传合同、资料，Lawrence 即刻处理。</div>
+                </div>
+              </div>
+              <div class="feature" id="feature-task">
+                <div class="feature-icon">
+                  <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <path d="M55.34 9.4a2.8 2.8 0 0 1 .26 3.95l-7.25 8.25a2.8 2.8 0 0 1-4.08.15l-3.55-3.55a2.8 2.8 0 1 1 3.96-3.96l1.44 1.44 5.27-6a2.8 2.8 0 0 1 3.95-.28Z" />
+                    <path d="M32 13.5c2.6 0 5.08.46 7.39 1.3a6.8 6.8 0 0 0-.6 2.82 6.9 6.9 0 0 0 2.03 4.88l3.55 3.55a6.85 6.85 0 0 0 4.86 2.02h.34c.14 1.1.2 2.24.2 3.43C49.77 42.86 41.82 51 32 51s-17.77-8.14-17.77-19.5S22.18 13.5 32 13.5Zm10.73 13.82a2.5 2.5 0 0 0-3.53.2L29.88 38 24.9 33.02a2.5 2.5 0 0 0-3.54 3.54l6.88 6.87a2.5 2.5 0 0 0 3.65-.13l11.03-12.45a2.5 2.5 0 0 0-.19-3.53Z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="feature-title">明确任务</div>
+                  <div class="feature-desc">补充要求与截止时间，执行目标更清晰。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="light-sweep" id="light-sweep" data-layout-allow-overflow="true"></div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      gsap.defaults({ ease: "power3.out" });
+
+      const tl = gsap.timeline({ paused: true });
+
+      tl.from("#headline", { opacity: 0, y: 46, scale: 0.96, duration: 0.82, ease: "expo.out" }, 0.65)
+        .from("#subtitle", { opacity: 0, y: 42, scale: 0.965, duration: 0.82, ease: "expo.out" }, 1.55)
+        .to("#intro-copy", { y: -58, duration: 0.58, ease: "power2.inOut" }, 2.36)
+        .from("#desc", { opacity: 0, y: 30, duration: 0.64 }, 2.68)
+        .to("#intro-copy", { opacity: 0, y: -104, scale: 0.982, duration: 0.58, ease: "power2.inOut" }, 3.72)
+        .fromTo(
+          "#main-stage",
+          { opacity: 0, y: 64, scale: 0.965 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.86, ease: "expo.out" },
+          4.25,
+        )
+        .fromTo(
+          "#phone-wrap",
+          { opacity: 0, x: -90, rotation: -3, scale: 0.76 },
+          { opacity: 1, x: 0, rotation: 0, scale: 0.78, duration: 0.78, ease: "expo.out" },
+          4.38,
+        )
+        .from("#content-panel", { opacity: 0, x: 90, duration: 0.72, ease: "expo.out" }, 4.55)
+        .from("#panel-title", { opacity: 0, y: 34, duration: 0.66 }, 4.8)
+        .from("#eyebrow-line", { opacity: 0, scaleX: 0, transformOrigin: "left center", duration: 0.44 }, 5.05)
+        .fromTo("#voice-msg", { opacity: 0, y: 34, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "back.out(1.22)" }, 5.36)
+        .fromTo(".wave", { scaleY: 0.35 }, { scaleY: 1.18, duration: 0.28, stagger: 0.045, yoyo: true, repeat: 9, ease: "sine.inOut" }, 5.72)
+        .fromTo("#feature-voice", { opacity: 0, y: 34, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.56, ease: "back.out(1.2)" }, 5.85)
+        .fromTo("#reply-avatar", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.36, ease: "back.out(1.5)" }, 6.8)
+        .fromTo("#reply-msg", { opacity: 0, y: 28, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "back.out(1.2)" }, 6.94)
+        .fromTo("#text-msg", { opacity: 0, y: 30, scale: 0.93 }, { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "back.out(1.2)" }, 7.95)
+        .fromTo("#file-card", { opacity: 0, y: 30, scale: 0.93 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(1.2)" }, 8.58)
+        .fromTo("#feature-file", { opacity: 0, y: 34, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.56, ease: "back.out(1.2)" }, 8.78)
+        .fromTo("#second-text", { opacity: 0, y: 30, scale: 0.93 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(1.2)" }, 10.0)
+        .fromTo("#feature-task", { opacity: 0, y: 34, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.56, ease: "back.out(1.2)" }, 10.22)
+        .to("#phone-wrap", { y: -10, duration: 0.72, ease: "sine.inOut" }, 11.72)
+        .to("#phone-wrap", { y: 0, duration: 0.72, ease: "sine.inOut" }, 12.38)
+        .to("#light-sweep", { opacity: 1, x: 2180, duration: 1.15, ease: "power2.inOut" }, 13.25)
+        .to("#light-sweep", { opacity: 0, duration: 0.28 }, 14.22);
+
+      window.__timelines["shot-04"] = tl;
+    </script>
+  </body>
+</html>

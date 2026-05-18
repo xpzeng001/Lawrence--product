@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lawrence Storyboard Preview</title>
+    <style>
+      :root {
+        --bg: #faf8f6;
+        --ink: #2c2421;
+        --muted: #675e59;
+        --line: #e8e1dc;
+        --primary: #8b5a4a;
+        --green: #1f9f68;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--ink);
+        background:
+          linear-gradient(rgba(139, 90, 74, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139, 90, 74, 0.035) 1px, transparent 1px),
+          var(--bg);
+        background-size: 92px 70px;
+        font-family: Inter, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      }
+
+      main {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 64px 40px 80px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 32px;
+        margin-bottom: 36px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 48px;
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+        font-weight: 760;
+      }
+
+      .actions { display: flex; gap: 12px; }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 900;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        height: 42px;
+        padding: 0 16px;
+        border: 1px solid rgba(139, 90, 74, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.78);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      article {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        background: rgba(255, 255, 255, 0.86);
+        box-shadow: 0 24px 56px rgba(44, 36, 33, 0.08);
+      }
+
+      .card-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 22px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1.2;
+      }
+
+      .tag {
+        padding: 7px 11px;
+        border-radius: 999px;
+        background: rgba(31, 159, 104, 0.1);
+        color: var(--green);
+        font-size: 12px;
+        font-weight: 950;
+        text-transform: uppercase;
+      }
+
+      video {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #eee9e4;
+      }
+
+      .card-foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        padding: 16px 22px 20px;
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 760;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>Lawrence 分镜预览</h1>
+          <p>这里保留每个已纳入分镜的独立预览和源码入口，方便继续逐个调整。</p>
+        </div>
+        <div class="actions">
+          <a class="button" href="index.html">总览</a>
+          <a class="button" href="keyframes.html">关键帧</a>
+        </div>
+      </header>
+
+      <section class="grid">
+        <article>
+          <div class="card-head"><h2>Shot 3 · 身份与定位</h2><span class="tag">included</span></div>
+          <video src="renders/shot-3-complete-identity.mp4" controls muted playsinline></video>
+          <div class="card-foot"><span>源码：shots/shot-03.html</span><a href="shots/shot-03.html">打开源码预览</a></div>
+        </article>
+        <article>
+          <div class="card-head"><h2>Shot 4 · 飞书下任务</h2><span class="tag">included</span></div>
+          <video src="renders/shot-4-feishu-task.mp4" controls muted playsinline></video>
+          <div class="card-foot"><span>源码：shots/shot-04.html</span><a href="shots/shot-04.html">打开源码预览</a></div>
+        </article>
+        <article>
+          <div class="card-head"><h2>Shot 5 · 后台执行</h2><span class="tag">included</span></div>
+          <video src="renders/shot-5-background-execution.mp4" controls muted playsinline></video>
+          <div class="card-foot"><span>源码：shots/shot-05.html</span><a href="shots/shot-05.html">打开源码预览</a></div>
+        </article>
+        <article>
+          <div class="card-head"><h2>Shot 6 · 数字工位</h2><span class="tag">included</span></div>
+          <video src="renders/shot-6-digital-workstation.mp4" controls muted playsinline></video>
+          <div class="card-foot"><span>源码：shots/shot-06.html</span><a href="shots/shot-06.html">打开源码预览</a></div>
+        </article>
+        <article>
+          <div class="card-head"><h2>Shot 7&8 · 能力快闪</h2><span class="tag">merged</span></div>
+          <video src="renders/shot-7-8-capability-flash.mp4" controls muted playsinline></video>
+          <div class="card-foot"><span>源码：shots/shot-07-08.html</span><a href="shots/shot-07-08.html">打开源码预览</a></div>
+        </article>
+        <article>
+          <div class="card-head"><h2>Shot 9&10 · 合规与 Skill Hub</h2><span class="tag">included</span></div>
+          <video src="renders/shot-9-10-compliance-skill-hub.mp4" controls muted playsinline></video>
+          <div class="card-foot"><span>源码：shots/shot-09-10.html</span><a href="shots/shot-09-10.html">打开源码预览</a></div>
+        </article>
+        <article>
+          <div class="card-head"><h2>Shot 11&12 · 安全与主权</h2><span class="tag">included</span></div>
+          <video src="renders/shot-11-12-secure-local-workspace.mp4" controls muted playsinline></video>
+          <div class="card-foot"><span>源码：shots/shot-11-12.html</span><a href="shots/shot-11-12.html">打开源码预览</a></div>
+        </article>
+        <article>
+          <div class="card-head"><h2>Shot 13 · 课程与陪跑</h2><span class="tag">included</span></div>
+          <video src="renders/shot-13-wiselaw-school-enablement.mp4" controls muted playsinline></video>
+          <div class="card-foot"><span>源码：shots/shot-13.html</span><a href="shots/shot-13.html">打开源码预览</a></div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lawrence Storyboard Source Assembly</title>
+    <style>
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: #faf8f6;
+        font-family: Inter, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      }
+
+      #main {
+        position: relative;
+        overflow: hidden;
+        width: 1920px;
+        height: 1080px;
+        background: #faf8f6;
+      }
+
+      .clip { position: absolute; inset: 0; }
+
+      .shot-comp {
+        width: 1920px;
+        height: 1080px;
+        background: #faf8f6;
+        transform-origin: 50% 50%;
+        will-change: transform, opacity, filter, clip-path;
+      }
+
+      .transition-slab,
+      .transition-wash,
+      .motion-ribbon,
+      .pulse-vignette,
+      .chapter-hud,
+      .wiselaw-logo-mark,
+      .chapter-bumper {
+        pointer-events: none;
+      }
+
+      .transition-slab {
+        display: none;
+        z-index: 70;
+        opacity: 0;
+        transform: translateX(-2300px) skewX(-18deg);
+        background: linear-gradient(90deg,
+          rgba(255,255,255,0) 0%,
+          rgba(255,255,255,0.92) 28%,
+          rgba(232,226,220,0.82) 50%,
+          rgba(139,90,74,0.18) 62%,
+          rgba(255,255,255,0) 100%);
+        filter: blur(0.4px);
+      }
+
+      .transition-slab.alt {
+        background: linear-gradient(90deg,
+          rgba(255,255,255,0) 0%,
+          rgba(31,159,104,0.12) 30%,
+          rgba(255,255,255,0.9) 52%,
+          rgba(208,160,79,0.16) 68%,
+          rgba(255,255,255,0) 100%);
+      }
+
+      .motion-ribbon {
+        display: none;
+        z-index: 74;
+        opacity: 0;
+        transform: translateX(-2400px) skewX(-16deg);
+        background: linear-gradient(90deg,
+          rgba(255,255,255,0) 0%,
+          rgba(255,255,255,0.34) 36%,
+          rgba(208,160,79,0.28) 49%,
+          rgba(255,255,255,0.76) 60%,
+          rgba(255,255,255,0) 100%);
+        filter: blur(1px);
+      }
+
+      .transition-wash {
+        z-index: 68;
+        opacity: 0;
+        background:
+          radial-gradient(circle at 50% 50%, rgba(255,255,255,0.96), rgba(250,248,246,0.64) 48%, rgba(250,248,246,0));
+      }
+
+      .pulse-vignette {
+        z-index: 66;
+        opacity: 0;
+        background:
+          radial-gradient(circle at 50% 50%, rgba(255,255,255,0), rgba(139,90,74,0.06) 60%, rgba(44,36,33,0.16));
+        mix-blend-mode: multiply;
+      }
+
+      .chapter-hud {
+        z-index: 110;
+        position: absolute;
+        left: 134px;
+        top: 60px;
+        right: auto;
+        width: 870px;
+        height: 54px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+
+      .chapter-number {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: rgba(139,90,74,0.1);
+        border: 1px solid rgba(139,90,74,0.18);
+        color: #8b5a4a;
+        font-size: 14px;
+        font-weight: 950;
+      }
+
+      .chapter-copy {
+        min-width: 280px;
+      }
+
+      .chapter-kicker {
+        color: rgba(139,90,74,0.82);
+        font-size: 11px;
+        font-weight: 950;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .chapter-title {
+        margin-top: 2px;
+        color: #2c2421;
+        font-size: 19px;
+        line-height: 1;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      .chapter-rail {
+        position: relative;
+        flex: 1;
+        height: 2px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(139,90,74,0.12);
+      }
+
+      .chapter-rail-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform: scaleX(0);
+        transform-origin: left center;
+        background: linear-gradient(90deg, #8b5a4a, #d0a04f, #1f9f68);
+      }
+
+      .wiselaw-logo-mark {
+        z-index: 110;
+        position: absolute;
+        left: auto;
+        right: 86px;
+        top: 60px;
+        height: 54px;
+        width: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+
+      .wiselaw-logo-mark img {
+        display: block;
+        width: 190px;
+        height: auto;
+        max-height: 48px;
+        object-fit: contain;
+      }
+
+      .chapter-bumper {
+        z-index: 105;
+        opacity: 0;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(circle at 50% 50%, rgba(255,255,255,0.94), rgba(250,248,246,0.84) 42%, rgba(250,248,246,0.46) 70%, rgba(250,248,246,0.1)),
+          linear-gradient(115deg, rgba(255,255,255,0.8), rgba(245,242,239,0.74));
+        backdrop-filter: blur(10px);
+      }
+
+      .bumper-inner {
+        display: flex;
+        align-items: center;
+        gap: 34px;
+        min-width: 720px;
+        padding: 36px 54px 36px 42px;
+        border-radius: 34px;
+        border: 1px solid rgba(232,226,220,0.92);
+        background: rgba(255,255,255,0.9);
+        box-shadow: 0 36px 110px rgba(44,36,33,0.16);
+        backdrop-filter: blur(18px);
+      }
+
+      .bumper-index {
+        width: 86px;
+        height: 86px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        color: white;
+        background: linear-gradient(135deg, #8b5a4a, #74493c);
+        box-shadow: 0 20px 48px rgba(139,90,74,0.24);
+        font-size: 24px;
+        font-weight: 950;
+      }
+
+      .bumper-text b {
+        display: block;
+        color: #2c2421;
+        font-size: 58px;
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .bumper-text span {
+        display: block;
+        margin-top: 14px;
+        color: #6d625c;
+        font-size: 22px;
+        font-weight: 850;
+        letter-spacing: 0.02em;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="main"
+      data-composition-id="lawrence-source-assembly"
+      data-start="0"
+      data-duration="159"
+      data-width="1920"
+      data-height="1080"
+      data-fps="30"
+    >
+      <div
+        id="shot-03-clip"
+        class="clip shot-comp"
+        data-composition-id="shot-03"
+        data-composition-src="shots/shot-03.html"
+        data-start="2.9"
+        data-duration="17.75"
+        data-track-index="1"
+        data-layout-allow-overflow="true"
+      ></div>
+      <div
+        id="shot-04-clip"
+        class="clip shot-comp"
+        data-composition-id="shot-04"
+        data-composition-src="shots/shot-04.html"
+        data-start="22.05"
+        data-duration="16.2"
+        data-track-index="2"
+        data-layout-allow-overflow="true"
+      ></div>
+      <div
+        id="shot-05-clip"
+        class="clip shot-comp"
+        data-composition-id="shot-05"
+        data-composition-src="shots/shot-05.html"
+        data-start="37.25"
+        data-duration="13.6"
+        data-track-index="3"
+        data-layout-allow-overflow="true"
+      ></div>
+      <div
+        id="shot-06-clip"
+        class="clip shot-comp"
+        data-composition-id="shot-06"
+        data-composition-src="shots/shot-06.html"
+        data-start="52.25"
+        data-duration="17"
+        data-track-index="4"
+        data-layout-allow-overflow="true"
+      ></div>
+      <div
+        id="shot-07-clip"
+        class="clip shot-comp"
+        data-composition-id="shot-07"
+        data-composition-src="shots/shot-07.html"
+        data-start="70.65"
+        data-duration="17"
+        data-track-index="5"
+        data-layout-allow-overflow="true"
+      ></div>
+      <div
+        id="shot-08-clip"
+        class="clip shot-comp"
+        data-composition-id="shot-08"
+        data-composition-src="shots/shot-08.html"
+        data-start="86.65"
+        data-duration="17"
+        data-track-index="6"
+        data-layout-allow-overflow="true"
+      ></div>
+      <div
+        id="shot-09-10-clip"
+        class="clip shot-comp"
+        data-composition-id="shot-09-10"
+        data-composition-src="shots/shot-09-10.html"
+        data-start="105.05"
+        data-duration="17"
+        data-track-index="7"
+        data-layout-allow-overflow="true"
+      ></div>
+      <div
+        id="shot-11-12-clip"
+        class="clip shot-comp"
+        data-composition-id="shot-11-12"
+        data-composition-src="shots/shot-11-12.html"
+        data-start="123.45"
+        data-duration="17"
+        data-track-index="8"
+        data-layout-allow-overflow="true"
+      ></div>
+      <div
+        id="shot-13-clip"
+        class="clip shot-comp"
+        data-composition-id="shot-13"
+        data-composition-src="shots/shot-13.html"
+        data-start="141.85"
+        data-duration="16.45"
+        data-track-index="9"
+        data-layout-allow-overflow="true"
+      ></div>
+
+      <div id="transition-wash-0" class="clip transition-wash" data-start="0" data-duration="159" data-track-index="80"></div>
+      <div id="motion-ribbon-0" class="clip motion-ribbon" data-start="0" data-duration="159" data-track-index="81"></div>
+      <div id="pulse-vignette-0" class="clip pulse-vignette" data-start="0" data-duration="159" data-track-index="82"></div>
+      <div id="transition-wash-1" class="clip transition-wash" data-start="0" data-duration="159" data-track-index="83"></div>
+      <div id="motion-ribbon-1" class="clip motion-ribbon" data-start="0" data-duration="159" data-track-index="84"></div>
+      <div id="pulse-vignette-1" class="clip pulse-vignette" data-start="0" data-duration="159" data-track-index="85"></div>
+      <div id="transition-wash-2" class="clip transition-wash" data-start="0" data-duration="159" data-track-index="86"></div>
+      <div id="motion-ribbon-2" class="clip motion-ribbon" data-start="0" data-duration="159" data-track-index="87"></div>
+      <div id="pulse-vignette-2" class="clip pulse-vignette" data-start="0" data-duration="159" data-track-index="88"></div>
+      <div id="transition-wash-3" class="clip transition-wash" data-start="0" data-duration="159" data-track-index="89"></div>
+      <div id="motion-ribbon-3" class="clip motion-ribbon" data-start="0" data-duration="159" data-track-index="90"></div>
+      <div id="pulse-vignette-3" class="clip pulse-vignette" data-start="0" data-duration="159" data-track-index="91"></div>
+      <div id="transition-wash-4" class="clip transition-wash" data-start="0" data-duration="159" data-track-index="92"></div>
+      <div id="motion-ribbon-4" class="clip motion-ribbon" data-start="0" data-duration="159" data-track-index="93"></div>
+      <div id="pulse-vignette-4" class="clip pulse-vignette" data-start="0" data-duration="159" data-track-index="94"></div>
+      <div id="transition-wash-5" class="clip transition-wash" data-start="0" data-duration="159" data-track-index="95"></div>
+      <div id="motion-ribbon-5" class="clip motion-ribbon" data-start="0" data-duration="159" data-track-index="96"></div>
+      <div id="pulse-vignette-5" class="clip pulse-vignette" data-start="0" data-duration="159" data-track-index="97"></div>
+      <div id="transition-wash-6" class="clip transition-wash" data-start="0" data-duration="159" data-track-index="98"></div>
+      <div id="motion-ribbon-6" class="clip motion-ribbon" data-start="0" data-duration="159" data-track-index="99"></div>
+      <div id="pulse-vignette-6" class="clip pulse-vignette" data-start="0" data-duration="159" data-track-index="100"></div>
+      <div id="transition-wash-7" class="clip transition-wash" data-start="0" data-duration="159" data-track-index="101"></div>
+      <div id="motion-ribbon-7" class="clip motion-ribbon" data-start="0" data-duration="159" data-track-index="102"></div>
+      <div id="pulse-vignette-7" class="clip pulse-vignette" data-start="0" data-duration="159" data-track-index="103"></div>
+
+
+      <div id="chapter-hud" class="clip chapter-hud" data-start="0" data-duration="159" data-track-index="120">
+        <div class="chapter-number" id="chapter-number">01</div>
+        <div class="chapter-copy">
+          <div class="chapter-kicker" id="chapter-kicker">IDENTITY & ACCESS</div>
+          <div class="chapter-title" id="chapter-title">数字员工身份</div>
+        </div>
+        <div class="chapter-rail"><div class="chapter-rail-fill" id="chapter-rail-fill"></div></div>
+      </div>
+      <div id="chapter-logo" class="clip wiselaw-logo-mark" data-start="0" data-duration="159" data-track-index="128">
+        <img src="assets/wiselaw-logo.svg" alt="WiseLaw" />
+      </div>
+      <div id="chapter-bumper-0" class="clip chapter-bumper" data-start="0" data-duration="159" data-track-index="121">
+        <div class="bumper-inner">
+          <div class="bumper-index">01</div>
+          <div class="bumper-text"><b>数字员工身份</b><span>身份、账号与接入渠道</span></div>
+        </div>
+      </div>
+      <div id="chapter-bumper-1" class="clip chapter-bumper" data-start="0" data-duration="159" data-track-index="122">
+        <div class="bumper-inner">
+          <div class="bumper-index">02</div>
+          <div class="bumper-text"><b>任务接收与执行</b><span>从飞书输入到后台返回</span></div>
+        </div>
+      </div>
+      <div id="chapter-bumper-2" class="clip chapter-bumper" data-start="0" data-duration="159" data-track-index="123">
+        <div class="bumper-inner">
+          <div class="bumper-index">03</div>
+          <div class="bumper-text"><b>数字工位</b><span>长期稳定运行的工作环境</span></div>
+        </div>
+      </div>
+      <div id="chapter-bumper-3" class="clip chapter-bumper" data-start="0" data-duration="159" data-track-index="124">
+        <div class="bumper-inner">
+          <div class="bumper-index">04</div>
+          <div class="bumper-text"><b>能力版图</b><span>法律与办公营销能力</span></div>
+        </div>
+      </div>
+      <div id="chapter-bumper-4" class="clip chapter-bumper" data-start="0" data-duration="159" data-track-index="125">
+        <div class="bumper-inner">
+          <div class="bumper-index">05</div>
+          <div class="bumper-text"><b>合规 Skill Hub</b><span>专业审核、真实验证、持续迭代</span></div>
+        </div>
+      </div>
+      <div id="chapter-bumper-5" class="clip chapter-bumper" data-start="0" data-duration="159" data-track-index="126">
+        <div class="bumper-inner">
+          <div class="bumper-index">06</div>
+          <div class="bumper-text"><b>安全与数据主权</b><span>隔离、审计、本地处理</span></div>
+        </div>
+      </div>
+      <div id="chapter-bumper-6" class="clip chapter-bumper" data-start="0" data-duration="159" data-track-index="127">
+        <div class="bumper-inner">
+          <div class="bumper-index">07</div>
+          <div class="bumper-text"><b>课程与陪跑</b><span>学会使用并创造 Skill</span></div>
+        </div>
+      </div>
+
+      <div id="transition-slab-0" class="clip transition-slab" data-start="0" data-duration="159" data-track-index="104"></div>
+      <div id="transition-slab-1" class="clip transition-slab alt" data-start="0" data-duration="159" data-track-index="105"></div>
+      <div id="transition-slab-2" class="clip transition-slab" data-start="0" data-duration="159" data-track-index="106"></div>
+      <div id="transition-slab-3" class="clip transition-slab alt" data-start="0" data-duration="159" data-track-index="107"></div>
+      <div id="transition-slab-4" class="clip transition-slab" data-start="0" data-duration="159" data-track-index="108"></div>
+      <div id="transition-slab-5" class="clip transition-slab alt" data-start="0" data-duration="159" data-track-index="109"></div>
+      <div id="transition-slab-6" class="clip transition-slab" data-start="0" data-duration="159" data-track-index="110"></div>
+      <div id="transition-slab-7" class="clip transition-slab alt" data-start="0" data-duration="159" data-track-index="111"></div>
+
+      <audio id="voice-s03-01" data-start="3.7" data-duration="3.73" data-track-index="20" data-volume="1" src="assets/voice-aligned/s03-01.wav"></audio>
+      <audio id="voice-s03-02" data-start="7.65" data-duration="4.45" data-track-index="21" data-volume="1" src="assets/voice-aligned/s03-02.wav"></audio>
+      <audio id="voice-s03-03" data-start="15.2" data-duration="3.67" data-track-index="22" data-volume="1" src="assets/voice-aligned/s03-03.wav"></audio>
+      <audio id="voice-s04-01" data-start="23.3" data-duration="3.14" data-track-index="23" data-volume="1" src="assets/voice-aligned/s04-01.wav"></audio>
+      <audio id="voice-s04-02" data-start="28.8" data-duration="3.19" data-track-index="24" data-volume="1" src="assets/voice-aligned/s04-02.wav"></audio>
+      <audio id="voice-s04-03" data-start="32.5" data-duration="3.05" data-track-index="25" data-volume="1" src="assets/voice-aligned/s04-03.wav"></audio>
+      <audio id="voice-s05-01" data-start="38.1" data-duration="3.43" data-track-index="26" data-volume="1" src="assets/voice-aligned/s05-01.wav"></audio>
+      <audio id="voice-s05-02" data-start="41.65" data-duration="3.25" data-track-index="27" data-volume="1" src="assets/voice-aligned/s05-02.wav"></audio>
+      <audio id="voice-s05-03" data-start="45.3" data-duration="3.28" data-track-index="28" data-volume="1" src="assets/voice-aligned/s05-03.wav"></audio>
+      <audio id="voice-s06-01" data-start="53.4" data-duration="2.21" data-track-index="29" data-volume="1" src="assets/voice-aligned/s06-01.wav"></audio>
+      <audio id="voice-s06-02" data-start="56.7" data-duration="5.42" data-track-index="30" data-volume="1" src="assets/voice-aligned/s06-02.wav"></audio>
+      <audio id="voice-s06-03" data-start="62.3" data-duration="3.35" data-track-index="31" data-volume="1" src="assets/voice-aligned/s06-03.wav"></audio>
+      <audio id="voice-s06-04" data-start="66" data-duration="2.93" data-track-index="32" data-volume="1" src="assets/voice-aligned/s06-04.wav"></audio>
+      <audio id="voice-s07-01" data-start="71.75" data-duration="2.58" data-track-index="33" data-volume="1" src="assets/voice-aligned/s07-01.wav"></audio>
+      <audio id="voice-s07-02" data-start="75.45" data-duration="2.45" data-track-index="34" data-volume="1" src="assets/voice-aligned/s07-02.wav"></audio>
+      <audio id="voice-s07-03" data-start="79.2" data-duration="2.65" data-track-index="35" data-volume="1" src="assets/voice-aligned/s07-03.wav"></audio>
+      <audio id="voice-s07-04" data-start="83" data-duration="2.12" data-track-index="36" data-volume="1" src="assets/voice-aligned/s07-04.wav"></audio>
+      <audio id="voice-s08-01" data-start="87.65" data-duration="1.94" data-track-index="37" data-volume="1" src="assets/voice-aligned/s08-01.wav"></audio>
+      <audio id="voice-s08-02" data-start="90.2" data-duration="2.11" data-track-index="38" data-volume="1" src="assets/voice-aligned/s08-02.wav"></audio>
+      <audio id="voice-s08-03" data-start="92.75" data-duration="2.12" data-track-index="39" data-volume="1" src="assets/voice-aligned/s08-03.wav"></audio>
+      <audio id="voice-s08-04" data-start="95.3" data-duration="1.97" data-track-index="40" data-volume="1" src="assets/voice-aligned/s08-04.wav"></audio>
+      <audio id="voice-s08-05" data-start="97.85" data-duration="2.39" data-track-index="41" data-volume="1" src="assets/voice-aligned/s08-05.wav"></audio>
+      <audio id="voice-s08-06" data-start="100.4" data-duration="2.18" data-track-index="42" data-volume="1" src="assets/voice-aligned/s08-06.wav"></audio>
+      <audio id="voice-s09-01" data-start="106.1" data-duration="3.62" data-track-index="43" data-volume="1" src="assets/voice-aligned/s09-01.wav"></audio>
+      <audio id="voice-s09-02" data-start="109.9" data-duration="3.19" data-track-index="44" data-volume="1" src="assets/voice-aligned/s09-02.wav"></audio>
+      <audio id="voice-s10-01" data-start="113.6" data-duration="2.32" data-track-index="45" data-volume="1" src="assets/voice-aligned/s10-01.wav"></audio>
+      <audio id="voice-s10-02" data-start="116.5" data-duration="4.26" data-track-index="46" data-volume="1" src="assets/voice-aligned/s10-02.wav"></audio>
+      <audio id="voice-s11-01" data-start="124.5" data-duration="3.5" data-track-index="47" data-volume="1" src="assets/voice-aligned/s11-01.wav"></audio>
+      <audio id="voice-s11-02" data-start="128.1" data-duration="3.76" data-track-index="48" data-volume="1" src="assets/voice-aligned/s11-02.wav"></audio>
+      <audio id="voice-s12-01" data-start="132" data-duration="3.78" data-track-index="49" data-volume="1" src="assets/voice-aligned/s12-01.wav"></audio>
+      <audio id="voice-s12-02" data-start="136" data-duration="2.74" data-track-index="50" data-volume="1" src="assets/voice-aligned/s12-02.wav"></audio>
+      <audio id="voice-s13-01" data-start="143" data-duration="3.6" data-track-index="51" data-volume="1" src="assets/voice-aligned/s13-01.wav"></audio>
+      <audio id="voice-s13-02" data-start="146.9" data-duration="3.74" data-track-index="52" data-volume="1" src="assets/voice-aligned/s13-02.wav"></audio>
+      <audio id="voice-s13-03" data-start="150.85" data-duration="4.2" data-track-index="53" data-volume="1" src="assets/voice-aligned/s13-03.wav"></audio>
+      <audio id="voice-s13-04" data-start="155.3" data-duration="2.3" data-track-index="54" data-volume="1" src="assets/voice-aligned/s13-04.wav"></audio>
+    </div>
+
+    <script src="assets/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const shots = [
+        { id: "#shot-03-clip", start: 2.9, duration: 17.75, inX: 0, inY: 0, outX: -260, outY: -16, driftX: -34, driftY: -10, inScale: 1, outScale: 1.08, transition: "left" },
+        { id: "#shot-04-clip", start: 22.05, duration: 16.2, inX: 360, inY: 12, outX: -210, outY: 10, driftX: -28, driftY: 8, inScale: 1.08, outScale: 0.96, transition: "phone" },
+        { id: "#shot-05-clip", start: 37.25, duration: 13.6, inX: 240, inY: 26, outX: -120, outY: -40, driftX: -22, driftY: -6, inScale: 1.1, outScale: 1.14, transition: "zoom" },
+        { id: "#shot-06-clip", start: 52.25, duration: 17, inX: 0, inY: 70, outX: -160, outY: 0, driftX: -18, driftY: 14, inScale: 0.9, outScale: 1.06, transition: "radial" },
+        { id: "#shot-07-clip", start: 70.65, duration: 17, inX: 260, inY: 0, outX: -230, outY: -8, driftX: -30, driftY: -6, inScale: 1.07, outScale: 1.06, transition: "scan" },
+        { id: "#shot-08-clip", start: 86.65, duration: 17, inX: 300, inY: -16, outX: -230, outY: 12, driftX: -28, driftY: 8, inScale: 1.08, outScale: 1.05, transition: "capability" },
+        { id: "#shot-09-10-clip", start: 105.05, duration: 17, inX: 180, inY: 40, outX: -120, outY: -20, driftX: -18, driftY: -10, inScale: 0.92, outScale: 1.12, transition: "hub" },
+        { id: "#shot-11-12-clip", start: 123.45, duration: 17, inX: 240, inY: 0, outX: -180, outY: 10, driftX: -18, driftY: 8, inScale: 1.06, outScale: 1.08, transition: "secure" },
+        { id: "#shot-13-clip", start: 141.85, duration: 16.45, inX: 160, inY: 26, outX: 0, outY: 0, driftX: -12, driftY: -6, inScale: 0.94, outScale: 1, transition: "enable" },
+      ];
+
+      shots.forEach((shot, index) => {
+        const enter = index === 0 ? 0.1 : 0.86;
+        const exit = index === shots.length - 1 ? 0 : 0.82;
+        const driftStart = shot.start + enter;
+        const driftDuration = Math.max(0.2, shot.duration - enter - exit);
+        tl.set(shot.id, {
+          zIndex: 2 + index,
+          opacity: index === 0 ? 1 : 0,
+          x: index === 0 ? 0 : shot.inX,
+          y: index === 0 ? 0 : shot.inY,
+          scale: index === 0 ? 1 : shot.inScale,
+          rotation: index === 0 ? 0 : 0.35,
+          filter: index === 0 ? "blur(0px)" : "blur(18px)",
+          clipPath: "inset(0% 0% 0% 0%)",
+        }, shot.start);
+        if (index !== 0) {
+          tl.fromTo(shot.id,
+            { opacity: 0, x: shot.inX, y: shot.inY, scale: shot.inScale, rotation: 0.35, filter: "blur(18px)", clipPath: "inset(0% 0% 0% 14%)" },
+            { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, filter: "blur(0px)", clipPath: "inset(0% 0% 0% 0%)", duration: enter, ease: "expo.out" },
+            shot.start
+          );
+        }
+        tl.to(shot.id, { x: shot.driftX, y: shot.driftY, scale: 1.024, duration: driftDuration, ease: "none" }, driftStart);
+        if (index !== shots.length - 1) {
+          tl.to(shot.id,
+            { opacity: 0, x: shot.outX, y: shot.outY, scale: shot.outScale, rotation: -0.28, filter: "blur(12px)", clipPath: "inset(0% 10% 0% 0%)", duration: exit, ease: "power3.inOut" },
+            shot.start + shot.duration - exit
+          );
+        }
+      });
+
+      const transitions = [
+        { start: 22.05, dir: 1, intensity: 0.76 },
+        { start: 37.25, dir: 1, intensity: 0.62 },
+        { start: 52.25, dir: -1, intensity: 0.82 },
+        { start: 70.65, dir: 1, intensity: 0.78 },
+        { start: 86.65, dir: 1, intensity: 0.68 },
+        { start: 105.05, dir: -1, intensity: 0.86 },
+        { start: 123.45, dir: 1, intensity: 0.8 },
+        { start: 141.85, dir: -1, intensity: 0.74 },
+      ].map((item, index) => ({
+        ...item,
+        ribbon: `#motion-ribbon-${index}`,
+        wash: `#transition-wash-${index}`,
+        vignette: `#pulse-vignette-${index}`,
+        slab: `#transition-slab-${index}`,
+      }));
+
+      transitions.forEach((transition) => {
+        const fromX = transition.dir > 0 ? -2350 : 2350;
+        const toX = transition.dir > 0 ? 2350 : -2350;
+        tl.set(transition.slab, { opacity: 0, x: fromX, skewX: transition.dir > 0 ? -18 : 18 }, transition.start - 0.03);
+        tl.to(transition.slab, { opacity: transition.intensity, x: toX, duration: 0.84, ease: "power4.inOut" }, transition.start + 0.01);
+        tl.to(transition.slab, { opacity: 0, duration: 0.16, ease: "power2.out" }, transition.start + 0.76);
+        tl.set(transition.ribbon, { opacity: 0, x: fromX }, transition.start + 0.04);
+        tl.to(transition.ribbon, { opacity: 0.86, x: toX, duration: 0.62, ease: "expo.inOut" }, transition.start + 0.06);
+        tl.to(transition.ribbon, { opacity: 0, duration: 0.14, ease: "power2.out" }, transition.start + 0.68);
+        tl.set(transition.wash, { opacity: 0, scale: 0.94 }, transition.start + 0.08);
+        tl.to(transition.wash, { opacity: 0.48, scale: 1.08, duration: 0.28, ease: "power2.out" }, transition.start + 0.1);
+        tl.to(transition.wash, { opacity: 0, duration: 0.42, ease: "power2.inOut" }, transition.start + 0.38);
+        tl.set(transition.vignette, { opacity: 0 }, transition.start + 0.1);
+        tl.to(transition.vignette, { opacity: 1, duration: 0.2, ease: "power2.out" }, transition.start + 0.12);
+        tl.to(transition.vignette, { opacity: 0, duration: 0.52, ease: "power2.inOut" }, transition.start + 0.36);
+      });
+
+      const chapters = [{"number":"01","title":"数字员工身份","kicker":"IDENTITY & ACCESS","subtitle":"身份、账号与接入渠道","start":0,"duration":19.6},{"number":"02","title":"任务接收与执行","kicker":"TASK FLOW","subtitle":"从飞书输入到后台返回","start":19.6,"duration":30.2},{"number":"03","title":"数字工位","kicker":"WORKSTATION","subtitle":"长期稳定运行的工作环境","start":49.8,"duration":18.4},{"number":"04","title":"能力版图","kicker":"CAPABILITY MAP","subtitle":"法律与办公营销能力","start":68.2,"duration":34.4},{"number":"05","title":"合规 Skill Hub","kicker":"SKILL HUB","subtitle":"专业审核、真实验证、持续迭代","start":102.6,"duration":18.4},{"number":"06","title":"安全与数据主权","kicker":"SECURITY & DATA","subtitle":"隔离、审计、本地处理","start":121,"duration":18.4},{"number":"07","title":"课程与陪跑","kicker":"ENABLEMENT","subtitle":"学会使用并创造 Skill","start":139.4,"duration":18.6}];
+      tl.fromTo(["#chapter-hud", "#chapter-logo"], { opacity: 0, y: -18 }, { opacity: 1, y: 0, duration: 0.46, ease: "power3.out" }, 0.35);
+      chapters.forEach((chapter, index) => {
+        tl.call(() => {
+          document.querySelector("#chapter-number").textContent = chapter.number;
+          document.querySelector("#chapter-kicker").textContent = chapter.kicker;
+          document.querySelector("#chapter-title").textContent = chapter.title;
+        }, null, chapter.start + 0.02);
+        tl.fromTo(["#chapter-hud", "#chapter-logo"], { opacity: index === 0 ? 0 : 0.25, y: index === 0 ? -18 : -6 }, { opacity: 1, y: 0, duration: 0.34, ease: "power3.out" }, chapter.start + 0.04);
+        tl.fromTo("#chapter-rail-fill", { scaleX: 0 }, { scaleX: 1, duration: chapter.duration, ease: "none" }, chapter.start + 0.06);
+        tl.fromTo(`#chapter-bumper-${index}`, { opacity: 0, y: 42, scale: 0.82, filter: "blur(18px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, chapter.start + 0.12);
+        tl.to(`#chapter-bumper-${index} .bumper-inner`, { scale: 1.018, duration: 0.72, ease: "sine.inOut" }, chapter.start + 0.62);
+        tl.to(`#chapter-bumper-${index}`, { opacity: 0, y: -34, scale: 1.08, filter: "blur(12px)", duration: 0.5, ease: "power3.inOut" }, chapter.start + 1.78);
+      });
+      tl.to(["#chapter-hud", "#chapter-logo"], { opacity: 0, y: -14, duration: 0.36, ease: "power2.in" }, 158.15);
+      window.__timelines["lawrence-source-assembly"] = tl;
+    </script>
+  </body>
+</html>

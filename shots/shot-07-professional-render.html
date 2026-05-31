@@ -1,0 +1,1248 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <base href="../" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shot 7 · Legal Workflows Flash</title>
+    <style>
+      :root {
+        --background: #faf8f6;
+        --foreground: #2c2421;
+        --muted: #5c524d;
+        --primary: #8b5a4a;
+        --primary-dark: #70483d;
+        --border: #e8e2dc;
+        --card: #ffffff;
+        --soft: #f5edeb;
+        --green: #1f9f68;
+        --gold: #d0a04f;
+        --blue: #5f7082;
+        --danger: #b45c52;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #0d0c0b;
+        font-family: Inter, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      }
+
+      #main {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        color: var(--foreground);
+        background:
+          radial-gradient(ellipse 56% 46% at 50% 42%, rgba(139, 90, 74, 0.13), transparent 68%),
+          radial-gradient(ellipse 36% 30% at 88% 16%, rgba(95, 112, 130, 0.1), transparent 72%),
+          linear-gradient(180deg, #fbf9f7 0%, #f5f0ec 58%, #eee7e1 100%);
+      }
+
+      .paper-grid {
+        position: absolute;
+        inset: 64px;
+        border: 1px solid rgba(139, 90, 74, 0.08);
+        border-radius: 34px;
+        background-image:
+          linear-gradient(rgba(139, 90, 74, 0.052) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139, 90, 74, 0.052) 1px, transparent 1px);
+        background-size: 150px 126px;
+        opacity: 0.78;
+      }
+
+      .wash {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.78) 100%),
+          linear-gradient(180deg, rgba(139, 90, 74, 0.03), rgba(95, 112, 130, 0.04));
+      }
+
+      .stage {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+      }
+
+      .flash-scene {
+        position: absolute;
+        inset: 0;
+        padding: 92px 112px 84px;
+        display: grid;
+        grid-template-columns: 470px minmax(0, 1fr);
+        gap: 58px;
+        align-items: center;
+        opacity: 0;
+      }
+
+      .part-title {
+        position: absolute;
+        inset: 0;
+        z-index: 40;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        opacity: 0;
+      }
+
+      .part-title-card {
+        width: 980px;
+        min-height: 300px;
+        padding: 62px 78px;
+        border: 1px solid rgba(139, 90, 74, 0.14);
+        border-radius: 38px;
+        background:
+          radial-gradient(circle at 50% 16%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.78) 58%, rgba(245, 237, 235, 0.68)),
+          rgba(255, 255, 255, 0.86);
+        box-shadow: 0 32px 92px rgba(44, 36, 33, 0.12);
+      }
+
+      .part-kicker {
+        color: var(--primary);
+        font-size: 18px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+      }
+
+      .part-heading {
+        margin-top: 22px;
+        color: var(--foreground);
+        font-size: 76px;
+        line-height: 1.05;
+        font-weight: 900;
+        letter-spacing: 0;
+      }
+
+      .part-sub {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 25px;
+        line-height: 1.4;
+        font-weight: 760;
+      }
+
+      .scene-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        width: fit-content;
+        height: 34px;
+        padding: 0 16px;
+        border: 1px solid rgba(139, 90, 74, 0.14);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.74);
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 860;
+        box-shadow: 0 12px 32px rgba(44, 36, 33, 0.06);
+      }
+
+      .scene-label::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      .scene-title {
+        margin: 26px 0 0;
+        font-size: 70px;
+        line-height: 1.06;
+        letter-spacing: 0;
+        font-weight: 880;
+      }
+
+      .scene-title .accent {
+        color: var(--primary);
+      }
+
+      .scene-copy {
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 25px;
+        line-height: 1.45;
+        font-weight: 720;
+      }
+
+      .meta-stack {
+        display: grid;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .meta-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: rgba(92, 82, 77, 0.9);
+        font-size: 16px;
+        font-weight: 780;
+      }
+
+      .meta-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 8px rgba(208, 160, 79, 0.13);
+      }
+
+      .audience-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 26px;
+        padding: 16px;
+        border: 1px solid rgba(139, 90, 74, 0.14);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.62);
+        box-shadow: 0 16px 40px rgba(44, 36, 33, 0.055);
+      }
+
+      .audience-strip::before {
+        content: "适用团队";
+        flex: 0 0 100%;
+        color: var(--primary);
+        font-size: 15px;
+        font-weight: 950;
+        letter-spacing: 0.04em;
+      }
+
+      .audience-chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 36px;
+        padding: 0 15px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(139, 90, 74, 0.13), rgba(139, 90, 74, 0.08));
+        border: 1px solid rgba(139, 90, 74, 0.22);
+        color: #5f392f;
+        font-size: 15px;
+        font-weight: 900;
+      }
+
+      .interface {
+        position: relative;
+        height: 720px;
+        border: 1px solid rgba(139, 90, 74, 0.12);
+        border-radius: 28px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.78)),
+          radial-gradient(circle at 78% 10%, rgba(139, 90, 74, 0.11), transparent 32%);
+        box-shadow:
+          0 32px 82px rgba(44, 36, 33, 0.13),
+          0 1px 0 rgba(255, 255, 255, 0.8) inset;
+        overflow: hidden;
+      }
+
+      .interface::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(139, 90, 74, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139, 90, 74, 0.045) 1px, transparent 1px);
+        background-size: 84px 72px;
+        opacity: 0.58;
+      }
+
+      .window-top {
+        position: relative;
+        z-index: 2;
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 28px;
+        border-bottom: 1px solid rgba(139, 90, 74, 0.1);
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .window-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+        font-weight: 860;
+      }
+
+      .window-title svg {
+        width: 28px;
+        height: 28px;
+        color: var(--primary);
+        stroke-width: 2.35;
+      }
+
+      .status-pill {
+        height: 30px;
+        padding: 0 12px;
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        background: rgba(31, 159, 104, 0.1);
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 850;
+      }
+
+      .screen-body {
+        position: relative;
+        z-index: 2;
+        height: calc(100% - 68px);
+        padding: 26px 28px;
+      }
+
+      .review-layout {
+        display: grid;
+        grid-template-columns: 56% 1fr;
+        gap: 22px;
+        height: 100%;
+      }
+
+      .document-panel,
+      .insight-panel,
+      .research-panel,
+      .graph-panel,
+      .monitor-panel,
+      .profile-panel {
+        border: 1px solid rgba(139, 90, 74, 0.1);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 18px 48px rgba(44, 36, 33, 0.06);
+      }
+
+      .document-panel {
+        overflow: hidden;
+        padding: 22px 24px;
+        background:
+          linear-gradient(90deg, rgba(139, 90, 74, 0.04) 1px, transparent 1px) 42px 0 / 1px 100% no-repeat,
+          rgba(255, 255, 255, 0.9);
+      }
+
+      .doc-line {
+        margin-bottom: 10px;
+        color: rgba(44, 36, 33, 0.82);
+        font-size: 12px;
+        line-height: 1.45;
+        font-weight: 650;
+      }
+
+      .doc-line.short {
+        max-width: 86%;
+      }
+
+      .doc-line.mid {
+        max-width: 92%;
+      }
+
+      .contract-title {
+        margin-bottom: 9px;
+        text-align: center;
+        color: var(--foreground);
+        font-size: 19px;
+        font-weight: 920;
+      }
+
+      .contract-meta {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px 14px;
+        margin-bottom: 12px;
+        padding: 9px 12px;
+        border-radius: 12px;
+        background: rgba(245, 242, 239, 0.9);
+        color: rgba(44, 36, 33, 0.72);
+        font-size: 10px;
+        line-height: 1.35;
+        font-weight: 760;
+      }
+
+      .clause-title {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--foreground);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .highlight {
+        position: relative;
+        min-height: 86px;
+        margin: 10px 0;
+        padding: 11px 14px 11px 42px;
+        border-radius: 14px;
+        background: rgba(180, 92, 82, 0.08);
+        border: 1px solid rgba(180, 92, 82, 0.14);
+        color: rgba(44, 36, 33, 0.82);
+        font-size: 10.5px;
+        line-height: 1.36;
+        font-weight: 680;
+      }
+
+      .highlight::before {
+        content: attr(data-risk);
+        position: absolute;
+        left: 12px;
+        top: 12px;
+        width: 20px;
+        height: 20px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        background: var(--danger);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 940;
+      }
+
+      .highlight::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(90deg, rgba(180, 92, 82, 0.18), transparent 54%);
+        pointer-events: none;
+      }
+
+      .highlight strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--danger);
+        font-size: 12px;
+        font-weight: 920;
+      }
+
+      .legal-basis {
+        display: block;
+        margin-top: 5px;
+        color: rgba(112, 72, 61, 0.9);
+        font-weight: 860;
+      }
+
+      .revision-line {
+        display: block;
+        margin-top: 3px;
+        color: rgba(31, 159, 104, 0.95);
+        font-weight: 860;
+      }
+
+      .signature-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px dashed rgba(139, 90, 74, 0.18);
+        color: rgba(44, 36, 33, 0.62);
+        font-size: 10px;
+        line-height: 1.6;
+        font-weight: 760;
+      }
+
+      .risk-card {
+        padding: 12px 14px;
+        margin-bottom: 0;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.86);
+        border: 1px solid rgba(139, 90, 74, 0.1);
+      }
+
+      .review-checks {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 18px;
+      }
+
+      .risk-tag {
+        display: inline-flex;
+        height: 23px;
+        align-items: center;
+        padding: 0 9px;
+        border-radius: 999px;
+        color: #ffffff;
+        background: var(--danger);
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      .risk-card h3,
+      .case-card h3,
+      .company-card h3,
+      .alert-card h3 {
+        margin: 12px 0 8px;
+        font-size: 22px;
+        line-height: 1.16;
+        letter-spacing: 0;
+      }
+
+      .review-checks .risk-card h3 {
+        margin: 8px 0 5px;
+        font-size: 17px;
+      }
+
+      .risk-card p,
+      .case-card p,
+      .company-card p,
+      .alert-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.45;
+        font-weight: 680;
+      }
+
+      .review-checks .risk-card p {
+        font-size: 11.5px;
+        line-height: 1.34;
+      }
+
+      .risk-card p b {
+        color: var(--primary-dark);
+        font-weight: 920;
+      }
+
+      .review-summary {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        min-height: 74px;
+        padding: 11px 15px;
+        border-radius: 18px;
+        background: rgba(139, 90, 74, 0.055);
+        border: 1px solid rgba(139, 90, 74, 0.1);
+      }
+
+      .review-summary-copy {
+        color: var(--muted);
+        font-size: 12.5px;
+        line-height: 1.38;
+        font-weight: 720;
+      }
+
+      .score-ring {
+        flex: 0 0 auto;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: var(--primary);
+        font-size: 20px;
+        font-weight: 880;
+        background:
+          radial-gradient(circle, rgba(255, 255, 255, 0.9) 54%, transparent 55%),
+          conic-gradient(var(--danger) 0deg 118deg, rgba(139, 90, 74, 0.12) 118deg 360deg);
+      }
+
+      .research-layout,
+      .dd-layout,
+      .monitor-layout {
+        display: grid;
+        grid-template-columns: 40% 1fr;
+        gap: 22px;
+        height: 100%;
+      }
+
+      .search-box {
+        height: 64px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 0 20px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(139, 90, 74, 0.12);
+        color: var(--foreground);
+        font-size: 17px;
+        font-weight: 780;
+      }
+
+      .search-box svg {
+        width: 25px;
+        height: 25px;
+        color: var(--primary);
+      }
+
+      .case-card,
+      .company-card,
+      .alert-card {
+        padding: 20px;
+        margin-top: 16px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(139, 90, 74, 0.1);
+      }
+
+      .citation-map {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .citation-links {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        color: rgba(139, 90, 74, 0.34);
+        pointer-events: none;
+      }
+
+      .citation-links path {
+        stroke: currentColor;
+        stroke-width: 2;
+        fill: none;
+      }
+
+      .citation-links circle {
+        fill: rgba(208, 160, 79, 0.86);
+        stroke: rgba(255, 255, 255, 0.9);
+        stroke-width: 3;
+      }
+
+      .citation-node,
+      .company-node,
+      .control-node {
+        position: absolute;
+        width: 154px;
+        min-height: 82px;
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(139, 90, 74, 0.12);
+        box-shadow: 0 16px 42px rgba(44, 36, 33, 0.08);
+        color: var(--foreground);
+        font-size: 15px;
+        line-height: 1.35;
+        font-weight: 820;
+      }
+
+      .citation-node.query {
+        width: 176px;
+        min-height: 94px;
+        color: #ffffff;
+        background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+        border-color: rgba(139, 90, 74, 0.2);
+      }
+
+      .citation-node.query small {
+        color: rgba(255, 255, 255, 0.76);
+        font-weight: 760;
+      }
+
+      .citation-node.conclusion {
+        width: 162px;
+        min-height: 128px;
+        border-color: rgba(31, 159, 104, 0.22);
+        background: rgba(247, 255, 251, 0.92);
+      }
+
+      .citation-node.conclusion span {
+        display: inline-flex;
+        margin-top: 10px;
+        height: 24px;
+        align-items: center;
+        padding: 0 9px;
+        border-radius: 999px;
+        color: var(--green);
+        background: rgba(31, 159, 104, 0.1);
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      .citation-node.mini {
+        width: 154px;
+        min-height: 74px;
+        padding: 13px 14px;
+        font-size: 13px;
+      }
+
+      .citation-node.source {
+        border-color: rgba(139, 90, 74, 0.16);
+      }
+
+      .citation-node small,
+      .company-node small,
+      .control-node small {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 720;
+      }
+
+      .map-line {
+        position: absolute;
+        height: 2px;
+        background: rgba(139, 90, 74, 0.26);
+        transform-origin: left center;
+      }
+
+      .company-node.main {
+        width: 190px;
+        min-height: 100px;
+        color: #ffffff;
+        background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+      }
+
+      .company-node.main small {
+        color: rgba(255, 255, 255, 0.76);
+        font-weight: 760;
+      }
+
+      .matrix {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .matrix-cell {
+        min-height: 104px;
+        padding: 16px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid rgba(139, 90, 74, 0.1);
+      }
+
+      .matrix-cell b {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .meter {
+        height: 9px;
+        border-radius: 999px;
+        background: rgba(139, 90, 74, 0.12);
+        overflow: hidden;
+      }
+
+      .meter span {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--primary);
+      }
+
+      .monitor-feed {
+        display: grid;
+        gap: 14px;
+      }
+
+      .alert-card {
+        display: grid;
+        grid-template-columns: 52px 1fr 96px;
+        align-items: center;
+        gap: 16px;
+        margin-top: 0;
+      }
+
+      .alert-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        background: rgba(31, 159, 104, 0.1);
+        color: var(--green);
+      }
+
+      .alert-icon svg {
+        width: 27px;
+        height: 27px;
+      }
+
+      .alert-state {
+        justify-self: end;
+        height: 30px;
+        padding: 0 12px;
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        color: var(--primary);
+        background: rgba(139, 90, 74, 0.09);
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      .radar {
+        position: relative;
+        height: 100%;
+        min-height: 480px;
+        border-radius: 22px;
+        background:
+          radial-gradient(circle, rgba(31, 159, 104, 0.08) 0%, rgba(31, 159, 104, 0.03) 36%, transparent 67%),
+          rgba(255, 255, 255, 0.64);
+        border: 1px solid rgba(139, 90, 74, 0.1);
+        overflow: hidden;
+      }
+
+      .radar-ring {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border-radius: 50%;
+        border: 1px solid rgba(139, 90, 74, 0.14);
+        transform: translate(-50%, -50%);
+      }
+
+      .radar-ring.one {
+        width: 180px;
+        height: 180px;
+      }
+
+      .radar-ring.two {
+        width: 310px;
+        height: 310px;
+      }
+
+      .radar-ring.three {
+        width: 440px;
+        height: 440px;
+      }
+
+      .radar-sweep {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 220px;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(31, 159, 104, 0.75), transparent);
+        transform-origin: left center;
+      }
+
+      .control-node {
+        width: 136px;
+        min-height: 70px;
+      }
+
+      .flash-bar {
+        position: absolute;
+        left: -20%;
+        top: 0;
+        width: 18%;
+        height: 100%;
+        transform: skewX(-18deg);
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.82), transparent);
+        opacity: 0;
+        z-index: 20;
+        pointer-events: none;
+      }
+
+      .progress-dots {
+        position: absolute;
+        left: 112px;
+        bottom: 52px;
+        display: flex;
+        gap: 12px;
+        z-index: 30;
+      }
+
+      .progress-dots span {
+        width: 46px;
+        height: 5px;
+        border-radius: 999px;
+        background: rgba(139, 90, 74, 0.16);
+      }
+
+      .progress-dots span.active {
+        background: var(--primary);
+      }
+
+      svg {
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="shot-07-professional-render" data-start="0" data-width="1920" data-height="1080" data-duration="25">
+      <div class="paper-grid"></div>
+      <div class="wash"></div>
+      <div class="stage clip" id="stage" data-start="0" data-duration="25" data-track-index="1" data-layout-allow-overflow="true">
+        <div class="part-title" id="part-legal">
+          <div class="part-title-card">
+            <div class="part-kicker">PART A · LEGAL & COMPLIANCE</div>
+            <div class="part-heading">法律合规场景</div>
+            <div class="part-sub">面向企业法务部、合规部、审计部和律所团队的专业工作场景。</div>
+          </div>
+        </div>
+
+        <section class="flash-scene" id="scene-contract">
+          <div class="scene-copy-block">
+            <div class="scene-label">CONTRACT REVIEW</div>
+            <h1 class="scene-title">合同审查<br /><span class="accent">风险定位</span></h1>
+            <p class="scene-copy">给企业法务部和律所团队快速定位合同风险，形成可谈判的修改清单。</p>
+            <div class="audience-strip">
+              <span class="audience-chip">企业法务部</span>
+              <span class="audience-chip">律所团队</span>
+              <span class="audience-chip">业务合同负责人</span>
+            </div>
+            <div class="meta-stack">
+              <div class="meta-row"><span class="meta-dot"></span><span>逐条定位高风险条款</span></div>
+              <div class="meta-row"><span class="meta-dot"></span><span>生成修改建议与谈判要点</span></div>
+            </div>
+          </div>
+          <div class="interface">
+            <div class="window-top">
+              <div class="window-title">
+                <svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
+                Contract Review
+              </div>
+              <div class="status-pill">Risk scanning</div>
+            </div>
+            <div class="screen-body review-layout">
+              <div class="document-panel">
+                <div class="contract-title">软件服务合作协议</div>
+                <div class="contract-meta">
+                  <span>甲方：华东智能制造有限公司</span>
+                  <span>乙方：星河云技术有限公司</span>
+                  <span>项目：AI 客户服务系统交付</span>
+                  <span>合同金额：人民币 1,280,000 元</span>
+                </div>
+                <div class="doc-line mid"><span class="clause-title">第 3 条 交付与验收</span>乙方应于 2026 年 7 月 31 日前完成系统部署、接口联调和管理员培训。甲方应在收到交付通知后 5 个工作日内完成验收。</div>
+                <div class="highlight" data-risk="1">
+                  <strong>验收标准缺少量化指标</strong>
+                  仅写“运行稳定、功能满足需求”，未列明 SLA、测试用例、缺陷等级与复验机制。
+                  <span class="legal-basis">依据：《民法典》第五百零九条、第五百一十条，履行内容应明确。</span>
+                  <span class="revision-line">修订：补充验收清单、响应时间、错误率和逾期复验视为通过规则。</span>
+                </div>
+                <div class="doc-line"><span class="clause-title">第 5 条 服务费用与付款</span>甲方应在合同签署后支付 40% 预付款；系统上线并经甲方验收后支付 50%；剩余 10% 作为质保金，于质保期届满后支付。</div>
+                <div class="highlight" data-risk="2">
+                  <strong>违约责任边界过宽</strong>
+                  “全部损失、可得利益、商誉损失”范围过宽，且未区分一般违约与重大违约。
+                  <span class="legal-basis">依据：《民法典》第五百八十四条，损失赔偿不得超过订约时可预见损失。</span>
+                  <span class="revision-line">修订：排除间接损失，设置赔偿上限为已付合同价款的 100%。</span>
+                </div>
+                <div class="doc-line short"><span class="clause-title">第 9 条 终止与解除</span>任一方认为继续履行存在风险时，可单方解除本协议，并要求对方承担因此产生的一切费用。</div>
+                <div class="highlight" data-risk="3">
+                  <strong>单方解除条件过于主观</strong>
+                  “认为存在风险”缺少客观触发标准，未给补救期，易被认定为任意解除。
+                  <span class="legal-basis">依据：《民法典》第五百六十二条、第五百六十三条，解除需约定条件或法定事由。</span>
+                  <span class="revision-line">修订：增加 10 个工作日整改期、重大违约定义和书面通知程序。</span>
+                </div>
+                <div class="signature-row">
+                  <div>甲方授权代表：________<br />签署日期：2026 年 __ 月 __ 日</div>
+                  <div>乙方授权代表：________<br />签署日期：2026 年 __ 月 __ 日</div>
+                </div>
+              </div>
+              <div class="insight-panel review-checks">
+                <div class="risk-card">
+                  <span class="risk-tag">HIGH</span>
+                  <h3>解除权触发条件不明</h3>
+                  <p><b>依据</b> 民法典 562/563 条。<b>修订</b> 增加重大违约、书面催告与 10 个工作日补救期。</p>
+                </div>
+                <div class="risk-card">
+                  <span class="risk-tag">HIGH</span>
+                  <h3>赔偿范围超过可预见损失</h3>
+                  <p><b>依据</b> 民法典 584 条。<b>修订</b> 删除商誉损失、可得利益，责任上限绑定已付金额。</p>
+                </div>
+                <div class="risk-card">
+                  <span class="risk-tag" style="background: var(--gold);">MEDIUM</span>
+                  <h3>验收与付款联动不足</h3>
+                  <p><b>依据</b> 民法典 509/510 条。<b>修订</b> 列明测试指标、验收期限、异议反馈和付款触发。</p>
+                </div>
+                <div class="risk-card">
+                  <span class="risk-tag" style="background: var(--gold);">MEDIUM</span>
+                  <h3>质保金返还条件缺口</h3>
+                  <p><b>修订</b> 补充质保期起算、缺陷响应 SLA、逾期返还违约金与扣款边界。</p>
+                </div>
+                <div class="risk-card">
+                  <span class="risk-tag" style="background: var(--blue);">LOW</span>
+                  <h3>争议解决和送达条款缺失</h3>
+                  <p><b>修订</b> 补充管辖法院、适用法律、电子送达地址和通知生效时间。</p>
+                </div>
+                <div class="review-summary">
+                  <div class="score-ring">红线</div>
+                  <div class="review-summary-copy">输出 3 条法律依据、5 条修订建议，生成合同修订稿和谈判清单。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="flash-scene" id="scene-research">
+          <div class="scene-copy-block">
+            <div class="scene-label">LEGAL RESEARCH</div>
+            <h1 class="scene-title">法律研究<br /><span class="accent">引用追踪</span></h1>
+            <p class="scene-copy">服务律所团队和企业法务部，把法律问题转成可引用、可复核的研究结论。</p>
+            <div class="audience-strip">
+              <span class="audience-chip">律所团队</span>
+              <span class="audience-chip">企业法务部</span>
+              <span class="audience-chip">法律研究员</span>
+            </div>
+            <div class="meta-stack">
+              <div class="meta-row"><span class="meta-dot"></span><span>法规、案例、观点联动</span></div>
+              <div class="meta-row"><span class="meta-dot"></span><span>输出可追溯研究结论</span></div>
+            </div>
+          </div>
+          <div class="interface">
+            <div class="window-top">
+              <div class="window-title">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                Legal Research
+              </div>
+              <div class="status-pill">Searching</div>
+            </div>
+            <div class="screen-body research-layout">
+              <div class="research-panel" style="padding: 22px;">
+                <div class="search-box">
+                  <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                  股权代持协议效力与风险
+                </div>
+                <div class="case-card">
+                  <h3>公司法解释 · 第三方效力</h3>
+                  <p>检索到 34 条关联法规和 128 个相似裁判观点。</p>
+                </div>
+                <div class="case-card">
+                  <h3>最高院裁判观点</h3>
+                  <p>结合事实构成、举证责任与善意第三人保护路径。</p>
+                </div>
+                <div class="case-card">
+                  <h3>裁判规则摘要</h3>
+                  <p>自动提炼争议焦点、裁判理由与可引用结论。</p>
+                </div>
+              </div>
+              <div class="graph-panel citation-map">
+                <svg class="citation-links" viewBox="0 0 644 600" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M216 300 L250 148"></path>
+                  <path d="M216 300 L250 300"></path>
+                  <path d="M216 300 L250 452"></path>
+                  <path d="M404 148 L462 300"></path>
+                  <path d="M404 300 L462 300"></path>
+                  <path d="M404 452 L462 300"></path>
+                  <path d="M140 300 L216 300"></path>
+                  <path d="M462 300 L502 300"></path>
+                  <circle cx="216" cy="300" r="7"></circle>
+                  <circle cx="462" cy="300" r="7"></circle>
+                </svg>
+                <div class="citation-node query" style="left: 38px; top: 254px;">股权代持效力<small>Issue Center</small></div>
+                <div class="citation-node mini source" style="left: 250px; top: 111px;">法规条文<small>Company Law</small></div>
+                <div class="citation-node mini source" style="left: 250px; top: 263px;">司法解释<small>Validity Rule</small></div>
+                <div class="citation-node mini source" style="left: 250px; top: 415px;">类案裁判<small>Case Cluster</small></div>
+                <div class="citation-node mini" style="left: 470px; top: 104px;">裁判规则<small>Judgement Rule</small></div>
+                <div class="citation-node mini" style="left: 470px; top: 408px;">举证责任<small>Evidence</small></div>
+                <div class="citation-node conclusion" style="left: 470px; top: 236px;">研究结论<small>Traceable Opinion</small><span>可引用</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="flash-scene" id="scene-dd">
+          <div class="scene-copy-block">
+            <div class="scene-label">DUE DILIGENCE</div>
+            <h1 class="scene-title">企业尽调<br /><span class="accent">关系穿透</span></h1>
+            <p class="scene-copy">给法务、合规和审计团队穿透主体关系，提前识别交易和合作风险。</p>
+            <div class="audience-strip">
+              <span class="audience-chip">企业法务部</span>
+              <span class="audience-chip">合规部</span>
+              <span class="audience-chip">审计部</span>
+            </div>
+            <div class="meta-stack">
+              <div class="meta-row"><span class="meta-dot"></span><span>穿透股权和实控人链路</span></div>
+              <div class="meta-row"><span class="meta-dot"></span><span>自动汇总异常与待核查项</span></div>
+            </div>
+          </div>
+          <div class="interface">
+            <div class="window-top">
+              <div class="window-title">
+                <svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h1"/><path d="M9 13h1"/><path d="M9 17h1"/></svg>
+                Enterprise Due Diligence
+              </div>
+              <div class="status-pill">Profiling</div>
+            </div>
+            <div class="screen-body dd-layout">
+              <div class="profile-panel" style="padding: 22px;">
+                <div class="company-card">
+                  <h3>目标公司画像</h3>
+                  <p>注册资本、经营范围、核心人员、关联主体同步整理。</p>
+                </div>
+                <div class="matrix">
+                  <div class="matrix-cell"><b>诉讼</b><div class="meter"><span style="width: 72%;"></span></div></div>
+                  <div class="matrix-cell"><b>股权</b><div class="meter"><span style="width: 58%;"></span></div></div>
+                  <div class="matrix-cell"><b>舆情</b><div class="meter"><span style="width: 34%;"></span></div></div>
+                  <div class="matrix-cell"><b>资质</b><div class="meter"><span style="width: 46%;"></span></div></div>
+                </div>
+              </div>
+              <div class="graph-panel citation-map">
+                <svg class="citation-links" viewBox="0 0 644 600" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M236 258 L204 174"></path>
+                  <path d="M426 258 L440 174"></path>
+                  <path d="M236 328 L204 410"></path>
+                  <path d="M426 328 L440 410"></path>
+                </svg>
+                <div class="company-node main" style="left: 236px; top: 242px;">目标公司<small>Subject</small></div>
+                <div class="company-node" style="left: 50px; top: 104px;">控股股东<small>72%</small></div>
+                <div class="company-node" style="left: 440px; top: 104px;">关联企业<small>8 entities</small></div>
+                <div class="company-node" style="left: 50px; top: 410px;">诉讼风险<small>Litigation</small></div>
+                <div class="company-node" style="left: 440px; top: 410px;">负面舆情<small>Public Risk</small></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="flash-scene" id="scene-compliance">
+          <div class="scene-copy-block">
+            <div class="scene-label">COMPLIANCE MONITOR</div>
+            <h1 class="scene-title">合规监控<br /><span class="accent">持续预警</span></h1>
+            <p class="scene-copy">面向合规部和审计部，把政策变化、业务异常和处置留痕接成闭环。</p>
+            <div class="audience-strip">
+              <span class="audience-chip">合规部</span>
+              <span class="audience-chip">审计部</span>
+              <span class="audience-chip">风控负责人</span>
+            </div>
+            <div class="meta-stack">
+              <div class="meta-row"><span class="meta-dot"></span><span>政策变化实时进入规则库</span></div>
+              <div class="meta-row"><span class="meta-dot"></span><span>异常事件触发留痕和跟进</span></div>
+            </div>
+          </div>
+          <div class="interface">
+            <div class="window-top">
+              <div class="window-title">
+                <svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.7 8.9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.5a1.3 1.3 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                Compliance Monitor
+              </div>
+              <div class="status-pill">Live</div>
+            </div>
+            <div class="screen-body monitor-layout">
+              <div class="monitor-panel" style="padding: 22px;">
+                <div class="monitor-feed">
+                  <div class="alert-card">
+                    <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg></div>
+                    <div><h3>新规匹配</h3><p>广告合规规则更新，需复核 3 个活动。</p></div>
+                    <span class="alert-state">待处理</span>
+                  </div>
+                  <div class="alert-card">
+                    <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+                    <div><h3>异常波动</h3><p>供应商风险评级上升，自动生成核查任务。</p></div>
+                    <span class="alert-state">跟进中</span>
+                  </div>
+                  <div class="alert-card">
+                    <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+                    <div><h3>审计留痕</h3><p>处置链路写入日志，支持复盘和追责。</p></div>
+                    <span class="alert-state">已记录</span>
+                  </div>
+                </div>
+              </div>
+              <div class="radar">
+                <div class="radar-ring one"></div>
+                <div class="radar-ring two"></div>
+                <div class="radar-ring three"></div>
+                <div class="radar-sweep"></div>
+                <div class="control-node" style="left: 92px; top: 126px;">合同<small>rules</small></div>
+                <div class="control-node" style="right: 92px; top: 112px;">供应商<small>risk</small></div>
+                <div class="control-node" style="left: 140px; bottom: 92px;">营销<small>policy</small></div>
+                <div class="control-node" style="right: 118px; bottom: 118px;">审计<small>logs</small></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="progress-dots">
+          <span id="dot-research"></span>
+          <span id="dot-contract"></span>
+          <span id="dot-dd"></span>
+          <span id="dot-compliance"></span>
+        </div>
+        <div class="flash-bar" id="flash-bar" data-layout-allow-overflow="true"></div>
+      </div>
+    </div>
+
+    <script src="assets/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      gsap.defaults({ ease: "power3.out" });
+
+      const tl = gsap.timeline({ paused: true });
+      const scenes = ["#scene-research", "#scene-contract", "#scene-dd", "#scene-compliance"];
+      const dots = ["#dot-research", "#dot-contract", "#dot-dd", "#dot-compliance"];
+
+      function activateDot(index, time) {
+        dots.forEach((dot, dotIndex) => {
+          tl.to(dot, { backgroundColor: dotIndex === index ? "#8b5a4a" : "rgba(139, 90, 74, 0.16)", duration: 0.18 }, time);
+        });
+      }
+
+      function flash(time) {
+        tl.fromTo("#flash-bar", { opacity: 0, x: 0 }, { opacity: 0.72, x: 2350, duration: 0.42, ease: "power2.inOut" }, time)
+          .to("#flash-bar", { opacity: 0, duration: 0.12 }, time + 0.42);
+      }
+
+	      tl.fromTo("#stage", { opacity: 0 }, { opacity: 1, duration: 0.28 }, 0)
+	        .fromTo("#part-legal", { opacity: 0, y: 28, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "expo.out" }, 0.42)
+	        .from("#part-legal .part-kicker", { opacity: 0, y: 14, duration: 0.34 }, 0.72)
+	        .from("#part-legal .part-heading", { opacity: 0, y: 24, duration: 0.46, ease: "expo.out" }, 0.98)
+	        .from("#part-legal .part-sub", { opacity: 0, y: 18, duration: 0.4 }, 1.32)
+	        .to("#part-legal", { opacity: 0, y: -22, scale: 1.02, duration: 0.44, ease: "power2.inOut" }, 4.28);
+
+      scenes.forEach((scene, index) => {
+	        const start = 5 + index * 5;
+	        const end = start + 5;
+	        const iface = `${scene} .interface`;
+
+	        activateDot(index, start + 0.12);
+
+	        tl.fromTo(scene, { opacity: 0, y: 22, scale: 0.99 }, { opacity: 1, y: 0, scale: 1, duration: 0.82, ease: "power3.out" }, start)
+	          .from(`${scene} .scene-label`, { opacity: 0, y: 16, duration: 0.42, ease: "power3.out" }, start + 0.14)
+	          .from(`${scene} .scene-title`, { opacity: 0, x: -42, duration: 0.72, ease: "power3.out" }, start + 0.32)
+	          .from(`${scene} .scene-copy`, { opacity: 0, x: -28, duration: 0.58, ease: "power3.out" }, start + 0.72)
+	          .from(`${scene} .audience-strip`, { opacity: 0, y: 22, scale: 0.98, duration: 0.5, ease: "power3.out" }, start + 1.04)
+	          .from(`${scene} .audience-chip`, { opacity: 0, y: 12, scale: 0.96, duration: 0.34, stagger: 0.06, ease: "back.out(1.12)" }, start + 1.22)
+	          .from(`${scene} .meta-row`, { opacity: 0, x: -18, duration: 0.42, stagger: 0.1, ease: "power3.out" }, start + 1.44)
+	          .from(iface, { opacity: 0, x: 72, y: 12, scale: 0.96, filter: "blur(8px)", duration: 1.05, ease: "power3.out" }, start + 0.3)
+          .from(`${scene} .window-top`, { opacity: 0, y: -18, duration: 0.52, ease: "power3.out" }, start + 0.76)
+          .from(`${scene} .screen-body > *`, { opacity: 0, y: 24, scale: 0.98, filter: "blur(6px)", duration: 0.68, stagger: 0.16, ease: "power3.out" }, start + 0.92)
+          .from(`${scene} .window-title svg`, { opacity: 0, scale: 0.72, rotation: -8, duration: 0.5, ease: "back.out(1.15)" }, start + 1.04)
+          .from(`${scene} .status-pill`, { opacity: 0, x: 18, duration: 0.44 }, start + 1.16);
+
+        if (scene === "#scene-contract") {
+		          tl.from(`${scene} .doc-line`, { opacity: 0, scaleX: 0, transformOrigin: "left center", duration: 0.38, stagger: 0.06 }, start + 1.35)
+		            .from(`${scene} .highlight`, { opacity: 0, x: -24, scale: 0.99, duration: 0.5, stagger: 0.16 }, start + 1.66)
+		            .from(`${scene} .risk-card`, { opacity: 0, y: 26, scale: 0.96, filter: "blur(5px)", duration: 0.5, stagger: 0.15 }, start + 1.92)
+		            .from(`${scene} .score-ring`, { opacity: 0, scale: 0.76, duration: 0.62, ease: "back.out(1.25)" }, start + 2.5);
+	        }
+
+	        if (scene === "#scene-research") {
+		          tl.from(`${scene} .search-box`, { opacity: 0, y: -18, scale: 0.98, duration: 0.5 }, start + 1.32)
+		            .from(`${scene} .case-card`, { opacity: 0, y: 24, scale: 0.98, duration: 0.5, stagger: 0.16 }, start + 1.62)
+		            .from(`${scene} .citation-links path`, { opacity: 0, duration: 0.5, stagger: 0.075 }, start + 1.88)
+		            .from(`${scene} .citation-node`, { opacity: 0, scale: 0.78, y: 20, duration: 0.56, ease: "back.out(1.15)", stagger: 0.09 }, start + 2.08);
+	        }
+
+	        if (scene === "#scene-dd") {
+		          tl.from(`${scene} .company-card`, { opacity: 0, y: 26, scale: 0.98, duration: 0.5 }, start + 1.34)
+		            .from(`${scene} .matrix-cell`, { opacity: 0, y: 22, scale: 0.97, duration: 0.46, stagger: 0.09 }, start + 1.64)
+		            .from(`${scene} .meter span`, { scaleX: 0, transformOrigin: "left center", duration: 0.58, stagger: 0.07 }, start + 1.88)
+		            .from(`${scene} .citation-links path`, { opacity: 0, duration: 0.5, stagger: 0.08 }, start + 2.02)
+		            .from(`${scene} .company-node`, { opacity: 0, scale: 0.78, y: 20, duration: 0.56, ease: "back.out(1.15)", stagger: 0.1 }, start + 2.18);
+	        }
+
+	        if (scene === "#scene-compliance") {
+		          tl.from(`${scene} .alert-card`, { opacity: 0, x: -32, scale: 0.98, duration: 0.52, stagger: 0.17 }, start + 1.36)
+		            .from(`${scene} .radar-ring`, { opacity: 0, scale: 0.7, duration: 0.58, stagger: 0.12 }, start + 1.6)
+		            .from(`${scene} .control-node`, { opacity: 0, scale: 0.78, y: 20, duration: 0.5, ease: "back.out(1.15)", stagger: 0.1 }, start + 1.94)
+		            .fromTo(`${scene} .radar-sweep`, { opacity: 0, rotation: -60 }, { opacity: 0.82, rotation: 250, duration: 2.2, ease: "sine.inOut" }, start + 1.8);
+	        }
+
+	        if (index < scenes.length - 1) {
+		          tl.to(scene, { opacity: 0, y: -18, scale: 0.994, duration: 0.72, ease: "power2.inOut" }, end - 0.72);
+	        } else {
+	          tl.to(scene, { scale: 1.01, duration: 0.42, ease: "sine.inOut" }, 24.3);
+        }
+      });
+
+      window.__timelines["shot-07-professional-render"] = tl;
+    </script>
+  </body>
+</html>

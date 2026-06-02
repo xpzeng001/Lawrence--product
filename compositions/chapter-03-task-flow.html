@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chapter 03 — Task Flow</title>
+    <style>
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: #faf8f6;
+        font-family: Inter, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      }
+
+      #chapter-03-task-flow {
+        position: relative;
+        overflow: hidden;
+        width: 1920px;
+        height: 1080px;
+        background: #faf8f6;
+      }
+
+      .clip { position: absolute; inset: 0; }
+
+      .shot-comp {
+        width: 1920px;
+        height: 1080px;
+        background: #faf8f6;
+        will-change: transform, opacity, filter;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="chapter-03-task-flow"
+      data-composition-id="chapter-03-task-flow"
+      data-start="0"
+      data-duration="30.8"
+      data-width="1920"
+      data-height="1080"
+      data-fps="30"
+    >
+      <div
+        id="shot-04-clip"
+        class="clip shot-comp"
+        data-composition-id="shot-04"
+        data-composition-src="shots/shot-04.html"
+        data-start="0"
+        data-duration="16.2"
+        data-track-index="1"
+        data-layout-allow-overflow="true"
+      ></div>
+
+      <div
+        id="shot-05-clip"
+        class="clip shot-comp"
+        data-composition-id="shot-05"
+        data-composition-src="shots/shot-05.html"
+        data-start="15.2"
+        data-duration="15.6"
+        data-track-index="2"
+        data-layout-allow-overflow="true"
+      ></div>
+    </div>
+
+    <script src="../assets/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["chapter-03-task-flow"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

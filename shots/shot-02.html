@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <base href="../" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      :root {
+        --background: #faf8f6;
+        --foreground: #2c2421;
+        --card: #ffffff;
+        --primary: #8b5a4a;
+        --primary-dark: #74493c;
+        --secondary: #f5f2ef;
+        --muted: #5c524d;
+        --tertiary: #8c8279;
+        --border: #e8e2dc;
+        --cool: #6b7b8f;
+        --success: #00a544;
+        --shadow-soft: 0 26px 78px rgba(44, 36, 33, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--background);
+        color: var(--foreground);
+        font-family: Inter, "SF Pro Display", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      }
+
+      body,
+      #root,
+      .scene {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .scene {
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse 78% 58% at 50% -14%, rgba(139, 90, 74, 0.1) 0%, transparent 68%),
+          linear-gradient(117deg, #faf6f5 0%, rgba(255, 255, 255, 0) 78%),
+          linear-gradient(180deg, #faf8f6 0%, #f6f2ef 56%, #efe8e2 100%);
+      }
+
+      .paper-grid {
+        position: absolute;
+        inset: 68px;
+        border: 1px solid rgba(139, 90, 74, 0.07);
+        border-radius: 34px;
+        background-image:
+          linear-gradient(rgba(139, 90, 74, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139, 90, 74, 0.05) 1px, transparent 1px);
+        background-size: 160px 132px;
+        opacity: 0.72;
+      }
+
+      .wash {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.84) 0%, rgba(255, 255, 255, 0.24) 42%, rgba(255, 255, 255, 0.62) 100%),
+          linear-gradient(180deg, rgba(139, 90, 74, 0.035), rgba(107, 123, 143, 0.045));
+      }
+
+      .clip {
+        position: absolute;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--primary);
+        font-size: 18px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .kicker::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      .misread-scene {
+        left: 150px;
+        top: 168px;
+        width: 1620px;
+        height: 760px;
+        display: grid;
+        grid-template-columns: 760px 1fr;
+        gap: 86px;
+        align-items: center;
+        z-index: 6;
+      }
+
+      .chat-window {
+        height: 570px;
+        border-radius: 34px;
+        border: 1px solid rgba(232, 226, 220, 0.94);
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: var(--shadow-soft);
+        overflow: hidden;
+      }
+
+      .window-bar {
+        height: 68px;
+        padding: 0 26px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--border);
+        background: rgba(245, 242, 239, 0.8);
+        color: var(--muted);
+        font-size: 16px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .window-dots {
+        display: flex;
+        gap: 10px;
+      }
+
+      .window-dots span {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #d9d0c8;
+      }
+
+      .chat-content {
+        padding: 44px;
+      }
+
+      .input-box {
+        min-height: 104px;
+        padding: 30px 34px;
+        border: 1px solid rgba(232, 226, 220, 0.98);
+        border-radius: 22px;
+        background: #fffefd;
+        color: var(--foreground);
+        font-size: 28px;
+        font-weight: 850;
+      }
+
+      .generic-lines {
+        margin-top: 34px;
+        display: grid;
+        gap: 20px;
+      }
+
+      .generic-line {
+        height: 20px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #ede7e3, #f6f2ef);
+      }
+
+      .generic-line:nth-child(1) { width: 86%; }
+      .generic-line:nth-child(2) { width: 74%; }
+      .generic-line:nth-child(3) { width: 92%; }
+      .generic-line:nth-child(4) { width: 68%; }
+
+      .misread-copy h1 {
+        margin-top: 28px;
+        max-width: 980px;
+        color: var(--foreground);
+        font-size: 104px;
+        line-height: 1.02;
+        font-weight: 940;
+        letter-spacing: 0;
+      }
+
+      .misread-title-primary,
+      .misread-title-secondary {
+        display: block;
+      }
+
+      .misread-title-primary {
+        color: var(--foreground);
+      }
+
+      .misread-title-secondary {
+        margin-top: 18px;
+        color: var(--primary);
+        font-size: 82px;
+        line-height: 1.06;
+      }
+
+      .misread-copy p {
+        margin-top: 26px;
+        max-width: 680px;
+        color: var(--muted);
+        font-size: 30px;
+        line-height: 1.42;
+        font-weight: 760;
+      }
+
+      .soft-tags {
+        margin-top: 34px;
+        display: flex;
+        gap: 14px;
+      }
+
+      .soft-tag {
+        padding: 13px 18px;
+        border-radius: 999px;
+        background: #f0ebe7;
+        color: var(--tertiary);
+        font-size: 21px;
+        font-weight: 880;
+      }
+
+      .identity-scene {
+        inset: 0;
+        padding: 150px 150px 120px;
+        z-index: 10;
+      }
+
+      .identity-statement {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 980px;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .identity-statement h2 {
+        color: var(--foreground);
+        font-size: 96px;
+        line-height: 1.04;
+        font-weight: 940;
+        letter-spacing: 0;
+      }
+
+      .employee-card {
+        position: absolute;
+        left: 150px;
+        top: 190px;
+        width: 610px;
+        height: 730px;
+        padding: 42px;
+        border-radius: 36px;
+        border: 1px solid rgba(232, 226, 220, 0.94);
+        background:
+          radial-gradient(circle at 50% 18%, rgba(139, 90, 74, 0.12), transparent 44%),
+          rgba(255, 255, 255, 0.93);
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .employee-card img {
+        width: 390px;
+        height: 390px;
+        object-fit: contain;
+        filter: drop-shadow(0 24px 48px rgba(44, 36, 33, 0.16));
+      }
+
+      .employee-name {
+        margin-top: 30px;
+        color: var(--foreground);
+        font-size: 48px;
+        font-weight: 940;
+      }
+
+      .employee-role {
+        margin-top: 12px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: rgba(139, 90, 74, 0.12);
+        color: var(--primary-dark);
+        font-size: 20px;
+        font-weight: 880;
+      }
+
+      .status-row {
+        margin-top: 28px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 17px;
+        font-weight: 820;
+      }
+
+      .status-row span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        max-width: 100%;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: var(--secondary);
+        white-space: nowrap;
+      }
+
+      .status-row svg {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 auto;
+        color: var(--primary);
+        stroke-width: 2.4;
+      }
+
+      .resume-card {
+        margin-top: 18px;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .resume-name {
+        color: var(--foreground);
+        font-size: 58px;
+        line-height: 1;
+        font-weight: 950;
+        letter-spacing: 0;
+      }
+
+      .resume-tagline {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 24px;
+        line-height: 1.32;
+        font-weight: 820;
+      }
+
+      .resume-section {
+        margin-top: 18px;
+      }
+
+      .resume-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--primary);
+        font-size: 17px;
+        font-weight: 950;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .resume-label::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      .education-row,
+      .experience-row {
+        margin-top: 10px;
+        padding: 0 0 12px 24px;
+        border-radius: 0;
+        border: 0;
+        border-left: 2px solid rgba(139, 90, 74, 0.28);
+        background: transparent;
+      }
+
+      .education-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .education-row b,
+      .experience-row b {
+        color: var(--foreground);
+        font-size: 22px;
+        line-height: 1.18;
+        font-weight: 930;
+      }
+
+      .education-row span {
+        color: var(--primary-dark);
+        font-size: 18px;
+        font-weight: 880;
+      }
+
+      .experience-row + .experience-row {
+        margin-top: 8px;
+      }
+
+      .experience-row p {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.42;
+        font-weight: 720;
+      }
+
+      .resume-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .resume-skill {
+        padding: 9px 13px;
+        border-radius: 999px;
+        color: #fff;
+        background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+        font-size: 16px;
+        font-weight: 880;
+      }
+
+      .org-scene {
+        left: 70px;
+        top: 218px;
+        width: 1780px;
+        height: 860px;
+        z-index: 14;
+      }
+
+      .org-board {
+        position: relative;
+        height: 100%;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .org-title {
+        display: none;
+        color: var(--foreground);
+        font-size: 40px;
+        font-weight: 930;
+      }
+
+      .org-grid {
+        display: none;
+      }
+
+      .org-chart {
+        position: relative;
+        height: 780px;
+        margin-top: 0;
+      }
+
+      .org-links {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        overflow: visible;
+      }
+
+      .org-link {
+        fill: none;
+        stroke: rgba(44, 36, 33, 0.62);
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+
+      .org-link.strong {
+        stroke: rgba(44, 36, 33, 0.76);
+        stroke-width: 4;
+      }
+
+      .org-node {
+        position: absolute;
+        z-index: 2;
+        width: 238px;
+        min-height: 118px;
+        padding: 20px 24px;
+        border-radius: 14px;
+        border: 1px solid rgba(232, 226, 220, 0.96);
+        background: linear-gradient(180deg, #fffefd, #f8f5f2);
+        box-shadow: 0 18px 38px rgba(44, 36, 33, 0.07);
+        text-align: center;
+      }
+
+      .org-node b {
+        display: block;
+        color: var(--foreground);
+        font-size: 24px;
+        font-weight: 920;
+      }
+
+      .org-node span {
+        display: block;
+        margin-top: 10px;
+        color: var(--tertiary);
+        font-size: 17px;
+        line-height: 1.32;
+        font-weight: 740;
+      }
+
+      .org-node.company {
+        left: 50%;
+        top: 0;
+        width: 360px;
+        min-height: 86px;
+        transform: translateX(-50%);
+        background: linear-gradient(180deg, #f3efeb, #ebe4de);
+        border-color: rgba(139, 90, 74, 0.18);
+        box-shadow: 0 18px 38px rgba(44, 36, 33, 0.07);
+      }
+
+      .org-node.department {
+        top: 198px;
+        min-height: 82px;
+        background: linear-gradient(180deg, #f3efeb, #ebe4de);
+        border-color: rgba(139, 90, 74, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .org-node.sales-dept { left: 171px; }
+      .org-node.legal-dept { left: 771px; transform: none; }
+      .org-node.ops-dept { left: 1351px; }
+
+      .org-node.lawrence {
+        top: 482px;
+        width: 188px;
+        min-height: 106px;
+        padding: 17px 14px;
+        color: #fff;
+        background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+        box-shadow: 0 22px 58px rgba(139, 90, 74, 0.24);
+      }
+
+      .org-node.member {
+        top: 482px;
+        width: 146px;
+        min-height: 106px;
+        padding: 17px 12px;
+      }
+
+      .org-node.member b,
+      .org-node.lawrence b {
+        font-size: 22px;
+      }
+
+      .org-node.member span,
+      .org-node.lawrence span {
+        font-size: 15px;
+      }
+
+      .org-node.sales-a { left: 30px; }
+      .org-node.sales-lawrence { left: 203px; }
+      .org-node.sales-b { left: 418px; }
+      .org-node.legal-a { left: 620px; }
+      .org-node.legal-lawrence { left: 793px; }
+      .org-node.legal-b { left: 1008px; }
+      .org-node.ops-a { left: 1210px; }
+      .org-node.ops-lawrence { left: 1383px; }
+      .org-node.ops-b { left: 1598px; }
+
+      .org-node.lawrence b,
+      .org-node.lawrence span {
+        color: #fff;
+      }
+
+      .title-line {
+        display: block;
+      }
+
+      .identity-statement {
+        display: none;
+      }
+
+      .identity-copy {
+        position: absolute;
+        left: 835px;
+        top: 290px;
+        width: 940px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="shot-02" data-width="1920" data-height="1080" data-duration="21">
+      <div class="scene">
+        <div class="paper-grid"></div>
+        <div class="wash"></div>
+
+        <section id="misread-scene" class="clip misread-scene" data-start="0" data-duration="6.7" data-track-index="2">
+          <div class="chat-window">
+            <div class="window-bar">
+              <div class="window-dots"><span></span><span></span><span></span></div>
+              <div>Generic chatbot</div>
+            </div>
+            <div class="chat-content">
+              <div class="input-box">帮我写一段客户方案。</div>
+              <div class="generic-lines">
+                <div class="generic-line"></div>
+                <div class="generic-line"></div>
+                <div class="generic-line"></div>
+                <div class="generic-line"></div>
+              </div>
+            </div>
+          </div>
+          <div class="misread-copy">
+            <div class="kicker">First impression</div>
+            <h1><span class="misread-title-primary">不是聊天框</span><span class="misread-title-secondary">是专业的数字员工</span></h1>
+          </div>
+        </section>
+
+        <section id="identity-scene" class="clip identity-scene" data-start="5.7" data-duration="10.9" data-track-index="3">
+          <div class="employee-card">
+            <img src="assets/lawrence-avatar.png" alt="" aria-hidden="true" />
+            <div class="employee-name">Lawrence</div>
+            <div class="employee-role">AI数字员工</div>
+            <div class="status-row">
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <path d="m3 7 9 6 9-6"></path>
+                </svg>
+                wiselaw-bd@wiselawai.com
+              </span>
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7A2 2 0 0 1 22 16.9Z"></path>
+                </svg>
+                15302432397
+              </span>
+            </div>
+          </div>
+          <div class="identity-copy">
+            <div class="kicker">Employee identity</div>
+            <div class="resume-card">
+              <div class="resume-name">Lawrence</div>
+              <div class="resume-tagline">AI数字员工</div>
+
+              <div class="resume-section">
+                <div class="resume-label">Education</div>
+                <div class="education-row">
+                  <b>香港理工大学</b>
+                  <span>The Hong Kong Polytechnic University</span>
+                </div>
+              </div>
+
+              <div class="resume-section">
+                <div class="resume-label">Experience</div>
+                <div class="experience-row">
+                  <b>智法数科｜法务助理 / 运营助理 / 总裁助理 / AI 程序员</b>
+                  <p>参与 Lawrence 产品运营、销售支持、客户需求整理、内部流程协同与 AI 工作流搭建，协助完成资料整理、方案生成、内容策划与自动化执行。</p>
+                </div>
+                <div class="experience-row">
+                  <b>多家国际上市企业法务部｜高级法务助理</b>
+                  <p>协助处理合同审查、合规资料整理、法律检索、内部审批支持及跨部门沟通，提升法务日常工作的响应效率。</p>
+                </div>
+                <div class="experience-row">
+                  <b>多家律师事务所｜律师助理 / 合规专员</b>
+                  <p>支持律师团队完成案例检索、合同与文件初稿、会议纪要、客户材料整理及项目跟进，服务企业客户的日常法律事务。</p>
+                </div>
+              </div>
+
+              <div class="resume-skills">
+                <div class="resume-skill">合同审查</div>
+                <div class="resume-skill">法律检索</div>
+                <div class="resume-skill">合规审计</div>
+                <div class="resume-skill">客户需求整理</div>
+                <div class="resume-skill">跨部门协同</div>
+                <div class="resume-skill">AI 工作流搭建</div>
+                <div class="resume-skill">vibe coding</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="org-scene" class="clip org-scene" data-start="15.3" data-duration="5.7" data-track-index="4">
+          <div class="org-board">
+            <div class="org-title">Lawrence 加入公司组织架构</div>
+            <div class="org-chart">
+              <svg class="org-links" viewBox="0 0 1780 780" preserveAspectRatio="none" aria-hidden="true">
+                <path class="org-link strong" d="M890 86 L890 158" />
+                <path class="org-link strong" d="M290 158 L1470 158" />
+                <path class="org-link strong" d="M290 158 L290 198" />
+                <path class="org-link strong" d="M890 158 L890 198" />
+                <path class="org-link strong" d="M1470 158 L1470 198" />
+                <path class="org-link" d="M290 280 L290 380" />
+                <path class="org-link" d="M80 380 L500 380" />
+                <path class="org-link" d="M80 380 L80 482" />
+                <path class="org-link" d="M290 380 L290 482" />
+                <path class="org-link" d="M500 380 L500 482" />
+                <path class="org-link" d="M890 280 L890 380" />
+                <path class="org-link" d="M680 380 L1100 380" />
+                <path class="org-link" d="M680 380 L680 482" />
+                <path class="org-link" d="M890 380 L890 482" />
+                <path class="org-link" d="M1100 380 L1100 482" />
+                <path class="org-link" d="M1470 280 L1470 380" />
+                <path class="org-link" d="M1260 380 L1680 380" />
+                <path class="org-link" d="M1260 380 L1260 482" />
+                <path class="org-link" d="M1470 380 L1470 482" />
+                <path class="org-link" d="M1680 380 L1680 482" />
+              </svg>
+              <div class="org-node company"><b>公司组织架构</b><span>岗位、权限与协作链</span></div>
+              <div class="org-node department sales-dept"><b>销售部</b></div>
+              <div class="org-node department legal-dept"><b>法务部</b></div>
+              <div class="org-node department ops-dept"><b>运营协作部</b></div>
+              <div class="org-node member sales-a"><b>销售 A</b><span>销售岗位</span></div>
+              <div class="org-node lawrence sales-lawrence"><b>Lawrence</b><span>AI 销售助理</span></div>
+              <div class="org-node member sales-b"><b>销售 B</b><span>销售岗位</span></div>
+              <div class="org-node member legal-a"><b>法务 A</b><span>法务岗位</span></div>
+              <div class="org-node lawrence legal-lawrence"><b>Lawrence</b><span>AI 律师助理</span></div>
+              <div class="org-node member legal-b"><b>法务 B</b><span>法务岗位</span></div>
+              <div class="org-node member ops-a"><b>运营 A</b><span>运营岗位</span></div>
+              <div class="org-node lawrence ops-lawrence"><b>Lawrence</b><span>AI 运营协作助理</span></div>
+              <div class="org-node member ops-b"><b>运营 B</b><span>运营岗位</span></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      gsap.defaults({ ease: "power3.out" });
+
+      const tl = gsap.timeline({ paused: true });
+
+      tl.from("#misread-scene", { opacity: 0, y: 42, scale: 0.985, filter: "blur(10px)", duration: 0.7, ease: "expo.out" }, 0.28)
+        .from(".chat-window", { opacity: 0, x: -72, duration: 0.66, ease: "expo.out" }, 0.55)
+        .from(".input-box", { opacity: 0, y: 20, duration: 0.42 }, 1.08)
+        .from(".generic-line", { opacity: 0, scaleX: 0, transformOrigin: "left center", duration: 0.34, stagger: 0.15 }, 1.62)
+        .from(".misread-copy .kicker", { opacity: 0, y: 16, duration: 0.34 }, 2.1)
+        .from(".misread-copy h1 span", { opacity: 0, y: 32, filter: "blur(8px)", duration: 0.54, stagger: 0.16, ease: "expo.out" }, 2.32)
+        .to(".chat-window", { opacity: 0.34, scale: 0.985, duration: 0.42 }, 4.95)
+        .to("#misread-scene", { opacity: 0, y: -34, scale: 0.985, filter: "blur(8px)", duration: 0.5, ease: "power2.inOut" }, 5.62)
+
+        .from("#identity-scene", { opacity: 0, duration: 0.2, ease: "none" }, 5.78)
+        .fromTo(
+          ".employee-card",
+          { opacity: 0, x: 505, y: 8, scale: 0.9, filter: "blur(10px)" },
+          { opacity: 1, x: 505, y: 0, scale: 1, filter: "blur(0px)", duration: 0.72, ease: "expo.out" },
+          6.05,
+        )
+        .from(".employee-card img", { opacity: 0, y: 28, scale: 0.94, duration: 0.56 }, 6.36)
+        .from(".employee-name, .employee-role, .status-row span", { opacity: 0, y: 18, duration: 0.34, stagger: 0.16 }, 6.68)
+        .to(".employee-card", { x: 0, duration: 0.74, ease: "power3.inOut" }, 7.92)
+        .from(".identity-copy .kicker", { opacity: 0, y: 16, duration: 0.34 }, 8.48)
+        .from(".resume-card", { opacity: 0, y: 28, scale: 0.975, filter: "blur(8px)", duration: 0.48, ease: "power3.out" }, 8.72)
+        .from(".resume-name, .resume-tagline", { opacity: 0, y: 18, duration: 0.34, stagger: 0.12 }, 9.0)
+        .from(".resume-label", { opacity: 0, x: -16, duration: 0.26, stagger: 0.18 }, 9.35)
+        .from(".education-row, .experience-row", { opacity: 0, y: 22, scale: 0.98, duration: 0.34, stagger: 0.18, ease: "back.out(1.12)" }, 9.56)
+        .from(".resume-skill", { opacity: 0, y: 18, scale: 0.94, filter: "blur(8px)", duration: 0.3, stagger: 0.1, ease: "back.out(1.25)" }, 10.52)
+        .to("#identity-scene", { opacity: 0, y: -34, scale: 0.986, filter: "blur(8px)", duration: 0.58, ease: "power2.inOut" }, 14.95)
+
+        .from("#org-scene", { opacity: 0, y: 48, scale: 0.975, filter: "blur(10px)", duration: 0.68, ease: "expo.out" }, 15.32)
+        .from(".org-board", { opacity: 0, y: 32, duration: 0.52 }, 15.64)
+        .from(".org-title", { opacity: 0, y: 18, duration: 0.34 }, 15.92)
+        .from(".org-link", { opacity: 0, scaleX: 0, transformOrigin: "center center", duration: 0.46, stagger: 0.08 }, 16.08)
+        .from(".org-node", { opacity: 0, y: 28, scale: 0.94, duration: 0.38, stagger: 0.12 }, 16.22)
+        .to(".org-node.lawrence", { scale: 1.045, duration: 0.34, ease: "sine.inOut" }, 19.1)
+        .to(".org-node.lawrence", { scale: 1, duration: 0.34, ease: "sine.inOut" }, 19.44);
+
+      window.__timelines["shot-02"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1389 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <base href="../" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      :root {
+        --background: #faf8f6;
+        --foreground: #2c2421;
+        --card: #ffffff;
+        --primary: #8b5a4a;
+        --primary-dark: #74493c;
+        --muted: #5c524d;
+        --border: #e8e2dc;
+        --soft: #f5edeb;
+        --cool: #5f7082;
+        --success: #1f9f68;
+        --gold: #d0a04f;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--background);
+        color: var(--foreground);
+        font-family: Inter, "SF Pro Display", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      }
+
+      body,
+      #root,
+      .scene {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .scene {
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse 62% 52% at 50% 38%, rgba(139, 90, 74, 0.12), transparent 68%),
+          radial-gradient(ellipse 38% 34% at 86% 16%, rgba(95, 112, 130, 0.1), transparent 70%),
+          linear-gradient(180deg, #fbf9f7 0%, #f6f1ee 58%, #eee7e1 100%);
+      }
+
+      .paper-grid {
+        position: absolute;
+        inset: 64px;
+        border: 1px solid rgba(139, 90, 74, 0.08);
+        border-radius: 34px;
+        background-image:
+          linear-gradient(rgba(139, 90, 74, 0.052) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139, 90, 74, 0.052) 1px, transparent 1px);
+        background-size: 150px 126px;
+        opacity: 0.74;
+      }
+
+      .wash {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.08) 48%, rgba(255, 255, 255, 0.78) 100%),
+          linear-gradient(180deg, rgba(139, 90, 74, 0.032), rgba(95, 112, 130, 0.045));
+      }
+
+      .stage {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+      }
+
+      .moment {
+        position: absolute;
+        inset: 0;
+        padding: 78px 112px 76px;
+        opacity: 0;
+      }
+
+      .scene-three,
+      .scene-four {
+        display: none;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        height: 34px;
+        padding: 0 16px;
+        border: 1px solid rgba(139, 90, 74, 0.14);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 860;
+        box-shadow: 0 12px 32px rgba(44, 36, 33, 0.06);
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      .title {
+        color: var(--foreground);
+        font-size: 70px;
+        line-height: 1.08;
+        font-weight: 880;
+        letter-spacing: 0;
+      }
+
+      .title .accent {
+        color: var(--primary);
+      }
+
+      .copy {
+        color: var(--muted);
+        font-size: 25px;
+        line-height: 1.45;
+        font-weight: 720;
+      }
+
+      .laptop-zone {
+        position: absolute;
+        width: 1000px;
+        height: 668px;
+        perspective: 1500px;
+      }
+
+      .laptop-shadow {
+        position: absolute;
+        left: 50px;
+        right: 24px;
+        bottom: 52px;
+        height: 88px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(44, 36, 33, 0.2), rgba(44, 36, 33, 0.06) 58%, transparent 76%);
+        filter: blur(20px);
+      }
+
+      .macbook-art {
+        position: absolute;
+        left: 0;
+        top: 24px;
+        width: 1000px;
+        height: 600px;
+        z-index: 2;
+        background: url("assets/macbook.svg") top left / contain no-repeat;
+        filter: drop-shadow(0 34px 62px rgba(44, 36, 33, 0.16));
+      }
+
+      .screen-overlay {
+        position: absolute;
+        left: 116px;
+        top: 58px;
+        width: 768px;
+        height: 480px;
+        overflow: hidden;
+        border-radius: 5px;
+        z-index: 4;
+        background:
+          radial-gradient(circle at 50% 42%, rgba(208, 160, 79, 0.16), transparent 34%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 244, 240, 0.96));
+      }
+
+      .screen-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(139, 90, 74, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139, 90, 74, 0.05) 1px, transparent 1px);
+        background-size: 86px 72px;
+      }
+
+      .scene-one-copy {
+        position: absolute;
+        left: 126px;
+        top: 184px;
+        width: 660px;
+      }
+
+      .scene-one-copy .title {
+        margin-top: 24px;
+        font-size: 76px;
+      }
+
+      .scene-one-copy .copy {
+        margin-top: 24px;
+        width: 570px;
+      }
+
+      .core-visual {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 980px;
+        height: 850px;
+        z-index: 5;
+      }
+
+      .core-halo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .core-halo.outer {
+        width: 810px;
+        height: 810px;
+        border: 1px solid rgba(139, 90, 74, 0.12);
+        background:
+          radial-gradient(circle, rgba(208, 160, 79, 0.09) 0%, rgba(208, 160, 79, 0.035) 34%, transparent 64%),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.52), rgba(245, 237, 235, 0.16));
+      }
+
+      .core-halo.middle {
+        width: 600px;
+        height: 600px;
+        border: 1px dashed rgba(139, 90, 74, 0.24);
+      }
+
+      .core-halo.inner {
+        width: 396px;
+        height: 396px;
+        border: 1px solid rgba(208, 160, 79, 0.2);
+        background: rgba(255, 255, 255, 0.34);
+        box-shadow: 0 34px 92px rgba(139, 90, 74, 0.12);
+      }
+
+      .orbit-layer {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: center;
+        z-index: 3;
+      }
+
+      .orbit-layer.one {
+        width: 640px;
+        height: 640px;
+      }
+
+      .orbit-layer.two {
+        width: 790px;
+        height: 790px;
+      }
+
+      .orbit-dot {
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 10px rgba(208, 160, 79, 0.08), 0 0 30px rgba(208, 160, 79, 0.42);
+      }
+
+      .orbit-dot.a {
+        left: 50%;
+        top: -6px;
+      }
+
+      .orbit-dot.b {
+        right: 34px;
+        bottom: 95px;
+      }
+
+      .orbit-dot.c {
+        left: 36px;
+        bottom: 104px;
+      }
+
+      .core-burst {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 520px;
+        height: 520px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background:
+          linear-gradient(90deg, transparent 47%, rgba(139, 90, 74, 0.16) 50%, transparent 53%),
+          linear-gradient(0deg, transparent 47%, rgba(139, 90, 74, 0.16) 50%, transparent 53%);
+        opacity: 0;
+        z-index: 2;
+      }
+
+      .core-visual .brain-core {
+        width: 330px;
+        height: 330px;
+        transform: translate(-50%, -50%);
+      }
+
+      .node-orbit {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 900px;
+        height: 780px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: center;
+        z-index: 5;
+      }
+
+      .core-node {
+        position: absolute;
+        width: 148px;
+        height: 128px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid rgba(139, 90, 74, 0.14);
+        border-radius: 28px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(245, 237, 235, 0.78)),
+          var(--card);
+        box-shadow: 0 24px 58px rgba(44, 36, 33, 0.08);
+      }
+
+      .core-node svg {
+        width: 42px;
+        height: 42px;
+        color: var(--primary);
+      }
+
+      .core-node span {
+        color: var(--foreground);
+        font-size: 18px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .core-node small {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .node-file {
+        left: 376px;
+        top: 11px;
+      }
+
+      .node-account {
+        left: 622px;
+        top: 130px;
+      }
+
+      .node-mail {
+        left: 683px;
+        top: 396px;
+      }
+
+      .node-task {
+        left: 130px;
+        top: 130px;
+      }
+
+      .node-memory {
+        left: 69px;
+        top: 396px;
+      }
+
+      .node-audit {
+        left: 239px;
+        top: 610px;
+      }
+
+      .node-tool {
+        left: 513px;
+        top: 610px;
+      }
+
+      .core-line {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 300px;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(139, 90, 74, 0), rgba(139, 90, 74, 0.3), rgba(139, 90, 74, 0));
+        transform-origin: left center;
+      }
+
+      .line-a {
+        transform: rotate(222deg);
+      }
+
+      .line-b {
+        transform: rotate(318deg);
+      }
+
+      .line-c {
+        transform: rotate(142deg);
+      }
+
+      .line-d {
+        transform: rotate(42deg);
+      }
+
+      .line-e {
+        transform: rotate(270deg);
+      }
+
+      .line-f {
+        transform: rotate(180deg);
+      }
+
+      .line-g {
+        transform: rotate(0deg);
+      }
+
+      .brain-core {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 270px;
+        height: 270px;
+        border-radius: 50%;
+        transform: translate(-50%, -46%);
+        border: 1px solid rgba(208, 160, 79, 0.36);
+        background:
+          radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.98), rgba(245, 237, 235, 0.84) 58%, rgba(208, 160, 79, 0.14)),
+          var(--card);
+        box-shadow:
+          0 30px 78px rgba(139, 90, 74, 0.16),
+          0 0 0 18px rgba(208, 160, 79, 0.06);
+        z-index: 4;
+      }
+
+      .brain-icon {
+        position: absolute;
+        left: 50%;
+        top: 48%;
+        width: 112px;
+        height: 112px;
+        transform: translate(-50%, -50%);
+        color: var(--primary);
+      }
+
+      .core-state {
+        position: absolute;
+        inset: 0;
+      }
+
+      .workspace-state {
+        opacity: 0;
+      }
+
+      .workspace-icon {
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        width: 104px;
+        height: 104px;
+        transform: translate(-50%, -50%);
+        color: var(--primary);
+      }
+
+      .core-label {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 48px;
+        text-align: center;
+        color: var(--foreground);
+        font-size: 23px;
+        font-weight: 880;
+      }
+
+      .core-sub {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 25px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 760;
+      }
+
+      .pulse-ring {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 430px;
+        height: 430px;
+        border: 1px dashed rgba(139, 90, 74, 0.25);
+        border-radius: 50%;
+        transform: translate(-50%, -46%);
+        z-index: 3;
+      }
+
+      .scene-two-copy {
+        position: absolute;
+        left: 132px;
+        top: 92px;
+        width: 520px;
+        text-align: left;
+        z-index: 9;
+      }
+
+      .scene-two-copy .title {
+        width: 520px;
+        font-size: 44px;
+      }
+
+      .scene-two-copy .copy {
+        width: 490px;
+        margin: 16px 0 0;
+        font-size: 19px;
+        text-align: left;
+      }
+
+      .workstation-grid {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+      }
+
+      .assembly-rail {
+        position: absolute;
+        left: 50%;
+        top: 548px;
+        width: 1320px;
+        height: 670px;
+        border-radius: 34px;
+        border: 1px solid rgba(139, 90, 74, 0.14);
+        background:
+          linear-gradient(90deg, rgba(139, 90, 74, 0.06) 0 28%, rgba(255,255,255,0.38) 28% 72%, rgba(95,112,130,0.055) 72% 100%),
+          linear-gradient(180deg, rgba(255,255,255,0.82), rgba(245,237,235,0.56));
+        transform: translate(-50%, -50%);
+        box-shadow: 0 34px 100px rgba(44, 36, 33, 0.1), 0 1px 0 rgba(255,255,255,0.92) inset;
+        z-index: 4;
+      }
+
+      .assembly-rail::before,
+      .assembly-rail::after {
+        position: absolute;
+        top: 28px;
+        color: var(--primary);
+        font-size: 13px;
+        font-weight: 940;
+        letter-spacing: 0.08em;
+      }
+
+      .assembly-rail::before {
+        content: "INPUT & EXECUTION";
+        left: 42px;
+      }
+
+      .assembly-rail::after {
+        content: "IDENTITY & OPERATIONS";
+        right: 42px;
+      }
+
+      .assembly-core {
+        position: absolute;
+        left: 50%;
+        top: 548px;
+        width: 360px;
+        height: 430px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+        text-align: center;
+        padding: 34px 30px;
+        border-radius: 30px;
+        border: 1px solid rgba(208, 160, 79, 0.3);
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.98), rgba(245, 237, 235, 0.86) 58%, rgba(208, 160, 79, 0.16)),
+          var(--card);
+        color: var(--primary);
+        font-size: 42px;
+        line-height: 1.18;
+        font-weight: 880;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 30px 80px rgba(139, 90, 74, 0.14), 0 0 0 18px rgba(208, 160, 79, 0.06);
+        z-index: 6;
+      }
+
+      .assembly-core::before {
+        content: "WORKSPACE OS";
+        display: inline-flex;
+        height: 28px;
+        align-items: center;
+        padding: 0 12px;
+        border-radius: 999px;
+        background: rgba(139, 90, 74, 0.09);
+        color: var(--primary);
+        font-size: 12px;
+        font-weight: 920;
+        letter-spacing: 0.07em;
+      }
+
+      .assembly-core::after {
+        content: "大模型能力被装进一个可上岗、可协作、可审计的工作环境";
+        width: 245px;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.45;
+        font-weight: 780;
+      }
+
+      .assembly-line {
+        position: absolute;
+        left: 50%;
+        top: 548px;
+        width: 365px;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(139, 90, 74, 0.18), rgba(139, 90, 74, 0));
+        transform-origin: left center;
+        z-index: 4;
+      }
+
+      .assembly-line.l1 { transform: rotate(180deg); }
+      .assembly-line.l2 { transform: rotate(205deg); }
+      .assembly-line.l3 { transform: rotate(154deg); }
+      .assembly-line.l4 { transform: rotate(0deg); }
+      .assembly-line.l5 { transform: rotate(-22deg); }
+      .assembly-line.l6 { transform: rotate(24deg); }
+      .assembly-line.l7 { transform: rotate(204deg); }
+
+      .module-card {
+        position: absolute;
+        overflow: hidden;
+        width: 330px;
+        min-height: 112px;
+        display: grid;
+        grid-template-columns: 58px 1fr;
+        column-gap: 16px;
+        align-items: center;
+        padding: 18px;
+        border: 1px solid rgba(139, 90, 74, 0.12);
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at 22% 14%, rgba(255, 255, 255, 0.94), transparent 42%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(250, 248, 246, 0.82));
+        box-shadow: 0 18px 48px rgba(44, 36, 33, 0.07);
+      }
+
+      .module-card.card-file {
+        left: 210px;
+        top: 270px;
+        transform: none;
+      }
+
+      .module-card.card-task {
+        left: 210px;
+        top: 430px;
+        transform: none;
+      }
+
+      .module-card.card-account {
+        right: 210px;
+        top: 230px;
+        transform: none;
+      }
+
+      .module-card.card-mail {
+        right: 210px;
+        top: 365px;
+        transform: none;
+      }
+
+      .module-card.card-tool {
+        right: 210px;
+        top: 500px;
+        transform: none;
+      }
+
+      .module-card.card-memory {
+        right: 210px;
+        top: 635px;
+        transform: none;
+      }
+
+      .module-card.card-audit {
+        left: 210px;
+        top: 590px;
+        transform: none;
+      }
+
+      .module-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.78) 48%, transparent 62%);
+        opacity: 0.34;
+        transform: translateX(-130%);
+      }
+
+      .module-card svg {
+        grid-row: 1 / span 2;
+        width: 52px;
+        height: 52px;
+        padding: 12px;
+        border-radius: 16px;
+        background: rgba(139, 90, 74, 0.08);
+        color: var(--primary);
+      }
+
+      .module-name {
+        margin-top: 0;
+        color: var(--foreground);
+        font-size: 25px;
+        line-height: 1.05;
+        font-weight: 880;
+      }
+
+      .module-meta {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.36;
+        font-weight: 720;
+      }
+
+      .scene-three-copy {
+        position: absolute;
+        left: 126px;
+        top: 126px;
+        width: 640px;
+        z-index: 5;
+      }
+
+      .scene-three-copy .copy {
+        margin-top: 22px;
+      }
+
+      .data-pipeline {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 4;
+      }
+
+      .pipeline-card {
+        position: absolute;
+        overflow: hidden;
+        width: 380px;
+        min-height: 188px;
+        padding: 24px 28px;
+        border: 1px solid rgba(139, 90, 74, 0.14);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.84);
+        box-shadow: 0 24px 64px rgba(44, 36, 33, 0.09);
+      }
+
+      .pipeline-card.raw-card {
+        left: 128px;
+        top: 520px;
+        transform: rotate(-2deg);
+        z-index: 3;
+      }
+
+      .pipeline-card.slice-card {
+        left: 50%;
+        top: 328px;
+        transform: translateX(-50%) scale(1.04);
+        z-index: 5;
+      }
+
+      .pipeline-card.mask-card {
+        right: 128px;
+        top: 520px;
+        transform: rotate(2deg);
+        z-index: 4;
+      }
+
+      .pipeline-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 5px;
+        background: linear-gradient(90deg, rgba(139, 90, 74, 0.12), rgba(208, 160, 79, 0.72), rgba(139, 90, 74, 0.12));
+        transform: scaleX(0);
+        transform-origin: left center;
+      }
+
+      .pipeline-card svg {
+        width: 58px;
+        height: 58px;
+        color: var(--primary);
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .pipeline-title {
+        margin-top: 18px;
+        color: var(--foreground);
+        font-size: 32px;
+        line-height: 1.1;
+        font-weight: 880;
+      }
+
+      .pipeline-copy {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.38;
+        font-weight: 720;
+      }
+
+      .pipeline-arrow {
+        position: absolute;
+        height: 0;
+        border-top: 3px solid rgba(139, 90, 74, 0.38);
+        z-index: 2;
+        will-change: opacity, clip-path;
+      }
+
+      .pipeline-arrow::after {
+        content: "";
+        position: absolute;
+        right: -2px;
+        top: -9px;
+        width: 0;
+        height: 0;
+        border-left: 13px solid rgba(139, 90, 74, 0.56);
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+      }
+
+      .arrow-one {
+        left: 532px;
+        top: 532px;
+        width: 230px;
+        transform: rotate(-20deg);
+      }
+
+      .arrow-two {
+        left: 1160px;
+        top: 455px;
+        width: 230px;
+        transform: rotate(20deg);
+      }
+
+      .data-packet {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 10px rgba(208, 160, 79, 0.08), 0 0 28px rgba(208, 160, 79, 0.4);
+        opacity: 0;
+        z-index: 7;
+      }
+
+      .packet-two {
+        top: 128px;
+        background: var(--primary);
+      }
+
+      .local-safe {
+        position: absolute;
+        right: 122px;
+        top: 128px;
+        width: 430px;
+        padding: 28px 30px;
+        border: 1px solid rgba(31, 159, 104, 0.2);
+        border-radius: 26px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 24px 64px rgba(44, 36, 33, 0.08);
+      }
+
+      .safe-kicker {
+        color: var(--success);
+        font-size: 16px;
+        font-weight: 880;
+      }
+
+      .safe-title {
+        margin-top: 14px;
+        color: var(--foreground);
+        font-size: 36px;
+        line-height: 1.14;
+        font-weight: 880;
+      }
+
+      .scene-four .laptop-zone {
+        left: 116px;
+        top: 214px;
+        width: 1000px;
+      }
+
+      .security-ring {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 470px;
+        height: 470px;
+        border-radius: 50%;
+        border: 1px dashed rgba(31, 159, 104, 0.28);
+        transform: translate(-50%, -46%);
+        z-index: 3;
+      }
+
+      .security-sweep {
+        display: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 560px;
+        height: 560px;
+        border-radius: 50%;
+        transform: translate(-50%, -46%);
+        background: conic-gradient(from 0deg, transparent 0deg, rgba(31, 159, 104, 0.16) 42deg, transparent 74deg);
+        z-index: 2;
+        opacity: 0;
+      }
+
+      .sovereignty-band {
+        position: absolute;
+        left: auto;
+        right: 132px;
+        top: 204px;
+        bottom: auto;
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        z-index: 8;
+      }
+
+      .sovereignty-card {
+        min-height: 126px;
+        padding: 22px 24px;
+        border: 1px solid rgba(139, 90, 74, 0.14);
+        border-radius: 20px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(245, 237, 235, 0.78)),
+          var(--card);
+        box-shadow: 0 22px 58px rgba(44, 36, 33, 0.08);
+      }
+
+      .sovereignty-kicker {
+        display: inline-flex;
+        align-items: center;
+        height: 24px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(31, 159, 104, 0.08);
+        color: var(--success);
+        font-size: 14px;
+        font-weight: 880;
+      }
+
+      .sovereignty-title {
+        margin-top: 12px;
+        color: var(--foreground);
+        font-size: 28px;
+        line-height: 1.1;
+        font-weight: 880;
+      }
+
+      .sovereignty-copy {
+        margin-top: 9px;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.42;
+        font-weight: 720;
+      }
+
+      .final-copy {
+        display: none;
+      }
+
+      .final-copy .title {
+        font-size: 64px;
+      }
+
+      .audit-badge {
+        display: none;
+      }
+
+      .audit-badge svg {
+        width: 58px;
+        height: 58px;
+        color: var(--cool);
+      }
+
+      .audit-title {
+        margin-top: 18px;
+        color: var(--foreground);
+        font-size: 26px;
+        font-weight: 880;
+      }
+
+      .audit-copy {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 720;
+      }
+
+      .light-sweep {
+        display: none;
+        position: absolute;
+        left: -260px;
+        top: 0;
+        width: 180px;
+        height: 1080px;
+        background: linear-gradient(90deg, transparent, rgba(255, 250, 244, 0.9), transparent);
+        filter: blur(16px);
+        transform: skewX(-15deg);
+        opacity: 0;
+        z-index: 16;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="shot-06-workstation"
+      data-start="0"
+      data-duration="12"
+      data-width="1920"
+      data-height="1080"
+    >
+      <audio
+        id="voiceover"
+        data-start="0"
+        data-track-index="3"
+        data-volume="0"
+        src="assets/shot-6-narration.wav"
+      ></audio>
+
+      <div class="scene" data-layout-allow-overflow="true" data-layout-ignore="true">
+        <div class="wash"></div>
+        <div class="paper-grid"></div>
+
+        <section class="stage clip" id="stage" data-start="0" data-duration="12" data-track-index="1" data-layout-allow-overflow="true">
+          <div class="moment scene-one" id="scene-one">
+            <div class="core-visual" id="core-visual">
+              <div class="core-halo outer"></div>
+              <div class="core-halo middle"></div>
+              <div class="core-halo inner"></div>
+              <div class="core-burst"></div>
+              <div class="orbit-layer one">
+                <div class="orbit-dot a"></div>
+                <div class="orbit-dot b"></div>
+              </div>
+              <div class="orbit-layer two">
+                <div class="orbit-dot c"></div>
+              </div>
+              <div class="core-line line-a"></div>
+              <div class="core-line line-b"></div>
+              <div class="core-line line-c"></div>
+              <div class="core-line line-d"></div>
+              <div class="core-line line-e"></div>
+              <div class="core-line line-f"></div>
+              <div class="core-line line-g"></div>
+              <div class="brain-core">
+                <div class="core-state brain-state">
+                  <svg class="brain-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <path fill="currentColor" d="M22 7c-5.1 0-9.2 4-9.2 8.9 0 .9.1 1.7.4 2.5A10.8 10.8 0 0 0 8 27.7c0 3 1.2 5.8 3.2 7.8-.2.8-.4 1.7-.4 2.6 0 5.3 4.4 9.6 9.8 9.6h.4c1.3 5.2 5.9 9.1 11.5 9.1V7H22Zm20 0h-8.5v49.8c5.6 0 10.2-3.9 11.5-9.1h.4c5.4 0 9.8-4.3 9.8-9.6 0-.9-.1-1.8-.4-2.6a10.9 10.9 0 0 0 3.2-7.8c0-3.9-2.1-7.4-5.2-9.3.3-.8.4-1.6.4-2.5C53.2 11 49.1 7 44 7h-2Z" />
+                  </svg>
+                  <div class="core-label">大模型大脑</div>
+                  <div class="core-sub">Reasoning Core</div>
+                </div>
+                <div class="core-state workspace-state">
+                  <svg class="workspace-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <path fill="currentColor" d="M12 14h40a4 4 0 0 1 4 4v26a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V18a4 4 0 0 1 4-4Zm4 8v18h32V22H16Zm10 30h12v5H26v-5Z" />
+                  </svg>
+                  <div class="core-label">数字工位</div>
+                  <div class="core-sub">Workspace OS</div>
+                </div>
+              </div>
+              <div class="node-orbit">
+                <div class="core-node core-primary node-file">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M17 7h22l11 11v39H17V7Zm20 3v11h11L37 10Z" /></svg>
+                  <span>文件输入</span>
+                  <small>Docs / Data</small>
+                </div>
+                <div class="core-node core-workstation node-account">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M32 7a14 14 0 1 1 0 28 14 14 0 0 1 0-28Zm0 33c12 0 22 6.1 22 13.6V57H10v-3.4C10 46.1 20 40 32 40Z" /></svg>
+                  <span>账号权限</span>
+                  <small>Access</small>
+                </div>
+                <div class="core-node core-workstation node-mail">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M10 16h44v32H10V16Zm5 6 17 13 17-13H15Zm34 6L32 41 15 28v15h34V28Z" /></svg>
+                  <span>邮箱触达</span>
+                  <small>Mail</small>
+                </div>
+                <div class="core-node core-primary node-task">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M18 10h16v16H18V10Zm28 7h-8v4h6v9H26v-4h-4v12h4v-4h18v9h-6v4h8a2 2 0 0 0 2-2V19a2 2 0 0 0-2-2ZM18 38h16v16H18V38Zm-6-17h6v-4h-8a2 2 0 0 0-2 2v26a2 2 0 0 0 2 2h8v-4h-6v-9h6v-4h-6v-9Z" /></svg>
+                  <span>任务拆解</span>
+                  <small>Workflow</small>
+                </div>
+                <div class="core-node core-workstation node-tool">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M45.5 8a13 13 0 0 0-12 18l-22 22a5.7 5.7 0 0 0 8 8l22-22A13 13 0 0 0 56 17.8l-9 9-7-7 9-9c-1.1-.5-2.3-.8-3.5-.8Z" /></svg>
+                  <span>工具调用</span>
+                  <small>Tools</small>
+                </div>
+                <div class="core-node core-primary node-memory">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M15 10h34v44H15V10Zm7 8v5h20v-5H22Zm0 11v5h20v-5H22Z" /></svg>
+                  <span>记忆上下文</span>
+                  <small>Context</small>
+                </div>
+                <div class="core-node core-primary node-audit">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M32 6 52 15v15c0 12.7-8.2 22.4-20 28C20.2 52.4 12 42.7 12 30V15L32 6Zm-7 24-4 4 8 8 15-15-4-4-11 11-4-4Z" /></svg>
+                  <span>审计校验</span>
+                  <small>Audit</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="moment scene-two" id="scene-two">
+            <div class="assembly-rail"></div>
+            <div class="assembly-core">数字<br />工位</div>
+            <div class="assembly-line l1"></div>
+            <div class="assembly-line l2"></div>
+            <div class="assembly-line l3"></div>
+            <div class="assembly-line l4"></div>
+            <div class="assembly-line l5"></div>
+            <div class="assembly-line l6"></div>
+            <div class="assembly-line l7"></div>
+            <div class="workstation-grid">
+              <div class="module-card card-file">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M17 7h22l11 11v39H17V7Zm20 3v11h11L37 10ZM24 31h24v5H24v-5Zm0 10h24v5H24v-5Z" /></svg>
+                <div class="module-name">文件</div><div class="module-meta">合同、资料、知识库统一接入</div>
+              </div>
+              <div class="module-card card-task">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M13 12h38v40H13V12Zm9 11h22v5H22v-5Zm0 11h22v5H22v-5Zm0 11h14v5H22v-5Z" /></svg>
+                <div class="module-name">任务</div><div class="module-meta">持续排程、跟进、回写结果</div>
+              </div>
+              <div class="module-card card-account">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M32 7a14 14 0 1 1 0 28 14 14 0 0 1 0-28Zm0 33c12 0 22 6.1 22 13.6V57H10v-3.4C10 46.1 20 40 32 40Z" /></svg>
+                <div class="module-name">账号</div><div class="module-meta">权限边界清晰可控</div>
+              </div>
+              <div class="module-card card-mail">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M10 16h44v32H10V16Zm5 6 17 13 17-13H15Zm34 6L32 41 15 28v15h34V28Z" /></svg>
+                <div class="module-name">邮箱</div><div class="module-meta">通知、提交、结果触达</div>
+              </div>
+              <div class="module-card card-tool">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M45.5 8a13 13 0 0 0-12 18l-22 22a5.7 5.7 0 0 0 8 8l22-22A13 13 0 0 0 56 17.8l-9 9-7-7 9-9c-1.1-.5-2.3-.8-3.5-.8Z" /></svg>
+                <div class="module-name">工具</div><div class="module-meta">按授权调用业务系统</div>
+              </div>
+              <div class="module-card card-memory">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M15 10h34v44H15V10Zm7 8v5h20v-5H22Zm0 11v5h20v-5H22Zm0 11v5h14v-5H22Z" /></svg>
+                <div class="module-name">记忆</div><div class="module-meta">沉淀长期上下文</div>
+              </div>
+              <div class="module-card card-audit">
+                <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M32 6 52 15v15c0 12.7-8.2 22.4-20 28C20.2 52.4 12 42.7 12 30V15L32 6Zm-7 24-4 4 8 8 15-15-4-4-11 11-4-4Z" /></svg>
+                <div class="module-name">审计</div><div class="module-meta">每一步都有记录</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="moment scene-three" id="scene-three">
+            <div class="data-pipeline">
+              <div class="pipeline-card raw-card">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+                  <path d="M14 2v6h6" />
+                  <path d="M16 13H8" />
+                  <path d="M16 17H8" />
+                  <path d="M10 9H8" />
+                </svg>
+                <div class="pipeline-title">原始文件</div>
+                <div class="pipeline-copy">合同、邮件、业务资料先进入本地处理区。</div>
+              </div>
+              <div class="data-packet packet-one"></div>
+              <div class="data-packet packet-two"></div>
+              <div class="pipeline-arrow arrow-one"></div>
+              <div class="pipeline-card slice-card">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 6h16" />
+                  <path d="M4 12h16" />
+                  <path d="M4 18h16" />
+                  <path d="M8 3v18" />
+                  <path d="M16 3v18" />
+                </svg>
+                <div class="pipeline-title">切片</div>
+                <div class="pipeline-copy">按任务需要拆分为可控片段。</div>
+              </div>
+              <div class="pipeline-arrow arrow-two"></div>
+              <div class="pipeline-card mask-card">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 13c0 5-3.5 7.5-7.7 8.9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.4a1.4 1.4 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1Z" />
+                  <path d="M9 12h6" />
+                  <path d="M10 16h4" />
+                  <path d="M11 8h2" />
+                </svg>
+                <div class="pipeline-title">脱敏</div>
+                <div class="pipeline-copy">敏感信息被遮蔽后再进入推理。</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="moment scene-four" id="scene-four">
+            <div class="final-copy">
+              <div class="eyebrow">DATA SOVEREIGNTY</div>
+              <h2 class="title">长期、安全、稳定地工作</h2>
+            </div>
+            <div class="laptop-zone">
+              <div class="laptop-shadow"></div>
+              <div class="macbook-art" aria-label="MacBook Pro"></div>
+              <div class="screen-overlay">
+                <div class="screen-grid"></div>
+                <div class="security-sweep"></div>
+                <div class="security-ring"></div>
+                <div class="brain-core">
+                  <svg class="brain-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <path fill="currentColor" d="M32 6 52 15v15c0 12.7-8.2 22.4-20 28C20.2 52.4 12 42.7 12 30V15L32 6Zm-7 24-4 4 8 8 15-15-4-4-11 11-4-4Z" />
+                  </svg>
+                  <div class="core-label">数据主权</div>
+                  <div class="core-sub">Local Ownership</div>
+                </div>
+              </div>
+            </div>
+            <div class="audit-badge">
+              <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M14 8h30l8 8v40H14V8Zm26 3v9h9l-9-9ZM23 29h20v5H23v-5Zm0 10h20v5H23v-5Zm0 10h12v5H23v-5Z" /></svg>
+              <div class="audit-title">审计可追溯</div>
+              <div class="audit-copy">文件、任务、工具调用和结果，都能回看。</div>
+            </div>
+            <div class="sovereignty-band">
+              <div class="sovereignty-card">
+                <div class="sovereignty-kicker">LOCAL DATA</div>
+                <div class="sovereignty-title">数据在本地</div>
+                <div class="sovereignty-copy">合同、邮件和业务资料优先进入本地处理区，不离开主权边界。</div>
+              </div>
+              <div class="sovereignty-card">
+                <div class="sovereignty-kicker">FILE CHUNKS</div>
+                <div class="sovereignty-title">文件切片</div>
+                <div class="sovereignty-copy">长文档按任务拆成可控片段，只把必要上下文交给推理流程。</div>
+              </div>
+              <div class="sovereignty-card">
+                <div class="sovereignty-kicker">PRIVACY MASK</div>
+                <div class="sovereignty-title">自动脱敏</div>
+                <div class="sovereignty-copy">客户名称、金额、身份信息等敏感字段先遮蔽，再进入分析。</div>
+              </div>
+              <div class="sovereignty-card">
+                <div class="sovereignty-kicker">OWNERSHIP</div>
+                <div class="sovereignty-title">数据主权</div>
+                <div class="sovereignty-copy">文件访问、工具调用和结果导出都有记录，方便审计追溯。</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="light-sweep" id="light-sweep" data-layout-allow-overflow="true"></div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      gsap.defaults({ ease: "power3.out" });
+
+      const tl = gsap.timeline({ paused: true });
+      const initialNodePositions = {
+        ".node-file": { left: 599, top: 103 },
+        ".node-task": { left: 153, top: 103 },
+        ".node-memory": { left: 153, top: 549 },
+        ".node-audit": { left: 599, top: 549 },
+      };
+      const upgradedNodePositions = {
+        ".node-file": { left: 376, top: 11 },
+        ".node-account": { left: 622, top: 130 },
+        ".node-mail": { left: 683, top: 396 },
+        ".node-tool": { left: 513, top: 610 },
+        ".node-audit": { left: 239, top: 610 },
+        ".node-memory": { left: 69, top: 396 },
+        ".node-task": { left: 130, top: 130 },
+      };
+      const nodePositionFor = (target) =>
+        Object.entries(upgradedNodePositions).find(([selector]) => target.matches(selector))[1];
+
+      gsap.set("#core-visual", { xPercent: -50, yPercent: -50 });
+      gsap.set("#scene-one .core-line", { opacity: 0 });
+      gsap.set("#scene-one .core-primary", { opacity: 0, y: 18, scale: 0.92 });
+      gsap.set("#scene-one .core-workstation", { opacity: 0, left: 376, top: 326, y: 0, scale: 0.58 });
+      Object.entries(initialNodePositions).forEach(([selector, position]) => {
+        gsap.set(`#scene-one ${selector}`, position);
+      });
+      gsap.set("#scene-one .workspace-state", { opacity: 0, y: 12, scale: 0.96 });
+
+      tl.fromTo("#stage", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 0)
+        .fromTo("#scene-one", { opacity: 0 }, { opacity: 1, duration: 0.42 }, 0)
+        .from("#core-visual", { opacity: 0, y: 52, scale: 0.88, duration: 0.82, ease: "expo.out" }, 0.18)
+        .from("#scene-one .brain-core", { opacity: 0, scale: 0.72, duration: 0.68, ease: "back.out(1.25)" }, 1.05)
+        .from("#scene-one .core-halo", { opacity: 0, scale: 0.78, duration: 0.7, stagger: 0.1 }, 1.28)
+        .fromTo("#scene-one .core-burst", { opacity: 0, scale: 0.55, rotation: -20 }, { opacity: 0.78, scale: 1, rotation: 0, duration: 0.62, ease: "expo.out" }, 1.32)
+        .to("#scene-one .core-burst", { opacity: 0, scale: 1.18, duration: 0.64, ease: "power2.out" }, 1.94)
+        .from("#scene-one .orbit-layer", { opacity: 0, scale: 0.72, duration: 0.56, stagger: 0.08 }, 1.42)
+        .to("#scene-one .orbit-layer.one", { rotation: 62, duration: 1.85, ease: "sine.inOut" }, 1.58)
+        .to("#scene-one .orbit-layer.two", { rotation: -48, duration: 1.85, ease: "sine.inOut" }, 1.58)
+        .to("#scene-one .line-a, #scene-one .line-b, #scene-one .line-c, #scene-one .line-d", { opacity: 1, scaleX: 1, duration: 0.46, stagger: 0.08 }, 1.62)
+        .to("#scene-one .core-primary", { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.18)", stagger: 0.08 }, 1.86)
+        .to("#scene-one .node-orbit", { rotation: 42, duration: 1.7, ease: "sine.inOut" }, 1.92)
+        .to("#scene-one .core-node", { rotation: -42, duration: 1.7, ease: "sine.inOut" }, 1.92)
+        .to("#scene-one .core-halo.middle", { scale: 1.08, opacity: 0.52, duration: 0.48, repeat: 2, yoyo: true, ease: "sine.inOut" }, 2.18)
+        .to("#scene-one .node-orbit", { rotation: 22, duration: 1.5, ease: "sine.inOut" }, 3.42)
+        .to("#scene-one .core-node", { rotation: -22, duration: 1.5, ease: "sine.inOut" }, 3.42)
+        .to("#scene-one .brain-core", { scale: 1.035, duration: 0.3, ease: "sine.inOut" }, 4.22)
+        .to("#scene-one .brain-state", { opacity: 0, y: -8, scale: 0.96, filter: "blur(6px)", duration: 0.36, ease: "power2.inOut" }, 4.36)
+        .to("#scene-one .workspace-state", { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.42, ease: "power2.out" }, 4.48)
+        .to("#scene-one .brain-core", { scale: 1, duration: 0.34, ease: "sine.inOut" }, 4.88)
+        .to("#scene-one .core-node", {
+          left: (index, target) => nodePositionFor(target).left,
+          top: (index, target) => nodePositionFor(target).top,
+          scale: 1,
+          opacity: 1,
+          duration: 0.82,
+          ease: "power3.inOut",
+        }, 5.18)
+        .fromTo("#scene-one .core-workstation", { opacity: 0, scale: 0.58 }, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.58,
+          ease: "back.out(1.16)",
+          stagger: 0.1,
+        }, 5.34)
+        .to("#scene-one .line-e, #scene-one .line-f, #scene-one .line-g", { opacity: 1, scaleX: 1, duration: 0.42, stagger: 0.08 }, 5.38)
+        .to("#scene-one .core-halo.middle", { scale: 1.06, opacity: 0.48, duration: 0.5, yoyo: true, repeat: 2, ease: "sine.inOut" }, 5.62)
+        .to("#scene-one .node-orbit", { rotation: 58, duration: 4.08, ease: "none" }, 5.72)
+        .to("#scene-one .core-node", { rotation: -58, duration: 4.08, ease: "none" }, 5.72)
+        .to("#scene-one .orbit-layer.one", { rotation: 102, duration: 4.08, ease: "none" }, 5.72)
+        .to("#scene-one .orbit-layer.two", { rotation: -86, duration: 4.08, ease: "none" }, 5.72)
+        .to("#scene-one", { opacity: 0, y: -28, duration: 0.52, ease: "power2.inOut" }, 10.08)
+        .fromTo("#scene-three", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 10.42)
+        .from("#scene-three .raw-card", { opacity: 0, x: -90, y: 42, scale: 0.82, rotation: -8, duration: 0.5, ease: "back.out(1.12)" }, 10.62)
+        .from("#scene-three .arrow-one", { opacity: 0, clipPath: "inset(-12px 100% -12px 0)", duration: 0.32, ease: "power2.out" }, 11.14)
+        .from("#scene-three .slice-card", { opacity: 0, y: 70, scale: 0.78, duration: 0.5, ease: "back.out(1.12)" }, 11.36)
+        .from("#scene-three .arrow-two", { opacity: 0, clipPath: "inset(-12px 100% -12px 0)", duration: 0.32, ease: "power2.out" }, 11.92)
+        .from("#scene-three .mask-card", { opacity: 0, x: 90, y: 42, scale: 0.82, rotation: 8, duration: 0.5, ease: "back.out(1.12)" }, 12.16)
+        .fromTo(".packet-one", { opacity: 0, x: 520, y: 530, scale: 0.7 }, { opacity: 1, x: 770, y: 440, scale: 1, duration: 0.55, ease: "power2.inOut" }, 11.2)
+        .to(".packet-one", { opacity: 0, duration: 0.18 }, 11.82)
+        .fromTo(".packet-two", { opacity: 0, x: 1158, y: 445, scale: 0.7 }, { opacity: 1, x: 1400, y: 530, scale: 1, duration: 0.55, ease: "power2.inOut" }, 12.02)
+        .to(".packet-two", { opacity: 0, duration: 0.18 }, 12.64)
+        .to("#scene-three", { opacity: 0, y: -30, duration: 0.4, ease: "power2.inOut" }, 13.28)
+        .fromTo("#scene-four", { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: 0.48, ease: "expo.out" }, 13.55)
+        .from("#scene-four .laptop-zone", { opacity: 0, y: 46, scale: 0.93, duration: 0.54, ease: "expo.out" }, 13.68)
+        .from("#scene-four .final-copy", { opacity: 0, y: -26, duration: 0.46 }, 13.76)
+        .from("#scene-four .security-ring", { opacity: 0, scale: 0.72, duration: 0.46, ease: "expo.out" }, 13.88)
+        .fromTo("#scene-four .security-sweep", { opacity: 0, rotation: -60 }, { opacity: 1, rotation: 120, duration: 0.86, ease: "power2.inOut" }, 13.9)
+        .to("#scene-four .security-sweep", { opacity: 0.28, duration: 0.24 }, 14.78)
+        .from("#scene-four .audit-badge", { opacity: 0, x: 40, scale: 0.94, duration: 0.46, ease: "back.out(1.12)" }, 13.98)
+        .from("#scene-four .sovereignty-card", {
+          opacity: 0,
+          x: 74,
+          y: 28,
+          scale: 0.94,
+          duration: 0.5,
+          ease: "back.out(1.08)",
+          stagger: 0.45,
+        }, 13.95)
+        .to("#light-sweep", { opacity: 1, x: 2180, duration: 0.55, ease: "power2.inOut" }, 15.56)
+        .to("#light-sweep", { opacity: 0, duration: 0.18 }, 15.9);
+
+      window.__timelines["shot-06-workstation"] = tl;
+    </script>
+  </body>
+</html>

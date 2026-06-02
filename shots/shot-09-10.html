@@ -174,6 +174,7 @@
       }
 
       #scene-hub .board {
+        top: 48px;
         border-color: transparent;
         background: transparent;
         box-shadow: none;
@@ -192,11 +193,40 @@
         position: relative;
         z-index: 2;
         height: 100%;
-        padding: 38px;
+        padding: 92px 38px 38px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
         align-items: stretch;
+      }
+
+      .hub-callout {
+        position: absolute;
+        z-index: 4;
+        left: 50%;
+        top: 30px;
+        transform: translateX(-50%);
+        height: 42px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 20px;
+        border-radius: 999px;
+        border: 1px solid rgba(139,90,74,0.16);
+        background: rgba(255,255,255,0.9);
+        color: var(--primary-dark);
+        box-shadow: 0 16px 38px rgba(44,36,33,0.08);
+        font-size: 16px;
+        font-weight: 900;
+      }
+
+      .hub-callout::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 0 7px rgba(31,159,104,0.1);
       }
 
       .work-card {
@@ -214,9 +244,22 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        margin-bottom: 24px;
+        margin-bottom: 10px;
         font-size: 24px;
         font-weight: 860;
+      }
+
+      .skill-badge {
+        display: inline-flex;
+        align-items: center;
+        height: 28px;
+        margin-bottom: 20px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(139,90,74,0.08);
+        color: var(--primary);
+        font-size: 12px;
+        font-weight: 900;
       }
 
       svg {
@@ -330,16 +373,19 @@
         position: absolute;
         z-index: 6;
         left: 50%;
-        bottom: 42px;
+        bottom: 34px;
         transform: translateX(-50%);
-        padding: 18px 28px;
+        min-width: 820px;
+        padding: 28px 58px;
         border-radius: 999px;
         color: var(--primary-dark);
-        background: rgba(255,255,255,0.86);
-        border: 1px solid rgba(139,90,74,0.13);
-        box-shadow: 0 18px 44px rgba(44,36,33,0.11);
-        font-size: 25px;
-        font-weight: 880;
+        text-align: center;
+        background: rgba(255,255,255,0.94);
+        border: 2px solid rgba(139,90,74,0.2);
+        box-shadow: 0 24px 64px rgba(44,36,33,0.15), 0 0 0 10px rgba(255,255,255,0.42);
+        font-size: 38px;
+        line-height: 1.12;
+        font-weight: 920;
         opacity: 0;
       }
 
@@ -353,9 +399,9 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        width: 260px;
-        height: 260px;
-        margin: -130px 0 0 -130px;
+        width: 340px;
+        height: 340px;
+        margin: -170px 0 0 -170px;
         display: grid;
         place-items: center;
         border-radius: 50%;
@@ -364,56 +410,81 @@
         background:
           radial-gradient(circle at 50% 42%, rgba(255,255,255,0.98), rgba(255,255,255,0.78) 58%, rgba(139,90,74,0.1)),
           linear-gradient(180deg, rgba(255,255,255,0.96), rgba(245,240,236,0.92));
-        box-shadow: 0 34px 90px rgba(44,36,33,0.14), 0 0 0 28px rgba(208,160,79,0.08), 0 0 0 86px rgba(139,90,74,0.045);
+        box-shadow: 0 38px 96px rgba(44,36,33,0.16), 0 0 0 32px rgba(208,160,79,0.08), 0 0 0 96px rgba(139,90,74,0.045);
       }
 
       .hub-core::before,
       .hub-core::after {
         content: "";
         position: absolute;
-        inset: -106px;
+        inset: -116px;
         border-radius: 50%;
         border: 1px solid rgba(139,90,74,0.12);
       }
 
       .hub-core::after {
-        inset: -188px;
+        inset: -206px;
         border-style: dashed;
         opacity: 0.65;
       }
 
-      .hub-mark {
-        width: 62px;
-        height: 62px;
-        margin: 0 auto 15px;
-        border-radius: 18px;
-        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-        box-shadow: 0 16px 34px rgba(139,90,74,0.24);
+      .hub-core-content {
+        position: relative;
+        width: 270px;
+        height: 210px;
+      }
+
+      .skill-count {
+        position: absolute;
+        left: 0;
+        top: 18px;
         display: grid;
         place-items: center;
+        width: 270px;
+        height: 112px;
+        color: var(--primary-dark);
+        font-size: 96px;
+        line-height: 0.9;
+        font-weight: 980;
+        letter-spacing: 0;
+        text-shadow: 0 18px 42px rgba(139,90,74,0.16);
+        opacity: 0;
       }
 
-      .hub-mark svg {
-        width: 35px;
-        height: 35px;
-        color: rgba(255,255,255,0.94);
-        stroke-width: 2.25;
+      .skill-count span {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        opacity: 0;
+        will-change: opacity, transform;
       }
 
-      .hub-core b {
+      .skill-count span:first-child {
+        opacity: 1;
+      }
+
+      .hub-title {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .hub-title b {
         display: block;
-        font-size: 27px;
+        font-size: 28px;
         line-height: 1.12;
       }
 
-      .hub-core small {
+      .hub-title small {
         display: block;
-        margin-top: 8px;
+        margin-top: 10px;
         color: var(--muted);
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 820;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+        letter-spacing: 0.04em;
       }
 
       .stage-card {
@@ -443,6 +514,58 @@
         font-weight: 720;
       }
 
+      .coverage-label {
+        position: absolute;
+        inset: 0;
+        z-index: 12;
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      .coverage-chip {
+        position: absolute;
+        left: calc(50% + var(--chip-x));
+        top: calc(50% + var(--chip-y));
+        min-width: 134px;
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 18px;
+        border-radius: 999px;
+        transform: translate(-50%, -50%);
+        border: 1px solid rgba(139,90,74,0.13);
+        background: rgba(255,255,255,0.94);
+        color: rgba(44,36,33,0.88);
+        box-shadow: 0 18px 42px rgba(44,36,33,0.11);
+        font-size: 17px;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .coverage-chip::before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        margin-right: 10px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 7px rgba(208,160,79,0.1);
+      }
+
+      .coverage-chip.c1 { --chip-x: -430px; --chip-y: -245px; }
+      .coverage-chip.c2 { --chip-x: -220px; --chip-y: -292px; }
+      .coverage-chip.c3 { --chip-x: 0px; --chip-y: -306px; }
+      .coverage-chip.c4 { --chip-x: 220px; --chip-y: -292px; }
+      .coverage-chip.c5 { --chip-x: 430px; --chip-y: -245px; }
+      .coverage-chip.c6 { --chip-x: -530px; --chip-y: -58px; }
+      .coverage-chip.c7 { --chip-x: 530px; --chip-y: -58px; }
+      .coverage-chip.c8 { --chip-x: -484px; --chip-y: 146px; }
+      .coverage-chip.c9 { --chip-x: -252px; --chip-y: 276px; }
+      .coverage-chip.c10 { --chip-x: 0px; --chip-y: 304px; }
+      .coverage-chip.c11 { --chip-x: 252px; --chip-y: 276px; }
+      .coverage-chip.c12 { --chip-x: 484px; --chip-y: 146px; }
+
       .p1 { left: 56px; top: 64px; }
       .p2 { left: 395px; top: 42px; }
       .p3 { right: 56px; top: 64px; }
@@ -452,46 +575,6 @@
       .p7 { left: 405px; bottom: 42px; }
       .p8 { right: 405px; bottom: 42px; }
       .p9 { right: 56px; bottom: 64px; }
-
-      .skill-panel {
-        position: absolute;
-        z-index: 12;
-        left: 50%;
-        top: 50%;
-        width: 700px;
-        min-height: 256px;
-        margin-left: -350px;
-        margin-top: -128px;
-        padding: 24px;
-        border-radius: 26px;
-        border: 1px solid rgba(139,90,74,0.14);
-        background: #fffdfb;
-        box-shadow: 0 28px 82px rgba(44,36,33,0.16);
-        opacity: 0;
-      }
-
-      .skill-panel h2 {
-        margin: 0 0 18px;
-        font-size: 28px;
-        line-height: 1.15;
-      }
-
-      .chip-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .skill-chip {
-        padding: 12px 15px;
-        border-radius: 999px;
-        border: 1px solid rgba(139,90,74,0.14);
-        background: rgba(255,255,255,0.88);
-        color: var(--foreground);
-        font-size: 15px;
-        font-weight: 780;
-        box-shadow: 0 10px 24px rgba(44,36,33,0.06);
-      }
 
       .skill-cloud {
         position: absolute;
@@ -526,10 +609,79 @@
       .skill-node[data-domain="中国香港"] { color: var(--blue); }
       .skill-node[data-domain="中国内地"] { color: rgba(44,36,33,0.92); }
 
+      .category-summary {
+        position: absolute;
+        left: 50%;
+        top: 588px;
+        width: 980px;
+        padding: 16px 18px 18px;
+        border-radius: 24px;
+        transform: translateX(-50%);
+        border: 1px solid rgba(139,90,74,0.13);
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.82)),
+          radial-gradient(circle at 50% 0%, rgba(208,160,79,0.12), transparent 56%);
+        box-shadow: 0 28px 68px rgba(44,36,33,0.13);
+        opacity: 0;
+        z-index: 16;
+      }
+
+      .category-summary b {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--primary-dark);
+        font-size: 15px;
+        font-weight: 920;
+        text-align: center;
+      }
+
+      .category-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+
+      .category-group {
+        min-height: 82px;
+        padding: 12px 12px 11px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.86);
+        border: 1px solid rgba(139,90,74,0.12);
+        box-shadow: 0 14px 30px rgba(44,36,33,0.06);
+      }
+
+      .category-group strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--foreground);
+        font-size: 14px;
+        line-height: 1.1;
+        font-weight: 930;
+      }
+
+      .category-group span {
+        display: block;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.38;
+        font-weight: 760;
+      }
+
+      .category-group strong::before {
+        content: "";
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        margin-right: 7px;
+        border-radius: 999px;
+        background: var(--gold);
+        box-shadow: 0 0 0 6px rgba(208,160,79,0.11);
+      }
+
       .cert-row {
         position: absolute;
         left: 50%;
-        top: 592px;
+        top: 722px;
         transform: translateX(-50%) scale(0.92);
         display: flex;
         gap: 10px;
@@ -571,31 +723,54 @@
         <section class="scene" id="scene-office">
           <div class="board">
             <div class="office-grid">
+              <div class="hub-callout">WiseSkill Hub 匹配业务材料，调用对应专业 Skill</div>
               <article class="work-card office-card card-contract">
-                <div class="card-head"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/></svg>合同</div>
+                <div class="card-head"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/></svg>合同审查 Skill</div>
+                <div class="skill-badge">从合同材料调用</div>
                 <div class="line"></div><div class="line mid"></div><div class="section-box"><b>付款与验收条款</b><p>自动识别交付标准、验收期限和触发条件。</p></div><div class="line short"></div>
                 <div class="compliance-tag tag-contract" style="top: 330px;"><div class="tag-left"><span class="tag-dot"></span><div><div class="tag-title">责任边界提醒</div><div class="tag-sub">建议补充赔偿上限</div></div></div><div class="tag-status">CHECK</div></div>
               </article>
               <article class="work-card office-card card-meeting">
-                <div class="card-head"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>会议纪要</div>
-                <div class="section-box"><b>预算确认</b><p>进入下一轮方案测算。</p></div><div class="section-box"><b>行动项</b><p>同步客户名单和行业材料。</p></div><div class="section-box"><b>负责人</b><p>销售、市场、交付三方联动。</p></div>
-                <div class="compliance-tag tag-meeting" style="top: 420px;"><div class="tag-left"><span class="tag-dot"></span><div><div class="tag-title">审批节点补齐</div><div class="tag-sub">涉及报价口径需留痕</div></div></div><div class="tag-status">TRACE</div></div>
+                <div class="card-head"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>交易审批 Skill</div>
+                <div class="skill-badge">从项目材料调用</div>
+                <div class="section-box"><b>报价口径</b><p>核对折扣、付款安排和审批权限。</p></div><div class="section-box"><b>交付承诺</b><p>识别范围、时间表和验收责任。</p></div><div class="section-box"><b>留痕要求</b><p>提示需要补齐审批记录和附件。</p></div>
+                <div class="compliance-tag tag-meeting" style="top: 420px;"><div class="tag-left"><span class="tag-dot"></span><div><div class="tag-title">审批链路校验</div><div class="tag-sub">报价、交付与权限需要一致</div></div></div><div class="tag-status">TRACE</div></div>
               </article>
               <article class="work-card office-card card-email">
-                <div class="card-head"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>邮件 / 营销文案</div>
+                <div class="card-head"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>营销合规 Skill</div>
+                <div class="skill-badge">从邮件文案调用</div>
                 <div class="section-box"><b>客户方案初稿</b><p>生成正式但不生硬的跟进邮件。</p></div><div class="line"></div><div class="line mid"></div><div class="section-box"><b>新媒体短帖</b><p>突出痛点、步骤和可收藏清单。</p></div>
                 <div class="compliance-tag tag-email" style="top: 360px;"><div class="tag-left"><span class="tag-dot"></span><div><div class="tag-title">敏感表述建议</div><div class="tag-sub">营销承诺需保守表达</div></div></div><div class="tag-status">SAFE</div></div>
               </article>
             </div>
             <div class="scan-line"></div>
-            <div class="screen-text">合规是底色｜效率与风险一起管理</div>
+            <div class="screen-text">业务材料 → 专业 Skill → 审核建议</div>
           </div>
         </section>
 
         <section class="scene" id="scene-hub">
           <div class="board">
             <div class="hub-board">
-              <div class="hub-core"><div><div class="hub-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.4"/><rect x="14" y="4" width="6" height="6" rx="1.4"/><rect x="4" y="14" width="6" height="6" rx="1.4"/><rect x="14" y="14" width="6" height="6" rx="1.4"/><path d="M10 7h4M7 10v4M17 10v4M10 17h4"/></svg></div><b>WiseLaw Skill Hub</b><small>53 Skills</small></div></div>
+              <div class="hub-core">
+                <div class="hub-core-content">
+                  <div class="skill-count" aria-label="100+ 专业法律合规 Skill"></div>
+                  <div class="hub-title"><b>WiseSkill</b><small>专业法律合规 Skill</small></div>
+                </div>
+              </div>
+              <div class="coverage-label">
+                <span class="coverage-chip c1">案件接待</span>
+                <span class="coverage-chip c2">法律检索</span>
+                <span class="coverage-chip c3">类案研究</span>
+                <span class="coverage-chip c4">合同审查</span>
+                <span class="coverage-chip c5">文书起草</span>
+                <span class="coverage-chip c6">尽职调查</span>
+                <span class="coverage-chip c7">监管合规</span>
+                <span class="coverage-chip c8">庭前准备</span>
+                <span class="coverage-chip c9">庭审实战</span>
+                <span class="coverage-chip c10">知识管理</span>
+                <span class="coverage-chip c11">跨境双语</span>
+                <span class="coverage-chip c12">知识产权</span>
+              </div>
               <div class="stage-card p1"><b>案件接待与初步研判</b><small>谈案笔录、企业尽调、模拟裁判</small></div>
               <div class="stage-card p2"><b>法律检索与案例研究</b><small>法规检索、类案检索、法律备忘录</small></div>
               <div class="stage-card p3"><b>合同审查</b><small>多法域合同、股权交易、劳动人事</small></div>
@@ -605,20 +780,17 @@
               <div class="stage-card p7"><b>庭审实战</b><small>庭审发问策略</small></div>
               <div class="stage-card p8"><b>案件归档与知识管理</b><small>律师办案小结</small></div>
               <div class="stage-card p9"><b>翻译与双语支持</b><small>年报翻译、双语术语表</small></div>
-              <div class="skill-panel skill-contract">
-                <h2>合同审查 Skill</h2>
-                <div class="chip-grid"><span class="skill-chip">合同审查（多法域）</span><span class="skill-chip">股权交易合同审查</span><span class="skill-chip">IP/软件开发合同审查</span><span class="skill-chip">劳动人事合同审查</span><span class="skill-chip">广告合同审查</span></div>
+              <div class="skill-cloud" aria-label="100+ 个 WiseSkill 全名单"></div>
+              <div class="category-summary">
+                <b>覆盖场景分类</b>
+                <div class="category-list">
+                  <div class="category-group"><strong>法律实务</strong><span>案件接待 / 法律检索 / 类案研究 / 庭前准备 / 庭审实战</span></div>
+                  <div class="category-group"><strong>合同与文书</strong><span>合同审查 / 合同起草 / 律师函 / 公司决议 / 协议分析</span></div>
+                  <div class="category-group"><strong>合规与治理</strong><span>尽职调查 / ESG 审查 / 监管披露 / 企业尽调 / 风险留痕</span></div>
+                  <div class="category-group"><strong>跨境知识库</strong><span>中港法域 / 年报翻译 / 双语术语 / 办案小结 / 知识沉淀</span></div>
+                </div>
               </div>
-              <div class="skill-panel skill-research">
-                <h2>法律检索与案例研究 Skill</h2>
-                <div class="chip-grid"><span class="skill-chip">中国内地法规检索</span><span class="skill-chip">中国香港法规检索</span><span class="skill-chip">类案检索报告</span><span class="skill-chip">争议焦点分析</span><span class="skill-chip">法律备忘录起草</span></div>
-              </div>
-              <div class="skill-panel skill-compliance">
-                <h2>尽职调查与合规 Skill</h2>
-                <div class="chip-grid"><span class="skill-chip">中国内地企业尽调</span><span class="skill-chip">中国香港企业尽调</span><span class="skill-chip">监管披露追踪</span><span class="skill-chip">ESG报告审查</span><span class="skill-chip">商标组合管理</span></div>
-              </div>
-              <div class="skill-cloud" aria-label="53 个 WiseLaw Skill 全名单"></div>
-              <div class="cert-row"><span class="cert">专业审核</span><span class="cert">专家共创</span><span class="cert">真实验证</span><span class="cert">持续迭代</span></div>
+              <div class="cert-row"><span class="cert">专业审核</span><span class="cert">专家共创</span><span class="cert">真实验证</span><span class="cert">持续迭代</span><span class="cert">专家生态</span></div>
             </div>
           </div>
         </section>
@@ -631,6 +803,14 @@
       window.__timelines = window.__timelines || {};
       gsap.defaults({ ease: "power3.out" });
       const tl = gsap.timeline({ paused: true });
+      const skillCount = document.querySelector(".skill-count");
+      const finalSkillCount = 100;
+      for (let i = 0; i <= finalSkillCount; i += 1) {
+        const span = document.createElement("span");
+        span.textContent = i === finalSkillCount ? "100+" : i;
+        skillCount.appendChild(span);
+      }
+      const countSpans = gsap.utils.toArray(".skill-count span");
       const skillList = [
         ["律师谈案笔录", "多法域"], ["中国内地企业尽调", "中国内地"], ["中国香港企业尽调", "中国香港"],
         ["中国内地模拟裁判报告", "中国内地"], ["中国香港模拟裁判报告", "中国香港"], ["家事案件接待", "中国内地"],
@@ -676,6 +856,9 @@
         node.style.setProperty("--node-width", `${width}px`);
         skillCloud.appendChild(node);
       });
+      gsap.set(countSpans, { opacity: 0, y: 34, scale: 0.86 });
+      gsap.set(countSpans[0], { opacity: 1, y: 0, scale: 1 });
+      gsap.set(".skill-count", { opacity: 0, scale: 0.86 });
 
       function flash(time) {
         tl.fromTo("#flash-bar", { opacity: 0, visibility: "visible", x: 0 }, { opacity: 0.72, x: 2350, duration: 0.38, ease: "power2.inOut" }, time)
@@ -686,8 +869,10 @@
       tl.fromTo("#stage", { opacity: 0 }, { opacity: 1, duration: 0.28 }, 0)
         .fromTo("#scene-office", { opacity: 0, y: 38, scale: 0.988 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "expo.out" }, 0)
         .from("#scene-office .board", { opacity: 0, y: 46, scale: 0.95, duration: 0.56, ease: "expo.out" }, 0.18)
-        .from("#scene-office .office-card", { opacity: 0, y: 38, scale: 0.95, duration: 0.48, stagger: 0.14, ease: "back.out(1.1)" }, 0.72)
-        .from("#scene-office .line, #scene-office .section-box", { opacity: 0, y: 18, scale: 0.98, duration: 0.32, stagger: 0.035 }, 1.18)
+        .from(".hub-callout", { opacity: 0, y: -16, scale: 0.94, duration: 0.34, ease: "back.out(1.15)" }, 0.54)
+        .from("#scene-office .office-card", { opacity: 0, y: 38, scale: 0.95, duration: 0.48, stagger: 0.14, ease: "back.out(1.1)" }, 0.82)
+        .from(".skill-badge", { opacity: 0, y: 12, scale: 0.94, duration: 0.26, stagger: 0.08, ease: "back.out(1.15)" }, 1.08)
+        .from("#scene-office .line, #scene-office .section-box", { opacity: 0, y: 18, scale: 0.98, duration: 0.32, stagger: 0.035 }, 1.22)
         .fromTo(".scan-line", { opacity: 0, y: 0 }, { opacity: 1, y: 472, duration: 1.7, ease: "sine.inOut" }, 1.6)
         .to(".scan-line", { opacity: 0, duration: 0.18 }, 3.3)
         .set(".scan-line", { opacity: 0, visibility: "hidden" }, 3.48)
@@ -702,26 +887,20 @@
       flash(0.22);
       flash(6.95);
 
+      const countStart = 11.16;
+      const countDuration = 1.55;
+
       tl.fromTo("#scene-hub", { opacity: 0, y: 36, scale: 0.988 }, { opacity: 1, y: 0, scale: 1, duration: 0.54, ease: "expo.out" }, 7.35)
         .from("#scene-hub .board", { opacity: 0, y: 48, scale: 0.95, duration: 0.5, ease: "expo.out" }, 7.54)
         .from(".hub-core", { opacity: 0, scale: 0.58, rotation: -12, duration: 0.58, ease: "expo.out" }, 8.0)
-        .from(".stage-card", { opacity: 0, scale: 0.72, y: 24, duration: 0.46, stagger: 0.055, ease: "back.out(1.1)" }, 8.42)
-        .to(".stage-card", { opacity: 0.34, scale: 0.94, duration: 0.26, ease: "power2.out" }, 10.0)
-        .fromTo(".skill-contract", { opacity: 0, y: 28, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "expo.out" }, 10.08)
-        .from(".skill-contract .skill-chip", { opacity: 0, y: 16, scale: 0.92, duration: 0.26, stagger: 0.045, ease: "back.out(1.1)" }, 10.34)
-        .to(".skill-contract", { opacity: 0, y: -18, scale: 0.96, duration: 0.28, ease: "power2.inOut" }, 11.18)
-        .set(".skill-contract", { opacity: 0, visibility: "hidden" }, 11.46)
-        .fromTo(".skill-research", { opacity: 0, y: 28, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "expo.out" }, 11.3)
-        .from(".skill-research .skill-chip", { opacity: 0, y: 16, scale: 0.92, duration: 0.26, stagger: 0.045, ease: "back.out(1.1)" }, 11.56)
-        .to(".skill-research", { opacity: 0, y: -18, scale: 0.96, duration: 0.28, ease: "power2.inOut" }, 12.38)
-        .set(".skill-research", { opacity: 0, visibility: "hidden" }, 12.66)
-        .fromTo(".skill-compliance", { opacity: 0, y: 28, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "expo.out" }, 12.5)
-        .from(".skill-compliance .skill-chip", { opacity: 0, y: 16, scale: 0.92, duration: 0.26, stagger: 0.045, ease: "back.out(1.1)" }, 12.76)
-        .to(".skill-compliance", { opacity: 0, y: -18, scale: 0.96, duration: 0.28, ease: "power2.inOut" }, 13.64)
-        .set(".skill-compliance", { opacity: 0, visibility: "hidden" }, 13.92)
-        .to(".stage-card", { opacity: 1, scale: 1, duration: 0.34, stagger: 0.025, ease: "power2.out" }, 13.78)
-        .to(".stage-card", { opacity: 0, scale: 0.88, y: 8, duration: 0.28, ease: "power2.inOut" }, 14.0)
-        .set(".stage-card", { opacity: 0, visibility: "hidden" }, 14.28)
+        .fromTo(".coverage-label", { opacity: 0, y: -14, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.36, ease: "expo.out" }, 8.34)
+        .from(".coverage-chip", { opacity: 0, scale: 0.62, x: 0, y: 0, duration: 0.36, stagger: { each: 0.035, from: "center" }, ease: "back.out(1.2)" }, 8.48)
+        .from(".stage-card", { opacity: 0, scale: 0.72, y: 24, duration: 0.46, stagger: 0.055, ease: "back.out(1.1)" }, 8.76)
+        .to(".coverage-label", { opacity: 0, y: -10, scale: 0.94, duration: 0.28, ease: "power2.inOut" }, 10.45)
+        .to(".stage-card", { opacity: 0, scale: 0.88, y: 8, duration: 0.36, ease: "power2.inOut" }, 10.45)
+        .to(".hub-title", { y: 68, duration: 0.46, ease: "expo.inOut" }, 10.62)
+        .fromTo(".skill-count", { opacity: 0, y: -8, scale: 0.82 }, { opacity: 1, y: 0, scale: 1, duration: 0.38, ease: "back.out(1.35)" }, 10.82)
+        .set([".stage-card", ".coverage-label"], { opacity: 0, visibility: "hidden" }, 10.84)
         .fromTo(".skill-node",
           {
             opacity: 0,
@@ -736,16 +915,26 @@
             x: 0,
             y: 0,
             rotation: 0,
-            duration: 0.58,
-            stagger: { each: 0.012, from: "center" },
+            duration: 0.42,
+            stagger: { amount: countDuration - 0.42, from: "center" },
             ease: "back.out(1.35)"
           },
-          14.14
+          countStart
         )
-        .fromTo(".cert-row", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.36, ease: "expo.out" }, 15.18)
-        .from(".cert", { opacity: 0, scale: 0.82, rotation: -4, duration: 0.28, stagger: 0.08, ease: "back.out(1.35)" }, 15.28)
-        .to(".hub-core", { scale: 1.05, duration: 0.24, ease: "sine.inOut" }, 15.12)
-        .to(".hub-core", { scale: 1, duration: 0.28, ease: "sine.inOut" }, 15.42);
+        .fromTo(".cert-row", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.36, ease: "expo.out" }, countStart + countDuration + 0.72)
+        .from(".cert", { opacity: 0, scale: 0.82, rotation: -4, duration: 0.28, stagger: 0.08, ease: "back.out(1.35)" }, countStart + countDuration + 0.82)
+        .to(".hub-core", { scale: 1.05, duration: 0.24, ease: "sine.inOut" }, countStart + countDuration + 0.05)
+        .to(".hub-core", { scale: 1, duration: 0.28, ease: "sine.inOut" }, countStart + countDuration + 0.34);
+
+      for (let i = 1; i <= finalSkillCount; i += 1) {
+        const progress = i / finalSkillCount;
+        const at = countStart + countDuration * Math.pow(progress, 1.95);
+        tl.set(countSpans[i - 1], { opacity: 0, y: -18, scale: 1.02 }, at);
+        tl.set(countSpans[i], { opacity: 1, y: 0, scale: i === finalSkillCount ? 1.08 : 1 }, at);
+      }
+      tl.to(countSpans[finalSkillCount], { scale: 1, duration: 0.34, ease: "power2.out" }, countStart + countDuration + 0.1);
+      tl.to(".skill-count", { scale: 1.05, duration: 0.24, ease: "sine.inOut" }, countStart + countDuration + 0.26);
+      tl.to(".skill-count", { scale: 1, duration: 0.34, ease: "sine.inOut" }, countStart + countDuration + 0.5);
 
       window.__timelines["shot-09-10"] = tl;
     </script>

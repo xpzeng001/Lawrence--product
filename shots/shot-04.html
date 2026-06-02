@@ -83,9 +83,13 @@
 
       .intro-copy {
         position: absolute;
-        left: 220px;
-        top: 350px;
-        width: 1480px;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0 220px;
+        box-sizing: border-box;
         text-align: center;
         z-index: 12;
       }
@@ -731,18 +735,10 @@
       id="root"
       data-composition-id="shot-04"
       data-start="0"
-      data-duration="15.2"
+      data-duration="16.2"
       data-width="1920"
       data-height="1080"
     >
-      <audio
-        id="voiceover"
-        data-start="0.55"
-        data-track-index="3"
-        data-volume="0"
-        src="assets/shot-4-narration.wav"
-      ></audio>
-
       <div class="scene" data-layout-allow-overflow="true" data-layout-ignore="true">
         <div class="wash"></div>
         <div class="paper-grid"></div>
@@ -755,16 +751,15 @@
           data-track-index="1"
           data-layout-ignore="true"
         >
-          <h1 class="main-title" id="headline">一句话下任务</h1>
-          <div class="subtitle-title" id="subtitle">资料直接发给 Lawrence</div>
-          <p class="desc" id="desc">手机端飞书聊天里，语音、文字和文件就是完整任务入口。</p>
+          <h1 class="main-title" id="headline">像专业员工一样</h1>
+          <div class="subtitle-title" id="subtitle">理解、追问、校验并完成任务</div>
         </section>
 
         <section
           class="main-stage clip"
           id="main-stage"
           data-start="4.25"
-          data-duration="10.95"
+          data-duration="11.95"
           data-track-index="1"
           data-layout-allow-overflow="true"
         >
@@ -833,7 +828,7 @@
           </div>
 
           <div class="content-panel" id="content-panel">
-            <h2 class="panel-title" id="panel-title">用语音、文字给 Lawrence 下任务</h2>
+            <h2 class="panel-title" id="panel-title">像交代给同事一样说明任务</h2>
             <div class="eyebrow-line" id="eyebrow-line"></div>
             <div class="feature-list">
               <div class="feature" id="feature-voice">
@@ -844,7 +839,7 @@
                 </div>
                 <div>
                   <div class="feature-title">语音输入</div>
-                  <div class="feature-desc">长按说话，快速下达复杂指令。</div>
+                  <div class="feature-desc">用语音说明目标、背景和重点。</div>
                 </div>
               </div>
               <div class="feature" id="feature-file">
@@ -855,7 +850,7 @@
                 </div>
                 <div>
                   <div class="feature-title">发送文件</div>
-                  <div class="feature-desc">一键上传合同、资料，Lawrence 即刻处理。</div>
+                  <div class="feature-desc">补充合同、模板和历史上下文。</div>
                 </div>
               </div>
               <div class="feature" id="feature-task">
@@ -867,7 +862,7 @@
                 </div>
                 <div>
                   <div class="feature-title">明确任务</div>
-                  <div class="feature-desc">补充要求与截止时间，执行目标更清晰。</div>
+                  <div class="feature-desc">确认要求、截止时间和交付标准。</div>
                 </div>
               </div>
             </div>
@@ -886,8 +881,6 @@
 
       tl.from("#headline", { opacity: 0, y: 46, scale: 0.96, duration: 0.82, ease: "expo.out" }, 0.65)
         .from("#subtitle", { opacity: 0, y: 42, scale: 0.965, duration: 0.82, ease: "expo.out" }, 1.55)
-        .to("#intro-copy", { y: -58, duration: 0.58, ease: "power2.inOut" }, 2.36)
-        .from("#desc", { opacity: 0, y: 30, duration: 0.64 }, 2.68)
         .to("#intro-copy", { opacity: 0, y: -104, scale: 0.982, duration: 0.58, ease: "power2.inOut" }, 3.72)
         .fromTo(
           "#main-stage",
@@ -914,10 +907,9 @@
         .fromTo("#feature-file", { opacity: 0, y: 34, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.56, ease: "back.out(1.2)" }, 8.78)
         .fromTo("#second-text", { opacity: 0, y: 30, scale: 0.93 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(1.2)" }, 10.0)
         .fromTo("#feature-task", { opacity: 0, y: 34, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.56, ease: "back.out(1.2)" }, 10.22)
-        .to("#phone-wrap", { y: -10, duration: 0.72, ease: "sine.inOut" }, 11.72)
-        .to("#phone-wrap", { y: 0, duration: 0.72, ease: "sine.inOut" }, 12.38)
-        .to("#light-sweep", { opacity: 1, x: 2180, duration: 1.15, ease: "power2.inOut" }, 13.25)
-        .to("#light-sweep", { opacity: 0, duration: 0.28 }, 14.22);
+        .to("#content-panel", { opacity: 0, x: 70, duration: 0.46, ease: "power2.inOut" }, 12.7)
+        .to("#phone-wrap", { x: -236, y: 0, scale: 0.78, opacity: 1, rotation: 0, duration: 0.95, ease: "power3.inOut" }, 12.82)
+        .set("#phone-wrap", { x: -236, y: 0, scale: 0.78, opacity: 1, rotation: 0 }, 16.15);
 
       window.__timelines["shot-04"] = tl;
     </script>

@@ -504,6 +504,11 @@
         stroke-width: 2.1;
       }
 
+      .model-icon.cloud-ai svg {
+        width: 42px;
+        height: 42px;
+      }
+
       .model-core b {
         display: block;
         font-size: 26px;
@@ -711,14 +716,1231 @@
         z-index: 40;
         pointer-events: none;
       }
+
+      .cloud-flow-scene {
+        position: absolute;
+        inset: 0;
+        padding: 76px 96px 72px;
+        opacity: 0;
+      }
+
+      .flow-title {
+        position: absolute;
+        left: 58px;
+        top: 42px;
+        width: 1120px;
+        z-index: 3;
+      }
+
+      .flow-title b {
+        display: block;
+        margin-top: 0;
+        color: var(--ink);
+        font-size: 36px;
+        line-height: 1.12;
+        font-weight: 920;
+      }
+
+      .flow-title span {
+        display: block;
+        margin-top: 14px;
+        color: rgba(44,36,33,0.62);
+        font-size: 18px;
+        font-weight: 780;
+      }
+
+      .flow-board {
+        position: absolute;
+        left: 96px;
+        right: 96px;
+        top: 172px;
+        height: 866px;
+        border: 1px solid rgba(139,90,74,0.1);
+        border-radius: 34px;
+        background: rgba(255,255,255,0.74);
+        box-shadow: 0 26px 72px rgba(44,36,33,0.1);
+        overflow: hidden;
+      }
+
+      .flow-col {
+        position: absolute;
+        top: 154px;
+        bottom: -48px;
+        border: 1px solid rgba(139,90,74,0.12);
+        border-radius: 28px;
+        background: rgba(255,255,255,0.86);
+        box-shadow: 0 18px 46px rgba(44,36,33,0.07);
+      }
+
+      .flow-col.source { left: 34px; width: 330px; }
+      .flow-col.local { left: 416px; width: 770px; }
+      .flow-col.cloud { right: 34px; width: 330px; }
+
+      .flow-col h3 {
+        padding: 22px 24px 0;
+        color: var(--ink);
+        font-size: 24px;
+        font-weight: 920;
+      }
+
+      .flow-col p {
+        padding: 9px 24px 0;
+        color: rgba(44,36,33,0.58);
+        font-size: 13px;
+        line-height: 1.38;
+        font-weight: 760;
+      }
+
+      .raw-mini-list {
+        display: grid;
+        gap: 10px;
+        padding: 24px;
+      }
+
+      .raw-mini {
+        height: 64px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 12px;
+        border-radius: 16px;
+        border: 1px solid rgba(139,90,74,0.1);
+        background: #fff;
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 850;
+        box-shadow: 0 10px 24px rgba(44,36,33,0.055);
+      }
+
+      .raw-mini svg,
+      .flow-icon svg {
+        width: 24px;
+        height: 24px;
+        stroke-width: 2.2;
+      }
+
+      .local-lanes {
+        position: relative;
+        height: 540px;
+        margin: 22px 24px 0;
+      }
+
+      .local-lanes::before {
+        content: "";
+        position: absolute;
+        left: 152px;
+        top: 240px;
+        width: 326px;
+        height: 1px;
+        border-top: 2px dashed rgba(139,90,74,0.16);
+      }
+
+      .flow-card {
+        position: absolute;
+        border: 1px solid rgba(139,90,74,0.12);
+        border-radius: 20px;
+        background: rgba(255,255,255,0.92);
+        box-shadow: 0 14px 34px rgba(44,36,33,0.07);
+      }
+
+      .flow-step {
+        position: absolute;
+        right: 14px;
+        top: 14px;
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        background: rgba(139,90,74,0.1);
+        color: var(--primary-dark);
+        font-size: 13px;
+        font-weight: 940;
+      }
+
+      .secure-pack .flow-step {
+        background: rgba(31,159,104,0.13);
+        color: var(--green);
+      }
+
+      .map-pack .flow-step {
+        width: 56px;
+        background: rgba(208,160,79,0.16);
+        color: #9a6a1f;
+        font-size: 11px;
+      }
+
+      .flow-card h4 {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 16px 16px 0;
+        font-size: 18px;
+        font-weight: 920;
+      }
+
+      .flow-card p {
+        padding: 8px 16px 0;
+        font-size: 12px;
+      }
+
+      .slice-pack {
+        left: 0;
+        top: 0;
+        width: 316px;
+        height: 210px;
+      }
+
+      .redact-pack {
+        right: 0;
+        top: 0;
+        width: 336px;
+        height: 282px;
+      }
+
+      .secure-pack {
+        left: 0;
+        bottom: 0;
+        width: 400px;
+        height: 214px;
+        border-color: rgba(31,159,104,0.22);
+      }
+
+      .map-pack {
+        right: 0;
+        bottom: 0;
+        width: 256px;
+        height: 214px;
+        border-color: rgba(208,160,79,0.26);
+        background: rgba(255,252,248,0.95);
+      }
+
+      .local-arrow {
+        position: absolute;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, rgba(139,90,74,0.2), rgba(31,159,104,0.8));
+        opacity: 0;
+        transform-origin: left center;
+        z-index: 4;
+      }
+
+      .local-arrow::after {
+        content: "";
+        position: absolute;
+        right: -2px;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 12px solid rgba(31,159,104,0.86);
+        transform: translateY(-50%);
+      }
+
+      .arrow-slice-redact {
+        left: 316px;
+        top: 94px;
+        width: 70px;
+      }
+
+      .arrow-redact-secure {
+        left: 370px;
+        top: 306px;
+        width: 90px;
+        transform: rotate(152deg);
+      }
+
+      .arrow-redact-map {
+        left: 498px;
+        top: 264px;
+        width: 54px;
+        background: linear-gradient(90deg, rgba(208,160,79,0.18), rgba(208,160,79,0.82));
+        transform: rotate(70deg);
+      }
+
+      .arrow-redact-map::after {
+        border-left-color: rgba(208,160,79,0.9);
+      }
+
+      .flow-slices {
+        display: flex;
+        gap: 8px;
+        padding: 18px 16px 0;
+      }
+
+      .flow-slice {
+        width: 62px;
+        height: 58px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(139,90,74,0.14);
+        border-radius: 14px;
+        background: rgba(248,244,238,0.9);
+        color: var(--primary);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .replace-list {
+        display: grid;
+        gap: 7px;
+        padding: 14px 16px 0;
+      }
+
+      .replace-row {
+        height: 28px;
+        display: grid;
+        grid-template-columns: 74px 1fr;
+        align-items: center;
+        gap: 8px;
+        padding: 0 9px;
+        border-radius: 10px;
+        background: rgba(245,240,236,0.92);
+        color: rgba(44,36,33,0.58);
+        font-size: 11px;
+        font-weight: 760;
+      }
+
+      .replace-row b {
+        color: var(--primary-dark);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .secure-tags {
+        display: flex;
+        gap: 8px;
+        padding: 18px 16px 0;
+      }
+
+      .secure-tags span {
+        height: 30px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(31,159,104,0.1);
+        color: var(--green);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .map-lines {
+        display: grid;
+        gap: 8px;
+        padding: 16px 16px 0;
+        color: rgba(44,36,33,0.6);
+        font-size: 12px;
+        font-weight: 820;
+      }
+
+      .cloud-node {
+        width: 210px;
+        height: 210px;
+        display: grid;
+        place-items: center;
+        margin: 74px auto 0;
+        text-align: center;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.94);
+        box-shadow: 0 0 0 36px rgba(107,123,143,0.06), 0 24px 60px rgba(44,36,33,0.09);
+      }
+
+      .cloud-node b {
+        display: block;
+        margin-top: 12px;
+        font-size: 22px;
+        font-weight: 920;
+      }
+
+      .cloud-result {
+        margin: 72px 24px 0;
+        padding: 18px;
+        border: 1px solid rgba(139,90,74,0.12);
+        border-radius: 20px;
+        background: rgba(255,255,255,0.92);
+        box-shadow: 0 14px 34px rgba(44,36,33,0.07);
+      }
+
+      .cloud-result b,
+      .final-result b {
+        display: block;
+        font-size: 18px;
+        font-weight: 920;
+      }
+
+      .cloud-result span,
+      .final-result span {
+        display: block;
+        margin-top: 8px;
+        color: rgba(44,36,33,0.62);
+        font-size: 12px;
+        line-height: 1.42;
+        font-weight: 760;
+      }
+
+      .flow-route {
+        position: absolute;
+        height: 5px;
+        border-radius: 999px;
+        opacity: 0;
+        transform-origin: left center;
+      }
+
+      .route-in { left: 364px; top: 444px; width: 52px; background: linear-gradient(90deg, rgba(139,90,74,0.2), rgba(139,90,74,0.68)); }
+      .route-cloud { left: 1226px; top: 578px; width: 90px; background: linear-gradient(90deg, rgba(31,159,104,0.2), rgba(31,159,104,0.78)); }
+      .route-return { left: 1226px; top: 686px; width: 90px; background: linear-gradient(270deg, rgba(208,160,79,0.22), rgba(208,160,79,0.82)); transform-origin: right center; }
+
+      .flow-route::after,
+      .route-return::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        transform: translateY(-50%);
+      }
+
+      .flow-route::after {
+        right: -2px;
+        border-left: 14px solid rgba(139,90,74,0.72);
+      }
+
+      .route-cloud::after { border-left-color: rgba(31,159,104,0.86); }
+      .route-return::after { display: none; }
+      .route-return::before {
+        left: -2px;
+        border-right: 14px solid rgba(208,160,79,0.9);
+      }
+
+      .moving-safe-pack,
+      .moving-safe-result {
+        position: absolute;
+        z-index: 8;
+        width: 250px;
+        min-height: 96px;
+        padding: 16px;
+        border: 1px solid rgba(31,159,104,0.3);
+        border-radius: 20px;
+        background: rgba(255,255,255,0.96);
+        box-shadow: 0 20px 50px rgba(44,36,33,0.12);
+        opacity: 0;
+      }
+
+      .moving-safe-pack {
+        left: 800px;
+        top: 718px;
+      }
+
+      .moving-safe-result {
+        left: 1352px;
+        top: 730px;
+        border-color: rgba(208,160,79,0.36);
+      }
+
+      .moving-safe-pack b,
+      .moving-safe-result b {
+        display: block;
+        font-size: 17px;
+        font-weight: 920;
+      }
+
+      .moving-safe-pack span,
+      .moving-safe-result span {
+        display: block;
+        margin-top: 7px;
+        color: rgba(44,36,33,0.58);
+        font-size: 12px;
+        font-weight: 780;
+      }
+
+      .final-result {
+        position: absolute;
+        left: 510px;
+        bottom: 116px;
+        width: 360px;
+        padding: 18px;
+        border: 1px solid rgba(31,159,104,0.24);
+        border-radius: 20px;
+        background: rgba(255,255,255,0.94);
+        box-shadow: 0 16px 40px rgba(31,159,104,0.1);
+        opacity: 0;
+      }
+
+      .delivery-list {
+        position: absolute;
+        right: 72px;
+        bottom: 112px;
+        display: grid;
+        gap: 10px;
+        width: 280px;
+      }
+
+      .delivery-list span {
+        height: 38px;
+        display: flex;
+        align-items: center;
+        padding: 0 14px;
+        border: 1px solid rgba(31,159,104,0.18);
+        border-radius: 999px;
+        background: rgba(255,255,255,0.9);
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 900;
+        box-shadow: 0 10px 24px rgba(31,159,104,0.07);
+        opacity: 0;
+      }
+
+      .flow-summary {
+        position: absolute;
+        left: 50%;
+        bottom: 24px;
+        min-width: 760px;
+        height: 58px;
+        display: grid;
+        place-items: center;
+        transform: translateX(-50%);
+        border: 1px solid rgba(139,90,74,0.12);
+        border-radius: 999px;
+        background: rgba(255,255,255,0.94);
+        box-shadow: 0 20px 52px rgba(44,36,33,0.1);
+        color: var(--primary-dark);
+        font-size: 24px;
+        font-weight: 920;
+        opacity: 0;
+      }
+
+      #scene-secure,
+      #scene-local,
+      #secure-screen-text,
+      #local-screen-text {
+        display: none;
+      }
+
+      .workspace-v2 {
+        position: absolute;
+        inset: 0;
+        padding: 150px 88px 72px;
+        opacity: 0;
+      }
+
+      .workspace-v2 .v2-topbar {
+        display: none;
+      }
+
+      html.standalone-hud .workspace-v2 .v2-topbar {
+        position: absolute;
+        left: 88px;
+        right: 88px;
+        top: 58px;
+        z-index: 24;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .v2-chapter {
+        display: grid;
+        grid-template-columns: 50px minmax(0, 1fr);
+        gap: 18px;
+        align-items: center;
+      }
+
+      .v2-index {
+        width: 50px;
+        height: 50px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        border: 1px solid rgba(139,90,74,0.22);
+        background: rgba(255,255,255,0.76);
+        color: var(--primary);
+        font-size: 18px;
+        font-weight: 920;
+      }
+
+      .v2-kicker {
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+      }
+
+      .v2-title {
+        margin-top: 6px;
+        color: var(--ink);
+        font-size: 34px;
+        line-height: 1;
+        font-weight: 920;
+      }
+
+      .v2-subtitle {
+        margin-top: 10px;
+        color: rgba(44,36,33,0.62);
+        font-size: 16px;
+        font-weight: 780;
+      }
+
+      .v2-brand {
+        height: 48px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #050505;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 34px;
+        font-weight: 900;
+      }
+
+      .v2-brand img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .v2-flow {
+        position: relative;
+        z-index: 4;
+        height: 820px;
+        margin-top: 0;
+        display: grid;
+        grid-template-columns: 560px 596px 430px;
+        gap: 48px;
+        transform: translateY(58px);
+      }
+
+      .v2-module-title {
+        align-self: end;
+        margin-bottom: 8px;
+        color: rgba(44,36,33,0.66);
+        font-size: 16px;
+        font-weight: 920;
+        letter-spacing: 0.05em;
+      }
+
+      .v2-left {
+        display: grid;
+        grid-template-rows: 34px 1fr 1fr;
+        gap: 10px;
+      }
+
+      .v2-user-zone,
+      .v2-sandbox,
+      .v2-audit {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(139,90,74,0.16);
+        border-radius: 28px;
+        background: rgba(255,255,255,0.78);
+        box-shadow: 0 22px 62px rgba(44,36,33,0.09);
+      }
+
+      .v2-user-zone {
+        padding: 22px;
+      }
+
+      .v2-user-zone::before,
+      .v2-sandbox::before {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border: 1px dashed rgba(139,90,74,0.18);
+        border-radius: 20px;
+        pointer-events: none;
+      }
+
+      .v2-user-head {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 14px;
+      }
+
+      .v2-user-name {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--ink);
+        font-size: 22px;
+        font-weight: 920;
+      }
+
+      .v2-chip {
+        height: 28px;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 0 11px;
+        border-radius: 999px;
+        background: rgba(139,90,74,0.1);
+        color: var(--primary);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .v2-lock {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        color: #fff;
+        background: var(--primary);
+        box-shadow: 0 12px 28px rgba(139,90,74,0.22);
+      }
+
+      .v2-lock svg,
+      .v2-node-icon svg,
+      .v2-audit-title svg {
+        width: 22px;
+        height: 22px;
+        flex: 0 0 auto;
+        stroke-width: 2.4;
+      }
+
+      .v2-workspace-list {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        gap: 10px;
+      }
+
+      .v2-workspace-card {
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 12px 14px;
+        border: 1px solid rgba(232,226,220,0.92);
+        border-radius: 16px;
+        background: rgba(255,255,255,0.88);
+        box-shadow: 0 10px 24px rgba(44,36,33,0.055);
+      }
+
+      .v2-workspace-card.selected {
+        border-color: rgba(31,159,104,0.34);
+        background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(246,251,248,0.92));
+      }
+
+      .v2-workspace-card b {
+        display: block;
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 920;
+      }
+
+      .v2-workspace-card span {
+        display: block;
+        margin-top: 5px;
+        color: rgba(44,36,33,0.58);
+        font-size: 12px;
+        font-weight: 760;
+      }
+
+      .v2-result-slot {
+        display: inline-flex;
+        align-items: center;
+        height: 24px;
+        max-width: none;
+        margin-top: 8px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(31,159,104,0.13);
+        color: var(--green);
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 940;
+        line-height: 24px;
+        box-shadow: 0 8px 20px rgba(31,159,104,0.1);
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      .v2-sandbox-module {
+        display: grid;
+        grid-template-rows: 34px 1fr;
+      }
+
+      .v2-sandbox {
+        padding: 26px;
+        background:
+          radial-gradient(circle at 50% 20%, rgba(196,148,133,0.18), transparent 42%),
+          rgba(255,255,255,0.74);
+      }
+
+      .v2-sandbox-head {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .v2-sandbox-name {
+        color: var(--ink);
+        font-size: 28px;
+        font-weight: 920;
+      }
+
+      .v2-sandbox-badge {
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 13px;
+        border-radius: 999px;
+        background: rgba(31,159,104,0.1);
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .v2-sandbox-grid {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        gap: 14px;
+      }
+
+      .v2-task-card,
+      .v2-node,
+      .v2-progress,
+      .v2-check-node {
+        border: 1px solid rgba(232,226,220,0.9);
+        border-radius: 18px;
+        background: rgba(255,255,255,0.86);
+        box-shadow: 0 12px 30px rgba(44,36,33,0.06);
+      }
+
+      .v2-task-card {
+        min-height: 94px;
+        padding: 18px;
+      }
+
+      .v2-task-card b,
+      .v2-node b {
+        display: block;
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 920;
+      }
+
+      .v2-task-card p,
+      .v2-node span {
+        margin-top: 7px;
+        color: rgba(44,36,33,0.62);
+        font-size: 12px;
+        line-height: 1.36;
+        font-weight: 760;
+      }
+
+      .v2-token-row {
+        display: flex;
+        gap: 8px;
+        margin-top: 13px;
+      }
+
+      .v2-token {
+        height: 25px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 9px;
+        border-radius: 999px;
+        background: rgba(139,90,74,0.09);
+        color: var(--primary);
+        font-size: 11px;
+        font-weight: 880;
+      }
+
+      .v2-node-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .v2-node {
+        min-height: 104px;
+        padding: 14px 13px;
+      }
+
+      .v2-node-icon {
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 10px;
+        border-radius: 11px;
+        color: #fff;
+        background: var(--primary);
+      }
+
+      .v2-progress {
+        padding: 15px;
+        background: rgba(245,242,239,0.86);
+      }
+
+      .v2-progress-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: rgba(44,36,33,0.66);
+        font-size: 12px;
+        font-weight: 840;
+      }
+
+      .v2-progress-bar {
+        height: 10px;
+        margin-top: 11px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(139,90,74,0.12);
+      }
+
+      .v2-progress-fill {
+        width: 0;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--primary), var(--gold), var(--green));
+      }
+
+      .v2-check-node {
+        height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 900;
+      }
+
+      .v2-check-node em {
+        color: var(--green);
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 920;
+      }
+
+      .v2-audit-module {
+        display: grid;
+        grid-template-rows: 34px 1fr;
+      }
+
+      .v2-audit {
+        padding: 24px;
+      }
+
+      .v2-audit-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--ink);
+        font-size: 26px;
+        font-weight: 920;
+        margin-bottom: 18px;
+      }
+
+      .v2-audit-title svg {
+        color: var(--primary);
+        width: 28px;
+        height: 28px;
+      }
+
+      .v2-audit-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .v2-audit-row {
+        min-height: 68px;
+        display: grid;
+        grid-template-columns: 48px minmax(0, 1fr) 54px;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        border: 1px solid rgba(232,226,220,0.78);
+        border-radius: 16px;
+        background: rgba(255,255,255,0.92);
+        box-shadow: 0 10px 24px rgba(44,36,33,0.055);
+      }
+
+      .v2-audit-row time {
+        color: var(--primary);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .v2-audit-row b {
+        display: block;
+        color: var(--ink);
+        font-size: 15px;
+        font-weight: 920;
+      }
+
+      .v2-audit-row span {
+        display: block;
+        margin-top: 5px;
+        color: rgba(44,36,33,0.58);
+        font-size: 11px;
+        font-weight: 760;
+      }
+
+      .v2-audit-row em {
+        color: var(--green);
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 940;
+        text-align: right;
+      }
+
+      .v2-audit-row.block em {
+        color: #b54b3e;
+      }
+
+      .v2-route-line,
+      .v2-return-line {
+        position: absolute;
+        z-index: 10;
+        height: 4px;
+        border-radius: 999px;
+        opacity: 0;
+        transform-origin: left center;
+      }
+
+      .v2-route-line {
+        left: 626px;
+        top: 354px;
+        width: 112px;
+        background: linear-gradient(90deg, rgba(139,90,74,0.24), rgba(31,159,104,0.82));
+        box-shadow: 0 0 20px rgba(31,159,104,0.12);
+      }
+
+      .v2-route-line::after {
+        content: "";
+        position: absolute;
+        right: -2px;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 15px solid rgba(31,159,104,0.9);
+        transform: translateY(-50%);
+      }
+
+      .v2-return-line {
+        left: 626px;
+        top: 404px;
+        width: 112px;
+        height: 6px;
+        background: linear-gradient(270deg, rgba(196,148,133,0.28), rgba(31,159,104,0.96));
+        box-shadow: 0 0 28px rgba(31,159,104,0.24);
+        transform-origin: right center;
+      }
+
+      .v2-return-line::after {
+        content: "";
+        position: absolute;
+        left: -2px;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-right: 18px solid rgba(31,159,104,0.96);
+        transform: translateY(-50%);
+      }
+
+      .v2-return-line::before {
+        content: "结果回写";
+        position: absolute;
+        left: 18px;
+        top: 10px;
+        height: 26px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(31,159,104,0.18);
+        background: rgba(255,255,255,0.94);
+        color: var(--green);
+        font-size: 12px;
+        font-weight: 920;
+        box-shadow: 0 8px 20px rgba(31,159,104,0.08);
+      }
+
+      .v2-summary {
+        position: absolute;
+        left: 50%;
+        bottom: 18px;
+        min-width: 720px;
+        height: 64px;
+        display: grid;
+        place-items: center;
+        transform: translateX(-50%);
+        border: 1px solid rgba(139,90,74,0.12);
+        border-radius: 999px;
+        background: rgba(255,255,255,0.94);
+        box-shadow: 0 20px 54px rgba(44,36,33,0.1);
+        color: var(--primary-dark);
+        font-size: 26px;
+        font-weight: 920;
+        opacity: 0;
+      }
+
+      .v2-case-flyer,
+      .v2-result-flyer {
+        position: absolute;
+        left: 110px;
+        top: 316px;
+        z-index: 18;
+        width: 516px;
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 16px;
+        border: 1px solid rgba(31,159,104,0.36);
+        border-radius: 18px;
+        background: rgba(255,255,255,0.96);
+        box-shadow: 0 18px 42px rgba(31,159,104,0.12);
+        opacity: 0;
+      }
+
+      .v2-result-flyer {
+        left: 722px;
+        top: 214px;
+        width: 544px;
+        min-height: 104px;
+        border: 2px solid rgba(31,159,104,0.46);
+        background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(238,250,244,0.96));
+        box-shadow: 0 24px 68px rgba(31,159,104,0.2);
+      }
+
+      .v2-case-flyer b,
+      .v2-result-flyer b {
+        display: block;
+        color: var(--ink);
+        font-size: 17px;
+        font-weight: 920;
+      }
+
+      .v2-case-flyer span,
+      .v2-result-flyer span {
+        display: block;
+        margin-top: 5px;
+        color: rgba(44,36,33,0.58);
+        font-size: 12px;
+        font-weight: 760;
+      }
     </style>
   </head>
   <body>
-    <div id="main" data-composition-id="shot-11-12" data-start="0" data-width="1920" data-height="1080" data-duration="16">
-      <div class="base-bg clip" id="base-bg" data-start="0" data-duration="16" data-track-index="0"></div>
-      <div class="paper-grid clip" id="paper-grid" data-start="0" data-duration="16" data-track-index="1"></div>
-      <div class="wash clip" id="wash-layer" data-start="0" data-duration="16" data-track-index="2"></div>
-      <div class="stage clip" id="stage" data-start="0" data-duration="16" data-track-index="3" data-layout-allow-overflow="true">
+    <div id="main" data-composition-id="shot-11-12" data-start="0" data-width="1920" data-height="1080" data-duration="34">
+      <div class="base-bg clip" id="base-bg" data-start="0" data-duration="34" data-track-index="0"></div>
+      <div class="paper-grid clip" id="paper-grid" data-start="0" data-duration="34" data-track-index="1"></div>
+      <div class="wash clip" id="wash-layer" data-start="0" data-duration="34" data-track-index="2"></div>
+      <div class="stage clip" id="stage" data-start="0" data-duration="34" data-track-index="3" data-layout-allow-overflow="true">
+        <section class="workspace-v2" id="scene-workspace-v2">
+          <header class="v2-topbar">
+            <div class="v2-chapter">
+              <div class="v2-index">04</div>
+              <div>
+                <div class="v2-kicker">SECURE WORKSPACE</div>
+                <div class="v2-title">独立工作区与安全沙箱</div>
+                <div class="v2-subtitle">用户、案件、项目各自隔离；任务在沙箱里执行，权限和结果全程可追踪。</div>
+              </div>
+            </div>
+            <div class="v2-brand"><img src="assets/wiselaw-logo.svg" alt="" />WiseLaw</div>
+          </header>
+
+          <main class="v2-flow">
+            <section class="v2-left">
+              <div class="v2-module-title">独立工作区</div>
+              <article class="v2-user-zone v2-user-a">
+                <div class="v2-user-head">
+                  <div class="v2-user-name">用户 A <span class="v2-chip">安全容器</span></div>
+                  <div class="v2-lock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+                </div>
+                <div class="v2-workspace-list">
+                  <div class="v2-workspace-card selected"><div><b>案件 001</b><span>合同材料 · 指令 · 结果空间</span><em class="v2-result-slot">结果已回写 · 审计已记录</em></div><span class="v2-chip">ACTIVE</span></div>
+                  <div class="v2-workspace-card"><div><b>项目 Alpha</b><span>成员权限 · 文件边界</span></div><span class="v2-chip">LOCKED</span></div>
+                  <div class="v2-workspace-card"><div><b>合同审查</b><span>模板版本 · 审批记录</span></div><span class="v2-chip">LOG</span></div>
+                </div>
+              </article>
+              <article class="v2-user-zone v2-user-b">
+                <div class="v2-user-head">
+                  <div class="v2-user-name">用户 B <span class="v2-chip">安全容器</span></div>
+                  <div class="v2-lock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+                </div>
+                <div class="v2-workspace-list">
+                  <div class="v2-workspace-card"><div><b>案件 002</b><span>资料独立 · 不跨区</span></div><span class="v2-chip">BOUND</span></div>
+                  <div class="v2-workspace-card"><div><b>内部合规</b><span>制度库 · 授权范围</span></div><span class="v2-chip">SAFE</span></div>
+                </div>
+              </article>
+            </section>
+
+            <section class="v2-sandbox-module">
+              <div class="v2-module-title">沙箱执行</div>
+              <div class="v2-sandbox">
+                <div class="v2-sandbox-head">
+                  <div class="v2-sandbox-name">安全沙箱</div>
+                  <div class="v2-sandbox-badge">边界已启动</div>
+                </div>
+                <div class="v2-sandbox-grid">
+                  <div class="v2-task-card">
+                    <b>任务卡片 · 案件 001</b>
+                    <p>从用户 A 工作区生成任务包，只携带授权材料、任务指令和必要上下文。</p>
+                    <div class="v2-token-row"><span class="v2-token">文件切片</span><span class="v2-token">脱敏标签</span><span class="v2-token">最小权限</span></div>
+                  </div>
+                  <div class="v2-node-row">
+                    <div class="v2-node"><div class="v2-node-icon"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/></svg></div><b>读取材料</b><span>切片、脱敏、索引</span></div>
+                    <div class="v2-node"><div class="v2-node-icon"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14" rx="2"/><path d="m9 15 2 2 4-5"/></svg></div><b>执行任务</b><span>工具调用节点运行</span></div>
+                    <div class="v2-node"><div class="v2-node-icon"><svg viewBox="0 0 24 24"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5"/></svg></div><b>复核结果</b><span>校验节点确认返回</span></div>
+                  </div>
+                  <div class="v2-progress">
+                    <div class="v2-progress-label"><span>沙箱执行进度</span><span id="v2-progress-text">0%</span></div>
+                    <div class="v2-progress-bar"><div class="v2-progress-fill"></div></div>
+                  </div>
+                  <div class="v2-check-node"><span>权限校验节点</span><em>READY</em></div>
+                </div>
+              </div>
+            </section>
+
+            <section class="v2-audit-module">
+              <div class="v2-module-title">审计日志</div>
+              <div class="v2-audit">
+                <div class="v2-audit-title"><svg viewBox="0 0 24 24"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5"/></svg>审计日志</div>
+                <div class="v2-audit-list">
+                  <div class="v2-audit-row"><time>09:41</time><div><b>访问工作区</b><span>用户 A / 案件 001</span></div><em>OK</em></div>
+                  <div class="v2-audit-row"><time>09:42</time><div><b>创建任务包</b><span>授权材料与指令封装</span></div><em>OK</em></div>
+                  <div class="v2-audit-row"><time>09:44</time><div><b>沙箱执行</b><span>读取材料 · 执行任务</span></div><em>OK</em></div>
+                  <div class="v2-audit-row"><time>09:45</time><div><b>权限校验</b><span>最小权限策略通过</span></div><em>OK</em></div>
+                  <div class="v2-audit-row block"><time>09:46</time><div><b>跨区请求</b><span>用户 B 访问用户 A 被拦截</span></div><em>BLOCK</em></div>
+                </div>
+              </div>
+            </section>
+          </main>
+
+          <div class="v2-case-flyer">
+            <div><b>案件 001</b><span>合同材料 · 指令 · 结果空间</span></div>
+            <span class="v2-chip">ACTIVE</span>
+          </div>
+          <div class="v2-result-flyer">
+            <div><b>处理结果 · 案件 001</b><span>沙箱已完成任务，结果只回写到用户 A 的独立工作区。</span></div>
+            <span class="v2-chip">RESULT</span>
+          </div>
+          <div class="v2-route-line"></div>
+          <div class="v2-return-line"></div>
+          <div class="v2-summary">独立工作区｜安全沙箱｜权限隔离｜审计追踪</div>
+        </section>
+
         <section class="scene" id="scene-secure">
           <div class="frame-label">SHOT 11 · SECURE WORKSPACE</div>
           <div class="panel secure-map">
@@ -825,14 +2047,87 @@
         <div class="screen-text" id="secure-screen-text">独立工作区｜安全沙箱｜权限隔离｜审计追踪</div>
         <div class="screen-text" id="local-screen-text">本地部署｜本地小模型｜脱敏处理｜数据主权</div>
         <div class="flash-bar" id="flash-bar" data-layout-allow-overflow="true"></div>
+
+        <section class="cloud-flow-scene" id="scene-cloud-flow">
+          <div class="flow-board">
+            <div class="flow-title">
+              <b>本地处理后，只把安全任务包交给云端推理</b>
+              <span>原始文件和本地映射表留在本地；云端只看到脱敏、混淆后的占位符。</span>
+            </div>
+            <section class="flow-col source">
+              <h3>原始文件</h3>
+              <p>合同、邮件、资料、聊天记录先进入本地工作区。</p>
+              <div class="raw-mini-list">
+                <div class="raw-mini"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/></svg>合同</div>
+                <div class="raw-mini"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>邮件</div>
+                <div class="raw-mini"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 9h8"/><path d="M8 13h8"/></svg>资料</div>
+                <div class="raw-mini"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>聊天记录</div>
+              </div>
+            </section>
+            <section class="flow-col local">
+              <h3>本地小模型</h3>
+              <p>切片、脱敏、混淆、映射表都在本地完成。</p>
+              <div class="local-lanes">
+                <article class="flow-card slice-pack">
+                  <span class="flow-step">1</span>
+                  <h4><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></span>本地切片</h4>
+                  <div class="flow-slices"><span class="flow-slice">片段 A</span><span class="flow-slice">片段 B</span><span class="flow-slice">片段 C</span><span class="flow-slice">片段 D</span></div>
+                </article>
+                <div class="local-arrow arrow-slice-redact"></div>
+                <article class="flow-card redact-pack">
+                  <span class="flow-step">2</span>
+                  <h4><span class="flow-icon"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>本地脱敏</h4>
+                  <div class="replace-list">
+                    <div class="replace-row"><span>客户名称</span><b>客户 A</b></div>
+                    <div class="replace-row"><span>公司名称</span><b>公司 X</b></div>
+                    <div class="replace-row"><span>联系人</span><b>人员 1</b></div>
+                    <div class="replace-row"><span>金额</span><b>金额字段</b></div>
+                    <div class="replace-row"><span>项目名称</span><b>项目 Alpha</b></div>
+                  </div>
+                </article>
+                <div class="local-arrow arrow-redact-secure"></div>
+                <div class="local-arrow arrow-redact-map"></div>
+                <article class="flow-card secure-pack">
+                  <span class="flow-step">3</span>
+                  <h4><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg></span>安全任务包</h4>
+                  <div class="secure-tags"><span>已切片</span><span>已脱敏</span><span>已混淆</span></div>
+                </article>
+                <article class="flow-card map-pack">
+                  <span class="flow-step">留本地</span>
+                  <h4><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h10"/></svg></span>本地映射表</h4>
+                  <div class="map-lines"><span>客户 A → 本地真实客户</span><span>公司 X → 本地真实公司</span><span>人员 1 → 本地联系人</span></div>
+                </article>
+              </div>
+            </section>
+            <section class="flow-col cloud">
+              <h3>云端大模型</h3>
+              <p>仅接收安全任务包，生成脱敏分析结果。</p>
+              <div class="cloud-node"><div><div class="model-icon cloud-ai"><svg viewBox="0 0 24 24"><path d="M7 10.5a4.4 4.4 0 0 1 8.2-2.2A4.8 4.8 0 0 1 21 13a4 4 0 0 1-4 4H7a3.25 3.25 0 1 1 0-6.5Z"/><rect x="8" y="11" width="8" height="8" rx="2"/><path d="M10 9v2"/><path d="M14 9v2"/><path d="M10 19v2"/><path d="M14 19v2"/><path d="M6 13h2"/><path d="M6 17h2"/><path d="M16 13h2"/><path d="M16 17h2"/></svg></div><b>云端推理中</b></div></div>
+              <div class="cloud-result"><b>脱敏分析结果</b><span>客户 A、公司 X、人员 1、项目 Alpha 保持占位符。</span></div>
+            </section>
+            <div class="flow-route route-in"></div>
+            <div class="flow-route route-cloud"></div>
+            <div class="flow-route route-return"></div>
+            <div class="moving-safe-pack"><b>安全任务包</b><span>已切片 · 已脱敏 · 已混淆</span></div>
+            <div class="moving-safe-result"><b>脱敏分析结果</b><span>客户 A · 公司 X · 人员 1 · 项目 Alpha</span></div>
+            <div class="final-result"><b>最终报告</b><span>云端结果返回本地后，由本地映射表还原业务信息并交付。</span></div>
+            <div class="delivery-list"><span>原文留本地</span><span>敏感不上云</span><span>映射不上云</span><span>结果本地还原</span></div>
+            <div class="flow-summary">本地切片｜本地脱敏｜数据混淆｜云端推理｜本地还原</div>
+          </div>
+        </section>
       </div>
     </div>
 
     <script src="assets/gsap.min.js"></script>
     <script>
       window.__timelines = window.__timelines || {};
+      if (window.self === window.top) {
+        document.documentElement.classList.add("standalone-hud");
+      }
       gsap.defaults({ ease: "power3.out" });
       const tl = gsap.timeline({ paused: true });
+      const v2Progress = { value: 0 };
+      const v2ProgressText = document.querySelector("#v2-progress-text");
 
       function flash(time) {
         tl.fromTo("#flash-bar", { opacity: 0, x: 0 }, { opacity: 0.72, x: 2350, duration: 0.38, ease: "power2.inOut" }, time)
@@ -840,7 +2135,54 @@
           .set("#flash-bar", { opacity: 0, visibility: "hidden" }, time + 0.5);
       }
 
-      tl.fromTo("#stage", { opacity: 0 }, { opacity: 1, duration: 0.28 }, 0)
+      tl.set(".v2-left", { x: 592, scale: 1.04, transformOrigin: "center center" }, 0)
+        .set(".v2-sandbox-module, .v2-audit-module", { opacity: 0, y: 18, scale: 0.97 }, 0)
+        .fromTo("#stage", { opacity: 0 }, { opacity: 1, duration: 0.28 }, 0)
+        .fromTo("#scene-workspace-v2", { opacity: 0, y: 30, scale: 0.99 }, { opacity: 1, y: 0, scale: 1, duration: 0.54, ease: "expo.out" }, 0.05)
+        .from(".v2-left .v2-module-title", { opacity: 0, y: 12, duration: 0.28, ease: "power2.out" }, 0.38)
+        .from(".v2-user-a", { opacity: 0, y: 22, scale: 0.96, duration: 0.46, ease: "expo.out" }, 0.62)
+        .from(".v2-user-b", { opacity: 0, y: 22, scale: 0.96, duration: 0.46, ease: "expo.out" }, 0.98)
+        .from(".v2-workspace-card", { opacity: 0, y: 14, scale: 0.96, duration: 0.24, stagger: 0.06, ease: "back.out(1.08)" }, 1.28)
+        .to(".v2-workspace-card.selected", { scale: 1.035, borderColor: "rgba(31,159,104,0.5)", duration: 0.28, ease: "sine.inOut" }, 2.55)
+        .to(".v2-workspace-card.selected", { scale: 1, duration: 0.28, ease: "sine.inOut" }, 2.9)
+        .to(".v2-left", { x: 0, scale: 1, duration: 0.9, ease: "power3.inOut" }, 3.45)
+        .to(".v2-workspace-card.selected", { opacity: 0.42, duration: 0.18, ease: "sine.inOut" }, 4.12)
+        .fromTo(".v2-case-flyer", { opacity: 0, scale: 1 }, { opacity: 1, scale: 1, duration: 0.2, ease: "sine.inOut" }, 4.12)
+        .fromTo(".v2-route-line", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.5, ease: "power2.out" }, 4.38)
+        .to(".v2-case-flyer", { x: 612, y: -47, width: 544, minHeight: 94, borderColor: "rgba(139,90,74,0.14)", boxShadow: "0 14px 34px rgba(44,36,33,0.07)", duration: 0.98, ease: "power2.inOut" }, 4.5)
+        .to(".v2-case-flyer b", { textContent: "任务卡片 · 案件 001", duration: 0.01 }, 5.24)
+        .to(".v2-case-flyer span:not(.v2-chip)", { textContent: "从用户 A 工作区生成任务包，只携带授权材料、任务指令和必要上下文。", duration: 0.01 }, 5.24)
+        .to(".v2-case-flyer .v2-chip", { opacity: 0, duration: 0.16, ease: "sine.inOut" }, 5.22)
+        .to(".v2-case-flyer", { opacity: 0, scale: 1, duration: 0.2, ease: "sine.inOut" }, 5.58)
+        .fromTo(".v2-sandbox-module", { opacity: 0, y: 22, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "expo.out" }, 5.18)
+        .from(".v2-sandbox", { opacity: 0, y: 28, scale: 0.96, duration: 0.58, ease: "expo.out" }, 5.42)
+        .from(".v2-task-card", { opacity: 0, scale: 0.99, duration: 0.22, ease: "sine.inOut" }, 5.54)
+        .from(".v2-token", { opacity: 0, y: 10, scale: 0.86, duration: 0.2, stagger: 0.08, ease: "back.out(1.2)" }, 6.22)
+        .from(".v2-node", { opacity: 0, y: 18, scale: 0.94, duration: 0.34, stagger: 0.18, ease: "back.out(1.12)" }, 6.72)
+        .from(".v2-progress", { opacity: 0, y: 16, scale: 0.96, duration: 0.3, ease: "power2.out" }, 7.72)
+        .to(v2Progress, { value: 100, duration: 2.0, ease: "power2.inOut", onUpdate: () => { v2ProgressText.textContent = `${Math.round(v2Progress.value)}%`; } }, 7.95)
+        .to(".v2-progress-fill", { width: "100%", duration: 2.0, ease: "power2.inOut" }, 7.95)
+        .from(".v2-check-node", { opacity: 0, y: 16, scale: 0.96, duration: 0.3, ease: "back.out(1.12)" }, 8.3)
+        .to(".v2-check-node em", { textContent: "PASS", duration: 0.01 }, 9.9)
+        .fromTo(".v2-result-flyer", { opacity: 0, scale: 0.9, x: 0, y: 0 }, { opacity: 1, scale: 1.03, duration: 0.34, ease: "back.out(1.18)" }, 10.0)
+        .to(".v2-result-flyer", { scale: 1, duration: 0.22, ease: "sine.inOut" }, 10.34)
+        .to(".v2-result-flyer .v2-chip", { textContent: "RETURN", backgroundColor: "rgba(31,159,104,0.16)", color: "#1f9f68", duration: 0.01 }, 10.34)
+        .fromTo(".v2-return-line", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.46, ease: "power2.out" }, 10.42)
+        .to(".v2-result-flyer", { x: -612, y: 102, width: 516, minHeight: 76, duration: 0.95, ease: "power2.inOut" }, 10.55)
+        .to(".v2-workspace-card.selected", { opacity: 1, borderColor: "rgba(31,159,104,0.58)", background: "linear-gradient(180deg, rgba(255,255,255,0.98), rgba(232,249,241,0.98))", boxShadow: "0 16px 40px rgba(31,159,104,0.14)", duration: 0.24, ease: "sine.inOut" }, 11.22)
+        .to(".v2-result-flyer", { opacity: 0, scale: 0.96, duration: 0.22, ease: "sine.inOut" }, 11.42)
+        .to(".v2-result-slot", { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.2)" }, 11.48)
+        .to(".v2-workspace-card.selected", { scale: 1.035, duration: 0.22, ease: "sine.inOut" }, 11.56)
+        .to(".v2-workspace-card.selected", { scale: 1, duration: 0.22, ease: "sine.inOut" }, 11.82)
+        .to(".v2-return-line", { opacity: 0.92, duration: 0.2, ease: "sine.inOut" }, 11.64)
+        .fromTo(".v2-audit-module", { opacity: 0, x: 34, scale: 0.96 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.52, ease: "expo.out" }, 9.05)
+        .from(".v2-audit", { opacity: 0, x: 42, scale: 0.96, duration: 0.5, ease: "expo.out" }, 9.2)
+        .from(".v2-audit-row", { opacity: 0, y: 18, scale: 0.96, duration: 0.3, stagger: 0.32, ease: "back.out(1.08)" }, 9.7)
+        .from(".v2-summary", { opacity: 0, y: 18, scale: 0.96, duration: 0.42, ease: "expo.out" }, 12.75)
+        .to(".v2-sandbox, .v2-audit", { boxShadow: "0 24px 64px rgba(31,159,104,0.1)", duration: 0.28, stagger: 0.08, ease: "sine.inOut" }, 13.4)
+        .to(".v2-sandbox, .v2-audit", { boxShadow: "0 22px 62px rgba(44,36,33,0.09)", duration: 0.28, stagger: 0.08, ease: "sine.inOut" }, 13.82)
+        .to("#scene-workspace-v2", { opacity: 0, y: -24, scale: 0.99, duration: 0.5, ease: "power2.inOut" }, 16.0)
+        .set("#scene-workspace-v2", { visibility: "hidden" }, 16.55)
         .fromTo("#scene-secure", { opacity: 0, y: 34, scale: 0.988 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "expo.out" }, 0)
         .from("#scene-secure .frame-label", { opacity: 0, y: 14, duration: 0.28 }, 0.08)
         .from("#scene-secure .secure-map", { opacity: 0, y: 44, scale: 0.95, duration: 0.52, ease: "expo.out" }, 0.18)
@@ -878,7 +2220,52 @@
         .fromTo("#local-screen-text", { opacity: 0, visibility: "visible", y: 18, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.46, ease: "expo.out" }, 14.15)
         .to("#local-screen-text", { color: "#14784e", duration: 0.25 }, 14.4)
         .to(".model-core, .sovereignty", { scale: 1.035, duration: 0.28, ease: "sine.inOut" }, 15.1)
-        .to(".model-core, .sovereignty", { scale: 1, duration: 0.28, ease: "sine.inOut" }, 15.42);
+        .to(".model-core, .sovereignty", { scale: 1, duration: 0.28, ease: "sine.inOut" }, 15.42)
+        .to("#scene-local, #local-screen-text", { opacity: 0, y: -24, duration: 0.5, ease: "power2.inOut" }, 16.0)
+        .set("#scene-local, #local-screen-text", { visibility: "hidden" }, 16.55);
+
+      flash(16.05);
+
+      tl.fromTo("#scene-cloud-flow", { opacity: 0, y: 34, scale: 0.99 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "expo.out" }, 16.4)
+        .from(".flow-title", { opacity: 0, y: 18, duration: 0.42, ease: "expo.out" }, 16.55)
+        .from(".flow-board", { opacity: 0, y: 36, scale: 0.97, duration: 0.5, ease: "expo.out" }, 16.75)
+        .from(".flow-col", { opacity: 0, y: 24, scale: 0.97, duration: 0.42, stagger: 0.12, ease: "expo.out" }, 17.05)
+        .from(".raw-mini", { opacity: 0, x: -28, scale: 0.96, duration: 0.24, stagger: 0.09, ease: "back.out(1.12)" }, 17.45)
+        .fromTo(".route-in", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.36, ease: "power2.out" }, 18.0)
+        .from(".slice-pack", { opacity: 0, y: 22, scale: 0.96, duration: 0.36, ease: "expo.out" }, 18.15)
+        .to(".slice-pack", { borderColor: "rgba(31,159,104,0.36)", boxShadow: "0 18px 46px rgba(31,159,104,0.14)", duration: 0.28, ease: "sine.inOut" }, 18.22)
+        .from(".flow-slice", { opacity: 0, y: -18, scale: 0.72, duration: 0.28, stagger: 0.18, ease: "back.out(1.25)" }, 18.4)
+        .to(".slice-pack", { borderColor: "rgba(139,90,74,0.12)", boxShadow: "0 14px 34px rgba(44,36,33,0.07)", duration: 0.28, ease: "sine.inOut" }, 19.35)
+        .fromTo(".arrow-slice-redact", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.34, ease: "power2.out" }, 19.5)
+        .from(".redact-pack", { opacity: 0, y: 22, scale: 0.96, duration: 0.36, ease: "expo.out" }, 20.0)
+        .to(".redact-pack", { borderColor: "rgba(31,159,104,0.36)", boxShadow: "0 18px 46px rgba(31,159,104,0.14)", duration: 0.28, ease: "sine.inOut" }, 20.08)
+        .from(".replace-row", { opacity: 0, x: 22, duration: 0.22, stagger: 0.22, ease: "power2.out" }, 20.2)
+        .fromTo(".arrow-redact-map", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.34, ease: "power2.out" }, 21.08)
+        .from(".map-pack", { opacity: 0, x: 24, scale: 0.96, duration: 0.36, ease: "expo.out" }, 21.22)
+        .to(".map-pack", { boxShadow: "0 18px 42px rgba(208,160,79,0.14)", duration: 0.28, ease: "sine.inOut" }, 21.32)
+        .to(".redact-pack", { borderColor: "rgba(139,90,74,0.12)", boxShadow: "0 14px 34px rgba(44,36,33,0.07)", duration: 0.28, ease: "sine.inOut" }, 21.5)
+        .fromTo(".arrow-redact-secure", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.34, ease: "power2.out" }, 21.68)
+        .from(".secure-pack", { opacity: 0, y: 24, scale: 0.96, duration: 0.36, ease: "back.out(1.12)" }, 22.08)
+        .to(".secure-pack", { boxShadow: "0 20px 52px rgba(31,159,104,0.16)", duration: 0.28, ease: "sine.inOut" }, 22.14)
+        .from(".secure-tags span", { opacity: 0, y: 12, scale: 0.84, duration: 0.22, stagger: 0.1, ease: "back.out(1.2)" }, 22.32)
+        .fromTo(".route-cloud", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.42, ease: "power2.out" }, 23.08)
+        .fromTo(".moving-safe-pack", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.16)" }, 23.15)
+        .to(".moving-safe-pack", { x: 520, y: -220, scale: 0.9, duration: 1.1, ease: "power2.inOut" }, 23.28)
+        .to(".cloud-node", { scale: 1.045, duration: 0.28, ease: "sine.inOut" }, 24.28)
+        .to(".cloud-node", { scale: 1, duration: 0.26, ease: "sine.inOut" }, 24.58)
+        .to(".moving-safe-pack", { opacity: 0, scale: 0.82, duration: 0.2, ease: "sine.inOut" }, 24.55)
+        .from(".cloud-result", { opacity: 0, y: 20, scale: 0.96, duration: 0.42, ease: "back.out(1.12)" }, 25.0)
+        .fromTo(".route-return", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.42, ease: "power2.out" }, 26.2)
+        .fromTo(".moving-safe-result", { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(1.16)" }, 26.25)
+        .to(".moving-safe-result", { x: -622, y: -64, scale: 0.9, duration: 1.0, ease: "power2.inOut" }, 26.38)
+        .to(".moving-safe-result", { opacity: 0, scale: 0.82, duration: 0.22, ease: "sine.inOut" }, 27.28)
+        .to(".map-pack", { scale: 1.035, borderColor: "rgba(31,159,104,0.36)", duration: 0.28, ease: "sine.inOut" }, 27.38)
+        .to(".map-pack", { scale: 1, duration: 0.24, ease: "sine.inOut" }, 27.72)
+        .from(".final-result", { opacity: 0, x: -28, scale: 0.95, duration: 0.42, ease: "expo.out" }, 28.0)
+        .from(".delivery-list span", { opacity: 0, x: 24, scale: 0.95, duration: 0.26, stagger: 0.12, ease: "back.out(1.14)" }, 28.35)
+        .from(".flow-summary", { opacity: 0, y: 18, scale: 0.96, duration: 0.42, ease: "expo.out" }, 29.1)
+        .to(".final-result, .flow-summary", { scale: 1.02, duration: 0.3, ease: "sine.inOut" }, 31.4)
+        .to(".final-result, .flow-summary", { scale: 1, duration: 0.3, ease: "sine.inOut" }, 31.78);
 
       window.__timelines["shot-11-12"] = tl;
     </script>

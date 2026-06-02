@@ -90,6 +90,7 @@
         text-align: center;
         perspective: 1200px;
         z-index: 8;
+        display: none;
       }
 
       .copy::before {
@@ -229,6 +230,7 @@
       }
 
       .s3-backend {
+        position: relative;
         width: 100%;
         height: 100%;
         padding: 26px 34px;
@@ -236,6 +238,212 @@
         background:
           radial-gradient(circle at 82% 0%, rgba(139, 90, 74, 0.07), transparent 34%),
           linear-gradient(180deg, #fffefd 0%, #f7f4f0 100%);
+      }
+
+      .s3-screen-carousel {
+        position: relative;
+        height: 390px;
+      }
+
+      .s3-panel {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        grid-template-columns: 1fr 172px;
+        gap: 16px;
+        opacity: 0;
+      }
+
+      .s3-panel-main,
+      .s3-panel-side,
+      .s3-suite-card,
+      .s3-mini-window {
+        border: 1px solid rgba(232, 226, 220, 0.96);
+        background: rgba(255, 255, 255, 0.84);
+        box-shadow: 0 10px 24px rgba(44, 36, 33, 0.05);
+      }
+
+      .s3-panel-main {
+        min-height: 100%;
+        padding: 16px;
+        border-radius: 16px;
+      }
+
+      .s3-panel-side {
+        padding: 14px;
+        border-radius: 16px;
+      }
+
+      .s3-panel-label {
+        display: inline-flex;
+        align-items: center;
+        height: 24px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(139, 90, 74, 0.08);
+        color: var(--primary);
+        font-size: 10px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .s3-panel-title {
+        margin-top: 12px;
+        color: var(--foreground);
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: -0.01em;
+      }
+
+      .s3-panel-copy {
+        margin-top: 7px;
+        color: var(--muted-foreground);
+        font-size: 12px;
+        line-height: 1.42;
+        font-weight: 720;
+      }
+
+      .s3-dock {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .s3-app {
+        display: grid;
+        min-height: 58px;
+        place-items: center;
+        gap: 4px;
+        padding: 8px 5px;
+        border-radius: 13px;
+        background: #fbfaf8;
+        color: #6d625d;
+        font-size: 10px;
+        font-weight: 850;
+      }
+
+      .s3-app b {
+        display: grid;
+        width: 25px;
+        height: 25px;
+        place-items: center;
+        border-radius: 8px;
+        background: rgba(139, 90, 74, 0.12);
+        color: var(--primary);
+        font-size: 12px;
+      }
+
+      .s3-window-stack {
+        display: grid;
+        gap: 9px;
+        margin-top: 14px;
+      }
+
+      .s3-mini-window {
+        padding: 11px 12px;
+        border-radius: 13px;
+      }
+
+      .s3-mini-window strong {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        color: var(--foreground);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .s3-mini-window span {
+        color: var(--primary);
+        font-size: 10px;
+        font-weight: 900;
+      }
+
+      .s3-mini-window p {
+        margin-top: 7px;
+        color: var(--text-tertiary);
+        font-size: 10px;
+        line-height: 1.35;
+        font-weight: 720;
+      }
+
+      .s3-side-title {
+        color: var(--foreground);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .s3-side-list {
+        display: grid;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .s3-side-item {
+        padding: 9px 10px;
+        border-radius: 11px;
+        background: rgba(245, 242, 239, 0.82);
+        color: #5c524d;
+        font-size: 10px;
+        font-weight: 820;
+      }
+
+      .s3-suite-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .s3-suite-card {
+        min-height: 76px;
+        padding: 12px;
+        border-radius: 14px;
+      }
+
+      .s3-suite-card b {
+        display: block;
+        color: var(--foreground);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .s3-suite-card p {
+        margin-top: 7px;
+        color: var(--text-tertiary);
+        font-size: 10px;
+        line-height: 1.35;
+        font-weight: 720;
+      }
+
+      .s3-agent-flow {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .s3-agent-step {
+        min-height: 74px;
+        padding: 10px;
+        border-radius: 13px;
+        background: linear-gradient(180deg, #fff, #f7f2ef);
+        border: 1px solid rgba(232, 226, 220, 0.96);
+      }
+
+      .s3-agent-step b {
+        color: var(--primary);
+        font-size: 11px;
+        font-weight: 950;
+      }
+
+      .s3-agent-step p {
+        margin-top: 8px;
+        color: var(--foreground);
+        font-size: 11px;
+        line-height: 1.3;
+        font-weight: 820;
       }
 
       .s3-backend-head {
@@ -893,6 +1101,7 @@
 
       .channel-head h2 {
         margin-top: 26px;
+        margin-bottom: 0;
         color: var(--foreground);
         font-size: 96px;
         line-height: 0.96;
@@ -900,9 +1109,17 @@
         letter-spacing: 0;
       }
 
+      .channel-subtitle {
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 34px;
+        line-height: 1.2;
+        font-weight: 760;
+      }
+
       .logo-cloud {
         position: relative;
-        width: 1180px;
+        width: 1434px;
         height: 330px;
         margin-top: 54px;
         z-index: 2;
@@ -948,8 +1165,8 @@
       }
 
       .logo-whatsapp {
-        left: 18px;
-        top: 86px;
+        left: 0;
+        top: 94px;
       }
 
       .logo-whatsapp .logo-symbol {
@@ -957,37 +1174,75 @@
       }
 
       .logo-telegram {
-        left: 246px;
-        top: 20px;
+        left: 209px;
+        top: 34px;
       }
 
       .logo-telegram .logo-symbol {
         background: #229ed9;
       }
 
+      .logo-dingtalk {
+        left: 418px;
+        top: 94px;
+      }
+
+      .logo-dingtalk .logo-symbol {
+        background: transparent;
+        border: 0;
+        overflow: hidden;
+        box-shadow: 0 16px 30px rgba(50, 150, 250, 0.14);
+      }
+
+      .logo-dingtalk .logo-symbol img {
+        width: 86px;
+        height: 86px;
+        display: block;
+        object-fit: cover;
+      }
+
       .logo-feishu {
-        left: 501px;
-        top: 78px;
+        left: 627px;
+        top: 34px;
         width: 178px;
         height: 178px;
       }
 
       .logo-feishu .logo-symbol {
-        background: #ffffff;
-        border: 1px solid rgba(232, 226, 220, 0.96);
+        background: transparent;
+        border: 0;
         overflow: hidden;
       }
 
       .logo-feishu .logo-symbol img {
-        width: 56px;
-        height: 56px;
+        width: 74px;
+        height: 74px;
+        display: block;
+        object-fit: contain;
+      }
+
+      .logo-wecom {
+        left: 836px;
+        top: 94px;
+      }
+
+      .logo-wecom .logo-symbol {
+        background: #ffffff;
+        border: 1px solid rgba(232, 226, 220, 0.96);
+        overflow: hidden;
+        box-shadow: 0 16px 30px rgba(0, 130, 239, 0.12);
+      }
+
+      .logo-wecom .logo-symbol img {
+        width: 62px;
+        height: 54px;
         display: block;
         object-fit: contain;
       }
 
       .logo-mail {
-        left: 756px;
-        top: 20px;
+        left: 1045px;
+        top: 34px;
       }
 
       .logo-mail .logo-symbol {
@@ -1003,8 +1258,8 @@
       }
 
       .logo-desktop {
-        left: 984px;
-        top: 86px;
+        left: 1256px;
+        top: 94px;
       }
 
       .logo-desktop .logo-symbol {
@@ -1091,14 +1346,6 @@
       data-width="1920"
       data-height="1080"
     >
-      <audio
-        id="voiceover"
-        data-start="0.35"
-        data-track-index="2"
-        data-volume="0"
-        src="assets/shot-3-narration.wav"
-      ></audio>
-
       <div class="scene" data-layout-allow-overflow="true" data-layout-ignore="true">
         <div class="wash"></div>
         <div class="paper-grid"></div>
@@ -1117,7 +1364,6 @@
           <div class="subtitle-title" id="subtitle">
             <span class="title-char">完</span><span class="title-char">整</span><span class="title-char">员</span><span class="title-char">工</span><span class="title-char">身</span><span class="title-char">份</span>
           </div>
-          <p class="desc" id="desc">不是临时打开一个聊天框，而是给 Lawrence 配好工作电脑、账号、工作区和任务入口。</p>
         </section>
 
         <div class="identity-card card-email" id="card-email">
@@ -1186,37 +1432,104 @@
                     <div class="s3-backend-title">Lawrence 工作区</div>
                     <div class="s3-run-badge">后台执行中</div>
                   </div>
-                  <div class="s3-work-list">
-                    <div class="s3-work-row active">
-                      <div class="s3-work-top">
-                        <div class="s3-work-name">Contract Review</div>
-                        <div class="s3-work-chip">运行中</div>
+                  <div class="s3-screen-carousel">
+                    <div class="s3-panel s3-panel-workspace">
+                      <div class="s3-panel-main">
+                        <div class="s3-panel-label">Dedicated Workspace</div>
+                        <div class="s3-panel-title">专属工作电脑与独立工作区</div>
+                        <div class="s3-panel-copy">按客户、案件、业务线隔离资料和任务，长期保存上下文、文件、输出与审批记录。</div>
+                        <div class="s3-dock">
+                          <div class="s3-app"><b>MB</b><span>Mac</span></div>
+                          <div class="s3-app"><b>W</b><span>工作区</span></div>
+                          <div class="s3-app"><b>F</b><span>文件库</span></div>
+                          <div class="s3-app"><b>T</b><span>任务</span></div>
+                          <div class="s3-app"><b>A</b><span>Agent</span></div>
+                        </div>
+                        <div class="s3-window-stack">
+                          <div class="s3-mini-window"><strong>Contract Review <span>运行中</span></strong><p>合作协议_终稿.pdf · 飞书任务 · 风险条款校验</p></div>
+                          <div class="s3-mini-window"><strong>Client Workspace <span>已隔离</span></strong><p>客户资料、会议纪要、历史交付统一归档。</p></div>
+                        </div>
                       </div>
-                      <div class="s3-work-meta">文件：合作协议_终稿.pdf · 上下文：飞书任务</div>
-                      <div class="s3-progress-shell"><div class="s3-progress p1"></div></div>
+                      <div class="s3-panel-side">
+                        <div class="s3-side-title">在线环境</div>
+                        <div class="s3-side-list">
+                          <div class="s3-side-item">专属设备身份</div>
+                          <div class="s3-side-item">独立文件目录</div>
+                          <div class="s3-side-item">长期任务记忆</div>
+                          <div class="s3-side-item">权限与日志</div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="s3-work-row">
-                      <div class="s3-work-top">
-                        <div class="s3-work-name">Clause Extraction</div>
-                        <div class="s3-work-chip">排队</div>
+
+                    <div class="s3-panel s3-panel-accounts">
+                      <div class="s3-panel-main">
+                        <div class="s3-panel-label">Mail & Mobile Office</div>
+                        <div class="s3-panel-title">专属邮箱 / 飞书移动办公账号</div>
+                        <div class="s3-panel-copy">自动接收邮件、读取协作上下文、同步任务进展，像真实员工一样进入团队工作流。</div>
+                        <div class="s3-window-stack">
+                          <div class="s3-mini-window"><strong>inbox@wiselaw.ai <span>新任务</span></strong><p>客户补充材料、合同附件、邮件往来自动归入当前案件。</p></div>
+                          <div class="s3-mini-window"><strong>飞书任务流 <span>同步中</span></strong><p>读取指令、@提醒、项目节点和负责人变更。</p></div>
+                          <div class="s3-mini-window"><strong>移动端提醒 <span>待确认</span></strong><p>输出完成后回传摘要、风险点和下一步建议。</p></div>
+                        </div>
                       </div>
-                      <div class="s3-work-meta">违约责任 · 终止条款 · 风险等级</div>
-                      <div class="s3-progress-shell"><div class="s3-progress p2"></div></div>
+                      <div class="s3-panel-side">
+                        <div class="s3-side-title">账号能力</div>
+                        <div class="s3-side-list">
+                          <div class="s3-side-item">收发邮件</div>
+                          <div class="s3-side-item">读取群消息</div>
+                          <div class="s3-side-item">接收文件</div>
+                          <div class="s3-side-item">回传结果</div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="s3-work-row">
-                      <div class="s3-work-top">
-                        <div class="s3-work-name">Draft Opinion</div>
-                        <div class="s3-work-chip">待生成</div>
+
+                    <div class="s3-panel s3-panel-software">
+                      <div class="s3-panel-main">
+                        <div class="s3-panel-label">Software Environment</div>
+                        <div class="s3-panel-title">Office、浏览器与办公软件环境</div>
+                        <div class="s3-panel-copy">在同一台工作电脑内打开文档、表格、网页、知识库和企业系统，完成真实办公动作。</div>
+                        <div class="s3-suite-grid">
+                          <div class="s3-suite-card"><b>Office 文档</b><p>Word 审阅、Excel 提取、PPT 简报生成。</p></div>
+                          <div class="s3-suite-card"><b>浏览器</b><p>法规检索、网页资料归档、页面摘要。</p></div>
+                          <div class="s3-suite-card"><b>企业系统</b><p>CRM、项目管理、知识库和审批入口。</p></div>
+                          <div class="s3-suite-card"><b>本地文件</b><p>合同、附件、会议记录按任务绑定。</p></div>
+                        </div>
                       </div>
-                      <div class="s3-work-meta">初步意见 · 修改建议 · 可追问摘要</div>
-                      <div class="s3-progress-shell"><div class="s3-progress p3"></div></div>
+                      <div class="s3-panel-side">
+                        <div class="s3-side-title">当前窗口</div>
+                        <div class="s3-side-list">
+                          <div class="s3-side-item">Word 审阅中</div>
+                          <div class="s3-side-item">浏览器检索中</div>
+                          <div class="s3-side-item">表格抽取中</div>
+                          <div class="s3-side-item">知识库引用</div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="s3-work-row">
-                      <div class="s3-work-top">
-                        <div class="s3-work-name">Legal Research</div>
-                        <div class="s3-work-chip">待命</div>
+
+                    <div class="s3-panel s3-panel-agent">
+                      <div class="s3-panel-main">
+                        <div class="s3-panel-label">Agent Toolkit</div>
+                        <div class="s3-panel-title">Lawrence 的 Agent 套件</div>
+                        <div class="s3-panel-copy">把文件理解、法律检索、风险核验、交付生成串成可追踪流程，而不是一次性聊天。</div>
+                        <div class="s3-agent-flow">
+                          <div class="s3-agent-step"><b>01</b><p>读取资料</p></div>
+                          <div class="s3-agent-step"><b>02</b><p>拆解任务</p></div>
+                          <div class="s3-agent-step"><b>03</b><p>调用工具</p></div>
+                          <div class="s3-agent-step"><b>04</b><p>生成交付</p></div>
+                        </div>
+                        <div class="s3-window-stack">
+                          <div class="s3-mini-window"><strong>Legal Research Agent <span>可调用</span></strong><p>法条、类案、合同条款与企业资料交叉校验。</p></div>
+                        </div>
                       </div>
-                      <div class="s3-work-meta">案例检索 · 法条引用 · 交叉校验</div>
+                      <div class="s3-panel-side">
+                        <div class="s3-side-title">套件状态</div>
+                        <div class="s3-side-list">
+                          <div class="s3-side-item">合同审查</div>
+                          <div class="s3-side-item">条款抽取</div>
+                          <div class="s3-side-item">风险评估</div>
+                          <div class="s3-side-item">报告生成</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1235,7 +1548,8 @@
         >
           <div class="channel-head" id="channel-head">
             <div class="channel-kicker-large"><span class="kicker-dot"></span>Multi-channel access</div>
-            <h2>多渠道接入</h2>
+            <h2>多通信渠道接入</h2>
+            <div class="channel-subtitle">随时下达指令</div>
           </div>
           <div class="logo-cloud" id="logo-cloud">
             <div class="logo-card logo-whatsapp" id="logo-whatsapp">
@@ -1257,11 +1571,23 @@
               </div>
               <div>Telegram</div>
             </div>
+            <div class="logo-card logo-dingtalk" id="logo-dingtalk">
+              <div class="logo-symbol">
+                <img src="assets/dingtalk.svg" alt="" aria-hidden="true" />
+              </div>
+              <div>钉钉</div>
+            </div>
             <div class="logo-card logo-feishu" id="logo-feishu">
               <div class="logo-symbol">
                 <img src="assets/feishu.svg" alt="" aria-hidden="true" />
               </div>
               <div>飞书</div>
+            </div>
+            <div class="logo-card logo-wecom" id="logo-wecom">
+              <div class="logo-symbol">
+                <img src="assets/wecom.svg" alt="" aria-hidden="true" />
+              </div>
+              <div>企业微信</div>
             </div>
             <div class="logo-card logo-mail" id="logo-mail">
               <div class="logo-symbol">
@@ -1293,78 +1619,66 @@
       gsap.defaults({ ease: "power3.out" });
 
       const tl = gsap.timeline({ paused: true });
+      gsap.set(".s3-panel", { opacity: 0, y: 18, scale: 0.985 });
+      gsap.set(".s3-panel-workspace", { opacity: 1, y: 0, scale: 1 });
 
-      tl.set(".title-char", { opacity: 0, y: 76, rotationX: -72, scale: 0.86, filter: "blur(12px)" }, 0)
-        .fromTo("#headline", { y: 16, scale: 0.98 }, { y: 0, scale: 1, duration: 0.8, ease: "expo.out" }, 0.42)
-        .to("#headline .title-char", {
-          opacity: 1,
-          y: 0,
-          rotationX: 0,
-          scale: 1,
-          filter: "blur(0px)",
-          duration: 0.64,
-          stagger: 0.075,
-          ease: "power4.out",
-        }, 0.5)
-        .fromTo("#subtitle", { y: 22, scale: 0.98 }, { y: 0, scale: 1, duration: 0.84, ease: "expo.out" }, 0.92)
-        .to("#subtitle .title-char", {
-          opacity: 1,
-          y: 0,
-          rotationX: 0,
-          scale: 1,
-          filter: "blur(0px)",
-          duration: 0.7,
-          stagger: 0.06,
-          ease: "power4.out",
-        }, 1.02)
-        .to("#copy", { y: -74, duration: 0.68, ease: "power2.inOut" }, 2.34)
-        .from("#desc", { opacity: 0, y: 30, duration: 0.64 }, 1.72)
-        .to("#copy", { opacity: 0, y: -112, scale: 0.982, duration: 0.58, ease: "power2.inOut" }, 4.25)
+      tl.set("#copy", { display: "none" }, 0)
         .fromTo(
           "#stage",
           { opacity: 0, y: 70, scale: 0.9 },
           { opacity: 1, y: 0, scale: 1, duration: 0.92, ease: "expo.out" },
-          4.9,
+          0.2,
         )
+        .from(".s3-panel-workspace .s3-app", { opacity: 0, y: 18, scale: 0.92, duration: 0.34, stagger: 0.045 }, 0.48)
+        .from(".s3-panel-workspace .s3-mini-window, .s3-panel-workspace .s3-side-item", { opacity: 0, y: 14, duration: 0.28, stagger: 0.045 }, 0.72)
+        .to(".s3-panel-workspace", { opacity: 0, y: -16, scale: 0.985, duration: 0.34, ease: "power2.inOut" }, 1.62)
+        .to(".s3-panel-accounts", { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "power2.out" }, 1.82)
+        .from(".s3-panel-accounts .s3-mini-window, .s3-panel-accounts .s3-side-item", { opacity: 0, x: 18, duration: 0.28, stagger: 0.045 }, 1.98)
+        .to(".s3-panel-accounts", { opacity: 0, y: -16, scale: 0.985, duration: 0.34, ease: "power2.inOut" }, 3.12)
+        .to(".s3-panel-software", { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "power2.out" }, 3.32)
+        .from(".s3-panel-software .s3-suite-card, .s3-panel-software .s3-side-item", { opacity: 0, y: 16, duration: 0.3, stagger: 0.045 }, 3.48)
+        .to(".s3-panel-software", { opacity: 0, y: -16, scale: 0.985, duration: 0.34, ease: "power2.inOut" }, 4.58)
+        .to(".s3-panel-agent", { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "power2.out" }, 4.78)
+        .from(".s3-panel-agent .s3-agent-step, .s3-panel-agent .s3-mini-window, .s3-panel-agent .s3-side-item", { opacity: 0, y: 14, duration: 0.28, stagger: 0.045 }, 4.96)
         .fromTo(
           "#card-computer",
           { opacity: 0, x: 180, y: -40, scale: 0.84 },
           { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.68, ease: "back.out(1.3)" },
-          6.7,
+          1.8,
         )
-        .fromTo("#line-computer", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.38 }, 6.88)
+        .fromTo("#line-computer", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.38 }, 1.98)
         .fromTo(
           "#card-email",
           { opacity: 0, x: 160, y: 70, scale: 0.84 },
           { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.68, ease: "back.out(1.3)" },
-          7.35,
+          2.45,
         )
-        .fromTo("#line-email", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.38 }, 7.53)
+        .fromTo("#line-email", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.38 }, 2.63)
         .fromTo(
           "#card-feishu",
           { opacity: 0, x: -160, y: 70, scale: 0.84 },
           { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.68, ease: "back.out(1.3)" },
-          8.0,
+          3.0,
         )
-        .fromTo("#line-feishu", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.38 }, 8.18)
+        .fromTo("#line-feishu", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.38 }, 3.28)
         .fromTo(
           "#card-workspace",
           { opacity: 0, x: -180, y: -40, scale: 0.84 },
           { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.68, ease: "back.out(1.3)" },
-          8.65,
+          3.75,
         )
-        .fromTo("#line-workspace", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.38 }, 8.83)
+        .fromTo("#line-workspace", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.38 }, 3.93)
         .fromTo(
           "#card-task",
           { opacity: 0, y: -70, scale: 0.86 },
           { opacity: 1, y: 0, scale: 1, duration: 0.68, ease: "back.out(1.25)" },
-          9.3,
+          4.4,
         )
         .fromTo(
           "#line-task",
           { opacity: 0, scaleY: 0, transformOrigin: "center top" },
           { opacity: 1, scaleY: 1, transformOrigin: "center top", duration: 0.42 },
-          9.5,
+          4.5,
         )
         .to(
           [
@@ -1377,44 +1691,56 @@
             ".connector",
           ],
           { opacity: 0, y: -28, scale: 0.965, duration: 0.72, ease: "power2.inOut" },
-          11.42,
+          6.52,
         )
-        .to("#channel-scene", { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "power2.out" }, 11.95)
-        .from("#channel-head", { opacity: 0, y: 32, duration: 0.58 }, 12.12)
+        .to("#channel-scene", { opacity: 1, y: 0, scale: 1, duration: 0.52, ease: "power2.out" }, 7.05)
+        .from("#channel-head", { opacity: 0, y: 32, duration: 0.58 }, 7.22)
         .fromTo(
           "#logo-whatsapp",
           { opacity: 0, x: -720, y: 150, scale: 0.5, rotation: -14 },
           { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 0.78, ease: "back.out(1.35)" },
-          12.78,
+          7.88,
         )
         .fromTo(
           "#logo-telegram",
           { opacity: 0, x: -360, y: -220, scale: 0.52, rotation: -10 },
           { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 0.78, ease: "back.out(1.35)" },
-          12.94,
+          8.04,
+        )
+        .fromTo(
+          "#logo-dingtalk",
+          { opacity: 0, x: -210, y: 190, scale: 0.5, rotation: -8 },
+          { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 0.78, ease: "back.out(1.35)" },
+          8.18,
         )
         .fromTo(
           "#logo-feishu",
           { opacity: 0, y: -320, scale: 0.48, rotation: 8 },
           { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 0.78, ease: "back.out(1.35)" },
-          13.1,
+          8.32,
+        )
+        .fromTo(
+          "#logo-wecom",
+          { opacity: 0, x: 210, y: 190, scale: 0.5, rotation: 8 },
+          { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 0.78, ease: "back.out(1.35)" },
+          8.46,
         )
         .fromTo(
           "#logo-mail",
           { opacity: 0, x: 360, y: -220, scale: 0.52, rotation: 10 },
           { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 0.78, ease: "back.out(1.35)" },
-          13.26,
+          8.6,
         )
         .fromTo(
           "#logo-desktop",
           { opacity: 0, x: 720, y: 150, scale: 0.5, rotation: 14 },
           { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 0.78, ease: "back.out(1.35)" },
-          13.42,
+          8.74,
         )
-        .to(".logo-card", { y: -8, duration: 0.72, ease: "sine.inOut", stagger: 0.04 }, 15.18)
-        .to(".logo-card", { y: 0, duration: 0.72, ease: "sine.inOut", stagger: 0.04 }, 15.86)
-        .to("#light-sweep", { opacity: 1, x: 2180, duration: 1.15, ease: "power2.inOut" }, 15.8)
-        .to("#light-sweep", { opacity: 0, duration: 0.28 }, 16.82);
+        .to(".logo-card", { y: -8, duration: 0.72, ease: "sine.inOut", stagger: 0.04 }, 10.28)
+        .to(".logo-card", { y: 0, duration: 0.72, ease: "sine.inOut", stagger: 0.04 }, 10.96)
+        .to("#light-sweep", { opacity: 1, x: 2180, duration: 1.15, ease: "power2.inOut" }, 10.9)
+        .to("#light-sweep", { opacity: 0, duration: 0.28 }, 11.92);
 
       window.__timelines["shot-03"] = tl;
     </script>

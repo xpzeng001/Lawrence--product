@@ -413,6 +413,171 @@
       .spark.s3 { right: 540px; bottom: 176px; }
       .spark.s4 { left: 520px; bottom: 176px; }
 
+      .learning-path {
+        position: absolute;
+        inset: 168px 120px 86px;
+        overflow: visible;
+      }
+
+      .learning-path::before {
+        content: "";
+        position: absolute;
+        left: 170px;
+        right: 170px;
+        top: 660px;
+        height: 2px;
+        background: rgba(139,90,74,0.14);
+      }
+
+      .progress-line {
+        position: absolute;
+        left: 170px;
+        top: 660px;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--primary), var(--gold), var(--green));
+        box-shadow: 0 0 22px rgba(31,159,104,0.18);
+        transform-origin: left center;
+      }
+
+      .path-hero {
+        position: absolute;
+        left: 50%;
+        top: 70px;
+        width: 820px;
+        min-height: 390px;
+        transform: translateX(-50%);
+        padding: 52px 54px 50px;
+        border: 1px solid rgba(232,226,220,0.92);
+        border-radius: 34px;
+        background: rgba(255,255,255,0.94);
+        box-shadow: 0 30px 76px rgba(44,36,33,0.12);
+      }
+
+      .path-hero .detail-label {
+        height: 24px;
+        margin-bottom: 16px;
+        padding: 0 13px;
+        font-size: 10px;
+      }
+
+      .path-hero h2 {
+        margin: 0 0 18px;
+        font-size: 46px;
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .path-hero p {
+        max-width: 700px;
+        margin: 0 0 34px;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1.52;
+        font-weight: 780;
+      }
+
+      .hero-state {
+        position: absolute;
+        inset: 52px 54px 50px;
+      }
+
+      .hero-state .detail-points {
+        gap: 12px;
+      }
+
+      .hero-state .detail-point {
+        min-height: 92px;
+        padding: 16px 18px;
+        border-radius: 16px;
+        background: rgba(250,248,246,0.96);
+      }
+
+      .hero-state .detail-point b {
+        margin-bottom: 8px;
+        font-size: 15px;
+      }
+
+      .hero-state .detail-point span {
+        font-size: 13px;
+        line-height: 1.34;
+      }
+
+      .path-step {
+        position: absolute;
+        top: 586px;
+        width: 302px;
+        min-height: 178px;
+        padding: 28px 28px 26px;
+        border: 1px solid rgba(232,226,220,0.9);
+        border-radius: 24px;
+        background: rgba(255,255,255,0.86);
+        box-shadow: 0 24px 56px rgba(44,36,33,0.09);
+        transform-origin: 50% 50%;
+      }
+
+      .path-step.step-1 { left: 112px; }
+      .path-step.step-2 { left: 496px; }
+      .path-step.step-3 { right: 496px; }
+      .path-step.step-4 { right: 112px; }
+
+      .step-index {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 20px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(139,90,74,0.2);
+        background: var(--soft);
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 950;
+      }
+
+      .path-step b {
+        display: block;
+        margin-bottom: 9px;
+        font-size: 30px;
+        line-height: 1.08;
+      }
+
+      .path-step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.44;
+        font-weight: 760;
+      }
+
+      .step-chip {
+        position: absolute;
+        right: 24px;
+        top: 28px;
+        height: 25px;
+        padding: 0 11px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        background: rgba(31,159,104,0.1);
+        color: var(--green);
+        font-size: 10px;
+        font-weight: 950;
+        text-transform: uppercase;
+      }
+
+      .path-step.is-active {
+        border-color: rgba(139,90,74,0.28);
+        background: rgba(255,255,255,0.96);
+        box-shadow: 0 28px 64px rgba(139,90,74,0.16);
+      }
+
+      .path-step.is-active .step-index {
+        border-color: var(--primary);
+        background: var(--primary);
+        color: white;
+      }
+
     </style>
   </head>
   <body>
@@ -420,32 +585,11 @@
       <div id="base-bg" class="clip base-bg" data-start="0" data-duration="22" data-track-index="0"></div>
       <div id="paper-grid" class="clip paper-grid" data-start="0" data-duration="22" data-track-index="1"></div>
       <main id="shot13-stage" class="clip stage" data-start="0" data-duration="22" data-track-index="2">
-        <section class="orbital-system">
-          <svg class="connector-layer" viewBox="0 0 1680 800" preserveAspectRatio="none" aria-hidden="true">
-            <path class="connector c1" d="M 456 188 C 560 190, 640 304, 800 385" />
-            <path class="connector c2" d="M 1224 188 C 1120 190, 1040 304, 880 385" />
-            <path class="connector c3" d="M 1224 624 C 1114 620, 1036 506, 880 415" />
-            <path class="connector c4" d="M 456 624 C 566 620, 644 506, 800 415" />
-          </svg>
-          <div class="ring r1"></div>
-          <div class="ring r2"></div>
-          <div class="ring-fill"></div>
-          <div class="ripple ripple-a"></div>
-          <div class="ripple ripple-b"></div>
-          <div class="ripple ripple-c"></div>
-          <div class="spark s1"></div>
-          <div class="spark s2"></div>
-          <div class="spark s3"></div>
-          <div class="spark s4"></div>
+        <section class="learning-path">
+          <div class="progress-line"></div>
 
-          <article class="service-card training">
-            <div class="summary-content">
-              <span class="status-pill">Learning</span>
-              <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M22 10v6"/></svg></div>
-              <b>课程培训</b>
-              <p>系统学习法律、办公和营销 Skill 的使用方式。</p>
-            </div>
-            <div class="detail-content">
+          <div class="path-hero">
+            <article class="hero-state state-training">
               <div class="detail-label">Course Training <span class="source-title">课程培训</span></div>
               <h2>AI 实战进阶：从对话到自动化</h2>
               <p>面向已经会用 AI 聊天、但还停留在一问一答的用户，用 18-20 小时完成 3 大模块、12 节零代码训练。</p>
@@ -454,16 +598,8 @@
                 <div class="detail-point"><b>模块 2</b><span>多轮任务、多模态，完成 2 份作品。</span></div>
                 <div class="detail-point"><b>模块 3</b><span>Lawrence 工作流，跑通自动化流程。</span></div>
               </div>
-            </div>
-          </article>
-          <article class="service-card copilot">
-            <div class="summary-content">
-              <span class="status-pill">Co-run</span>
-              <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M3 17 9 11l4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
-              <b>场景陪跑</b>
-              <p>结合真实项目，把能力带进合同、会议和客户流程。</p>
-            </div>
-            <div class="detail-content">
+            </article>
+            <article class="hero-state state-copilot">
               <div class="detail-label">Scenario Co-run <span class="source-title">场景陪跑</span></div>
               <h2>用真实业务项目陪跑</h2>
               <p>把学员自己的合同、会议、客户方案、内容任务带进课堂，一轮轮拆解、审查、修改到可交付。</p>
@@ -472,16 +608,8 @@
                 <div class="detail-point"><b>角色审查</b><span>客户、老板、法务、竞品多视角对抗。</span></div>
                 <div class="detail-point"><b>文件处理</b><span>PDF、Excel、图片和长文档进入流程。</span></div>
               </div>
-            </div>
-          </article>
-          <article class="service-card builder">
-            <div class="summary-content">
-              <span class="status-pill">Build</span>
-              <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M10 3H3v7h7V3Z"/><path d="M21 3h-7v7H21V3Z"/><path d="M21 14h-7v7h7v-7Z"/><path d="M10 14H3v7h7v-7Z"/></svg></div>
-              <b>定制 Skill</b>
-              <p>沉淀企业自己的模板、流程、检查项和交付标准。</p>
-            </div>
-            <div class="detail-content">
+            </article>
+            <article class="hero-state state-builder">
               <div class="detail-label">Skill Builder <span class="source-title">定制 Skill</span></div>
               <h2>定制企业专属 Skill</h2>
               <p>把 Prompt、检查清单、交付标准和常用流程固化下来，形成可复用的工作资产。</p>
@@ -490,16 +618,8 @@
                 <div class="detail-point"><b>交付标准</b><span>报告、方案、看板都有可检查结构。</span></div>
                 <div class="detail-point"><b>安全边界</b><span>AI 做初稿，人做终审和决策。</span></div>
               </div>
-            </div>
-          </article>
-          <article class="service-card workflow">
-            <div class="summary-content">
-              <span class="status-pill">Deploy</span>
-              <div class="card-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3v12"/><path d="M18 9v12"/><path d="M6 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/><path d="M18 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/><path d="M9 18h6"/><path d="M9 6h6"/></svg></div>
-              <b>融入流程</b>
-              <p>接入日常工作流，让 Skill 长期稳定地被调用。</p>
-            </div>
-            <div class="detail-content">
+            </article>
+            <article class="hero-state state-workflow">
               <div class="detail-label">Workflow Deploy <span class="source-title">融入流程</span></div>
               <h2>最后接进日常工作流</h2>
               <p>在 Lawrence 中跑通营销内容自动化：热点搜集、文案改写、图片生成、图文输出，让能力长期稳定调用。</p>
@@ -508,20 +628,35 @@
                 <div class="detail-point"><b>处理</b><span>搜索热点，生成多平台文案和配图。</span></div>
                 <div class="detail-point"><b>输出</b><span>交付 2 条运行中的自动化流程。</span></div>
               </div>
-            </div>
-          </article>
-
-          <div class="school-core">
-            <div>
-              <div class="core-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5V6.5A2.5 2.5 0 0 1 6.5 4H20v14H6.5A2.5 2.5 0 0 0 4 20.5"/><path d="M8 8h8"/><path d="M8 12h6"/></svg></div>
-              <b>WiseLaw Training</b>
-              <small>Skill Enablement</small>
-            </div>
+            </article>
           </div>
 
-        </section>
+          <article class="path-step step-1" data-state="training">
+            <span class="step-chip">Learn</span>
+            <div class="step-index">01</div>
+            <b>课程培训</b>
+            <p>系统学习法律、办公和营销 Skill 的使用方式。</p>
+          </article>
+          <article class="path-step step-2" data-state="copilot">
+            <span class="step-chip">Co-run</span>
+            <div class="step-index">02</div>
+            <b>场景陪跑</b>
+            <p>把能力带进合同、会议和客户流程。</p>
+          </article>
+          <article class="path-step step-3" data-state="builder">
+            <span class="step-chip">Build</span>
+            <div class="step-index">03</div>
+            <b>定制 Skill</b>
+            <p>沉淀企业自己的模板、流程和交付标准。</p>
+          </article>
+          <article class="path-step step-4" data-state="workflow">
+            <span class="step-chip">Deploy</span>
+            <div class="step-index">04</div>
+            <b>融入流程</b>
+            <p>接入日常工作流，让 Skill 长期稳定调用。</p>
+          </article>
 
-        <div class="callout">课程培训｜场景陪跑｜创建 <span>Skill</span>｜融入流程</div>
+        </section>
       </main>
 
       <script src="assets/gsap.min.js"></script>
@@ -529,114 +664,50 @@
         window.__timelines = window.__timelines || {};
         const tl = gsap.timeline({ paused: true });
 
-        gsap.set([".service-card", ".connector", ".spark", ".callout"], { opacity: 0 });
-        gsap.set(".detail-content", { opacity: 0 });
-        gsap.set([".detail-label", ".detail-content h2", ".detail-content p", ".detail-point"], { opacity: 0, y: 8 });
-        gsap.set(".ripple", { opacity: 0, scale: 0.82 });
-        gsap.set(".callout", { y: 26, scale: 0.96 });
+        gsap.set([".path-hero", ".path-step"], { opacity: 0 });
+        gsap.set(".hero-state", { opacity: 0, y: 14 });
+        gsap.set(".state-training", { opacity: 1, y: 0 });
+        gsap.set(".path-step", { y: 28, scale: 0.96 });
+        gsap.set(".progress-line", { width: 0 });
 
-        tl.from(".orbital-system", { opacity: 0, scale: 0.985, duration: 0.8, ease: "power2.out" }, 0)
-          .from(".school-core", { opacity: 0, scale: 0.74, duration: 0.86, ease: "back.out(1.35)" }, 0.28)
-          .from(".ring-fill", { opacity: 0, scale: 0.78, duration: 0.75, ease: "power3.out" }, 0.36)
-          .from(".ring", { opacity: 0, scale: 0.68, duration: 1.1, stagger: 0.12, ease: "power3.out" }, 0.48)
-          .fromTo(".ripple",
-            { opacity: 0.34, scale: 0.72 },
-            {
-              opacity: 0,
-              scale: 2.12,
-              duration: 2.45,
-              stagger: 0.52,
-              repeat: 5,
-              ease: "sine.out"
-            },
-            0.92
-          )
+        const steps = [
+          { card: ".step-1", state: ".state-training", width: 0 },
+          { card: ".step-2", state: ".state-copilot", width: 444 },
+          { card: ".step-3", state: ".state-builder", width: 888 },
+          { card: ".step-4", state: ".state-workflow", width: 1340 }
+        ];
 
-          .fromTo(".connector.c1", { opacity: 0, strokeDashoffset: 220 }, { opacity: 1, strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 1.35)
-          .fromTo(".training", { opacity: 0, x: -52, y: 20, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.62, ease: "back.out(1.25)" }, 1.65)
-          .fromTo(".spark.s1", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.5)" }, 2.18)
+        function activateStep(index, at) {
+          const step = steps[index];
+          const previousState = index === 0 ? null : steps[index - 1].state;
+          if (previousState) {
+            tl.to(previousState, { opacity: 0, y: -12, duration: 0.22, ease: "power2.in" }, at);
+          }
+          tl.to(".path-step", { opacity: 0.42, scale: 0.96, duration: 0.24, ease: "power2.out" }, at)
+            .to(".path-step", { borderColor: "rgba(232,226,220,0.9)", backgroundColor: "rgba(255,255,255,0.86)", boxShadow: "0 24px 56px rgba(44,36,33,0.09)", duration: 0.24, ease: "power2.out" }, at)
+            .to(".path-step .step-index", { borderColor: "rgba(139,90,74,0.2)", backgroundColor: "#f5f2ef", color: "#8b5a4a", duration: 0.24, ease: "power2.out" }, at)
+            .to(step.card, { opacity: 1, y: 0, scale: 1.04, borderColor: "rgba(139,90,74,0.28)", backgroundColor: "rgba(255,255,255,0.96)", boxShadow: "0 28px 64px rgba(139,90,74,0.16)", duration: 0.34, ease: "back.out(1.25)" }, at + 0.04)
+            .to(`${step.card} .step-index`, { borderColor: "#8b5a4a", backgroundColor: "#8b5a4a", color: "#ffffff", duration: 0.28, ease: "power2.out" }, at + 0.06)
+            .to(".progress-line", { width: step.width, duration: 0.52, ease: "power3.inOut" }, at + 0.08);
+          if (index > 0) {
+            tl.fromTo(step.state, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, at + 0.22)
+              .fromTo(`${step.state} .detail-point`, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.26, stagger: 0.07, ease: "power2.out" }, at + 0.48);
+          }
+        }
 
-          .fromTo(".connector.c2", { opacity: 0, strokeDashoffset: 220 }, { opacity: 1, strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 2.65)
-          .fromTo(".copilot", { opacity: 0, x: 52, y: 20, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.62, ease: "back.out(1.25)" }, 2.92)
-          .fromTo(".spark.s2", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.5)" }, 3.48)
+        tl.from(".learning-path", { opacity: 0, scale: 0.985, duration: 0.75, ease: "power2.out" }, 0)
+          .fromTo(".path-hero", { opacity: 0, y: 26, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.72, ease: "power3.out" }, 0.34)
+          .fromTo(".state-training .detail-point", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.28, stagger: 0.08, ease: "power2.out" }, 1.08)
+          .fromTo(".path-step", { opacity: 0, y: 28, scale: 0.96 }, { opacity: 0.58, y: 0, scale: 1, duration: 0.46, stagger: 0.1, ease: "power3.out" }, 1.18);
 
-          .fromTo(".connector.c3", { opacity: 0, strokeDashoffset: 220 }, { opacity: 1, strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 4.08)
-          .fromTo(".builder", { opacity: 0, x: 52, y: -20, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.62, ease: "back.out(1.25)" }, 4.34)
-          .fromTo(".spark.s3", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.5)" }, 4.88)
+        activateStep(0, 1.9);
+        activateStep(1, 6.0);
+        activateStep(2, 10.4);
+        activateStep(3, 14.7);
 
-          .fromTo(".connector.c4", { opacity: 0, strokeDashoffset: 220 }, { opacity: 1, strokeDashoffset: 0, duration: 0.7, ease: "power2.out" }, 5.45)
-          .fromTo(".workflow", { opacity: 0, x: -52, y: -20, scale: 0.92 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.62, ease: "back.out(1.25)" }, 5.72)
-          .fromTo(".spark.s4", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.5)" }, 6.28)
-
-          .to(".school-core", { opacity: 0.24, scale: 0.88, duration: 0.42, ease: "power2.inOut" }, 6.92)
-          .to(".service-card", { opacity: 0.22, duration: 0.35, ease: "power2.out" }, 6.92)
-          .set(".training", { zIndex: 22 }, 6.96)
-          .to(".training", { opacity: 1, x: 544, y: 218, scale: 2.32, duration: 0.64, ease: "power3.inOut" }, 7.0)
-          .to(".training .summary-content", { opacity: 0, duration: 0.16, ease: "power2.out" }, 7.24)
-          .to(".training .detail-content", { opacity: 1, duration: 0.22, ease: "power2.out" }, 7.34)
-          .fromTo(".training .detail-label", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 7.42)
-          .fromTo(".training .detail-content h2", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.28, ease: "power3.out" }, 7.56)
-          .fromTo(".training .detail-content p", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.26, ease: "power2.out" }, 7.78)
-          .fromTo(".training .detail-point", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.24, stagger: 0.08, ease: "power2.out" }, 8.02)
-          .to(".training", { x: 0, y: 0, scale: 1, duration: 0.5, ease: "power3.inOut" }, 9.88)
-          .to(".training .detail-content", { opacity: 0, duration: 0.12, ease: "power2.in" }, 10.34)
-          .to(".training .summary-content", { opacity: 1, duration: 0.12, ease: "power2.out" }, 10.38)
-          .set(".training .detail-content *", { opacity: 0, y: 8 }, 10.44)
-          .set(".training", { zIndex: 3 }, 10.46)
-          .to(".training", { opacity: 0.22, duration: 0.18, ease: "power2.out" }, 10.46)
-
-          .set(".copilot", { zIndex: 22 }, 10.64)
-          .to(".copilot", { opacity: 1, x: -544, y: 218, scale: 2.32, duration: 0.64, ease: "power3.inOut" }, 10.66)
-          .to(".copilot .summary-content", { opacity: 0, duration: 0.16, ease: "power2.out" }, 10.9)
-          .to(".copilot .detail-content", { opacity: 1, duration: 0.22, ease: "power2.out" }, 11.0)
-          .fromTo(".copilot .detail-label", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 11.08)
-          .fromTo(".copilot .detail-content h2", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.28, ease: "power3.out" }, 11.22)
-          .fromTo(".copilot .detail-content p", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.26, ease: "power2.out" }, 11.44)
-          .fromTo(".copilot .detail-point", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.24, stagger: 0.08, ease: "power2.out" }, 11.68)
-          .to(".copilot", { x: 0, y: 0, scale: 1, duration: 0.5, ease: "power3.inOut" }, 13.18)
-          .to(".copilot .detail-content", { opacity: 0, duration: 0.12, ease: "power2.in" }, 13.64)
-          .to(".copilot .summary-content", { opacity: 1, duration: 0.12, ease: "power2.out" }, 13.68)
-          .set(".copilot .detail-content *", { opacity: 0, y: 8 }, 13.74)
-          .set(".copilot", { zIndex: 3 }, 13.76)
-          .to(".copilot", { opacity: 0.22, duration: 0.18, ease: "power2.out" }, 13.76)
-
-          .set(".builder", { zIndex: 22 }, 13.94)
-          .to(".builder", { opacity: 1, x: -544, y: -218, scale: 2.32, duration: 0.64, ease: "power3.inOut" }, 13.96)
-          .to(".builder .summary-content", { opacity: 0, duration: 0.16, ease: "power2.out" }, 14.2)
-          .to(".builder .detail-content", { opacity: 1, duration: 0.22, ease: "power2.out" }, 14.3)
-          .fromTo(".builder .detail-label", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 14.38)
-          .fromTo(".builder .detail-content h2", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.28, ease: "power3.out" }, 14.52)
-          .fromTo(".builder .detail-content p", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.26, ease: "power2.out" }, 14.74)
-          .fromTo(".builder .detail-point", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.24, stagger: 0.08, ease: "power2.out" }, 14.98)
-          .to(".builder", { x: 0, y: 0, scale: 1, duration: 0.5, ease: "power3.inOut" }, 16.48)
-          .to(".builder .detail-content", { opacity: 0, duration: 0.12, ease: "power2.in" }, 16.94)
-          .to(".builder .summary-content", { opacity: 1, duration: 0.12, ease: "power2.out" }, 16.98)
-          .set(".builder .detail-content *", { opacity: 0, y: 8 }, 17.04)
-          .set(".builder", { zIndex: 3 }, 17.06)
-          .to(".builder", { opacity: 0.22, duration: 0.18, ease: "power2.out" }, 17.06)
-
-          .set(".workflow", { zIndex: 22 }, 17.22)
-          .to(".workflow", { opacity: 1, x: 544, y: -218, scale: 2.32, duration: 0.64, ease: "power3.inOut" }, 17.26)
-          .to(".workflow .summary-content", { opacity: 0, duration: 0.16, ease: "power2.out" }, 17.5)
-          .to(".workflow .detail-content", { opacity: 1, duration: 0.22, ease: "power2.out" }, 17.6)
-          .fromTo(".workflow .detail-label", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, 17.68)
-          .fromTo(".workflow .detail-content h2", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.28, ease: "power3.out" }, 17.82)
-          .fromTo(".workflow .detail-content p", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.26, ease: "power2.out" }, 18.04)
-          .fromTo(".workflow .detail-point", { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.24, stagger: 0.08, ease: "power2.out" }, 18.28)
-          .to(".workflow", { x: 0, y: 0, scale: 1, duration: 0.5, ease: "power3.inOut" }, 20.1)
-          .to(".workflow .detail-content", { opacity: 0, duration: 0.12, ease: "power2.in" }, 20.56)
-          .to(".workflow .summary-content", { opacity: 1, duration: 0.12, ease: "power2.out" }, 20.6)
-          .set(".workflow .detail-content *", { opacity: 0, y: 8 }, 20.66)
-          .set(".workflow", { zIndex: 3 }, 20.68)
-          .to(".school-core", { opacity: 1, scale: 1.045, duration: 0.42, yoyo: true, repeat: 1, ease: "power1.inOut" }, 20.74)
-          .to(".service-card", { opacity: 1, duration: 0.35, ease: "power2.out" }, 20.74)
-          .to(".ring.r2", { rotation: 10, duration: 3.2, ease: "none" }, 8.0)
-          .to(".orbital-system", { scale: 1.012, duration: 3.4, ease: "power1.inOut" }, 8.0)
-
-          .fromTo(".callout", { opacity: 0, y: 26, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.15)" }, 21.0)
-          .to(".connector", { stroke: "rgba(31,159,104,0.28)", duration: 0.45, ease: "power2.out" }, 21.08)
-          .to(".spark", { backgroundColor: "#1f9f68", scale: 1.14, duration: 0.28, stagger: 0.05, yoyo: true, repeat: 1, ease: "power1.inOut" }, 21.16)
-          .to(".school-core", { scale: 1.018, duration: 0.45, ease: "power1.inOut" }, 21.2)
+        tl.to(".path-step", { opacity: 1, scale: 1, duration: 0.34, stagger: 0.04, ease: "power2.out" }, 18.55)
+          .to(".progress-line", { width: 1340, duration: 0.42, ease: "power2.out" }, 18.58)
+          .to(".path-hero", { scale: 1.012, duration: 0.5, yoyo: true, repeat: 1, ease: "power1.inOut" }, 20.05)
           .to(["#shot13-stage", "#paper-grid"], { opacity: 0, duration: 0.48, ease: "power2.inOut" }, 21.82);
 
         window.__timelines["shot-13"] = tl;

@@ -1,0 +1,88 @@
+{
+  "id": "narration-p11",
+  "source": "assets/narration/p11.wav",
+  "expectedText": "语音说明目标，文件补充背景。",
+  "recognizedText": "语音说明目标,文件补充背景。",
+  "tokens": [
+    {
+      "text": "音",
+      "start": 0.15,
+      "end": 0.26,
+      "confidence": 0.999676
+    },
+    {
+      "text": "说",
+      "start": 0.33,
+      "end": 0.45,
+      "confidence": 0.994052
+    },
+    {
+      "text": "明",
+      "start": 0.45,
+      "end": 0.59,
+      "confidence": 0.999924
+    },
+    {
+      "text": "目",
+      "start": 0.6,
+      "end": 0.75,
+      "confidence": 0.989714
+    },
+    {
+      "text": "文",
+      "start": 1.19,
+      "end": 1.21,
+      "confidence": 0.928234
+    },
+    {
+      "text": "件",
+      "start": 1.21,
+      "end": 1.34,
+      "confidence": 0.993167
+    },
+    {
+      "text": "背",
+      "start": 1.71,
+      "end": 1.85,
+      "confidence": 0.999199
+    },
+    {
+      "text": "景",
+      "start": 1.85,
+      "end": 2.01,
+      "confidence": 0.999975
+    }
+  ],
+  "words": [
+    {
+      "text": "语音",
+      "start": 0.15,
+      "end": 0.46
+    },
+    {
+      "text": "说明",
+      "start": 0.46,
+      "end": 0.77
+    },
+    {
+      "text": "目标",
+      "start": 0.77,
+      "end": 1.08
+    },
+    {
+      "text": "文件",
+      "start": 1.08,
+      "end": 1.39
+    },
+    {
+      "text": "补充",
+      "start": 1.39,
+      "end": 1.7
+    },
+    {
+      "text": "背景",
+      "start": 1.7,
+      "end": 2.01
+    }
+  ]
+}

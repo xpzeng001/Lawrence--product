@@ -1,0 +1,98 @@
+{
+  "id": "narration-p29",
+  "source": "assets/narration/p29.wav",
+  "expectedText": "快研整理客户、市场和竞品。",
+  "recognizedText": "和研究你客户市场和竞品",
+  "tokens": [
+    {
+      "text": "和",
+      "start": 0.07,
+      "end": 0.17,
+      "confidence": 0.146302
+    },
+    {
+      "text": "究",
+      "start": 0.33,
+      "end": 0.5,
+      "confidence": 0.98667
+    },
+    {
+      "text": "你",
+      "start": 0.5,
+      "end": 0.67,
+      "confidence": 0.599688
+    },
+    {
+      "text": "客",
+      "start": 0.67,
+      "end": 0.84,
+      "confidence": 0.983014
+    },
+    {
+      "text": "市",
+      "start": 1.18,
+      "end": 1.24,
+      "confidence": 0.634173
+    },
+    {
+      "text": "场",
+      "start": 1.24,
+      "end": 1.42,
+      "confidence": 0.995636
+    },
+    {
+      "text": "和",
+      "start": 1.42,
+      "end": 1.6,
+      "confidence": 0.93028
+    },
+    {
+      "text": "品",
+      "start": 1.78,
+      "end": 1.98,
+      "confidence": 0.968034
+    }
+  ],
+  "words": [
+    {
+      "text": "快",
+      "start": 0.07,
+      "end": 0.244
+    },
+    {
+      "text": "研",
+      "start": 0.244,
+      "end": 0.418
+    },
+    {
+      "text": "整理",
+      "start": 0.418,
+      "end": 0.765
+    },
+    {
+      "text": "客户",
+      "start": 0.765,
+      "end": 1.112
+    },
+    {
+      "text": "市场",
+      "start": 1.112,
+      "end": 1.459
+    },
+    {
+      "text": "和",
+      "start": 1.459,
+      "end": 1.633
+    },
+    {
+      "text": "竞",
+      "start": 1.633,
+      "end": 1.807
+    },
+    {
+      "text": "品",
+      "start": 1.807,
+      "end": 1.98
+    }
+  ]
+}

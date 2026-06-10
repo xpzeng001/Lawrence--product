@@ -1,0 +1,339 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,440"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2440
+			},
+			"text": "接收之后,他把任务删除后才留宠。",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.952591,
+					"t_dtw": -1
+				},
+				{
+					"text": "接",
+					"timestamps": {
+						"from": "00:00:00,040",
+						"to": "00:00:00,120"
+					},
+					"offsets": {
+						"from": 40,
+						"to": 120
+					},
+					"id": 14468,
+					"p": 0.942478,
+					"t_dtw": -1
+				},
+				{
+					"text": "收",
+					"timestamps": {
+						"from": "00:00:00,190",
+						"to": "00:00:00,300"
+					},
+					"offsets": {
+						"from": 190,
+						"to": 300
+					},
+					"id": 18681,
+					"p": 0.988976,
+					"t_dtw": -1
+				},
+				{
+					"text": "之",
+					"timestamps": {
+						"from": "00:00:00,350",
+						"to": "00:00:00,440"
+					},
+					"offsets": {
+						"from": 350,
+						"to": 440
+					},
+					"id": 9574,
+					"p": 0.802135,
+					"t_dtw": -1
+				},
+				{
+					"text": "后",
+					"timestamps": {
+						"from": "00:00:00,490",
+						"to": "00:00:00,600"
+					},
+					"offsets": {
+						"from": 490,
+						"to": 600
+					},
+					"id": 13547,
+					"p": 0.998614,
+					"t_dtw": -1
+				},
+				{
+					"text": ",",
+					"timestamps": {
+						"from": "00:00:00,740",
+						"to": "00:00:00,740"
+					},
+					"offsets": {
+						"from": 740,
+						"to": 740
+					},
+					"id": 11,
+					"p": 0.88984,
+					"t_dtw": -1
+				},
+				{
+					"text": "他",
+					"timestamps": {
+						"from": "00:00:00,890",
+						"to": "00:00:00,890"
+					},
+					"offsets": {
+						"from": 890,
+						"to": 890
+					},
+					"id": 5000,
+					"p": 0.801611,
+					"t_dtw": -1
+				},
+				{
+					"text": "把",
+					"timestamps": {
+						"from": "00:00:00,950",
+						"to": "00:00:01,040"
+					},
+					"offsets": {
+						"from": 950,
+						"to": 1040
+					},
+					"id": 16075,
+					"p": 0.994896,
+					"t_dtw": -1
+				},
+				{
+					"text": "任",
+					"timestamps": {
+						"from": "00:00:01,040",
+						"to": "00:00:01,190"
+					},
+					"offsets": {
+						"from": 1040,
+						"to": 1190
+					},
+					"id": 26443,
+					"p": 0.947945,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,190",
+						"to": "00:00:01,290"
+					},
+					"offsets": {
+						"from": 1190,
+						"to": 1290
+					},
+					"id": 5087,
+					"p": 0.998784,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,290",
+						"to": "00:00:01,340"
+					},
+					"offsets": {
+						"from": 1290,
+						"to": 1340
+					},
+					"id": 94,
+					"p": 1,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,340",
+						"to": "00:00:01,440"
+					},
+					"offsets": {
+						"from": 1340,
+						"to": 1440
+					},
+					"id": 2437,
+					"p": 0.583273,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,440",
+						"to": "00:00:01,490"
+					},
+					"offsets": {
+						"from": 1440,
+						"to": 1490
+					},
+					"id": 254,
+					"p": 0.998119,
+					"t_dtw": -1
+				},
+				{
+					"text": "除",
+					"timestamps": {
+						"from": "00:00:01,490",
+						"to": "00:00:01,620"
+					},
+					"offsets": {
+						"from": 1490,
+						"to": 1620
+					},
+					"id": 32999,
+					"p": 0.669973,
+					"t_dtw": -1
+				},
+				{
+					"text": "后",
+					"timestamps": {
+						"from": "00:00:01,650",
+						"to": "00:00:01,780"
+					},
+					"offsets": {
+						"from": 1650,
+						"to": 1780
+					},
+					"id": 13547,
+					"p": 0.977346,
+					"t_dtw": -1
+				},
+				{
+					"text": "才",
+					"timestamps": {
+						"from": "00:00:01,850",
+						"to": "00:00:01,940"
+					},
+					"offsets": {
+						"from": 1850,
+						"to": 1940
+					},
+					"id": 18888,
+					"p": 0.972675,
+					"t_dtw": -1
+				},
+				{
+					"text": "留",
+					"timestamps": {
+						"from": "00:00:01,940",
+						"to": "00:00:02,090"
+					},
+					"offsets": {
+						"from": 1940,
+						"to": 2090
+					},
+					"id": 24456,
+					"p": 0.713121,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,090",
+						"to": "00:00:02,190"
+					},
+					"offsets": {
+						"from": 2090,
+						"to": 2190
+					},
+					"id": 2415,
+					"p": 0.118623,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,190",
+						"to": "00:00:02,240"
+					},
+					"offsets": {
+						"from": 2190,
+						"to": 2240
+					},
+					"id": 254,
+					"p": 0.947838,
+					"t_dtw": -1
+				},
+				{
+					"text": "。",
+					"timestamps": {
+						"from": "00:00:02,240",
+						"to": "00:00:02,440"
+					},
+					"offsets": {
+						"from": 2240,
+						"to": 2440
+					},
+					"id": 1543,
+					"p": 0.893031,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_122]",
+					"timestamps": {
+						"from": "00:00:02,440",
+						"to": "00:00:02,440"
+					},
+					"offsets": {
+						"from": 2440,
+						"to": 2440
+					},
+					"id": 50487,
+					"p": 0.603862,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,133 @@
+{
+  "id": "narration-p20",
+  "source": "assets/narration/p20.wav",
+  "expectedText": "真正支撑长期工作的，是数字工位。",
+  "recognizedText": "真正追升长期工作的,是数字工位。",
+  "tokens": [
+    {
+      "text": "真",
+      "start": 0.02,
+      "end": 0.14,
+      "confidence": 0.945379
+    },
+    {
+      "text": "正",
+      "start": 0.2,
+      "end": 0.33,
+      "confidence": 0.99971
+    },
+    {
+      "text": "追",
+      "start": 0.39,
+      "end": 0.48,
+      "confidence": 0.978353
+    },
+    {
+      "text": "升",
+      "start": 0.51,
+      "end": 0.67,
+      "confidence": 0.518885
+    },
+    {
+      "text": "长",
+      "start": 0.71,
+      "end": 0.85,
+      "confidence": 0.265127
+    },
+    {
+      "text": "期",
+      "start": 0.85,
+      "end": 1.02,
+      "confidence": 0.998264
+    },
+    {
+      "text": "工作",
+      "start": 1.02,
+      "end": 1.37,
+      "confidence": 0.998129
+    },
+    {
+      "text": "的",
+      "start": 1.37,
+      "end": 1.54,
+      "confidence": 0.828953
+    },
+    {
+      "text": "是",
+      "start": 1.82,
+      "end": 1.88,
+      "confidence": 0.711711
+    },
+    {
+      "text": "数",
+      "start": 1.89,
+      "end": 2.05,
+      "confidence": 0.99221
+    },
+    {
+      "text": "字",
+      "start": 2.05,
+      "end": 2.22,
+      "confidence": 0.999868
+    },
+    {
+      "text": "工",
+      "start": 2.22,
+      "end": 2.39,
+      "confidence": 0.72313
+    },
+    {
+      "text": "位",
+      "start": 2.39,
+      "end": 2.6,
+      "confidence": 0.687615
+    }
+  ],
+  "words": [
+    {
+      "text": "真正",
+      "start": 0.02,
+      "end": 0.389
+    },
+    {
+      "text": "支撑",
+      "start": 0.389,
+      "end": 0.758
+    },
+    {
+      "text": "长期",
+      "start": 0.758,
+      "end": 1.127
+    },
+    {
+      "text": "工作",
+      "start": 1.127,
+      "end": 1.496
+    },
+    {
+      "text": "的",
+      "start": 1.496,
+      "end": 1.68
+    },
+    {
+      "text": "是",
+      "start": 1.68,
+      "end": 1.864
+    },
+    {
+      "text": "数字",
+      "start": 1.864,
+      "end": 2.233
+    },
+    {
+      "text": "工",
+      "start": 2.233,
+      "end": 2.417
+    },
+    {
+      "text": "位",
+      "start": 2.417,
+      "end": 2.6
+    }
+  ]
+}

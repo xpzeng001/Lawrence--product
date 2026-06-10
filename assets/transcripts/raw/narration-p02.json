@@ -1,0 +1,311 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,200"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2200
+			},
+			"text": "而更像能上岗的专业数字员工",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.966315,
+					"t_dtw": -1
+				},
+				{
+					"text": "而",
+					"timestamps": {
+						"from": "00:00:00,050",
+						"to": "00:00:00,140"
+					},
+					"offsets": {
+						"from": 50,
+						"to": 140
+					},
+					"id": 11070,
+					"p": 0.150366,
+					"t_dtw": -1
+				},
+				{
+					"text": "更",
+					"timestamps": {
+						"from": "00:00:00,190",
+						"to": "00:00:00,310"
+					},
+					"offsets": {
+						"from": 190,
+						"to": 310
+					},
+					"id": 19002,
+					"p": 0.988144,
+					"t_dtw": -1
+				},
+				{
+					"text": "像",
+					"timestamps": {
+						"from": "00:00:00,320",
+						"to": "00:00:00,470"
+					},
+					"offsets": {
+						"from": 320,
+						"to": 470
+					},
+					"id": 12760,
+					"p": 0.59651,
+					"t_dtw": -1
+				},
+				{
+					"text": "能",
+					"timestamps": {
+						"from": "00:00:00,470",
+						"to": "00:00:00,640"
+					},
+					"offsets": {
+						"from": 470,
+						"to": 640
+					},
+					"id": 8225,
+					"p": 0.126732,
+					"t_dtw": -1
+				},
+				{
+					"text": "上",
+					"timestamps": {
+						"from": "00:00:00,640",
+						"to": "00:00:00,800"
+					},
+					"offsets": {
+						"from": 640,
+						"to": 800
+					},
+					"id": 5708,
+					"p": 0.993625,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,800",
+						"to": "00:00:00,910"
+					},
+					"offsets": {
+						"from": 800,
+						"to": 910
+					},
+					"id": 23182,
+					"p": 0.71778,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,910",
+						"to": "00:00:00,960"
+					},
+					"offsets": {
+						"from": 910,
+						"to": 960
+					},
+					"id": 245,
+					"p": 0.991868,
+					"t_dtw": -1
+				},
+				{
+					"text": "的",
+					"timestamps": {
+						"from": "00:00:00,960",
+						"to": "00:00:01,120"
+					},
+					"offsets": {
+						"from": 960,
+						"to": 1120
+					},
+					"id": 1546,
+					"p": 0.942183,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,120",
+						"to": "00:00:01,230"
+					},
+					"offsets": {
+						"from": 1120,
+						"to": 1230
+					},
+					"id": 940,
+					"p": 0.9621,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,230",
+						"to": "00:00:01,280"
+					},
+					"offsets": {
+						"from": 1230,
+						"to": 1280
+					},
+					"id": 241,
+					"p": 0.999977,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,280",
+						"to": "00:00:01,390"
+					},
+					"offsets": {
+						"from": 1280,
+						"to": 1390
+					},
+					"id": 940,
+					"p": 0.994865,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,390",
+						"to": "00:00:01,440"
+					},
+					"offsets": {
+						"from": 1390,
+						"to": 1440
+					},
+					"id": 248,
+					"p": 1,
+					"t_dtw": -1
+				},
+				{
+					"text": "数",
+					"timestamps": {
+						"from": "00:00:01,440",
+						"to": "00:00:01,600"
+					},
+					"offsets": {
+						"from": 1440,
+						"to": 1600
+					},
+					"id": 33188,
+					"p": 0.979481,
+					"t_dtw": -1
+				},
+				{
+					"text": "字",
+					"timestamps": {
+						"from": "00:00:01,600",
+						"to": "00:00:01,760"
+					},
+					"offsets": {
+						"from": 1600,
+						"to": 1760
+					},
+					"id": 22381,
+					"p": 0.998847,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,760",
+						"to": "00:00:01,870"
+					},
+					"offsets": {
+						"from": 1760,
+						"to": 1870
+					},
+					"id": 3606,
+					"p": 0.933444,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,870",
+						"to": "00:00:01,920"
+					},
+					"offsets": {
+						"from": 1870,
+						"to": 1920
+					},
+					"id": 246,
+					"p": 0.999937,
+					"t_dtw": -1
+				},
+				{
+					"text": "工",
+					"timestamps": {
+						"from": "00:00:01,920",
+						"to": "00:00:02,160"
+					},
+					"offsets": {
+						"from": 1920,
+						"to": 2160
+					},
+					"id": 23323,
+					"p": 0.999798,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_110]",
+					"timestamps": {
+						"from": "00:00:02,200",
+						"to": "00:00:02,200"
+					},
+					"offsets": {
+						"from": 2200,
+						"to": 2200
+					},
+					"id": 50475,
+					"p": 0.491202,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

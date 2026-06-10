@@ -1,0 +1,353 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:03,100"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 3100
+			},
+			"text": "从身份中未到技能,形成一套完整协作。",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.968285,
+					"t_dtw": -1
+				},
+				{
+					"text": "从",
+					"timestamps": {
+						"from": "00:00:00,080",
+						"to": "00:00:00,170"
+					},
+					"offsets": {
+						"from": 80,
+						"to": 170
+					},
+					"id": 35630,
+					"p": 0.974433,
+					"t_dtw": -1
+				},
+				{
+					"text": "身",
+					"timestamps": {
+						"from": "00:00:00,180",
+						"to": "00:00:00,360"
+					},
+					"offsets": {
+						"from": 180,
+						"to": 360
+					},
+					"id": 19847,
+					"p": 0.996727,
+					"t_dtw": -1
+				},
+				{
+					"text": "份",
+					"timestamps": {
+						"from": "00:00:00,360",
+						"to": "00:00:00,540"
+					},
+					"offsets": {
+						"from": 360,
+						"to": 540
+					},
+					"id": 36266,
+					"p": 0.997986,
+					"t_dtw": -1
+				},
+				{
+					"text": "中",
+					"timestamps": {
+						"from": "00:00:00,540",
+						"to": "00:00:00,720"
+					},
+					"offsets": {
+						"from": 540,
+						"to": 720
+					},
+					"id": 5975,
+					"p": 0.883044,
+					"t_dtw": -1
+				},
+				{
+					"text": "未",
+					"timestamps": {
+						"from": "00:00:00,720",
+						"to": "00:00:00,900"
+					},
+					"offsets": {
+						"from": 720,
+						"to": 900
+					},
+					"id": 29954,
+					"p": 0.42623,
+					"t_dtw": -1
+				},
+				{
+					"text": "到",
+					"timestamps": {
+						"from": "00:00:00,900",
+						"to": "00:00:01,080"
+					},
+					"offsets": {
+						"from": 900,
+						"to": 1080
+					},
+					"id": 4511,
+					"p": 0.916237,
+					"t_dtw": -1
+				},
+				{
+					"text": "技",
+					"timestamps": {
+						"from": "00:00:01,080",
+						"to": "00:00:01,250"
+					},
+					"offsets": {
+						"from": 1080,
+						"to": 1250
+					},
+					"id": 32502,
+					"p": 0.426989,
+					"t_dtw": -1
+				},
+				{
+					"text": "能",
+					"timestamps": {
+						"from": "00:00:01,250",
+						"to": "00:00:01,460"
+					},
+					"offsets": {
+						"from": 1250,
+						"to": 1460
+					},
+					"id": 8225,
+					"p": 0.999992,
+					"t_dtw": -1
+				},
+				{
+					"text": ",",
+					"timestamps": {
+						"from": "00:00:01,460",
+						"to": "00:00:01,460"
+					},
+					"offsets": {
+						"from": 1460,
+						"to": 1460
+					},
+					"id": 11,
+					"p": 0.848458,
+					"t_dtw": -1
+				},
+				{
+					"text": "形",
+					"timestamps": {
+						"from": "00:00:01,740",
+						"to": "00:00:01,750"
+					},
+					"offsets": {
+						"from": 1740,
+						"to": 1750
+					},
+					"id": 30900,
+					"p": 0.613284,
+					"t_dtw": -1
+				},
+				{
+					"text": "成",
+					"timestamps": {
+						"from": "00:00:01,820",
+						"to": "00:00:01,920"
+					},
+					"offsets": {
+						"from": 1820,
+						"to": 1920
+					},
+					"id": 11336,
+					"p": 0.991204,
+					"t_dtw": -1
+				},
+				{
+					"text": "一",
+					"timestamps": {
+						"from": "00:00:01,970",
+						"to": "00:00:02,120"
+					},
+					"offsets": {
+						"from": 1970,
+						"to": 2120
+					},
+					"id": 2257,
+					"p": 0.93726,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,120",
+						"to": "00:00:02,240"
+					},
+					"offsets": {
+						"from": 2120,
+						"to": 2240
+					},
+					"id": 1881,
+					"p": 0.997299,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,240",
+						"to": "00:00:02,280"
+					},
+					"offsets": {
+						"from": 2240,
+						"to": 2280
+					},
+					"id": 245,
+					"p": 0.999989,
+					"t_dtw": -1
+				},
+				{
+					"text": "完",
+					"timestamps": {
+						"from": "00:00:02,350",
+						"to": "00:00:02,480"
+					},
+					"offsets": {
+						"from": 2350,
+						"to": 2480
+					},
+					"id": 14128,
+					"p": 0.999683,
+					"t_dtw": -1
+				},
+				{
+					"text": "整",
+					"timestamps": {
+						"from": "00:00:02,480",
+						"to": "00:00:02,660"
+					},
+					"offsets": {
+						"from": 2480,
+						"to": 2660
+					},
+					"id": 27662,
+					"p": 0.998951,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,660",
+						"to": "00:00:02,770"
+					},
+					"offsets": {
+						"from": 2660,
+						"to": 2770
+					},
+					"id": 5322,
+					"p": 0.984617,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,780",
+						"to": "00:00:02,790"
+					},
+					"offsets": {
+						"from": 2780,
+						"to": 2790
+					},
+					"id": 237,
+					"p": 0.999809,
+					"t_dtw": -1
+				},
+				{
+					"text": "作",
+					"timestamps": {
+						"from": "00:00:02,870",
+						"to": "00:00:03,100"
+					},
+					"offsets": {
+						"from": 2870,
+						"to": 3100
+					},
+					"id": 11914,
+					"p": 0.99883,
+					"t_dtw": -1
+				},
+				{
+					"text": "。",
+					"timestamps": {
+						"from": "00:00:03,100",
+						"to": "00:00:03,100"
+					},
+					"offsets": {
+						"from": 3100,
+						"to": 3100
+					},
+					"id": 1543,
+					"p": 0.877751,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_155]",
+					"timestamps": {
+						"from": "00:00:03,100",
+						"to": "00:00:03,100"
+					},
+					"offsets": {
+						"from": 3100,
+						"to": 3100
+					},
+					"id": 50520,
+					"p": 0.795343,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

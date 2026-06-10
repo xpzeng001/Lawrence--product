@@ -1,0 +1,98 @@
+{
+  "id": "narration-p23",
+  "source": "assets/narration/p23.wav",
+  "expectedText": "所以它可以在企业内部稳定运行。",
+  "recognizedText": "所以它可以在企业内部稳定运行",
+  "tokens": [
+    {
+      "text": "所以",
+      "start": 0.06,
+      "end": 0.3,
+      "confidence": 0.992021
+    },
+    {
+      "text": "它",
+      "start": 0.3,
+      "end": 0.45,
+      "confidence": 0.71626
+    },
+    {
+      "text": "可以",
+      "start": 0.45,
+      "end": 0.72,
+      "confidence": 0.988436
+    },
+    {
+      "text": "在",
+      "start": 0.77,
+      "end": 0.86,
+      "confidence": 0.996518
+    },
+    {
+      "text": "内",
+      "start": 1.2,
+      "end": 1.35,
+      "confidence": 0.99767
+    },
+    {
+      "text": "部",
+      "start": 1.35,
+      "end": 1.49,
+      "confidence": 0.917072
+    },
+    {
+      "text": "定",
+      "start": 1.65,
+      "end": 1.8,
+      "confidence": 0.862398
+    },
+    {
+      "text": "行",
+      "start": 1.95,
+      "end": 2.06,
+      "confidence": 0.998687
+    }
+  ],
+  "words": [
+    {
+      "text": "所以",
+      "start": 0.06,
+      "end": 0.346
+    },
+    {
+      "text": "它",
+      "start": 0.346,
+      "end": 0.489
+    },
+    {
+      "text": "可以",
+      "start": 0.489,
+      "end": 0.775
+    },
+    {
+      "text": "在",
+      "start": 0.775,
+      "end": 0.918
+    },
+    {
+      "text": "企业",
+      "start": 0.918,
+      "end": 1.204
+    },
+    {
+      "text": "内部",
+      "start": 1.204,
+      "end": 1.49
+    },
+    {
+      "text": "稳定",
+      "start": 1.49,
+      "end": 1.776
+    },
+    {
+      "text": "运行",
+      "start": 1.776,
+      "end": 2.06
+    }
+  ]
+}

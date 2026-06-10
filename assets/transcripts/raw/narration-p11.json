@@ -1,0 +1,325 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,240"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2240
+			},
+			"text": "语音说明目标,文件补充背景。",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.956873,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,100"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 100
+					},
+					"id": 5233,
+					"p": 0.113458,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,100",
+						"to": "00:00:00,150"
+					},
+					"offsets": {
+						"from": 100,
+						"to": 150
+					},
+					"id": 255,
+					"p": 0.983365,
+					"t_dtw": -1
+				},
+				{
+					"text": "音",
+					"timestamps": {
+						"from": "00:00:00,150",
+						"to": "00:00:00,260"
+					},
+					"offsets": {
+						"from": 150,
+						"to": 260
+					},
+					"id": 18034,
+					"p": 0.999676,
+					"t_dtw": -1
+				},
+				{
+					"text": "说",
+					"timestamps": {
+						"from": "00:00:00,330",
+						"to": "00:00:00,450"
+					},
+					"offsets": {
+						"from": 330,
+						"to": 450
+					},
+					"id": 8090,
+					"p": 0.994052,
+					"t_dtw": -1
+				},
+				{
+					"text": "明",
+					"timestamps": {
+						"from": "00:00:00,450",
+						"to": "00:00:00,590"
+					},
+					"offsets": {
+						"from": 450,
+						"to": 590
+					},
+					"id": 11100,
+					"p": 0.999924,
+					"t_dtw": -1
+				},
+				{
+					"text": "目",
+					"timestamps": {
+						"from": "00:00:00,600",
+						"to": "00:00:00,750"
+					},
+					"offsets": {
+						"from": 600,
+						"to": 750
+					},
+					"id": 11386,
+					"p": 0.989714,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,750",
+						"to": "00:00:00,800"
+					},
+					"offsets": {
+						"from": 750,
+						"to": 800
+					},
+					"id": 162,
+					"p": 0.999933,
+					"t_dtw": -1
+				},
+				{
+					"text": "��",
+					"timestamps": {
+						"from": "00:00:00,800",
+						"to": "00:00:00,910"
+					},
+					"offsets": {
+						"from": 800,
+						"to": 910
+					},
+					"id": 3921,
+					"p": 0.999947,
+					"t_dtw": -1
+				},
+				{
+					"text": ",",
+					"timestamps": {
+						"from": "00:00:01,050",
+						"to": "00:00:01,050"
+					},
+					"offsets": {
+						"from": 1050,
+						"to": 1050
+					},
+					"id": 11,
+					"p": 0.565611,
+					"t_dtw": -1
+				},
+				{
+					"text": "文",
+					"timestamps": {
+						"from": "00:00:01,190",
+						"to": "00:00:01,210"
+					},
+					"offsets": {
+						"from": 1190,
+						"to": 1210
+					},
+					"id": 17174,
+					"p": 0.928234,
+					"t_dtw": -1
+				},
+				{
+					"text": "件",
+					"timestamps": {
+						"from": "00:00:01,210",
+						"to": "00:00:01,340"
+					},
+					"offsets": {
+						"from": 1210,
+						"to": 1340
+					},
+					"id": 20485,
+					"p": 0.993167,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,400",
+						"to": "00:00:01,480"
+					},
+					"offsets": {
+						"from": 1400,
+						"to": 1480
+					},
+					"id": 9890,
+					"p": 0.985526,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,480",
+						"to": "00:00:01,530"
+					},
+					"offsets": {
+						"from": 1480,
+						"to": 1530
+					},
+					"id": 98,
+					"p": 0.999989,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,530",
+						"to": "00:00:01,640"
+					},
+					"offsets": {
+						"from": 1530,
+						"to": 1640
+					},
+					"id": 2347,
+					"p": 0.999949,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,640",
+						"to": "00:00:01,670"
+					},
+					"offsets": {
+						"from": 1640,
+						"to": 1670
+					},
+					"id": 227,
+					"p": 0.999998,
+					"t_dtw": -1
+				},
+				{
+					"text": "背",
+					"timestamps": {
+						"from": "00:00:01,710",
+						"to": "00:00:01,850"
+					},
+					"offsets": {
+						"from": 1710,
+						"to": 1850
+					},
+					"id": 46329,
+					"p": 0.999199,
+					"t_dtw": -1
+				},
+				{
+					"text": "景",
+					"timestamps": {
+						"from": "00:00:01,850",
+						"to": "00:00:02,010"
+					},
+					"offsets": {
+						"from": 1850,
+						"to": 2010
+					},
+					"id": 50218,
+					"p": 0.999975,
+					"t_dtw": -1
+				},
+				{
+					"text": "。",
+					"timestamps": {
+						"from": "00:00:02,010",
+						"to": "00:00:02,240"
+					},
+					"offsets": {
+						"from": 2010,
+						"to": 2240
+					},
+					"id": 1543,
+					"p": 0.682101,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_112]",
+					"timestamps": {
+						"from": "00:00:02,240",
+						"to": "00:00:02,240"
+					},
+					"offsets": {
+						"from": 2240,
+						"to": 2240
+					},
+					"id": 50477,
+					"p": 0.391702,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

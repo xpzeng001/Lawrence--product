@@ -1,0 +1,311 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,340"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2340
+			},
+			"text": "大模型只是大脑,不等于完整员工。",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.966223,
+					"t_dtw": -1
+				},
+				{
+					"text": "大",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,130"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 130
+					},
+					"id": 3582,
+					"p": 0.231686,
+					"t_dtw": -1
+				},
+				{
+					"text": "模",
+					"timestamps": {
+						"from": "00:00:00,130",
+						"to": "00:00:00,210"
+					},
+					"offsets": {
+						"from": 130,
+						"to": 210
+					},
+					"id": 41908,
+					"p": 0.977055,
+					"t_dtw": -1
+				},
+				{
+					"text": "型",
+					"timestamps": {
+						"from": "00:00:00,280",
+						"to": "00:00:00,390"
+					},
+					"offsets": {
+						"from": 280,
+						"to": 390
+					},
+					"id": 39823,
+					"p": 0.996023,
+					"t_dtw": -1
+				},
+				{
+					"text": "只是",
+					"timestamps": {
+						"from": "00:00:00,390",
+						"to": "00:00:00,650"
+					},
+					"offsets": {
+						"from": 390,
+						"to": 650
+					},
+					"id": 36859,
+					"p": 0.45707,
+					"t_dtw": -1
+				},
+				{
+					"text": "大",
+					"timestamps": {
+						"from": "00:00:00,680",
+						"to": "00:00:00,790"
+					},
+					"offsets": {
+						"from": 680,
+						"to": 790
+					},
+					"id": 3582,
+					"p": 0.177348,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,790",
+						"to": "00:00:00,880"
+					},
+					"offsets": {
+						"from": 790,
+						"to": 880
+					},
+					"id": 27067,
+					"p": 0.912844,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,880",
+						"to": "00:00:00,940"
+					},
+					"offsets": {
+						"from": 880,
+						"to": 940
+					},
+					"id": 239,
+					"p": 0.999966,
+					"t_dtw": -1
+				},
+				{
+					"text": ",",
+					"timestamps": {
+						"from": "00:00:01,080",
+						"to": "00:00:01,080"
+					},
+					"offsets": {
+						"from": 1080,
+						"to": 1080
+					},
+					"id": 11,
+					"p": 0.402235,
+					"t_dtw": -1
+				},
+				{
+					"text": "不",
+					"timestamps": {
+						"from": "00:00:01,230",
+						"to": "00:00:01,260"
+					},
+					"offsets": {
+						"from": 1230,
+						"to": 1260
+					},
+					"id": 1960,
+					"p": 0.878352,
+					"t_dtw": -1
+				},
+				{
+					"text": "等",
+					"timestamps": {
+						"from": "00:00:01,260",
+						"to": "00:00:01,440"
+					},
+					"offsets": {
+						"from": 1260,
+						"to": 1440
+					},
+					"id": 10187,
+					"p": 0.154187,
+					"t_dtw": -1
+				},
+				{
+					"text": "于",
+					"timestamps": {
+						"from": "00:00:01,440",
+						"to": "00:00:01,620"
+					},
+					"offsets": {
+						"from": 1440,
+						"to": 1620
+					},
+					"id": 37732,
+					"p": 0.928346,
+					"t_dtw": -1
+				},
+				{
+					"text": "完",
+					"timestamps": {
+						"from": "00:00:01,620",
+						"to": "00:00:01,760"
+					},
+					"offsets": {
+						"from": 1620,
+						"to": 1760
+					},
+					"id": 14128,
+					"p": 0.634998,
+					"t_dtw": -1
+				},
+				{
+					"text": "整",
+					"timestamps": {
+						"from": "00:00:01,820",
+						"to": "00:00:01,980"
+					},
+					"offsets": {
+						"from": 1820,
+						"to": 1980
+					},
+					"id": 27662,
+					"p": 0.999924,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,980",
+						"to": "00:00:02,100"
+					},
+					"offsets": {
+						"from": 1980,
+						"to": 2100
+					},
+					"id": 3606,
+					"p": 0.329736,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,100",
+						"to": "00:00:02,160"
+					},
+					"offsets": {
+						"from": 2100,
+						"to": 2160
+					},
+					"id": 246,
+					"p": 0.999462,
+					"t_dtw": -1
+				},
+				{
+					"text": "工",
+					"timestamps": {
+						"from": "00:00:02,160",
+						"to": "00:00:02,340"
+					},
+					"offsets": {
+						"from": 2160,
+						"to": 2340
+					},
+					"id": 23323,
+					"p": 0.999983,
+					"t_dtw": -1
+				},
+				{
+					"text": "。",
+					"timestamps": {
+						"from": "00:00:02,340",
+						"to": "00:00:02,340"
+					},
+					"offsets": {
+						"from": 2340,
+						"to": 2340
+					},
+					"id": 1543,
+					"p": 0.62262,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_117]",
+					"timestamps": {
+						"from": "00:00:02,340",
+						"to": "00:00:02,340"
+					},
+					"offsets": {
+						"from": 2340,
+						"to": 2340
+					},
+					"id": 50482,
+					"p": 0.530464,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

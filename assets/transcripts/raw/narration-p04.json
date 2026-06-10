@@ -1,0 +1,297 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,940"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2940
+			},
+			"text": "所以我们看的不是功能清单,而是工作方式。",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.984841,
+					"t_dtw": -1
+				},
+				{
+					"text": "所以",
+					"timestamps": {
+						"from": "00:00:00,060",
+						"to": "00:00:00,300"
+					},
+					"offsets": {
+						"from": 60,
+						"to": 300
+					},
+					"id": 7239,
+					"p": 0.996873,
+					"t_dtw": -1
+				},
+				{
+					"text": "我们",
+					"timestamps": {
+						"from": "00:00:00,300",
+						"to": "00:00:00,500"
+					},
+					"offsets": {
+						"from": 300,
+						"to": 500
+					},
+					"id": 15003,
+					"p": 0.945666,
+					"t_dtw": -1
+				},
+				{
+					"text": "看",
+					"timestamps": {
+						"from": "00:00:00,610",
+						"to": "00:00:00,720"
+					},
+					"offsets": {
+						"from": 610,
+						"to": 720
+					},
+					"id": 4200,
+					"p": 0.990769,
+					"t_dtw": -1
+				},
+				{
+					"text": "的",
+					"timestamps": {
+						"from": "00:00:00,770",
+						"to": "00:00:00,860"
+					},
+					"offsets": {
+						"from": 770,
+						"to": 860
+					},
+					"id": 1546,
+					"p": 0.857171,
+					"t_dtw": -1
+				},
+				{
+					"text": "不是",
+					"timestamps": {
+						"from": "00:00:00,910",
+						"to": "00:00:01,200"
+					},
+					"offsets": {
+						"from": 910,
+						"to": 1200
+					},
+					"id": 7296,
+					"p": 0.997659,
+					"t_dtw": -1
+				},
+				{
+					"text": "功",
+					"timestamps": {
+						"from": "00:00:01,200",
+						"to": "00:00:01,350"
+					},
+					"offsets": {
+						"from": 1200,
+						"to": 1350
+					},
+					"id": 32311,
+					"p": 0.646892,
+					"t_dtw": -1
+				},
+				{
+					"text": "能",
+					"timestamps": {
+						"from": "00:00:01,350",
+						"to": "00:00:01,480"
+					},
+					"offsets": {
+						"from": 1350,
+						"to": 1480
+					},
+					"id": 8225,
+					"p": 0.996251,
+					"t_dtw": -1
+				},
+				{
+					"text": "清",
+					"timestamps": {
+						"from": "00:00:01,530",
+						"to": "00:00:01,650"
+					},
+					"offsets": {
+						"from": 1530,
+						"to": 1650
+					},
+					"id": 21784,
+					"p": 0.890038,
+					"t_dtw": -1
+				},
+				{
+					"text": "单",
+					"timestamps": {
+						"from": "00:00:01,650",
+						"to": "00:00:01,800"
+					},
+					"offsets": {
+						"from": 1650,
+						"to": 1800
+					},
+					"id": 47446,
+					"p": 0.886213,
+					"t_dtw": -1
+				},
+				{
+					"text": ",",
+					"timestamps": {
+						"from": "00:00:01,800",
+						"to": "00:00:01,810"
+					},
+					"offsets": {
+						"from": 1800,
+						"to": 1810
+					},
+					"id": 11,
+					"p": 0.856612,
+					"t_dtw": -1
+				},
+				{
+					"text": "而",
+					"timestamps": {
+						"from": "00:00:02,030",
+						"to": "00:00:02,030"
+					},
+					"offsets": {
+						"from": 2030,
+						"to": 2030
+					},
+					"id": 11070,
+					"p": 0.794128,
+					"t_dtw": -1
+				},
+				{
+					"text": "是",
+					"timestamps": {
+						"from": "00:00:02,090",
+						"to": "00:00:02,160"
+					},
+					"offsets": {
+						"from": 2090,
+						"to": 2160
+					},
+					"id": 1541,
+					"p": 0.999868,
+					"t_dtw": -1
+				},
+				{
+					"text": "工作",
+					"timestamps": {
+						"from": "00:00:02,200",
+						"to": "00:00:02,450"
+					},
+					"offsets": {
+						"from": 2200,
+						"to": 2450
+					},
+					"id": 41315,
+					"p": 0.995718,
+					"t_dtw": -1
+				},
+				{
+					"text": "方",
+					"timestamps": {
+						"from": "00:00:02,530",
+						"to": "00:00:02,600"
+					},
+					"offsets": {
+						"from": 2530,
+						"to": 2600
+					},
+					"id": 9249,
+					"p": 0.998184,
+					"t_dtw": -1
+				},
+				{
+					"text": "式",
+					"timestamps": {
+						"from": "00:00:02,600",
+						"to": "00:00:02,740"
+					},
+					"offsets": {
+						"from": 2600,
+						"to": 2740
+					},
+					"id": 27584,
+					"p": 0.999924,
+					"t_dtw": -1
+				},
+				{
+					"text": "。",
+					"timestamps": {
+						"from": "00:00:02,740",
+						"to": "00:00:02,940"
+					},
+					"offsets": {
+						"from": 2740,
+						"to": 2940
+					},
+					"id": 1543,
+					"p": 0.874215,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_147]",
+					"timestamps": {
+						"from": "00:00:02,940",
+						"to": "00:00:02,940"
+					},
+					"offsets": {
+						"from": 2940,
+						"to": 2940
+					},
+					"id": 50512,
+					"p": 0.496864,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

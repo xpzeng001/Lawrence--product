@@ -1,0 +1,268 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:01,340"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 1340
+			},
+			"text": "劳任责会先理解",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.923964,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,120"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 120
+					},
+					"id": 5087,
+					"p": 0.0999721,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,120",
+						"to": "00:00:00,180"
+					},
+					"offsets": {
+						"from": 120,
+						"to": 180
+					},
+					"id": 111,
+					"p": 0.910009,
+					"t_dtw": -1
+				},
+				{
+					"text": "任",
+					"timestamps": {
+						"from": "00:00:00,180",
+						"to": "00:00:00,330"
+					},
+					"offsets": {
+						"from": 180,
+						"to": 330
+					},
+					"id": 26443,
+					"p": 0.673593,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,390",
+						"to": "00:00:00,490"
+					},
+					"offsets": {
+						"from": 390,
+						"to": 490
+					},
+					"id": 18464,
+					"p": 0.614538,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,490",
+						"to": "00:00:00,540"
+					},
+					"offsets": {
+						"from": 490,
+						"to": 540
+					},
+					"id": 96,
+					"p": 0.800783,
+					"t_dtw": -1
+				},
+				{
+					"text": "会",
+					"timestamps": {
+						"from": "00:00:00,660",
+						"to": "00:00:00,740"
+					},
+					"offsets": {
+						"from": 660,
+						"to": 740
+					},
+					"id": 12949,
+					"p": 0.986822,
+					"t_dtw": -1
+				},
+				{
+					"text": "先",
+					"timestamps": {
+						"from": "00:00:00,740",
+						"to": "00:00:00,930"
+					},
+					"offsets": {
+						"from": 740,
+						"to": 930
+					},
+					"id": 10108,
+					"p": 0.997826,
+					"t_dtw": -1
+				},
+				{
+					"text": "理",
+					"timestamps": {
+						"from": "00:00:00,930",
+						"to": "00:00:01,120"
+					},
+					"offsets": {
+						"from": 930,
+						"to": 1120
+					},
+					"id": 13876,
+					"p": 0.998369,
+					"t_dtw": -1
+				},
+				{
+					"text": "解",
+					"timestamps": {
+						"from": "00:00:01,120",
+						"to": "00:00:01,280"
+					},
+					"offsets": {
+						"from": 1120,
+						"to": 1280
+					},
+					"id": 17278,
+					"p": 0.999983,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_67]",
+					"timestamps": {
+						"from": "00:00:01,340",
+						"to": "00:00:01,340"
+					},
+					"offsets": {
+						"from": 1340,
+						"to": 1340
+					},
+					"id": 50432,
+					"p": 0.123255,
+					"t_dtw": -1
+				}
+			]
+		},
+		{
+			"timestamps": {
+				"from": "00:00:01,340",
+				"to": "00:00:02,000"
+			},
+			"offsets": {
+				"from": 1340,
+				"to": 2000
+			},
+			"text": "再追问",
+			"tokens": [
+				{
+					"text": "再",
+					"timestamps": {
+						"from": "00:00:01,340",
+						"to": "00:00:01,520"
+					},
+					"offsets": {
+						"from": 1340,
+						"to": 1520
+					},
+					"id": 8623,
+					"p": 0.967104,
+					"t_dtw": -1
+				},
+				{
+					"text": "追",
+					"timestamps": {
+						"from": "00:00:01,570",
+						"to": "00:00:01,670"
+					},
+					"offsets": {
+						"from": 1570,
+						"to": 1670
+					},
+					"id": 39947,
+					"p": 0.997164,
+					"t_dtw": -1
+				},
+				{
+					"text": "问",
+					"timestamps": {
+						"from": "00:00:01,790",
+						"to": "00:00:01,880"
+					},
+					"offsets": {
+						"from": 1790,
+						"to": 1880
+					},
+					"id": 22064,
+					"p": 0.999922,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_100]",
+					"timestamps": {
+						"from": "00:00:02,000",
+						"to": "00:00:02,000"
+					},
+					"offsets": {
+						"from": 2000,
+						"to": 2000
+					},
+					"id": 50465,
+					"p": 0.312388,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

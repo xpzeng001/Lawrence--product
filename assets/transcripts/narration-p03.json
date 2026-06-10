@@ -1,0 +1,109 @@
+{
+  "id": "narration-p03",
+  "source": "assets/narration/p03.wav",
+  "expectedText": "有岗位、有权限，也能接入企业流程。",
+  "recognizedText": "有岗位、有权限,也能进入企业流程。",
+  "tokens": [
+    {
+      "text": "有",
+      "start": 0,
+      "end": 0.14,
+      "confidence": 0.279489
+    },
+    {
+      "text": "位",
+      "start": 0.32,
+      "end": 0.45,
+      "confidence": 0.999983
+    },
+    {
+      "text": "有",
+      "start": 0.64,
+      "end": 0.7,
+      "confidence": 0.982484
+    },
+    {
+      "text": "限",
+      "start": 1.04,
+      "end": 1.16,
+      "confidence": 0.99557
+    },
+    {
+      "text": "能",
+      "start": 1.44,
+      "end": 1.59,
+      "confidence": 0.996738
+    },
+    {
+      "text": "进",
+      "start": 1.59,
+      "end": 1.7,
+      "confidence": 0.382397
+    },
+    {
+      "text": "入",
+      "start": 1.77,
+      "end": 1.91,
+      "confidence": 0.99942
+    },
+    {
+      "text": "流",
+      "start": 2.23,
+      "end": 2.39,
+      "confidence": 0.991446
+    },
+    {
+      "text": "程",
+      "start": 2.39,
+      "end": 2.6,
+      "confidence": 0.994943
+    }
+  ],
+  "words": [
+    {
+      "text": "有",
+      "start": 0,
+      "end": 0.186
+    },
+    {
+      "text": "岗位",
+      "start": 0.186,
+      "end": 0.557
+    },
+    {
+      "text": "有",
+      "start": 0.557,
+      "end": 0.743
+    },
+    {
+      "text": "权限",
+      "start": 0.743,
+      "end": 1.114
+    },
+    {
+      "text": "也能",
+      "start": 1.114,
+      "end": 1.485
+    },
+    {
+      "text": "接",
+      "start": 1.485,
+      "end": 1.671
+    },
+    {
+      "text": "入",
+      "start": 1.671,
+      "end": 1.857
+    },
+    {
+      "text": "企业",
+      "start": 1.857,
+      "end": 2.228
+    },
+    {
+      "text": "流程",
+      "start": 2.228,
+      "end": 2.6
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "narration-p17",
+  "source": "assets/narration/p17.wav",
+  "expectedText": "再匹配企业记忆、合规规则和审批要求。",
+  "recognizedText": "再匹配企业记忆和规规则和审批要求",
+  "tokens": [
+    {
+      "text": "再",
+      "start": 0.03,
+      "end": 0.12,
+      "confidence": 0.604695
+    },
+    {
+      "text": "配",
+      "start": 0.27,
+      "end": 0.41,
+      "confidence": 0.999899
+    },
+    {
+      "text": "记",
+      "start": 0.67,
+      "end": 0.81,
+      "confidence": 0.69249
+    },
+    {
+      "text": "和",
+      "start": 1.17,
+      "end": 1.21,
+      "confidence": 0.781262
+    },
+    {
+      "text": "和",
+      "start": 1.69,
+      "end": 1.86,
+      "confidence": 0.976904
+    },
+    {
+      "text": "要",
+      "start": 2.18,
+      "end": 2.35,
+      "confidence": 0.99951
+    },
+    {
+      "text": "求",
+      "start": 2.35,
+      "end": 2.62,
+      "confidence": 0.999987
+    }
+  ],
+  "words": [
+    {
+      "text": "再",
+      "start": 0.03,
+      "end": 0.192
+    },
+    {
+      "text": "匹配",
+      "start": 0.192,
+      "end": 0.516
+    },
+    {
+      "text": "企业",
+      "start": 0.516,
+      "end": 0.84
+    },
+    {
+      "text": "记忆",
+      "start": 0.84,
+      "end": 1.164
+    },
+    {
+      "text": "合",
+      "start": 1.164,
+      "end": 1.326
+    },
+    {
+      "text": "规",
+      "start": 1.326,
+      "end": 1.488
+    },
+    {
+      "text": "规则",
+      "start": 1.488,
+      "end": 1.812
+    },
+    {
+      "text": "和",
+      "start": 1.812,
+      "end": 1.974
+    },
+    {
+      "text": "审批",
+      "start": 1.974,
+      "end": 2.298
+    },
+    {
+      "text": "要求",
+      "start": 2.298,
+      "end": 2.62
+    }
+  ]
+}

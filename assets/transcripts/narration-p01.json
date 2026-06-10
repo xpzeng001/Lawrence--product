@@ -1,0 +1,110 @@
+{
+  "id": "narration-p01",
+  "source": "assets/narration/p01.wav",
+  "expectedText": "开场先讲清楚，Lawrence 不是一个聊天框。",
+  "recognizedText": "开场先讲清楚,劳任辞不是一个聊天框。",
+  "tokens": [
+    {
+      "text": "开",
+      "start": 0.05,
+      "end": 0.19,
+      "confidence": 0.589983
+    },
+    {
+      "text": "场",
+      "start": 0.25,
+      "end": 0.36,
+      "confidence": 0.913628
+    },
+    {
+      "text": "先",
+      "start": 0.44,
+      "end": 0.58,
+      "confidence": 0.87982
+    },
+    {
+      "text": "讲",
+      "start": 0.64,
+      "end": 0.78,
+      "confidence": 0.98924
+    },
+    {
+      "text": "清楚",
+      "start": 0.83,
+      "end": 1.2,
+      "confidence": 0.86357
+    },
+    {
+      "text": "任",
+      "start": 1.48,
+      "end": 1.63,
+      "confidence": 0.886204
+    },
+    {
+      "text": "不是",
+      "start": 1.79,
+      "end": 2.03,
+      "confidence": 0.879648
+    },
+    {
+      "text": "一个",
+      "start": 2.15,
+      "end": 2.44,
+      "confidence": 0.993146
+    },
+    {
+      "text": "聊",
+      "start": 2.49,
+      "end": 2.61,
+      "confidence": 0.876486
+    },
+    {
+      "text": "天",
+      "start": 2.61,
+      "end": 2.71,
+      "confidence": 0.949294
+    }
+  ],
+  "words": [
+    {
+      "text": "开场",
+      "start": 0.05,
+      "end": 0.303
+    },
+    {
+      "text": "先讲",
+      "start": 0.303,
+      "end": 0.556
+    },
+    {
+      "text": "清楚",
+      "start": 0.556,
+      "end": 0.809
+    },
+    {
+      "text": "Lawrence",
+      "start": 0.809,
+      "end": 1.822
+    },
+    {
+      "text": "不是",
+      "start": 1.822,
+      "end": 2.075
+    },
+    {
+      "text": "一个",
+      "start": 2.075,
+      "end": 2.328
+    },
+    {
+      "text": "聊天",
+      "start": 2.328,
+      "end": 2.581
+    },
+    {
+      "text": "框",
+      "start": 2.581,
+      "end": 2.71
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "id": "narration-p26",
+  "source": "assets/narration/p26.wav",
+  "expectedText": "法律研究，保留法规、案例和引用关系。",
+  "recognizedText": "法律研究保留法规案例和引用关系",
+  "tokens": [
+    {
+      "text": "法",
+      "start": 0.06,
+      "end": 0.15,
+      "confidence": 0.937711
+    },
+    {
+      "text": "究",
+      "start": 0.5,
+      "end": 0.62,
+      "confidence": 0.999266
+    },
+    {
+      "text": "保",
+      "start": 0.62,
+      "end": 0.64,
+      "confidence": 0.54721
+    },
+    {
+      "text": "留",
+      "start": 0.92,
+      "end": 1,
+      "confidence": 0.999428
+    },
+    {
+      "text": "法",
+      "start": 1,
+      "end": 1.19,
+      "confidence": 0.996166
+    },
+    {
+      "text": "案",
+      "start": 1.37,
+      "end": 1.49,
+      "confidence": 0.96383
+    },
+    {
+      "text": "例",
+      "start": 1.61,
+      "end": 1.75,
+      "confidence": 0.999649
+    },
+    {
+      "text": "和",
+      "start": 1.75,
+      "end": 1.94,
+      "confidence": 0.984828
+    },
+    {
+      "text": "引",
+      "start": 1.94,
+      "end": 2.13,
+      "confidence": 0.933465
+    },
+    {
+      "text": "用",
+      "start": 2.13,
+      "end": 2.31,
+      "confidence": 0.986246
+    },
+    {
+      "text": "关",
+      "start": 2.37,
+      "end": 2.51,
+      "confidence": 0.905162
+    },
+    {
+      "text": "系",
+      "start": 2.51,
+      "end": 2.68,
+      "confidence": 0.999615
+    }
+  ],
+  "words": [
+    {
+      "text": "法律",
+      "start": 0.06,
+      "end": 0.409
+    },
+    {
+      "text": "研究",
+      "start": 0.409,
+      "end": 0.758
+    },
+    {
+      "text": "保留",
+      "start": 0.758,
+      "end": 1.107
+    },
+    {
+      "text": "法规",
+      "start": 1.107,
+      "end": 1.456
+    },
+    {
+      "text": "案例",
+      "start": 1.456,
+      "end": 1.805
+    },
+    {
+      "text": "和",
+      "start": 1.805,
+      "end": 1.98
+    },
+    {
+      "text": "引用",
+      "start": 1.98,
+      "end": 2.329
+    },
+    {
+      "text": "关系",
+      "start": 2.329,
+      "end": 2.68
+    }
+  ]
+}

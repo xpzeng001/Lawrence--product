@@ -134,29 +134,24 @@
         background: rgba(139, 90, 74, 0.12);
       }
 
-      .rail::before {
-        content: "";
+      .rail-fill {
         position: absolute;
         left: 0;
         top: 0;
         height: 3px;
-        width: 48%;
+        width: 100%;
         border-radius: inherit;
         background: linear-gradient(90deg, var(--primary), var(--gold), var(--green));
-      }
-
-      .chapter,
-      .rail,
-      .brand {
-        display: none;
+        transform: scaleX(0);
+        transform-origin: left center;
       }
 
       .layout {
         position: absolute;
         left: 112px;
         right: 112px;
-        top: 118px;
-        bottom: 126px;
+        top: 168px;
+        bottom: 76px;
         display: grid;
         grid-template-columns: 470px 1fr 500px;
         gap: 34px;
@@ -172,6 +167,7 @@
           radial-gradient(circle at 50% 0%, rgba(139, 90, 74, 0.09), transparent 40%);
         box-shadow: var(--shadow);
         overflow: hidden;
+        transform-origin: 50% 54%;
       }
 
       .panel::before {
@@ -210,7 +206,7 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: var(--primary);
+        background: #a97869;
       }
 
       h1 {
@@ -334,6 +330,7 @@
         border: 1px dashed rgba(139, 90, 74, 0.28);
         border-radius: 50%;
         transform: translate(-50%, -50%);
+        transform-origin: 50% 50%;
       }
 
       .orbit.two {
@@ -353,13 +350,11 @@
         display: grid;
         place-items: center;
         color: white;
-        background:
-          radial-gradient(circle at 50% 32%, rgba(255, 255, 255, 0.36), transparent 36%),
-          linear-gradient(180deg, #9b695b, #6f473c);
+        background: var(--primary);
         box-shadow:
-          0 28px 70px rgba(139, 90, 74, 0.28),
-          0 0 0 16px rgba(139, 90, 74, 0.08),
-          0 0 0 34px rgba(139, 90, 74, 0.045);
+          0 24px 62px rgba(139, 90, 74, 0.18),
+          0 0 0 16px rgba(139, 90, 74, 0.055),
+          0 0 0 34px rgba(139, 90, 74, 0.03);
       }
 
       .worker svg {
@@ -454,9 +449,7 @@
       .thumb {
         height: 76px;
         border-radius: 14px;
-        background:
-          linear-gradient(135deg, rgba(139, 90, 74, 0.22), rgba(31, 159, 104, 0.13)),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(245, 237, 235, 0.8));
+        background: #efedeb;
         display: grid;
         place-items: center;
         color: var(--primary);
@@ -488,47 +481,15 @@
         font-weight: 680;
       }
 
-      .bottom {
-        position: absolute;
-        left: 112px;
-        right: 112px;
-        bottom: 42px;
-        min-height: 64px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 18px;
-        border: 1px solid rgba(139, 90, 74, 0.14);
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.62);
-        box-shadow: 0 18px 48px rgba(44, 36, 33, 0.07);
-        color: var(--ink);
-        font-size: 28px;
-        font-weight: 850;
-      }
-
-      .bottom svg {
-        width: 34px;
-        height: 34px;
-        stroke: var(--primary);
-        fill: none;
-        stroke-width: 2.4;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-
-      .bottom span {
-        color: var(--primary);
-      }
     </style>
   </head>
   <body>
     <main
       id="global-expansion-skill-scene"
-      class="scene"
+      class="clip scene"
       data-composition-id="global-expansion-skill-scene"
       data-start="0"
-      data-duration="12"
+      data-duration="15"
       data-width="1920"
       data-height="1080"
       data-fps="30"
@@ -544,7 +505,7 @@
           <div class="chapter-subtitle">跨境合规 · 专家连接 · 出海陪跑</div>
         </div>
       </div>
-      <div class="rail"></div>
+      <div class="rail"><div class="rail-fill"></div></div>
       <div class="brand"><img src="../assets/wiselaw-logo.svg" alt="WiseLaw" /></div>
 
       <section class="layout">
@@ -621,15 +582,161 @@
         </aside>
       </section>
 
-      <div class="bottom">
-        <svg viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M4 20l4-9 4 9"/><path d="M12 20l4-13 4 13"/><path d="M8 11h4"/><path d="M16 7h3"/></svg>
-        <div>汇聚专业力量，打通资源网络，助力企业<span>更高效、更稳健地出海全球</span>。</div>
-      </div>
+      <audio id="global-expansion-detailed-vo" data-start="0.8" data-duration="13.162" data-track-index="220" src="../assets/professional-skills-vo-detailed/global-expansion.wav" data-volume="1"></audio>
+
     </main>
     <script src="../assets/gsap.min.js"></script>
     <script>
       window.__timelines = window.__timelines || {};
-      window.__timelines["global-expansion-skill-scene"] = gsap.timeline({ paused: true });
+      const tl = gsap.timeline({ paused: true });
+
+      tl.set("#global-expansion-skill-scene", { opacity: 1 });
+      tl.set([".chapter", ".rail", ".brand", ".panel", ".headline .eyebrow", ".headline .main", ".quote"], { opacity: 0 });
+      tl.set([".chapter", ".brand"], { y: -14, filter: "blur(8px)" });
+      tl.set(".rail", { scaleX: 1, transformOrigin: "left center" });
+      tl.set(".rail-fill", { scaleX: 0, transformOrigin: "left center" });
+      tl.set(".panel", { y: 42, scale: 0.965, filter: "blur(18px)", clipPath: "inset(0% 0% 0% 0%)" });
+      tl.set(".layout > .panel:nth-child(1)", { x: 613, clipPath: "inset(0% 100% 0% 0%)" });
+      tl.set(".layout > .panel:nth-child(2)", { x: 250, y: 86, scale: 0.92, clipPath: "circle(0% at 50% 55%)" });
+      tl.set(".layout > .panel:nth-child(3)", { x: 120, clipPath: "inset(0% 0% 0% 100%)" });
+      tl.set([".label", "h1", ".copy", ".pain-card", ".resource-title", ".resource-card"], { opacity: 0, y: 18, filter: "blur(10px)" });
+      tl.set([".orbit", ".worker", ".node"], { opacity: 0 });
+      tl.set(".orbit", { scale: 0.76, rotation: -8 });
+      tl.set(".worker", { scale: 0.68, filter: "blur(14px)" });
+      tl.set(".node", { y: 20, scale: 0.82, filter: "blur(10px)" });
+
+      tl.fromTo(".grid", { opacity: 0, scale: 1.04 }, { opacity: 0.78, scale: 1, duration: 0.65, ease: "power2.out" }, 0);
+      tl.fromTo(".wash", { opacity: 0 }, { opacity: 1, duration: 0.55, ease: "power2.out" }, 0);
+      tl.to([".chapter", ".brand"], { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.42, ease: "power3.out" }, 0.1);
+      tl.to(".rail", { opacity: 1, duration: 0.28, ease: "power3.out" }, 0.18);
+      tl.to(".rail-fill", { scaleX: 1, duration: 14.04, ease: "none" }, 0.18);
+
+      tl.to(".layout > .panel:nth-child(1)", {
+        opacity: 1,
+        x: 613,
+        y: 0,
+        scale: 1,
+        filter: "blur(0px)",
+        clipPath: "inset(0% 0% 0% 0%)",
+        duration: 0.86,
+        ease: "expo.out",
+      }, 0.38);
+
+      tl.to(".layout > .panel:nth-child(1) .label", {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        duration: 0.38,
+        ease: "power3.out",
+      }, 0.88);
+      tl.to([".layout > .panel:nth-child(1) h1", ".layout > .panel:nth-child(1) .copy"], {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        duration: 0.58,
+        stagger: 0.18,
+        ease: "expo.out",
+      }, 1.14);
+      tl.to(".layout > .panel:nth-child(1) .pain-card", {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        duration: 0.46,
+        stagger: 0.42,
+        ease: "back.out(1.22)",
+      }, 2.02);
+      tl.to(".layout > .panel:nth-child(1) .pain-card", { y: -5, duration: 0.34, stagger: 0.1, yoyo: true, repeat: 1, ease: "sine.inOut" }, 3.78);
+
+      tl.to(".layout > .panel:nth-child(1)", {
+        x: 120,
+        duration: 0.78,
+        ease: "expo.inOut",
+      }, 4.18);
+      tl.to(".layout > .panel:nth-child(2)", {
+        opacity: 1,
+        x: 250,
+        y: 0,
+        scale: 1,
+        filter: "blur(0px)",
+        clipPath: "circle(78% at 50% 55%)",
+        duration: 0.82,
+        ease: "expo.out",
+      }, 4.34);
+
+      tl.to(".headline .eyebrow", { opacity: 1, y: 0, duration: 0.36, ease: "power2.out" }, 4.86);
+      tl.fromTo(".headline .eyebrow", { y: 16, filter: "blur(8px)" }, { y: 0, filter: "blur(0px)", duration: 0.42, ease: "power3.out" }, 4.86);
+      tl.to(".headline .main", { opacity: 1, y: 0, duration: 0.58, ease: "expo.out" }, 5.14);
+      tl.fromTo(".headline .main", { y: 24, scale: 0.98, filter: "blur(10px)" }, { y: 0, scale: 1, filter: "blur(0px)", duration: 0.62, ease: "expo.out" }, 5.14);
+
+      tl.to(".orbit.two", { opacity: 1, scale: 1, rotation: 0, duration: 0.76, ease: "expo.out" }, 5.72);
+      tl.to(".orbit:not(.two)", { opacity: 1, scale: 1, rotation: 0, duration: 0.76, ease: "expo.out" }, 5.9);
+      tl.to(".worker", { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.68, ease: "back.out(1.5)" }, 6.12);
+      tl.to(".node", {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        filter: "blur(0px)",
+        duration: 0.48,
+        stagger: 0.26,
+        ease: "back.out(1.35)",
+      }, 6.72);
+      tl.to(".orbit.two", { rotation: 360, duration: 8.4, ease: "none" }, 5.9);
+      tl.to(".orbit:not(.two)", { rotation: -360, duration: 8.4, ease: "none" }, 5.9);
+      tl.to(".worker", { scale: 1.045, duration: 0.72, repeat: 5, yoyo: true, ease: "sine.inOut" }, 7.0);
+      tl.to(".quote", { opacity: 1, y: 0, duration: 0.48, ease: "power3.out" }, 8.12);
+      tl.fromTo(".quote", { y: 18, filter: "blur(8px)" }, { y: 0, filter: "blur(0px)", duration: 0.48, ease: "power3.out" }, 8.12);
+
+      tl.to([".layout > .panel:nth-child(1)", ".layout > .panel:nth-child(2)"], {
+        x: 0,
+        duration: 0.82,
+        ease: "expo.inOut",
+      }, 9.38);
+      tl.to(".layout > .panel:nth-child(3)", {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        filter: "blur(0px)",
+        clipPath: "inset(0% 0% 0% 0%)",
+        duration: 0.82,
+        ease: "expo.out",
+      }, 9.5);
+
+      tl.to(".layout > .panel:nth-child(3) .label", {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        ease: "power3.out",
+        duration: 0.38,
+      }, 9.94);
+      tl.to(".layout > .panel:nth-child(3) .resource-title", {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        duration: 0.46,
+        ease: "power3.out",
+      }, 10.18);
+      tl.to(".layout > .panel:nth-child(3) .resource-card", {
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        duration: 0.46,
+        stagger: 0.34,
+        ease: "back.out(1.18)",
+      }, 10.72);
+
+      tl.to(".layout > .panel:nth-child(3) .resource-card", { y: -4, duration: 0.42, stagger: 0.08, yoyo: true, repeat: 1, ease: "sine.inOut" }, 13.08);
+
+      tl.to("#global-expansion-skill-scene", {
+        opacity: 0,
+        x: -90,
+        scale: 1.035,
+        filter: "blur(10px)",
+        duration: 0.68,
+        ease: "power3.inOut",
+      }, 14.22);
+
+      window.__timelines["global-expansion-skill-scene"] = tl;
     </script>
   </body>
 </html>

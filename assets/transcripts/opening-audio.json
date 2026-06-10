@@ -1,0 +1,634 @@
+{
+  "id": "opening-audio",
+  "source": "renders/S1-司服开场.mp4",
+  "expectedText": null,
+  "recognizedText": "你好,我是Laurence我来自Wise Law由香港利口大学孵化企业打造我是你的法律数字员工很高兴成为你团队的一员我是你的法律数字员工很高兴成为你团队的一员我是你的法律数字员工很高兴成为你团队的一员",
+  "tokens": [
+    {
+      "text": "你好",
+      "start": 0.1,
+      "end": 0.57,
+      "confidence": 0.866905
+    },
+    {
+      "text": "我是",
+      "start": 0.95,
+      "end": 1.4,
+      "confidence": 0.978776
+    },
+    {
+      "text": "La",
+      "start": 1.4,
+      "end": 1.44,
+      "confidence": 0.299255
+    },
+    {
+      "text": "uren",
+      "start": 1.52,
+      "end": 1.84,
+      "confidence": 0.963339
+    },
+    {
+      "text": "ce",
+      "start": 1.85,
+      "end": 2,
+      "confidence": 0.984521
+    },
+    {
+      "text": "我",
+      "start": 2.1,
+      "end": 2.28,
+      "confidence": 0.962709
+    },
+    {
+      "text": "来",
+      "start": 2.28,
+      "end": 2.56,
+      "confidence": 0.511989
+    },
+    {
+      "text": "自",
+      "start": 2.56,
+      "end": 2.57,
+      "confidence": 0.999184
+    },
+    {
+      "text": "ise",
+      "start": 2.94,
+      "end": 3.21,
+      "confidence": 0.455432
+    },
+    {
+      "text": "Law",
+      "start": 3.21,
+      "end": 3.42,
+      "confidence": 0.696886
+    },
+    {
+      "text": "由",
+      "start": 3.51,
+      "end": 3.68,
+      "confidence": 0.986387
+    },
+    {
+      "text": "香港",
+      "start": 3.77,
+      "end": 4.06,
+      "confidence": 0.991128
+    },
+    {
+      "text": "利",
+      "start": 4.06,
+      "end": 4.07,
+      "confidence": 0.549869
+    },
+    {
+      "text": "口",
+      "start": 4.27,
+      "end": 4.45,
+      "confidence": 0.997248
+    },
+    {
+      "text": "大",
+      "start": 4.45,
+      "end": 4.64,
+      "confidence": 0.996272
+    },
+    {
+      "text": "学",
+      "start": 4.64,
+      "end": 4.83,
+      "confidence": 0.99942
+    },
+    {
+      "text": "化",
+      "start": 5,
+      "end": 5.2,
+      "confidence": 0.999935
+    },
+    {
+      "text": "打",
+      "start": 5.56,
+      "end": 5.74,
+      "confidence": 0.998222
+    },
+    {
+      "text": "造",
+      "start": 5.79,
+      "end": 6,
+      "confidence": 0.999979
+    },
+    {
+      "text": "我是",
+      "start": 6.27,
+      "end": 6.4,
+      "confidence": 0.996711
+    },
+    {
+      "text": "你的",
+      "start": 6.4,
+      "end": 6.56,
+      "confidence": 0.98329
+    },
+    {
+      "text": "法",
+      "start": 6.94,
+      "end": 7,
+      "confidence": 0.997615
+    },
+    {
+      "text": "数",
+      "start": 7.19,
+      "end": 7.39,
+      "confidence": 0.930946
+    },
+    {
+      "text": "字",
+      "start": 7.39,
+      "end": 7.58,
+      "confidence": 0.998264
+    },
+    {
+      "text": "工",
+      "start": 7.78,
+      "end": 8,
+      "confidence": 0.999417
+    },
+    {
+      "text": "很",
+      "start": 8.01,
+      "end": 8.18,
+      "confidence": 0.995374
+    },
+    {
+      "text": "高",
+      "start": 8.27,
+      "end": 8.36,
+      "confidence": 0.999479
+    },
+    {
+      "text": "成",
+      "start": 8.54,
+      "end": 8.57,
+      "confidence": 0.996647
+    },
+    {
+      "text": "为",
+      "start": 8.73,
+      "end": 8.89,
+      "confidence": 0.99963
+    },
+    {
+      "text": "你",
+      "start": 8.94,
+      "end": 9.08,
+      "confidence": 0.96722
+    },
+    {
+      "text": "的",
+      "start": 9.44,
+      "end": 9.61,
+      "confidence": 0.994905
+    },
+    {
+      "text": "一",
+      "start": 9.61,
+      "end": 9.8,
+      "confidence": 0.978816
+    },
+    {
+      "text": "我是",
+      "start": 10.27,
+      "end": 10.4,
+      "confidence": 0.0835262
+    },
+    {
+      "text": "你的",
+      "start": 10.4,
+      "end": 10.56,
+      "confidence": 0.620183
+    },
+    {
+      "text": "法",
+      "start": 10.94,
+      "end": 11,
+      "confidence": 0.977191
+    },
+    {
+      "text": "数",
+      "start": 11.19,
+      "end": 11.39,
+      "confidence": 0.988806
+    },
+    {
+      "text": "字",
+      "start": 11.39,
+      "end": 11.58,
+      "confidence": 0.999645
+    },
+    {
+      "text": "工",
+      "start": 11.78,
+      "end": 12,
+      "confidence": 0.999216
+    },
+    {
+      "text": "很",
+      "start": 12.01,
+      "end": 12.18,
+      "confidence": 0.94612
+    },
+    {
+      "text": "高",
+      "start": 12.27,
+      "end": 12.36,
+      "confidence": 0.999563
+    },
+    {
+      "text": "成",
+      "start": 12.54,
+      "end": 12.57,
+      "confidence": 0.999884
+    },
+    {
+      "text": "为",
+      "start": 12.73,
+      "end": 12.89,
+      "confidence": 0.99996
+    },
+    {
+      "text": "你",
+      "start": 12.94,
+      "end": 13.08,
+      "confidence": 0.96727
+    },
+    {
+      "text": "的",
+      "start": 13.44,
+      "end": 13.61,
+      "confidence": 0.999805
+    },
+    {
+      "text": "一",
+      "start": 13.61,
+      "end": 13.8,
+      "confidence": 0.999554
+    },
+    {
+      "text": "很",
+      "start": 14.01,
+      "end": 14.09,
+      "confidence": 0.749376
+    },
+    {
+      "text": "高",
+      "start": 14.09,
+      "end": 14.18,
+      "confidence": 0.999754
+    },
+    {
+      "text": "成",
+      "start": 14.27,
+      "end": 14.36,
+      "confidence": 0.999819
+    },
+    {
+      "text": "为",
+      "start": 14.36,
+      "end": 14.45,
+      "confidence": 0.999947
+    },
+    {
+      "text": "你",
+      "start": 14.45,
+      "end": 14.54,
+      "confidence": 0.986745
+    },
+    {
+      "text": "的",
+      "start": 14.72,
+      "end": 14.81,
+      "confidence": 0.999826
+    },
+    {
+      "text": "一",
+      "start": 14.81,
+      "end": 14.83,
+      "confidence": 0.999638
+    }
+  ],
+  "words": [
+    {
+      "text": "你好",
+      "start": 0.1,
+      "end": 0.57,
+      "confidence": 0.866905
+    },
+    {
+      "text": "我是",
+      "start": 0.95,
+      "end": 1.4,
+      "confidence": 0.978776
+    },
+    {
+      "text": "La",
+      "start": 1.4,
+      "end": 1.44,
+      "confidence": 0.299255
+    },
+    {
+      "text": "uren",
+      "start": 1.52,
+      "end": 1.84,
+      "confidence": 0.963339
+    },
+    {
+      "text": "ce",
+      "start": 1.85,
+      "end": 2,
+      "confidence": 0.984521
+    },
+    {
+      "text": "我",
+      "start": 2.1,
+      "end": 2.28,
+      "confidence": 0.962709
+    },
+    {
+      "text": "来",
+      "start": 2.28,
+      "end": 2.56,
+      "confidence": 0.511989
+    },
+    {
+      "text": "自",
+      "start": 2.56,
+      "end": 2.57,
+      "confidence": 0.999184
+    },
+    {
+      "text": "ise",
+      "start": 2.94,
+      "end": 3.21,
+      "confidence": 0.455432
+    },
+    {
+      "text": "Law",
+      "start": 3.21,
+      "end": 3.42,
+      "confidence": 0.696886
+    },
+    {
+      "text": "由",
+      "start": 3.51,
+      "end": 3.68,
+      "confidence": 0.986387
+    },
+    {
+      "text": "香港",
+      "start": 3.77,
+      "end": 4.06,
+      "confidence": 0.991128
+    },
+    {
+      "text": "利",
+      "start": 4.06,
+      "end": 4.07,
+      "confidence": 0.549869
+    },
+    {
+      "text": "口",
+      "start": 4.27,
+      "end": 4.45,
+      "confidence": 0.997248
+    },
+    {
+      "text": "大",
+      "start": 4.45,
+      "end": 4.64,
+      "confidence": 0.996272
+    },
+    {
+      "text": "学",
+      "start": 4.64,
+      "end": 4.83,
+      "confidence": 0.99942
+    },
+    {
+      "text": "化",
+      "start": 5,
+      "end": 5.2,
+      "confidence": 0.999935
+    },
+    {
+      "text": "打",
+      "start": 5.56,
+      "end": 5.74,
+      "confidence": 0.998222
+    },
+    {
+      "text": "造",
+      "start": 5.79,
+      "end": 6,
+      "confidence": 0.999979
+    },
+    {
+      "text": "我是",
+      "start": 6.27,
+      "end": 6.4,
+      "confidence": 0.996711
+    },
+    {
+      "text": "你的",
+      "start": 6.4,
+      "end": 6.56,
+      "confidence": 0.98329
+    },
+    {
+      "text": "法",
+      "start": 6.94,
+      "end": 7,
+      "confidence": 0.997615
+    },
+    {
+      "text": "数",
+      "start": 7.19,
+      "end": 7.39,
+      "confidence": 0.930946
+    },
+    {
+      "text": "字",
+      "start": 7.39,
+      "end": 7.58,
+      "confidence": 0.998264
+    },
+    {
+      "text": "工",
+      "start": 7.78,
+      "end": 8,
+      "confidence": 0.999417
+    },
+    {
+      "text": "很",
+      "start": 8.01,
+      "end": 8.18,
+      "confidence": 0.995374
+    },
+    {
+      "text": "高",
+      "start": 8.27,
+      "end": 8.36,
+      "confidence": 0.999479
+    },
+    {
+      "text": "成",
+      "start": 8.54,
+      "end": 8.57,
+      "confidence": 0.996647
+    },
+    {
+      "text": "为",
+      "start": 8.73,
+      "end": 8.89,
+      "confidence": 0.99963
+    },
+    {
+      "text": "你",
+      "start": 8.94,
+      "end": 9.08,
+      "confidence": 0.96722
+    },
+    {
+      "text": "的",
+      "start": 9.44,
+      "end": 9.61,
+      "confidence": 0.994905
+    },
+    {
+      "text": "一",
+      "start": 9.61,
+      "end": 9.8,
+      "confidence": 0.978816
+    },
+    {
+      "text": "我是",
+      "start": 10.27,
+      "end": 10.4,
+      "confidence": 0.0835262
+    },
+    {
+      "text": "你的",
+      "start": 10.4,
+      "end": 10.56,
+      "confidence": 0.620183
+    },
+    {
+      "text": "法",
+      "start": 10.94,
+      "end": 11,
+      "confidence": 0.977191
+    },
+    {
+      "text": "数",
+      "start": 11.19,
+      "end": 11.39,
+      "confidence": 0.988806
+    },
+    {
+      "text": "字",
+      "start": 11.39,
+      "end": 11.58,
+      "confidence": 0.999645
+    },
+    {
+      "text": "工",
+      "start": 11.78,
+      "end": 12,
+      "confidence": 0.999216
+    },
+    {
+      "text": "很",
+      "start": 12.01,
+      "end": 12.18,
+      "confidence": 0.94612
+    },
+    {
+      "text": "高",
+      "start": 12.27,
+      "end": 12.36,
+      "confidence": 0.999563
+    },
+    {
+      "text": "成",
+      "start": 12.54,
+      "end": 12.57,
+      "confidence": 0.999884
+    },
+    {
+      "text": "为",
+      "start": 12.73,
+      "end": 12.89,
+      "confidence": 0.99996
+    },
+    {
+      "text": "你",
+      "start": 12.94,
+      "end": 13.08,
+      "confidence": 0.96727
+    },
+    {
+      "text": "的",
+      "start": 13.44,
+      "end": 13.61,
+      "confidence": 0.999805
+    },
+    {
+      "text": "一",
+      "start": 13.61,
+      "end": 13.8,
+      "confidence": 0.999554
+    },
+    {
+      "text": "很",
+      "start": 14.01,
+      "end": 14.09,
+      "confidence": 0.749376
+    },
+    {
+      "text": "高",
+      "start": 14.09,
+      "end": 14.18,
+      "confidence": 0.999754
+    },
+    {
+      "text": "成",
+      "start": 14.27,
+      "end": 14.36,
+      "confidence": 0.999819
+    },
+    {
+      "text": "为",
+      "start": 14.36,
+      "end": 14.45,
+      "confidence": 0.999947
+    },
+    {
+      "text": "你",
+      "start": 14.45,
+      "end": 14.54,
+      "confidence": 0.986745
+    },
+    {
+      "text": "的",
+      "start": 14.72,
+      "end": 14.81,
+      "confidence": 0.999826
+    },
+    {
+      "text": "一",
+      "start": 14.81,
+      "end": 14.83,
+      "confidence": 0.999638
+    }
+  ]
+}

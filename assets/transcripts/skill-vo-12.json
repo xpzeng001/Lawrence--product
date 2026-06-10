@@ -1,0 +1,178 @@
+{
+  "id": "skill-vo-12",
+  "source": "assets/professional-skills-vo/line-12.wav",
+  "expectedText": null,
+  "recognizedText": "面向用户内容,最重识别情绪倾向,发现潜在需求。",
+  "tokens": [
+    {
+      "text": "面",
+      "start": 0,
+      "end": 0.15,
+      "confidence": 0.892254
+    },
+    {
+      "text": "向",
+      "start": 0.22,
+      "end": 0.34,
+      "confidence": 0.990698
+    },
+    {
+      "text": "用",
+      "start": 0.34,
+      "end": 0.51,
+      "confidence": 0.999214
+    },
+    {
+      "text": "内",
+      "start": 0.67,
+      "end": 0.83,
+      "confidence": 0.998235
+    },
+    {
+      "text": "容",
+      "start": 0.85,
+      "end": 0.98,
+      "confidence": 0.99999
+    },
+    {
+      "text": "重",
+      "start": 1.32,
+      "end": 1.5,
+      "confidence": 0.663082
+    },
+    {
+      "text": "别",
+      "start": 1.68,
+      "end": 1.86,
+      "confidence": 0.99962
+    },
+    {
+      "text": "情",
+      "start": 1.86,
+      "end": 2.04,
+      "confidence": 0.680491
+    },
+    {
+      "text": "向",
+      "start": 2.4,
+      "end": 2.56,
+      "confidence": 0.999979
+    },
+    {
+      "text": "发",
+      "start": 2.7,
+      "end": 2.72,
+      "confidence": 0.874853
+    },
+    {
+      "text": "现",
+      "start": 3.07,
+      "end": 3.18,
+      "confidence": 0.999171
+    },
+    {
+      "text": "在",
+      "start": 3.48,
+      "end": 3.69,
+      "confidence": 0.999956
+    },
+    {
+      "text": "需",
+      "start": 3.69,
+      "end": 3.94,
+      "confidence": 0.999718
+    },
+    {
+      "text": "求",
+      "start": 3.94,
+      "end": 4.2,
+      "confidence": 0.999998
+    }
+  ],
+  "words": [
+    {
+      "text": "面",
+      "start": 0,
+      "end": 0.15,
+      "confidence": 0.892254
+    },
+    {
+      "text": "向",
+      "start": 0.22,
+      "end": 0.34,
+      "confidence": 0.990698
+    },
+    {
+      "text": "用",
+      "start": 0.34,
+      "end": 0.51,
+      "confidence": 0.999214
+    },
+    {
+      "text": "内",
+      "start": 0.67,
+      "end": 0.83,
+      "confidence": 0.998235
+    },
+    {
+      "text": "容",
+      "start": 0.85,
+      "end": 0.98,
+      "confidence": 0.99999
+    },
+    {
+      "text": "重",
+      "start": 1.32,
+      "end": 1.5,
+      "confidence": 0.663082
+    },
+    {
+      "text": "别",
+      "start": 1.68,
+      "end": 1.86,
+      "confidence": 0.99962
+    },
+    {
+      "text": "情",
+      "start": 1.86,
+      "end": 2.04,
+      "confidence": 0.680491
+    },
+    {
+      "text": "向",
+      "start": 2.4,
+      "end": 2.56,
+      "confidence": 0.999979
+    },
+    {
+      "text": "发",
+      "start": 2.7,
+      "end": 2.72,
+      "confidence": 0.874853
+    },
+    {
+      "text": "现",
+      "start": 3.07,
+      "end": 3.18,
+      "confidence": 0.999171
+    },
+    {
+      "text": "在",
+      "start": 3.48,
+      "end": 3.69,
+      "confidence": 0.999956
+    },
+    {
+      "text": "需",
+      "start": 3.69,
+      "end": 3.94,
+      "confidence": 0.999718
+    },
+    {
+      "text": "求",
+      "start": 3.94,
+      "end": 4.2,
+      "confidence": 0.999998
+    }
+  ]
+}

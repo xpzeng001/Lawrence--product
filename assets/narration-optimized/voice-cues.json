@@ -1,0 +1,266 @@
+[
+  {
+    "id": "optimized-vo-01",
+    "text": "Lawrence 不是聊天框，而是能上岗的数字员工。"
+  },
+  {
+    "id": "optimized-vo-02",
+    "text": "它有身份，有权限，也能进入企业流程。"
+  },
+  {
+    "id": "optimized-vo-03",
+    "text": "用户可以像交代同事一样，直接交代任务。"
+  },
+  {
+    "id": "optimized-vo-04",
+    "text": "从身份、入口、技能到协作流程，都会被连接起来。"
+  },
+  {
+    "id": "optimized-vo-05",
+    "text": "先建立这个概念，再看它怎么接入企业。"
+  },
+  {
+    "id": "optimized-vo-06",
+    "text": "第一步，是配置数字员工身份。"
+  },
+  {
+    "id": "optimized-vo-07",
+    "text": "账号、邮箱、权限和系统，组成它的数字工位。"
+  },
+  {
+    "id": "optimized-vo-08",
+    "text": "飞书、企微、钉钉和邮件，都可以成为任务入口。"
+  },
+  {
+    "id": "optimized-vo-09",
+    "text": "入口可以不同，但后面会进入同一套流程。"
+  },
+  {
+    "id": "optimized-vo-10",
+    "text": "入口统一之后，任务就可以被规范接收。"
+  },
+  {
+    "id": "optimized-vo-11",
+    "text": "交代任务时，需要说清目标、材料和限制条件。"
+  },
+  {
+    "id": "optimized-vo-12",
+    "text": "语音可以说明背景，文件可以补充事实。"
+  },
+  {
+    "id": "optimized-vo-13",
+    "text": "文字再明确时间、范围和交付标准。"
+  },
+  {
+    "id": "optimized-vo-14",
+    "text": "Lawrence 会先理解任务，再追问缺失信息。"
+  },
+  {
+    "id": "optimized-vo-15",
+    "text": "交代清楚后，任务进入后台工作区。"
+  },
+  {
+    "id": "optimized-vo-16",
+    "text": "从这一刻开始，它会从理解转入执行。"
+  },
+  {
+    "id": "optimized-vo-17",
+    "text": "第一步，调用企业记忆，对齐规则、客户背景和沟通记录。"
+  },
+  {
+    "id": "optimized-vo-18",
+    "text": "第二步，核查法规、制度和审批权限，把边界核清楚。"
+  },
+  {
+    "id": "optimized-vo-19",
+    "text": "第三步，复核质量、成本和材料清单，标出缺失和风险。"
+  },
+  {
+    "id": "optimized-vo-66",
+    "text": "最后生成交付文件，并附带审批记录和修改依据返回。"
+  },
+  {
+    "id": "optimized-vo-20",
+    "text": "稳定工作，需要安全工作区。"
+  },
+  {
+    "id": "optimized-vo-21",
+    "text": "这里统一管理账号、工具、文件和记忆。"
+  },
+  {
+    "id": "optimized-vo-22",
+    "text": "每一次调用，都可以追踪权限和过程。"
+  },
+  {
+    "id": "optimized-vo-23",
+    "text": "任务进入后，会被拆成标准任务包。"
+  },
+  {
+    "id": "optimized-vo-24",
+    "text": "用户、案件和项目，彼此隔离。"
+  },
+  {
+    "id": "optimized-vo-25",
+    "text": "敏感信息会先脱敏，再进入处理链路。"
+  },
+  {
+    "id": "optimized-vo-26",
+    "text": "系统会记录输入、依据、动作和结果。"
+  },
+  {
+    "id": "optimized-vo-27",
+    "text": "所以每一次输出，都可以被企业复核和审计。"
+  },
+  {
+    "id": "optimized-vo-28",
+    "text": "团队看到的不只是结果，还有完整过程。"
+  },
+  {
+    "id": "optimized-vo-29",
+    "text": "有了身份、权限和审计，专业能力才可以稳定运行。"
+  },
+  {
+    "id": "optimized-vo-30",
+    "text": "下面从法律合规开始，看它怎么处理专业任务。"
+  },
+  {
+    "id": "optimized-vo-31",
+    "text": "法律合规最重要的，是可解释、可追踪。"
+  },
+  {
+    "id": "optimized-vo-32",
+    "text": "Lawrence 会沉淀依据、风险和处理动作。"
+  },
+  {
+    "id": "optimized-vo-64",
+    "text": "它不只是给答案，而是把判断过程留下来。"
+  },
+  {
+    "id": "optimized-vo-33",
+    "text": "所以团队拿到的，是可以继续执行的材料。"
+  },
+  {
+    "id": "optimized-vo-63",
+    "text": "这套基础，决定了专业任务能不能放心交给它。"
+  },
+  {
+    "id": "optimized-vo-34",
+    "text": "现在，把这套能力放到具体场景里。"
+  },
+  {
+    "id": "optimized-vo-35",
+    "text": "先看法律合规风险，如何被定位。"
+  },
+  {
+    "id": "optimized-vo-65",
+    "text": "四个场景依次展开。"
+  },
+  {
+    "id": "skill-vo-contract",
+    "text": "合同审查，最怕只看到问题，却不知道怎么改。Lawrence 会定位付款、终止和责任风险，给出依据、修订建议和谈判清单。"
+  },
+  {
+    "id": "skill-vo-research",
+    "text": "法律研究的难点，是结论必须可引用、可复核。Lawrence 会同步检索法规和案例，保留引用链路，输出研究意见。"
+  },
+  {
+    "id": "skill-vo-diligence",
+    "text": "企业尽调，不能只看公司名称。Lawrence 会穿透股权、关联方和历史风险，把主体关系整理成清晰的风险图谱。"
+  },
+  {
+    "id": "skill-vo-compliance",
+    "text": "合规风险会持续变化，人工很难长期盯住。Lawrence 会监控新规和异常信号，提醒处置，并留下审计记录。"
+  },
+  {
+    "id": "optimized-vo-40",
+    "text": "从法律判断再往前一步，就是管理决策和执行闭环。"
+  },
+  {
+    "id": "skill-vo-strategy",
+    "text": "战略研究最怕资料很多，但判断很散。Lawrence 会整合客户反馈、市场变化和竞品动作，提炼可讨论的策略选项。"
+  },
+  {
+    "id": "skill-vo-okr",
+    "text": "目标对齐的关键，是把想法拆成动作。Lawrence 会生成目标、负责人、节点和验收标准，让团队知道下一步怎么推进。"
+  },
+  {
+    "id": "skill-vo-followup",
+    "text": "管理闭环最容易断在跟进环节。Lawrence 会追踪会议结论、阻塞问题和责任人，沉淀复盘材料和下一步动作。"
+  },
+  {
+    "id": "optimized-vo-44",
+    "text": "当内部管理跑顺，增长场景也可以被流程化。"
+  },
+  {
+    "id": "skill-vo-intelligence",
+    "text": "内容增长不能只靠灵感。Lawrence 会持续监控平台账号和热门话题，把爆款信号整理成选题和脚本假设。"
+  },
+  {
+    "id": "skill-vo-repurpose",
+    "text": "自媒体生产最耗时间的，是反复改口径。Lawrence 会保留品牌观点，再适配公众号、小红书、LinkedIn 和短视频版本。"
+  },
+  {
+    "id": "skill-vo-marketing-review",
+    "text": "营销复盘要看清内容、渠道和线索质量。Lawrence 会对比数据表现，提炼有效卖点，并给出下一轮策略建议。"
+  },
+  {
+    "id": "optimized-vo-48",
+    "text": "这些能力最终都会回到一点：让专业判断进入业务流程。"
+  },
+  {
+    "id": "optimized-vo-49",
+    "text": "接下来，把这套流程能力放到出海场景。"
+  },
+  {
+    "id": "optimized-vo-50",
+    "text": "企业出海的难点，是多法域、多时区，以及持续变化的风险。"
+  },
+  {
+    "id": "optimized-vo-51",
+    "text": "Lawrence 会把法律合规和运营判断放进流程。"
+  },
+  {
+    "id": "optimized-vo-52",
+    "text": "再连接专家资源和风险看板，形成长期陪跑。"
+  },
+  {
+    "id": "optimized-vo-53",
+    "text": "出海陪跑之后，能力还要沉淀成可复用的 Skill。"
+  },
+  {
+    "id": "optimized-vo-54",
+    "text": "每一个 Skill，都是可审核的工作资产。"
+  },
+  {
+    "id": "optimized-vo-55",
+    "text": "里面包含模板、清单、标准和安全边界。"
+  },
+  {
+    "id": "optimized-vo-56",
+    "text": "经过真实业务验证后，Skill 会持续升级。"
+  },
+  {
+    "id": "optimized-vo-57",
+    "text": "这些 Skill 被复用之后，还需要团队真正会用。"
+  },
+  {
+    "id": "optimized-vo-58",
+    "text": "所以最后一段，是课程培训和场景陪跑。"
+  },
+  {
+    "id": "optimized-vo-59",
+    "text": "团队不是只学工具，而是跑通真实业务。"
+  },
+  {
+    "id": "optimized-vo-60",
+    "text": "陪跑过程中，会沉淀模板、检查项和专属 Skill。"
+  },
+  {
+    "id": "optimized-vo-61",
+    "text": "只有能力进入日常流程，数字员工才真正成为团队成员。"
+  },
+  {
+    "id": "optimized-vo-62",
+    "text": "最终，WiseLaw 交付的不是一个工具，而是可落地、可验证、可持续升级的专业数字员工。"
+  }
+]

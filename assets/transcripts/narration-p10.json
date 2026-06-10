@@ -1,0 +1,149 @@
+{
+  "id": "narration-p10",
+  "source": "assets/narration/p10.wav",
+  "expectedText": "交代任务时，不是许愿，而是像对同事说明工作。",
+  "recognizedText": "肖战任务时,不是行任,而是向对同事说明工作。",
+  "tokens": [
+    {
+      "text": "任",
+      "start": 0.26,
+      "end": 0.4,
+      "confidence": 0.955788
+    },
+    {
+      "text": "时",
+      "start": 0.53,
+      "end": 0.69,
+      "confidence": 0.951325
+    },
+    {
+      "text": "不是",
+      "start": 0.99,
+      "end": 1.06,
+      "confidence": 0.957544
+    },
+    {
+      "text": "行",
+      "start": 1.09,
+      "end": 1.16,
+      "confidence": 0.213173
+    },
+    {
+      "text": "任",
+      "start": 1.24,
+      "end": 1.35,
+      "confidence": 0.929789
+    },
+    {
+      "text": "而",
+      "start": 1.46,
+      "end": 1.49,
+      "confidence": 0.90317
+    },
+    {
+      "text": "是",
+      "start": 1.76,
+      "end": 1.82,
+      "confidence": 0.999558
+    },
+    {
+      "text": "向",
+      "start": 1.82,
+      "end": 1.95,
+      "confidence": 0.99165
+    },
+    {
+      "text": "对",
+      "start": 2.01,
+      "end": 2.18,
+      "confidence": 0.76941
+    },
+    {
+      "text": "同",
+      "start": 2.18,
+      "end": 2.29,
+      "confidence": 0.979376
+    },
+    {
+      "text": "事",
+      "start": 2.36,
+      "end": 2.53,
+      "confidence": 0.999224
+    },
+    {
+      "text": "说",
+      "start": 2.55,
+      "end": 2.72,
+      "confidence": 0.997493
+    },
+    {
+      "text": "明",
+      "start": 2.72,
+      "end": 2.9,
+      "confidence": 0.999825
+    },
+    {
+      "text": "工作",
+      "start": 2.9,
+      "end": 3.3,
+      "confidence": 0.998898
+    }
+  ],
+  "words": [
+    {
+      "text": "交代",
+      "start": 0.26,
+      "end": 0.58
+    },
+    {
+      "text": "任务",
+      "start": 0.58,
+      "end": 0.9
+    },
+    {
+      "text": "时",
+      "start": 0.9,
+      "end": 1.06
+    },
+    {
+      "text": "不是",
+      "start": 1.06,
+      "end": 1.38
+    },
+    {
+      "text": "许愿",
+      "start": 1.38,
+      "end": 1.7
+    },
+    {
+      "text": "而是",
+      "start": 1.7,
+      "end": 2.02
+    },
+    {
+      "text": "像",
+      "start": 2.02,
+      "end": 2.18
+    },
+    {
+      "text": "对",
+      "start": 2.18,
+      "end": 2.34
+    },
+    {
+      "text": "同事",
+      "start": 2.34,
+      "end": 2.66
+    },
+    {
+      "text": "说明",
+      "start": 2.66,
+      "end": 2.98
+    },
+    {
+      "text": "工作",
+      "start": 2.98,
+      "end": 3.3
+    }
+  ]
+}

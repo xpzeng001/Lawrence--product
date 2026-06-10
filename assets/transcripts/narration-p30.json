@@ -1,0 +1,97 @@
+{
+  "id": "narration-p30",
+  "source": "assets/narration/p30.wav",
+  "expectedText": "目标拆成负责人、节点和验收标准。",
+  "recognizedText": "目标拆成负责人节点和验收标准",
+  "tokens": [
+    {
+      "text": "目",
+      "start": 0,
+      "end": 0.15,
+      "confidence": 0.926144
+    },
+    {
+      "text": "成",
+      "start": 0.46,
+      "end": 0.6,
+      "confidence": 0.838785
+    },
+    {
+      "text": "人",
+      "start": 0.9,
+      "end": 1.05,
+      "confidence": 0.99822
+    },
+    {
+      "text": "节",
+      "start": 1.08,
+      "end": 1.26,
+      "confidence": 0.751908
+    },
+    {
+      "text": "点",
+      "start": 1.26,
+      "end": 1.39,
+      "confidence": 0.904364
+    },
+    {
+      "text": "和",
+      "start": 1.43,
+      "end": 1.62,
+      "confidence": 0.579792
+    },
+    {
+      "text": "收",
+      "start": 1.8,
+      "end": 1.98,
+      "confidence": 0.999205
+    }
+  ],
+  "words": [
+    {
+      "text": "目标",
+      "start": 0,
+      "end": 0.283
+    },
+    {
+      "text": "拆",
+      "start": 0.283,
+      "end": 0.424
+    },
+    {
+      "text": "成",
+      "start": 0.424,
+      "end": 0.565
+    },
+    {
+      "text": "负责",
+      "start": 0.565,
+      "end": 0.848
+    },
+    {
+      "text": "人",
+      "start": 0.848,
+      "end": 0.989
+    },
+    {
+      "text": "节点",
+      "start": 0.989,
+      "end": 1.272
+    },
+    {
+      "text": "和",
+      "start": 1.272,
+      "end": 1.413
+    },
+    {
+      "text": "验收",
+      "start": 1.413,
+      "end": 1.696
+    },
+    {
+      "text": "标准",
+      "start": 1.696,
+      "end": 1.98
+    }
+  ]
+}

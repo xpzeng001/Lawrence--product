@@ -1,2020 +1,2009 @@
-<!doctype html>
-<html lang="zh-CN">
-  <head>
-    <base href="../" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Shot 8 · Office & Marketing Workflows</title>
+<template id="shot-08-professional-render-template">
+  <div id="main" data-composition-id="shot-08-professional-render" data-start="0" data-width="1920" data-height="1080" data-duration="70">
     <style>
-      :root {
-        --background: #faf8f6;
-        --foreground: #2c2421;
-        --muted: #5c524d;
-        --primary: #8b5a4a;
-        --primary-dark: #70483d;
-        --border: #e8e2dc;
-        --card: #ffffff;
-        --green: #1f9f68;
-        --gold: #d0a04f;
-        --blue: #5f7082;
-      }
-
-      * { box-sizing: border-box; }
-
-      body {
-        margin: 0;
-        background: #0d0c0b;
-        font-family: Inter, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
-      }
-
-      #main {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        color: var(--foreground);
-        background:
-          radial-gradient(ellipse 56% 46% at 50% 42%, rgba(139, 90, 74, 0.13), transparent 68%),
-          radial-gradient(ellipse 34% 30% at 88% 16%, rgba(95, 112, 130, 0.1), transparent 72%),
-          linear-gradient(180deg, #fbf9f7 0%, #f5f0ec 58%, #eee7e1 100%);
-      }
-
-      .paper-grid {
-        position: absolute;
-        inset: 64px;
-        border: 1px solid rgba(139, 90, 74, 0.08);
-        border-radius: 34px;
-        background-image:
-          linear-gradient(rgba(139, 90, 74, 0.052) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(139, 90, 74, 0.052) 1px, transparent 1px);
-        background-size: 150px 126px;
-        opacity: 0.78;
-      }
-
-      .wash {
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(90deg, rgba(255,255,255,0.88), rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.78)),
-          linear-gradient(180deg, rgba(139,90,74,0.03), rgba(95,112,130,0.04));
-      }
-
-      .stage {
-        position: absolute;
-        inset: 0;
-        opacity: 1;
-      }
-
-      .workflow {
-        position: absolute;
-        inset: 0;
-        padding: 92px 112px 84px;
-        display: grid;
-        grid-template-columns: 470px minmax(0, 1fr);
-        gap: 58px;
-        align-items: center;
-        opacity: 1;
-      }
-
-      .part-title {
-        position: absolute;
-        inset: 0;
-        z-index: 40;
-        display: grid;
-        place-items: center;
-        text-align: center;
-        opacity: 1;
-      }
-
-      .part-title-card {
-        width: 1080px;
-        min-height: 300px;
-        padding: 62px 82px;
-        border: 1px solid rgba(139,90,74,0.14);
-        border-radius: 38px;
-        background:
-          radial-gradient(circle at 50% 16%, rgba(255,255,255,0.96), rgba(255,255,255,0.78) 58%, rgba(245,237,235,0.68)),
-          rgba(255,255,255,0.86);
-        box-shadow: 0 32px 92px rgba(44,36,33,0.12);
-      }
-
-      .part-kicker {
-        color: var(--primary);
-        font-size: 18px;
-        font-weight: 900;
-        letter-spacing: 0.08em;
-      }
-
-      .part-heading {
-        margin-top: 22px;
-        color: var(--foreground);
-        font-size: 72px;
-        line-height: 1.06;
-        font-weight: 900;
-        letter-spacing: 0;
-      }
-
-      .part-sub {
-        margin: 18px auto 0;
-        max-width: 840px;
-        color: var(--muted);
-        font-size: 25px;
-        line-height: 1.4;
-        font-weight: 760;
-      }
-
-      .label {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        height: 34px;
-        padding: 0 16px;
-        border: 1px solid rgba(139,90,74,0.14);
-        border-radius: 999px;
-        background: rgba(255,255,255,0.74);
-        color: var(--primary);
-        font-size: 14px;
-        font-weight: 860;
-        box-shadow: 0 12px 32px rgba(44,36,33,0.06);
-      }
-
-      .label::before {
-        content: "";
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--primary);
-      }
-
-      .title {
-        margin: 26px 0 0;
-        font-size: 70px;
-        line-height: 1.06;
-        letter-spacing: 0;
-        font-weight: 880;
-      }
-
-      .title .accent { color: var(--primary); }
-
-      .copy {
-        margin-top: 22px;
-        color: var(--muted);
-        font-size: 25px;
-        line-height: 1.45;
-        font-weight: 720;
-      }
-
-      .meta {
-        display: grid;
-        gap: 12px;
-        margin-top: 32px;
-      }
-
-      .meta div {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        color: rgba(92,82,77,0.9);
-        font-size: 16px;
-        font-weight: 780;
-      }
-
-      .audience-strip {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 26px;
-        padding: 16px;
-        border: 1px solid rgba(139,90,74,0.14);
-        border-radius: 18px;
-        background: rgba(255,255,255,0.62);
-        box-shadow: 0 16px 40px rgba(44,36,33,0.055);
-      }
-
-      .audience-strip::before {
-        content: "适用团队";
-        flex: 0 0 100%;
-        color: var(--primary);
-        font-size: 15px;
-        font-weight: 950;
-        letter-spacing: 0.04em;
-      }
-
-      .audience-chip {
-        display: inline-flex;
-        align-items: center;
-        min-height: 36px;
-        padding: 0 15px;
-        border-radius: 999px;
-        background: linear-gradient(180deg, rgba(139,90,74,0.13), rgba(139,90,74,0.08));
-        border: 1px solid rgba(139,90,74,0.22);
-        color: #5f392f;
-        font-size: 15px;
-        font-weight: 900;
-      }
-
-      .meta span {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--gold);
-        box-shadow: 0 0 0 8px rgba(208,160,79,0.13);
-      }
-
-      .interface {
-        position: relative;
-        height: 720px;
-        border: 1px solid rgba(139,90,74,0.12);
-        border-radius: 28px;
-        background:
-          linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.78)),
-          radial-gradient(circle at 78% 10%, rgba(139,90,74,0.11), transparent 32%);
-        box-shadow: 0 32px 82px rgba(44,36,33,0.13), 0 1px 0 rgba(255,255,255,0.8) inset;
-        overflow: hidden;
-      }
-
-      .interface::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(139,90,74,0.045) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(139,90,74,0.045) 1px, transparent 1px);
-        background-size: 84px 72px;
-        opacity: 0.58;
-      }
-
-      .topbar {
-        position: relative;
-        z-index: 2;
-        height: 68px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 28px;
-        border-bottom: 1px solid rgba(139,90,74,0.1);
-        background: rgba(255,255,255,0.72);
-      }
-
-      .topbar b {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 18px;
-      }
-
-      svg {
-        fill: none;
-        stroke: currentColor;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
-
-      .topbar svg {
-        width: 28px;
-        height: 28px;
-        color: var(--primary);
-        stroke-width: 2.35;
-      }
-
-      .pill {
-        height: 30px;
-        padding: 0 12px;
-        display: inline-flex;
-        align-items: center;
-        border-radius: 999px;
-        background: rgba(31,159,104,0.1);
-        color: var(--green);
-        font-size: 13px;
-        font-weight: 850;
-      }
-
-      .body {
-        position: relative;
-        z-index: 2;
-        height: calc(100% - 68px);
-        padding: 28px;
-      }
-
-      .grid-two {
-        display: grid;
-        grid-template-columns: 42% 1fr;
-        gap: 22px;
-        height: 100%;
-      }
-
-      #meeting .decision-body {
-        height: calc(100% - 68px);
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-template-rows: 1fr 1fr;
-        gap: 18px;
-        padding: 30px;
-      }
-
-      #meeting .decision-card {
-        min-width: 0;
-        min-height: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 22px;
-        border-radius: 22px;
-        border: 1px solid rgba(139,90,74,0.1);
-        background: rgba(255,255,255,0.86);
-        box-shadow: 0 18px 48px rgba(44,36,33,0.06);
-      }
-
-      #meeting .decision-tag {
-        width: fit-content;
-        height: 28px;
-        display: inline-flex;
-        align-items: center;
-        padding: 0 12px;
-        border-radius: 999px;
-        background: rgba(139,90,74,0.08);
-        color: var(--primary);
-        font-size: 12px;
-        font-weight: 900;
-      }
-
-      #meeting .decision-card h3 {
-        margin: 16px 0 0;
-        color: var(--foreground);
-        font-size: 22px;
-        line-height: 1.2;
-        font-weight: 920;
-      }
-
-      #meeting .decision-card p {
-        margin: 10px 0 0;
-        color: var(--muted);
-        font-size: 15px;
-        line-height: 1.45;
-        font-weight: 720;
-      }
-
-      #brief .okr-body {
-        height: calc(100% - 68px);
-        display: grid;
-        grid-template-columns: minmax(0, 45%) minmax(0, 1fr);
-        gap: 22px;
-        padding: 28px;
-      }
-
-      #brief .okr-body > * {
-        min-width: 0;
-        min-height: 0;
-      }
-
-      #brief .okr-side {
-        display: grid;
-        gap: 16px;
-        min-height: 0;
-      }
-
-      #brief .okr-side-card {
-        min-height: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: 0;
-        padding: 20px 22px;
-      }
-
-      #brief .okr-side-card h3 {
-        margin: 0;
-        font-size: 21px;
-        line-height: 1.18;
-      }
-
-      #brief .okr-side-card p {
-        margin: 8px 0 0;
-        font-size: 14px;
-        line-height: 1.4;
-      }
-
-      #brief .okr-side-card ul {
-        gap: 5px;
-        margin-top: 10px;
-      }
-
-      #brief .okr-side-card li {
-        font-size: 12px;
-        line-height: 1.32;
-      }
-
-      .panel, .card {
-        border: 1px solid rgba(139,90,74,0.1);
-        border-radius: 20px;
-        background: rgba(255,255,255,0.82);
-        box-shadow: 0 18px 48px rgba(44,36,33,0.06);
-      }
-
-      .panel { padding: 22px; }
-
-      .card {
-        padding: 18px;
-        margin-bottom: 14px;
-      }
-
-      .card h3 {
-        margin: 0 0 9px;
-        font-size: 22px;
-        line-height: 1.18;
-      }
-
-      .card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 15px;
-        line-height: 1.45;
-        font-weight: 680;
-      }
-
-      .card ul {
-        display: grid;
-        gap: 7px;
-        margin: 12px 0 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .card li {
-        position: relative;
-        padding-left: 16px;
-        color: #5c524d;
-        font-size: 13px;
-        line-height: 1.35;
-        font-weight: 760;
-      }
-
-      .card li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0.55em;
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: #d0a04f;
-      }
-
-      .line {
-        height: 12px;
-        border-radius: 999px;
-        background: rgba(92,82,77,0.18);
-        margin-bottom: 16px;
-      }
-
-      .line.short { width: 56%; }
-      .line.mid { width: 76%; }
-
-      .note-row {
-        display: grid;
-        grid-template-columns: 76px 1fr;
-        gap: 16px;
-        align-items: start;
-        padding: 14px 0;
-        border-bottom: 1px solid rgba(139,90,74,0.08);
-      }
-
-      .time {
-        color: var(--primary);
-        font-size: 14px;
-        font-weight: 860;
-      }
-
-      .brief-source-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        margin-top: 18px;
-      }
-
-      .brief-source {
-        min-height: 72px;
-        padding: 12px;
-        border-radius: 14px;
-        background: rgba(245,242,239,0.82);
-        border: 1px solid rgba(139,90,74,0.08);
-      }
-
-      .brief-source b {
-        display: block;
-        color: var(--foreground);
-        font-size: 13px;
-        font-weight: 900;
-      }
-
-      .brief-source p {
-        margin-top: 7px;
-        color: var(--muted);
-        font-size: 12px;
-        line-height: 1.35;
-        font-weight: 720;
-      }
-
-      .brief-question {
-        margin-top: 16px;
-        padding: 16px;
-        border-radius: 16px;
-        background: rgba(139,90,74,0.07);
-        border: 1px solid rgba(139,90,74,0.12);
-      }
-
-      .brief-question b {
-        display: block;
-        color: var(--primary);
-        font-size: 14px;
-        font-weight: 950;
-      }
-
-      .brief-question p {
-        margin-top: 8px;
-        color: var(--foreground);
-        font-size: 14px;
-        line-height: 1.42;
-        font-weight: 780;
-      }
-
-      .brief-cover {
-        display: grid;
-        align-content: start;
-        gap: 14px;
-        min-height: 250px;
-        padding: 26px;
-        border-radius: 22px;
-        color: #fff;
-        background: linear-gradient(135deg, var(--primary), var(--blue));
-      }
-
-      .brief-cover strong {
-        display: block;
-        font-size: 34px;
-        line-height: 1.14;
-      }
-
-      .okr-label {
-        display: inline-flex;
-        width: fit-content;
-        height: 28px;
-        align-items: center;
-        padding: 0 12px;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.18);
-        font-size: 12px;
-        font-weight: 900;
-      }
-
-      .okr-objective {
-        padding: 16px;
-        border-radius: 16px;
-        background: rgba(255,255,255,0.16);
-      }
-
-      .okr-objective span,
-      .okr-row span {
-        display: block;
-        color: rgba(255,255,255,0.74);
-        font-size: 11px;
-        font-weight: 900;
-        letter-spacing: 0.04em;
-      }
-
-      .okr-objective b {
-        display: block;
-        margin-top: 7px;
-        font-size: 20px;
-        line-height: 1.28;
-      }
-
-      .okr-list {
-        display: grid;
-        gap: 10px;
-      }
-
-      .okr-row {
-        display: grid;
-        gap: 7px;
-        padding: 12px 14px;
-        border-radius: 14px;
-        background: rgba(255,255,255,0.12);
-      }
-
-      .okr-row b {
-        font-size: 14px;
-        line-height: 1.25;
-      }
-
-      .okr-bar {
-        height: 7px;
-        overflow: hidden;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.22);
-      }
-
-      .okr-bar i {
-        display: block;
-        height: 100%;
-        border-radius: inherit;
-        background: rgba(255,255,255,0.86);
-      }
-
-      .okr-footer {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        color: rgba(255,255,255,0.82);
-        font-size: 12px;
-        font-weight: 850;
-      }
-
-      .email-box {
-        border-radius: 18px;
-        background: rgba(255,255,255,0.86);
-        border: 1px solid rgba(139,90,74,0.1);
-        padding: 18px;
-      }
-
-      .subject {
-        height: 42px;
-        display: flex;
-        align-items: center;
-        padding: 0 14px;
-        border-radius: 12px;
-        background: rgba(139,90,74,0.07);
-        color: var(--primary);
-        font-weight: 850;
-      }
-
-      .kanban {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
-        height: 100%;
-      }
-
-      .intel-stage {
-        padding: 0;
-      }
-
-      .intel-view {
-        position: absolute;
-        inset: 26px 28px;
-        will-change: transform, opacity;
-      }
-
-      .intel-dashboard {
-        display: grid;
-        grid-template-rows: 118px 1fr 112px;
-        gap: 14px;
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      .dash-metrics {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 14px;
-      }
-
-      .metric-card,
-      .dash-panel {
-        border: 1px solid rgba(139,90,74,0.1);
-        border-radius: 18px;
-        background: rgba(255,255,255,0.84);
-        box-shadow: 0 16px 38px rgba(44,36,33,0.06);
-      }
-
-      .metric-card {
-        padding: 16px;
-      }
-
-      .metric-card span {
-        color: rgba(44,36,33,0.58);
-        font-size: 12px;
-        font-weight: 850;
-      }
-
-      .metric-card b {
-        display: block;
-        margin-top: 8px;
-        color: var(--foreground);
-        font-size: 28px;
-        line-height: 1;
-        font-weight: 920;
-      }
-
-      .metric-card em {
-        display: inline-flex;
-        margin-top: 10px;
-        color: var(--green);
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 900;
-      }
-
-      .dash-grid {
-        display: grid;
-        grid-template-columns: 1.12fr 0.88fr;
-        gap: 14px;
-        min-height: 0;
-      }
-
-      .dash-panel {
-        position: relative;
-        overflow: hidden;
-        padding: 18px;
-      }
-
-      .dash-panel h3 {
-        margin: 0;
-        color: var(--foreground);
-        font-size: 18px;
-        font-weight: 920;
-      }
-
-      .dash-panel p {
-        margin: 6px 0 0;
-        color: var(--muted);
-        font-size: 12px;
-        font-weight: 720;
-      }
-
-      .signal-chart {
-        position: absolute;
-        left: 18px;
-        right: 18px;
-        bottom: 18px;
-        height: 190px;
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        align-items: end;
-        gap: 12px;
-      }
-
-      .signal-bar {
-        position: relative;
-        border-radius: 12px 12px 8px 8px;
-        background: linear-gradient(180deg, rgba(31,159,104,0.82), rgba(139,90,74,0.62));
-        min-height: 42px;
-        box-shadow: 0 12px 26px rgba(44,36,33,0.08);
-      }
-
-      .signal-bar::after {
-        content: attr(data-label);
-        position: absolute;
-        left: 50%;
-        bottom: -20px;
-        color: rgba(44,36,33,0.56);
-        font-size: 10px;
-        font-weight: 850;
-        transform: translateX(-50%);
-      }
-
-      .topic-list {
-        display: grid;
-        gap: 10px;
-        margin-top: 18px;
-      }
-
-      .topic-row {
-        display: grid;
-        grid-template-columns: 96px 1fr 42px;
-        align-items: center;
-        gap: 10px;
-        color: rgba(44,36,33,0.76);
-        font-size: 12px;
-        font-weight: 850;
-      }
-
-      .topic-track {
-        height: 9px;
-        overflow: hidden;
-        border-radius: 999px;
-        background: rgba(139,90,74,0.09);
-      }
-
-      .topic-track i {
-        display: block;
-        height: 100%;
-        border-radius: inherit;
-        background: linear-gradient(90deg, var(--primary), var(--gold), var(--green));
-      }
-
-      .dash-actions {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
-      }
-
-      .action-card {
-        padding: 16px;
-        border: 1px solid rgba(31,159,104,0.14);
-        border-radius: 18px;
-        background: rgba(255,255,255,0.86);
-        box-shadow: 0 14px 34px rgba(44,36,33,0.055);
-      }
-
-      .action-card b {
-        display: block;
-        color: var(--foreground);
-        font-size: 15px;
-        font-weight: 920;
-      }
-
-      .action-card span {
-        display: block;
-        margin-top: 7px;
-        color: var(--muted);
-        font-size: 12px;
-        line-height: 1.32;
-        font-weight: 720;
-      }
-
-      .col {
-        padding: 16px;
-        border-radius: 18px;
-        background: rgba(255,255,255,0.76);
-        border: 1px solid rgba(139,90,74,0.1);
-      }
-
-      .col h3 {
-        margin: 0 0 16px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 18px;
-      }
-
-      .col h3 span {
-        color: var(--primary);
-        font-size: 12px;
-        font-weight: 850;
-      }
-
-      .task {
-        min-height: 112px;
-        padding: 13px 14px;
-        margin-bottom: 12px;
-        border-radius: 14px;
-        background: rgba(255,255,255,0.9);
-        color: var(--muted);
-        font-size: 14px;
-        font-weight: 720;
-        box-shadow: 0 12px 28px rgba(44,36,33,0.06);
-      }
-
-      .task b {
-        display: block;
-        color: var(--foreground);
-        font-size: 15px;
-        line-height: 1.2;
-        font-weight: 900;
-      }
-
-      .task p {
-        margin: 8px 0 0;
-        color: var(--muted);
-        font-size: 12px;
-        line-height: 1.34;
-        font-weight: 680;
-      }
-
-      .task-meta {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-        margin-top: 10px;
-      }
-
-      .task-meta span,
-      .task-tag {
-        height: 22px;
-        padding: 0 8px;
-        display: inline-flex;
-        align-items: center;
-        border-radius: 999px;
-        background: rgba(139,90,74,0.08);
-        color: var(--primary);
-        font-size: 11px;
-        font-weight: 850;
-        white-space: nowrap;
-      }
-
-      .task-score {
-        color: var(--green);
-        font-size: 12px;
-        font-weight: 900;
-      }
-
-      .source-row {
-        display: flex;
-        gap: 8px;
-        margin-bottom: 12px;
-      }
-
-      .source-row span {
-        height: 24px;
-        padding: 0 9px;
-        display: inline-flex;
-        align-items: center;
-        border-radius: 999px;
-        background: rgba(31,159,104,0.08);
-        color: var(--green);
-        font-size: 11px;
-        font-weight: 850;
-      }
-
-      .social-card {
-        display: grid;
-        gap: 14px;
-        padding: 18px;
-        border-radius: 22px;
-        background: rgba(255,255,255,0.84);
-        border: 1px solid rgba(139,90,74,0.1);
-      }
-
-      .channel-card {
-        min-height: 112px;
-        display: grid;
-        grid-template-columns: 74px minmax(0, 1fr);
-        align-items: center;
-        gap: 18px;
-        padding: 18px;
-        border-radius: 18px;
-        background: rgba(255,255,255,0.9);
-        border: 1px solid rgba(139,90,74,0.1);
-        box-shadow: 0 14px 34px rgba(44,36,33,0.055);
-      }
-
-      .channel-logo {
-        width: 58px;
-        height: 58px;
-        position: relative;
-        display: grid;
-        place-items: center;
-        border-radius: 18px;
-        color: #fff;
-        font-size: 18px;
-        font-weight: 950;
-        letter-spacing: 0;
-        box-shadow: 0 14px 28px rgba(44,36,33,0.12);
-      }
-
-      .channel-logo svg {
-        width: 34px;
-        height: 34px;
-        stroke-width: 2.4;
-      }
-
-      .channel-logo img {
-        display: block;
-        width: 36px;
-        height: 36px;
-        object-fit: contain;
-      }
-
-      .channel-logo.wechat {
-        background: linear-gradient(135deg, #18b84f, #07883b);
-      }
-
-      .channel-logo.rednote {
-        background: linear-gradient(135deg, #ff2e4d, #c91432);
-        font-size: 12px;
-        line-height: 1;
-      }
-
-      .channel-logo.linkedin {
-        background: linear-gradient(135deg, #0a66c2, #084f99);
-        border-radius: 14px;
-        font-family: Arial, sans-serif;
-        font-size: 28px;
-        font-weight: 900;
-      }
-
-      .channel-logo.video {
-        background: linear-gradient(135deg, #121212, #3a3430);
-      }
-
-      .channel-logo-pair {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .channel-card.video-channel {
-        grid-template-columns: 132px minmax(0, 1fr);
-      }
-
-      .channel-logo-pair .channel-logo {
-        width: 58px;
-        height: 58px;
-        border-radius: 18px;
-      }
-
-      .channel-logo-pair .channel-logo img {
-        width: 36px;
-        height: 36px;
-      }
-
-      .channel-logo.douyin {
-        background: linear-gradient(135deg, #080808, #252525);
-      }
-
-      .channel-logo.channels {
-        background: linear-gradient(135deg, #07c160, #12b76a);
-      }
-
-
-      .channel-card h3 {
-        margin: 0;
-        color: var(--foreground);
-        font-size: 22px;
-        font-weight: 920;
-      }
-
-      .channel-card p {
-        margin: 8px 0 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.42;
-        font-weight: 720;
-      }
-
-      .thumb {
-        position: relative;
-        overflow: hidden;
-        height: 148px;
-        border-radius: 18px;
-        padding: 14px;
-        will-change: transform, opacity;
-        background:
-          radial-gradient(circle at 28% 22%, rgba(208,160,79,0.5), transparent 30%),
-          linear-gradient(135deg, rgba(139,90,74,0.86), rgba(95,112,130,0.82));
-        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2), 0 16px 30px rgba(44,36,33,0.1);
-      }
-
-      .thumb::before,
-      .thumb::after {
-        content: "";
-        position: absolute;
-      }
-
-      .thumb .thumb-kicker,
-      .thumb .thumb-title,
-      .thumb .thumb-tag {
-        position: absolute;
-        z-index: 2;
-        letter-spacing: 0;
-      }
-
-      .thumb .thumb-kicker {
-        left: 14px;
-        top: 13px;
-        height: 22px;
-        padding: 0 9px;
-        display: inline-flex;
-        align-items: center;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.78);
-        color: var(--primary-dark);
-        font-size: 10px;
-        font-weight: 900;
-      }
-
-      .thumb .thumb-title {
-        left: 14px;
-        right: 14px;
-        bottom: 42px;
-        color: #fff;
-        font-size: 19px;
-        line-height: 1.08;
-        font-weight: 900;
-        text-shadow: 0 2px 8px rgba(44,36,33,0.22);
-      }
-
-      .thumb .thumb-tag {
-        left: 14px;
-        bottom: 15px;
-        color: rgba(255,255,255,0.88);
-        font-size: 11px;
-        font-weight: 820;
-      }
-
-      .thumb-editorial::before {
-        right: -20px;
-        top: 12px;
-        width: 92px;
-        height: 118px;
-        border-radius: 22px;
-        background:
-          linear-gradient(rgba(255,255,255,0.72) 0 0) 17px 23px / 52px 6px no-repeat,
-          linear-gradient(rgba(255,255,255,0.48) 0 0) 17px 41px / 42px 5px no-repeat,
-          linear-gradient(rgba(255,255,255,0.34) 0 0) 17px 58px / 56px 5px no-repeat,
-          rgba(255,255,255,0.18);
-        transform: rotate(7deg);
-        box-shadow: 0 18px 34px rgba(44,36,33,0.16);
-      }
-
-      .thumb-editorial::after {
-        right: 38px;
-        bottom: 20px;
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.2);
-        box-shadow: 0 0 0 12px rgba(255,255,255,0.08);
-      }
-
-      .thumb-video {
-        background:
-          radial-gradient(circle at 72% 26%, rgba(31,159,104,0.34), transparent 34%),
-          linear-gradient(135deg, rgba(95,112,130,0.88), rgba(139,90,74,0.88));
-      }
-
-      .thumb-video::before {
-        left: 50%;
-        top: 50%;
-        width: 58px;
-        height: 58px;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.78);
-        transform: translate(-50%, -50%);
-        box-shadow: 0 16px 32px rgba(44,36,33,0.16);
-      }
-
-      .thumb-video::after {
-        left: calc(50% - 7px);
-        top: calc(50% - 12px);
-        width: 0;
-        height: 0;
-        border-top: 12px solid transparent;
-        border-bottom: 12px solid transparent;
-        border-left: 18px solid var(--primary);
-      }
-
-      .thumb-video .thumb-kicker {
-        background: rgba(31,159,104,0.14);
-        color: #fff;
-        border: 1px solid rgba(255,255,255,0.28);
-      }
-
-      .thumb-video .thumb-title {
-        bottom: 18px;
-        right: 18px;
-        text-align: right;
-        font-size: 17px;
-      }
-
-      .thumb-editorial {
-        background:
-          radial-gradient(circle at 25% 24%, rgba(208,160,79,0.58), transparent 28%),
-          radial-gradient(circle at 82% 20%, rgba(255,255,255,0.2), transparent 28%),
-          linear-gradient(135deg, rgba(139,90,74,0.9), rgba(95,112,130,0.84));
-      }
-
-      .thumb-editorial .thumb-grid {
-        position: absolute;
-        inset: 13px;
-        z-index: 1;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-        opacity: 0.55;
-      }
-
-      .thumb-editorial .thumb-grid span {
-        border-radius: 10px;
-        background: rgba(255,255,255,0.2);
-        border: 1px solid rgba(255,255,255,0.18);
-      }
-
-      .thumb-editorial .thumb-note {
-        position: absolute;
-        z-index: 3;
-        right: 14px;
-        top: 42px;
-        width: 62px;
-        height: 58px;
-        border-radius: 12px;
-        background: rgba(255,255,255,0.84);
-        box-shadow: 0 14px 26px rgba(44,36,33,0.14);
-      }
-
-      .thumb-editorial .thumb-note::before,
-      .thumb-editorial .thumb-note::after {
-        content: "";
-        position: absolute;
-        left: 11px;
-        right: 11px;
-        height: 5px;
-        border-radius: 999px;
-        background: rgba(139,90,74,0.28);
-      }
-
-      .thumb-editorial .thumb-note::before { top: 17px; }
-      .thumb-editorial .thumb-note::after { top: 32px; width: 30px; right: auto; }
-
-      .thumb-video {
-        display: grid;
-        place-items: center;
-      }
-
-      .thumb-video .phone-preview {
-        position: absolute;
-        z-index: 2;
-        right: 16px;
-        top: 18px;
-        width: 56px;
-        height: 104px;
-        border-radius: 16px;
-        background: rgba(255,255,255,0.2);
-        border: 2px solid rgba(255,255,255,0.45);
-        box-shadow: 0 18px 30px rgba(44,36,33,0.18);
-      }
-
-      .thumb-video .phone-preview::before {
-        content: "";
-        position: absolute;
-        left: 12px;
-        right: 12px;
-        top: 8px;
-        height: 4px;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.54);
-      }
-
-      .thumb-video .reel-lines {
-        position: absolute;
-        z-index: 2;
-        left: 14px;
-        bottom: 16px;
-        width: 78px;
-        display: grid;
-        gap: 7px;
-      }
-
-      .thumb-video .reel-lines span {
-        height: 6px;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.42);
-      }
-
-      .thumb-video .reel-lines span:nth-child(2) { width: 62%; }
-      .thumb-video .reel-lines span:nth-child(3) { width: 78%; }
-
-      .thumb-kicker,
-      .thumb-title,
-      .thumb-tag,
-      .thumb-note,
-      .phone-preview,
-      .reel-lines {
-        will-change: transform, opacity;
-      }
-
-      .social-card .card {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .social-card .card::after {
-        content: "";
-        position: absolute;
-        right: 16px;
-        top: 18px;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: rgba(208,160,79,0.82);
-        box-shadow: 0 0 0 7px rgba(208,160,79,0.1);
-      }
-
-      .script-timeline {
-        position: relative;
-        display: grid;
-        gap: 16px;
-        padding-left: 34px;
-      }
-
-      #script .grid-two {
-        grid-template-columns: minmax(0, 48%) minmax(0, 1fr);
-        gap: 22px;
-      }
-
-      #script .grid-two > * {
-        min-width: 0;
-      }
-
-      #script .panel {
-        height: 100%;
-        overflow: hidden;
-      }
-
-      #script .script-timeline {
-        gap: 18px;
-        align-content: center;
-        padding: 24px 18px 24px 40px;
-      }
-
-      #script .beat {
-        min-height: 124px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      #script .beat h3,
-      #script .card h3 {
-        margin: 0;
-        color: var(--foreground);
-        font-size: 22px;
-        line-height: 1.2;
-        font-weight: 920;
-      }
-
-      #script .beat p,
-      #script .card p {
-        margin: 10px 0 0;
-        color: var(--muted);
-        font-size: 16px;
-        line-height: 1.45;
-        font-weight: 720;
-        white-space: normal;
-        overflow-wrap: anywhere;
-      }
-
-      #script .body > .panel:not(.script-timeline) {
-        display: grid;
-        align-content: center;
-        gap: 16px;
-        padding: 24px;
-      }
-
-      #script .body > .panel:not(.script-timeline) .card {
-        margin: 0;
-        min-height: 124px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      #script .script-review-body {
-        height: calc(100% - 68px);
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-template-rows: 1fr 1fr;
-        gap: 18px;
-        padding: 30px;
-      }
-
-      #script .review-step,
-      #script .review-card {
-        position: relative;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 24px;
-        border-radius: 22px;
-        border: 1px solid rgba(139,90,74,0.1);
-        background: rgba(255,255,255,0.86);
-        box-shadow: 0 18px 48px rgba(44,36,33,0.06);
-      }
-
-      #script .review-step::before {
-        content: "";
-        position: absolute;
-        left: 24px;
-        top: 22px;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--gold);
-        box-shadow: 0 0 0 8px rgba(208,160,79,0.12);
-      }
-
-      #script .review-step h3,
-      #script .review-card h3 {
-        margin: 0 0 0;
-        padding-left: 24px;
-        color: var(--foreground);
-        font-size: 22px;
-        line-height: 1.2;
-        font-weight: 920;
-      }
-
-      #script .review-card h3 {
-        padding-left: 0;
-      }
-
-      #script .review-step p,
-      #script .review-card p {
-        margin: 12px 0 0;
-        color: var(--muted);
-        font-size: 16px;
-        line-height: 1.45;
-        font-weight: 720;
-        white-space: normal;
-        overflow-wrap: anywhere;
-      }
-
-      .script-timeline::before {
-        content: "";
-        position: absolute;
-        left: 10px;
-        top: 8px;
-        bottom: 8px;
-        width: 2px;
-        background: rgba(139,90,74,0.22);
-      }
-
-      .beat {
-        position: relative;
-        padding: 16px;
-        border-radius: 16px;
-        background: rgba(255,255,255,0.86);
-        border: 1px solid rgba(139,90,74,0.1);
-      }
-
-      .beat::before {
-        content: "";
-        position: absolute;
-        left: -31px;
-        top: 22px;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: var(--gold);
-      }
-
-      .flash-bar {
-        display: none;
-        position: absolute;
-        left: -20%;
-        top: 0;
-        width: 18%;
-        height: 100%;
-        transform: skewX(-18deg);
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.82), transparent);
-        opacity: 0;
-        z-index: 20;
-        pointer-events: none;
-      }
-
-      .progress {
-        position: absolute;
-        left: 112px;
-        bottom: 52px;
-        display: flex;
-        gap: 10px;
-        z-index: 30;
-      }
-
-      .progress span {
-        width: 34px;
-        height: 5px;
-        border-radius: 999px;
-        background: rgba(139,90,74,0.16);
-      }
-
-      @media (max-width: 720px) {
-        .paper-grid {
-          inset: 24px;
-          background-size: 92px 84px;
-        }
-
-        .workflow {
-          padding: 30px 24px 36px;
-          grid-template-columns: minmax(0, 1fr);
-          gap: 24px;
-          align-items: start;
-          overflow: hidden;
-        }
-
-        .workflow > div:first-child {
-          min-width: 0;
-        }
-
-        .label {
-          height: 28px;
-          padding: 0 12px;
-          font-size: 11px;
-        }
-
-        .label::before {
-          width: 6px;
-          height: 6px;
-        }
-
-        .title {
-          margin-top: 18px;
-          font-size: 42px;
-          line-height: 1.08;
-        }
-
-        .copy {
-          margin-top: 14px;
-          font-size: 15px;
-          line-height: 1.36;
-        }
-
-        .audience-strip {
-          margin-top: 18px;
-          gap: 8px;
-          padding: 12px;
-          border-radius: 16px;
-        }
-
-        .audience-strip::before {
-          font-size: 12px;
-        }
-
-        .audience-chip {
-          min-height: 30px;
-          padding: 0 12px;
-          font-size: 12px;
-        }
-
-        .meta {
-          gap: 9px;
-          margin-top: 20px;
-        }
-
-        .meta div {
-          align-items: flex-start;
-          gap: 9px;
-          font-size: 12px;
-          line-height: 1.3;
-        }
-
-        .meta span {
-          width: 8px;
-          height: 8px;
-          margin-top: 4px;
-          flex: 0 0 auto;
-          box-shadow: 0 0 0 6px rgba(208,160,79,0.13);
-        }
-
-        .interface {
-          display: none;
-        }
-
-        .progress {
-          left: 24px;
-          bottom: 18px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="main" data-composition-id="shot-08-professional-render" data-start="0" data-width="1920" data-height="1080" data-duration="42">
-      <div class="paper-grid"></div>
-      <div class="wash"></div>
-      <div class="stage clip" id="stage" data-start="0" data-duration="42" data-track-index="1" data-layout-allow-overflow="true">
-        <div class="clip part-title" id="part-management" data-start="0" data-duration="5" data-track-index="2">
-          <div class="part-title-card">
-            <div class="part-kicker">PART B · STRATEGY & MANAGEMENT</div>
-            <div class="part-heading">战略管理 / 内部管理场景</div>
-            <div class="part-sub">面向创始团队、总经办和战略部门，从决策输入到执行闭环。</div>
+          :root {
+            --background: #faf8f6;
+            --foreground: #2c2421;
+            --muted: #5c524d;
+            --primary: #8b5a4a;
+            --primary-dark: #70483d;
+            --border: #e8e2dc;
+            --card: #ffffff;
+            --green: #1f9f68;
+            --gold: #d0a04f;
+            --blue: #5f7082;
+          }
+    
+          * { box-sizing: border-box; }
+    
+          body { margin: 0; }
+    
+          #main {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            color: var(--foreground);
+            background:
+              radial-gradient(ellipse 56% 46% at 50% 42%, rgba(139, 90, 74, 0.13), transparent 68%),
+              radial-gradient(ellipse 34% 30% at 88% 16%, rgba(95, 112, 130, 0.1), transparent 72%),
+              linear-gradient(180deg, #fbf9f7 0%, #f5f0ec 58%, #eee7e1 100%);
+          }
+    
+          .paper-grid {
+            position: absolute;
+            inset: 64px;
+            border: 1px solid rgba(139, 90, 74, 0.08);
+            border-radius: 34px;
+            background-image:
+              linear-gradient(rgba(139, 90, 74, 0.052) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(139, 90, 74, 0.052) 1px, transparent 1px);
+            background-size: 150px 126px;
+            opacity: 0.78;
+          }
+    
+          .wash {
+            position: absolute;
+            inset: 0;
+            background:
+              linear-gradient(90deg, rgba(255,255,255,0.88), rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.78)),
+              linear-gradient(180deg, rgba(139,90,74,0.03), rgba(95,112,130,0.04));
+          }
+    
+          .stage {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+          }
+    
+          .workflow {
+            position: absolute;
+            inset: 0;
+            padding: 92px 112px 84px;
+            display: grid;
+            grid-template-columns: 470px minmax(0, 1fr);
+            gap: 58px;
+            align-items: center;
+            opacity: 0;
+          }
+    
+          .part-title {
+            position: absolute;
+            inset: 0;
+            z-index: 40;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            opacity: 1;
+          }
+    
+          .part-title-card {
+            width: 1080px;
+            min-height: 300px;
+            padding: 62px 82px;
+            border: 1px solid rgba(139,90,74,0.14);
+            border-radius: 38px;
+            background:
+              radial-gradient(circle at 50% 16%, rgba(255,255,255,0.96), rgba(255,255,255,0.78) 58%, rgba(245,237,235,0.68)),
+              rgba(255,255,255,0.86);
+            box-shadow: 0 32px 92px rgba(44,36,33,0.12);
+          }
+    
+          .part-kicker {
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+          }
+    
+          .part-heading {
+            margin-top: 22px;
+            color: var(--foreground);
+            font-size: 72px;
+            line-height: 1.06;
+            font-weight: 900;
+            letter-spacing: 0;
+          }
+    
+          .part-sub {
+            margin: 18px auto 0;
+            max-width: 840px;
+            color: var(--muted);
+            font-size: 25px;
+            line-height: 1.4;
+            font-weight: 760;
+          }
+    
+          .label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            height: 34px;
+            padding: 0 16px;
+            border: 1px solid rgba(139,90,74,0.14);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.74);
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 860;
+            box-shadow: 0 12px 32px rgba(44,36,33,0.06);
+          }
+    
+          .label::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+          }
+    
+          .title {
+            margin: 26px 0 0;
+            font-size: 70px;
+            line-height: 1.06;
+            letter-spacing: 0;
+            font-weight: 880;
+          }
+    
+          .title .accent { color: var(--primary); }
+    
+          .copy {
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 25px;
+            line-height: 1.45;
+            font-weight: 720;
+          }
+    
+          .meta {
+            display: grid;
+            gap: 12px;
+            margin-top: 32px;
+          }
+    
+          .meta div {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(92,82,77,0.9);
+            font-size: 16px;
+            font-weight: 780;
+          }
+    
+          .audience-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 26px;
+            padding: 16px;
+            border: 1px solid rgba(139,90,74,0.14);
+            border-radius: 18px;
+            background: rgba(255,255,255,0.62);
+            box-shadow: 0 16px 40px rgba(44,36,33,0.055);
+          }
+    
+          .audience-strip::before {
+            content: "适用团队";
+            flex: 0 0 100%;
+            color: var(--primary);
+            font-size: 15px;
+            font-weight: 950;
+            letter-spacing: 0.04em;
+          }
+    
+          .audience-chip {
+            display: inline-flex;
+            align-items: center;
+            min-height: 36px;
+            padding: 0 15px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(139,90,74,0.13), rgba(139,90,74,0.08));
+            border: 1px solid rgba(139,90,74,0.22);
+            color: #5f392f;
+            font-size: 15px;
+            font-weight: 900;
+          }
+    
+          .meta span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 0 8px rgba(208,160,79,0.13);
+          }
+    
+          .interface {
+            position: relative;
+            height: 720px;
+            border: 1px solid rgba(139,90,74,0.12);
+            border-radius: 28px;
+            background:
+              linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.78)),
+              radial-gradient(circle at 78% 10%, rgba(139,90,74,0.11), transparent 32%);
+            box-shadow: 0 32px 82px rgba(44,36,33,0.13), 0 1px 0 rgba(255,255,255,0.8) inset;
+            overflow: hidden;
+          }
+    
+          .interface::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+              linear-gradient(rgba(139,90,74,0.045) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(139,90,74,0.045) 1px, transparent 1px);
+            background-size: 84px 72px;
+            opacity: 0.58;
+          }
+    
+          .topbar {
+            position: relative;
+            z-index: 2;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+            border-bottom: 1px solid rgba(139,90,74,0.1);
+            background: rgba(255,255,255,0.72);
+          }
+    
+          .topbar b {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+          }
+    
+          svg {
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+    
+          .topbar svg {
+            width: 28px;
+            height: 28px;
+            color: var(--primary);
+            stroke-width: 2.35;
+          }
+    
+          .pill {
+            height: 30px;
+            padding: 0 12px;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            background: rgba(31,159,104,0.1);
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 850;
+          }
+    
+          .body {
+            position: relative;
+            z-index: 2;
+            height: calc(100% - 68px);
+            padding: 28px;
+          }
+    
+          .grid-two {
+            display: grid;
+            grid-template-columns: 42% 1fr;
+            gap: 22px;
+            height: 100%;
+          }
+    
+          #meeting .decision-body {
+            height: calc(100% - 68px);
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-rows: 1fr 1fr;
+            gap: 18px;
+            padding: 30px;
+          }
+    
+          #meeting .decision-card {
+            min-width: 0;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 22px;
+            border-radius: 22px;
+            border: 1px solid rgba(139,90,74,0.1);
+            background: rgba(255,255,255,0.86);
+            box-shadow: 0 18px 48px rgba(44,36,33,0.06);
+          }
+    
+          #meeting .decision-tag {
+            width: fit-content;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            padding: 0 12px;
+            border-radius: 999px;
+            background: rgba(139,90,74,0.08);
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 900;
+          }
+    
+          #meeting .decision-card h3 {
+            margin: 16px 0 0;
+            color: var(--foreground);
+            font-size: 22px;
+            line-height: 1.2;
+            font-weight: 920;
+          }
+    
+          #meeting .decision-card p {
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.45;
+            font-weight: 720;
+          }
+    
+          #brief .okr-body {
+            height: calc(100% - 68px);
+            display: grid;
+            grid-template-columns: minmax(0, 45%) minmax(0, 1fr);
+            gap: 22px;
+            padding: 28px;
+          }
+    
+          #brief .okr-body > * {
+            min-width: 0;
+            min-height: 0;
+          }
+    
+          #brief .okr-side {
+            display: grid;
+            gap: 16px;
+            min-height: 0;
+          }
+    
+          #brief .okr-side-card {
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0;
+            padding: 20px 22px;
+          }
+    
+          #brief .okr-side-card h3 {
+            margin: 0;
+            font-size: 21px;
+            line-height: 1.18;
+          }
+    
+          #brief .okr-side-card p {
+            margin: 8px 0 0;
+            font-size: 14px;
+            line-height: 1.4;
+          }
+    
+          #brief .okr-side-card ul {
+            gap: 5px;
+            margin-top: 10px;
+          }
+    
+          #brief .okr-side-card li {
+            font-size: 12px;
+            line-height: 1.32;
+          }
+    
+          .panel, .card {
+            border: 1px solid rgba(139,90,74,0.1);
+            border-radius: 20px;
+            background: rgba(255,255,255,0.82);
+            box-shadow: 0 18px 48px rgba(44,36,33,0.06);
+          }
+    
+          .panel { padding: 22px; }
+    
+          .card {
+            padding: 18px;
+            margin-bottom: 14px;
+          }
+    
+          .card h3 {
+            margin: 0 0 9px;
+            font-size: 22px;
+            line-height: 1.18;
+          }
+    
+          .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.45;
+            font-weight: 680;
+          }
+    
+          .card ul {
+            display: grid;
+            gap: 7px;
+            margin: 12px 0 0;
+            padding: 0;
+            list-style: none;
+          }
+    
+          .card li {
+            position: relative;
+            padding-left: 16px;
+            color: #5c524d;
+            font-size: 13px;
+            line-height: 1.35;
+            font-weight: 760;
+          }
+    
+          .card li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #d0a04f;
+          }
+    
+          .line {
+            height: 12px;
+            border-radius: 999px;
+            background: rgba(92,82,77,0.18);
+            margin-bottom: 16px;
+          }
+    
+          .line.short { width: 56%; }
+          .line.mid { width: 76%; }
+    
+          .note-row {
+            display: grid;
+            grid-template-columns: 76px 1fr;
+            gap: 16px;
+            align-items: start;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(139,90,74,0.08);
+          }
+    
+          .time {
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 860;
+          }
+    
+          .brief-source-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 18px;
+          }
+    
+          .brief-source {
+            min-height: 72px;
+            padding: 12px;
+            border-radius: 14px;
+            background: rgba(245,242,239,0.82);
+            border: 1px solid rgba(139,90,74,0.08);
+          }
+    
+          .brief-source b {
+            display: block;
+            color: var(--foreground);
+            font-size: 13px;
+            font-weight: 900;
+          }
+    
+          .brief-source p {
+            margin-top: 7px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.35;
+            font-weight: 720;
+          }
+    
+          .brief-question {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(139,90,74,0.07);
+            border: 1px solid rgba(139,90,74,0.12);
+          }
+    
+          .brief-question b {
+            display: block;
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 950;
+          }
+    
+          .brief-question p {
+            margin-top: 8px;
+            color: var(--foreground);
+            font-size: 14px;
+            line-height: 1.42;
+            font-weight: 780;
+          }
+    
+          .brief-cover {
+            display: grid;
+            align-content: start;
+            gap: 14px;
+            min-height: 250px;
+            padding: 26px;
+            border-radius: 22px;
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary), var(--blue));
+          }
+    
+          .brief-cover strong {
+            display: block;
+            font-size: 34px;
+            line-height: 1.14;
+          }
+    
+          .okr-label {
+            display: inline-flex;
+            width: fit-content;
+            height: 28px;
+            align-items: center;
+            padding: 0 12px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.18);
+            font-size: 12px;
+            font-weight: 900;
+          }
+    
+          .okr-objective {
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.16);
+          }
+    
+          .okr-objective span,
+          .okr-row span {
+            display: block;
+            color: rgba(255,255,255,0.74);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+          }
+    
+          .okr-objective b {
+            display: block;
+            margin-top: 7px;
+            font-size: 20px;
+            line-height: 1.28;
+          }
+    
+          .okr-list {
+            display: grid;
+            gap: 10px;
+          }
+    
+          .okr-row {
+            display: grid;
+            gap: 7px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.12);
+          }
+    
+          .okr-row b {
+            font-size: 14px;
+            line-height: 1.25;
+          }
+    
+          .okr-bar {
+            height: 7px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.22);
+          }
+    
+          .okr-bar i {
+            display: block;
+            height: 100%;
+            border-radius: inherit;
+            background: rgba(255,255,255,0.86);
+          }
+    
+          .okr-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            color: rgba(255,255,255,0.82);
+            font-size: 12px;
+            font-weight: 850;
+          }
+    
+          .email-box {
+            border-radius: 18px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid rgba(139,90,74,0.1);
+            padding: 18px;
+          }
+    
+          .subject {
+            height: 42px;
+            display: flex;
+            align-items: center;
+            padding: 0 14px;
+            border-radius: 12px;
+            background: rgba(139,90,74,0.07);
+            color: var(--primary);
+            font-weight: 850;
+          }
+    
+          .kanban {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            height: 100%;
+          }
+    
+          .intel-stage {
+            padding: 0;
+          }
+    
+          .intel-view {
+            position: absolute;
+            inset: 26px 28px;
+            will-change: transform, opacity;
+          }
+    
+          .intel-dashboard {
+            display: grid;
+            grid-template-rows: 118px 1fr 112px;
+            gap: 14px;
+            opacity: 0;
+            pointer-events: none;
+          }
+    
+          .dash-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+          }
+    
+          .metric-card,
+          .dash-panel {
+            border: 1px solid rgba(139,90,74,0.1);
+            border-radius: 18px;
+            background: rgba(255,255,255,0.84);
+            box-shadow: 0 16px 38px rgba(44,36,33,0.06);
+          }
+    
+          .metric-card {
+            padding: 16px;
+          }
+    
+          .metric-card span {
+            color: rgba(44,36,33,0.58);
+            font-size: 12px;
+            font-weight: 850;
+          }
+    
+          .metric-card b {
+            display: block;
+            margin-top: 8px;
+            color: var(--foreground);
+            font-size: 28px;
+            line-height: 1;
+            font-weight: 920;
+          }
+    
+          .metric-card em {
+            display: inline-flex;
+            margin-top: 10px;
+            color: var(--green);
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 900;
+          }
+    
+          .dash-grid {
+            display: grid;
+            grid-template-columns: 1.12fr 0.88fr;
+            gap: 14px;
+            min-height: 0;
+          }
+    
+          .dash-panel {
+            position: relative;
+            overflow: hidden;
+            padding: 18px;
+          }
+    
+          .dash-panel h3 {
+            margin: 0;
+            color: var(--foreground);
+            font-size: 18px;
+            font-weight: 920;
+          }
+    
+          .dash-panel p {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 720;
+          }
+    
+          .signal-chart {
+            position: absolute;
+            left: 18px;
+            right: 18px;
+            bottom: 18px;
+            height: 190px;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            align-items: end;
+            gap: 12px;
+          }
+    
+          .signal-bar {
+            position: relative;
+            border-radius: 12px 12px 8px 8px;
+            background: linear-gradient(180deg, rgba(31,159,104,0.82), rgba(139,90,74,0.62));
+            min-height: 42px;
+            box-shadow: 0 12px 26px rgba(44,36,33,0.08);
+          }
+    
+          .signal-bar::after {
+            content: attr(data-label);
+            position: absolute;
+            left: 50%;
+            bottom: -20px;
+            color: rgba(44,36,33,0.56);
+            font-size: 10px;
+            font-weight: 850;
+            transform: translateX(-50%);
+          }
+    
+          .topic-list {
+            display: grid;
+            gap: 10px;
+            margin-top: 18px;
+          }
+    
+          .topic-row {
+            display: grid;
+            grid-template-columns: 96px 1fr 42px;
+            align-items: center;
+            gap: 10px;
+            color: rgba(44,36,33,0.76);
+            font-size: 12px;
+            font-weight: 850;
+          }
+    
+          .topic-track {
+            height: 9px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: rgba(139,90,74,0.09);
+          }
+    
+          .topic-track i {
+            display: block;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, var(--primary), var(--gold), var(--green));
+          }
+    
+          .dash-actions {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+          }
+    
+          .action-card {
+            padding: 16px;
+            border: 1px solid rgba(31,159,104,0.14);
+            border-radius: 18px;
+            background: rgba(255,255,255,0.86);
+            box-shadow: 0 14px 34px rgba(44,36,33,0.055);
+          }
+    
+          .action-card b {
+            display: block;
+            color: var(--foreground);
+            font-size: 15px;
+            font-weight: 920;
+          }
+    
+          .action-card span {
+            display: block;
+            margin-top: 7px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.32;
+            font-weight: 720;
+          }
+    
+          .col {
+            padding: 16px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.76);
+            border: 1px solid rgba(139,90,74,0.1);
+          }
+    
+          .col h3 {
+            margin: 0 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 18px;
+          }
+    
+          .col h3 span {
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 850;
+          }
+    
+          .task {
+            min-height: 112px;
+            padding: 13px 14px;
+            margin-bottom: 12px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.9);
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 720;
+            box-shadow: 0 12px 28px rgba(44,36,33,0.06);
+          }
+    
+          .task b {
+            display: block;
+            color: var(--foreground);
+            font-size: 15px;
+            line-height: 1.2;
+            font-weight: 900;
+          }
+    
+          .task p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.34;
+            font-weight: 680;
+          }
+    
+          .task-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-top: 10px;
+          }
+    
+          .task-meta span,
+          .task-tag {
+            height: 22px;
+            padding: 0 8px;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            background: rgba(139,90,74,0.08);
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 850;
+            white-space: nowrap;
+          }
+    
+          .task-score {
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 900;
+          }
+    
+          .source-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+          }
+    
+          .source-row span {
+            height: 24px;
+            padding: 0 9px;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            background: rgba(31,159,104,0.08);
+            color: var(--green);
+            font-size: 11px;
+            font-weight: 850;
+          }
+    
+          .social-card {
+            display: grid;
+            gap: 14px;
+            padding: 18px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.84);
+            border: 1px solid rgba(139,90,74,0.1);
+          }
+    
+          .channel-card {
+            min-height: 112px;
+            display: grid;
+            grid-template-columns: 74px minmax(0, 1fr);
+            align-items: center;
+            gap: 18px;
+            padding: 18px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid rgba(139,90,74,0.1);
+            box-shadow: 0 14px 34px rgba(44,36,33,0.055);
+          }
+    
+          .channel-logo {
+            width: 58px;
+            height: 58px;
+            position: relative;
+            display: grid;
+            place-items: center;
+            border-radius: 18px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 950;
+            letter-spacing: 0;
+            box-shadow: 0 14px 28px rgba(44,36,33,0.12);
+          }
+    
+          .channel-logo svg {
+            width: 34px;
+            height: 34px;
+            stroke-width: 2.4;
+          }
+    
+          .channel-logo img {
+            display: block;
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+          }
+    
+          .channel-logo.wechat {
+            background: linear-gradient(135deg, #18b84f, #07883b);
+          }
+    
+          .channel-logo.rednote {
+            background: linear-gradient(135deg, #ff2e4d, #c91432);
+            font-size: 12px;
+            line-height: 1;
+          }
+    
+          .channel-logo.linkedin {
+            background: linear-gradient(135deg, #0a66c2, #084f99);
+            border-radius: 14px;
+            font-family: Arial, sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+          }
+    
+          .channel-logo.video {
+            background: linear-gradient(135deg, #121212, #3a3430);
+          }
+    
+          .channel-logo-pair {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+    
+          .channel-card.video-channel {
+            grid-template-columns: 132px minmax(0, 1fr);
+          }
+    
+          .channel-logo-pair .channel-logo {
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
+          }
+    
+          .channel-logo-pair .channel-logo img {
+            width: 36px;
+            height: 36px;
+          }
+    
+          .channel-logo.douyin {
+            background: linear-gradient(135deg, #080808, #252525);
+          }
+    
+          .channel-logo.channels {
+            background: linear-gradient(135deg, #07c160, #12b76a);
+          }
+    
+    
+          .channel-card h3 {
+            margin: 0;
+            color: var(--foreground);
+            font-size: 22px;
+            font-weight: 920;
+          }
+    
+          .channel-card p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.42;
+            font-weight: 720;
+          }
+    
+          .thumb {
+            position: relative;
+            overflow: hidden;
+            height: 148px;
+            border-radius: 18px;
+            padding: 14px;
+            will-change: transform, opacity;
+            background:
+              radial-gradient(circle at 28% 22%, rgba(208,160,79,0.5), transparent 30%),
+              linear-gradient(135deg, rgba(139,90,74,0.86), rgba(95,112,130,0.82));
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2), 0 16px 30px rgba(44,36,33,0.1);
+          }
+    
+          .thumb::before,
+          .thumb::after {
+            content: "";
+            position: absolute;
+          }
+    
+          .thumb .thumb-kicker,
+          .thumb .thumb-title,
+          .thumb .thumb-tag {
+            position: absolute;
+            z-index: 2;
+            letter-spacing: 0;
+          }
+    
+          .thumb .thumb-kicker {
+            left: 14px;
+            top: 13px;
+            height: 22px;
+            padding: 0 9px;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.78);
+            color: var(--primary-dark);
+            font-size: 10px;
+            font-weight: 900;
+          }
+    
+          .thumb .thumb-title {
+            left: 14px;
+            right: 14px;
+            bottom: 42px;
+            color: #fff;
+            font-size: 19px;
+            line-height: 1.08;
+            font-weight: 900;
+            text-shadow: 0 2px 8px rgba(44,36,33,0.22);
+          }
+    
+          .thumb .thumb-tag {
+            left: 14px;
+            bottom: 15px;
+            color: rgba(255,255,255,0.88);
+            font-size: 11px;
+            font-weight: 820;
+          }
+    
+          .thumb-editorial::before {
+            right: -20px;
+            top: 12px;
+            width: 92px;
+            height: 118px;
+            border-radius: 22px;
+            background:
+              linear-gradient(rgba(255,255,255,0.72) 0 0) 17px 23px / 52px 6px no-repeat,
+              linear-gradient(rgba(255,255,255,0.48) 0 0) 17px 41px / 42px 5px no-repeat,
+              linear-gradient(rgba(255,255,255,0.34) 0 0) 17px 58px / 56px 5px no-repeat,
+              rgba(255,255,255,0.18);
+            transform: rotate(7deg);
+            box-shadow: 0 18px 34px rgba(44,36,33,0.16);
+          }
+    
+          .thumb-editorial::after {
+            right: 38px;
+            bottom: 20px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 0 0 12px rgba(255,255,255,0.08);
+          }
+    
+          .thumb-video {
+            background:
+              radial-gradient(circle at 72% 26%, rgba(31,159,104,0.34), transparent 34%),
+              linear-gradient(135deg, rgba(95,112,130,0.88), rgba(139,90,74,0.88));
+          }
+    
+          .thumb-video::before {
+            left: 50%;
+            top: 50%;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.78);
+            transform: translate(-50%, -50%);
+            box-shadow: 0 16px 32px rgba(44,36,33,0.16);
+          }
+    
+          .thumb-video::after {
+            left: calc(50% - 7px);
+            top: calc(50% - 12px);
+            width: 0;
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 18px solid var(--primary);
+          }
+    
+          .thumb-video .thumb-kicker {
+            background: rgba(31,159,104,0.14);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.28);
+          }
+    
+          .thumb-video .thumb-title {
+            bottom: 18px;
+            right: 18px;
+            text-align: right;
+            font-size: 17px;
+          }
+    
+          .thumb-editorial {
+            background:
+              radial-gradient(circle at 25% 24%, rgba(208,160,79,0.58), transparent 28%),
+              radial-gradient(circle at 82% 20%, rgba(255,255,255,0.2), transparent 28%),
+              linear-gradient(135deg, rgba(139,90,74,0.9), rgba(95,112,130,0.84));
+          }
+    
+          .thumb-editorial .thumb-grid {
+            position: absolute;
+            inset: 13px;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            opacity: 0.55;
+          }
+    
+          .thumb-editorial .thumb-grid span {
+            border-radius: 10px;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.18);
+          }
+    
+          .thumb-editorial .thumb-note {
+            position: absolute;
+            z-index: 3;
+            right: 14px;
+            top: 42px;
+            width: 62px;
+            height: 58px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.84);
+            box-shadow: 0 14px 26px rgba(44,36,33,0.14);
+          }
+    
+          .thumb-editorial .thumb-note::before,
+          .thumb-editorial .thumb-note::after {
+            content: "";
+            position: absolute;
+            left: 11px;
+            right: 11px;
+            height: 5px;
+            border-radius: 999px;
+            background: rgba(139,90,74,0.28);
+          }
+    
+          .thumb-editorial .thumb-note::before { top: 17px; }
+          .thumb-editorial .thumb-note::after { top: 32px; width: 30px; right: auto; }
+    
+          .thumb-video {
+            display: grid;
+            place-items: center;
+          }
+    
+          .thumb-video .phone-preview {
+            position: absolute;
+            z-index: 2;
+            right: 16px;
+            top: 18px;
+            width: 56px;
+            height: 104px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.45);
+            box-shadow: 0 18px 30px rgba(44,36,33,0.18);
+          }
+    
+          .thumb-video .phone-preview::before {
+            content: "";
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            top: 8px;
+            height: 4px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.54);
+          }
+    
+          .thumb-video .reel-lines {
+            position: absolute;
+            z-index: 2;
+            left: 14px;
+            bottom: 16px;
+            width: 78px;
+            display: grid;
+            gap: 7px;
+          }
+    
+          .thumb-video .reel-lines span {
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.42);
+          }
+    
+          .thumb-video .reel-lines span:nth-child(2) { width: 62%; }
+          .thumb-video .reel-lines span:nth-child(3) { width: 78%; }
+    
+          .thumb-kicker,
+          .thumb-title,
+          .thumb-tag,
+          .thumb-note,
+          .phone-preview,
+          .reel-lines {
+            will-change: transform, opacity;
+          }
+    
+          .social-card .card {
+            position: relative;
+            overflow: hidden;
+          }
+    
+          .social-card .card::after {
+            content: "";
+            position: absolute;
+            right: 16px;
+            top: 18px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(208,160,79,0.82);
+            box-shadow: 0 0 0 7px rgba(208,160,79,0.1);
+          }
+    
+          .script-timeline {
+            position: relative;
+            display: grid;
+            gap: 16px;
+            padding-left: 34px;
+          }
+    
+          #script .grid-two {
+            grid-template-columns: minmax(0, 48%) minmax(0, 1fr);
+            gap: 22px;
+          }
+    
+          #script .grid-two > * {
+            min-width: 0;
+          }
+    
+          #script .panel {
+            height: 100%;
+            overflow: hidden;
+          }
+    
+          #script .script-timeline {
+            gap: 18px;
+            align-content: center;
+            padding: 24px 18px 24px 40px;
+          }
+    
+          #script .beat {
+            min-height: 124px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+    
+          #script .beat h3,
+          #script .card h3 {
+            margin: 0;
+            color: var(--foreground);
+            font-size: 22px;
+            line-height: 1.2;
+            font-weight: 920;
+          }
+    
+          #script .beat p,
+          #script .card p {
+            margin: 10px 0 0;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.45;
+            font-weight: 720;
+            white-space: normal;
+            overflow-wrap: anywhere;
+          }
+    
+          #script .body > .panel:not(.script-timeline) {
+            display: grid;
+            align-content: center;
+            gap: 16px;
+            padding: 24px;
+          }
+    
+          #script .body > .panel:not(.script-timeline) .card {
+            margin: 0;
+            min-height: 124px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+    
+          #script .script-review-body {
+            height: calc(100% - 68px);
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-rows: 1fr 1fr;
+            gap: 18px;
+            padding: 30px;
+          }
+    
+          #script .review-step,
+          #script .review-card {
+            position: relative;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 24px;
+            border-radius: 22px;
+            border: 1px solid rgba(139,90,74,0.1);
+            background: rgba(255,255,255,0.86);
+            box-shadow: 0 18px 48px rgba(44,36,33,0.06);
+          }
+    
+          #script .review-step::before {
+            content: "";
+            position: absolute;
+            left: 24px;
+            top: 22px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 0 8px rgba(208,160,79,0.12);
+          }
+    
+          #script .review-step h3,
+          #script .review-card h3 {
+            margin: 0 0 0;
+            padding-left: 24px;
+            color: var(--foreground);
+            font-size: 22px;
+            line-height: 1.2;
+            font-weight: 920;
+          }
+    
+          #script .review-card h3 {
+            padding-left: 0;
+          }
+    
+          #script .review-step p,
+          #script .review-card p {
+            margin: 12px 0 0;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.45;
+            font-weight: 720;
+            white-space: normal;
+            overflow-wrap: anywhere;
+          }
+    
+          .script-timeline::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: rgba(139,90,74,0.22);
+          }
+    
+          .beat {
+            position: relative;
+            padding: 16px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.86);
+            border: 1px solid rgba(139,90,74,0.1);
+          }
+    
+          .beat::before {
+            content: "";
+            position: absolute;
+            left: -31px;
+            top: 22px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gold);
+          }
+    
+          .flash-bar {
+            display: none;
+            position: absolute;
+            left: -20%;
+            top: 0;
+            width: 18%;
+            height: 100%;
+            transform: skewX(-18deg);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.82), transparent);
+            opacity: 0;
+            z-index: 20;
+            pointer-events: none;
+          }
+    
+          .progress {
+            position: absolute;
+            left: 112px;
+            bottom: 52px;
+            display: flex;
+            gap: 10px;
+            z-index: 30;
+          }
+    
+          .progress span {
+            width: 34px;
+            height: 5px;
+            border-radius: 999px;
+            background: rgba(139,90,74,0.16);
+          }
+    
+          @media (max-width: 720px) {
+            .paper-grid {
+              inset: 24px;
+              background-size: 92px 84px;
+            }
+    
+            .workflow {
+              padding: 30px 24px 36px;
+              grid-template-columns: minmax(0, 1fr);
+              gap: 24px;
+              align-items: start;
+              overflow: hidden;
+            }
+    
+            .workflow > div:first-child {
+              min-width: 0;
+            }
+    
+            .label {
+              height: 28px;
+              padding: 0 12px;
+              font-size: 11px;
+            }
+    
+            .label::before {
+              width: 6px;
+              height: 6px;
+            }
+    
+            .title {
+              margin-top: 18px;
+              font-size: 42px;
+              line-height: 1.08;
+            }
+    
+            .copy {
+              margin-top: 14px;
+              font-size: 15px;
+              line-height: 1.36;
+            }
+    
+            .audience-strip {
+              margin-top: 18px;
+              gap: 8px;
+              padding: 12px;
+              border-radius: 16px;
+            }
+    
+            .audience-strip::before {
+              font-size: 12px;
+            }
+    
+            .audience-chip {
+              min-height: 30px;
+              padding: 0 12px;
+              font-size: 12px;
+            }
+    
+            .meta {
+              gap: 9px;
+              margin-top: 20px;
+            }
+    
+            .meta div {
+              align-items: flex-start;
+              gap: 9px;
+              font-size: 12px;
+              line-height: 1.3;
+            }
+    
+            .meta span {
+              width: 8px;
+              height: 8px;
+              margin-top: 4px;
+              flex: 0 0 auto;
+              box-shadow: 0 0 0 6px rgba(208,160,79,0.13);
+            }
+    
+            .interface {
+              display: none;
+            }
+    
+            .progress {
+              left: 24px;
+              bottom: 18px;
+            }
+          }
+        </style>
+    <div class="paper-grid"></div>
+          <div class="wash"></div>
+          <div class="stage" id="stage" data-layout-allow-overflow="true">
+            <div class="clip part-title" id="part-management" data-start="0" data-duration="5" data-track-index="2">
+              <div class="part-title-card">
+                <div class="part-kicker">PART B · STRATEGY & MANAGEMENT</div>
+                <div class="part-heading">战略管理 / 内部管理场景</div>
+                <div class="part-sub">面向创始团队、总经办和战略部门，从决策输入到执行闭环。</div>
+              </div>
+            </div>
+    
+            <div class="clip part-title" id="part-marketing" data-start="35" data-duration="5" data-track-index="2">
+              <div class="part-title-card">
+                <div class="part-kicker">PART C · MARKETING GROWTH</div>
+                <div class="part-heading">营销增长场景</div>
+                <div class="part-sub">面向市场部和运营增长部，完成情报、内容、渠道与数据回流。</div>
+              </div>
+            </div>
+    
+            <section class="clip workflow" id="meeting" data-start="5" data-duration="10" data-track-index="2">
+              <div>
+                <div class="label">STRATEGIC RESEARCH</div>
+                <h1 class="title">战略研究<br /><span class="accent">决策输入</span></h1>
+                <p class="copy">给创始团队、总经办和战略部门，把客户反馈、市场变化和竞品动作压缩成可讨论的决策材料。</p>
+                <div class="audience-strip">
+                  <span class="audience-chip">创始团队</span>
+                  <span class="audience-chip">总经办</span>
+                  <span class="audience-chip">战略部门</span>
+                </div>
+                <div class="meta"><div><span></span>提炼关键趋势与机会窗口</div><div><span></span>输出可选策略和风险假设</div></div>
+              </div>
+              <div class="interface">
+                <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-7"/></svg>Strategy Brief</b><span class="pill">Synthesizing</span></div>
+                <div class="body decision-body">
+                  <div class="decision-card card"><span class="decision-tag">趋势</span><h3>客户真实反馈</h3><p>高价值需求从“合规”延伸到管理赋能。</p></div>
+                  <div class="decision-card card"><span class="decision-tag">竞品</span><h3>市场动作归纳</h3><p>通用问答同质化明显，流程闭环仍是缺口。</p></div>
+                  <div class="decision-card card"><span class="decision-tag">机会</span><h3>差异化切入点</h3><p>突出专业员工身份和可执行任务结果。</p></div>
+                  <div class="decision-card card"><span class="decision-tag">判断</span><h3>战略叙事</h3><p>优先讲“组织里的数字员工”，降低模型参数对比。</p></div>
+                  <div class="decision-card card"><span class="decision-tag">建议</span><h3>样板路径</h3><p>先以法律合规建立可信度，再扩展管理和增长。</p></div>
+                  <div class="decision-card card"><span class="decision-tag">价值</span><h3>执行落地</h3><p>把战略输入转成任务、负责人和复盘口径。</p></div>
+                </div>
+              </div>
+            </section>
+    
+            <section class="clip workflow" id="brief" data-start="15" data-duration="10" data-track-index="2">
+              <div>
+                <div class="label">OKR ALIGNMENT</div>
+                <h1 class="title">目标对齐<br /><span class="accent">执行拆解</span></h1>
+                <p class="copy">帮助总经办、战略部门和各部门负责人，把战略想法拆成目标、责任人和验收标准。</p>
+                <div class="audience-strip">
+                  <span class="audience-chip">总经办</span>
+                  <span class="audience-chip">战略部门</span>
+                  <span class="audience-chip">部门负责人</span>
+                </div>
+                <div class="meta"><div><span></span>对齐创始团队、高管和团队目标</div><div><span></span>自动生成责任链和推进节奏</div></div>
+              </div>
+              <div class="interface">
+                <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>Execution Plan</b><span class="pill">Aligned</span></div>
+                <div class="body okr-body">
+                  <div class="brief-cover">
+                    <div class="okr-label">OKR EXECUTION MAP</div>
+                    <strong>Q3 战略目标</strong>
+                    <div class="okr-objective">
+                      <span>OBJECTIVE</span>
+                      <b>把高价值客户转化做成可复制行业方案</b>
+                    </div>
+                    <div class="okr-list">
+                      <div class="okr-row"><span>KR1 · 转化</span><b>重点客户转化率提升 20%</b><div class="okr-bar"><i style="width: 68%;"></i></div></div>
+                      <div class="okr-row"><span>KR2 · 方案</span><b>沉淀 3 套行业销售方案</b><div class="okr-bar"><i style="width: 46%;"></i></div></div>
+                      <div class="okr-row"><span>KR3 · 协同</span><b>销售、市场、法务周度复盘</b><div class="okr-bar"><i style="width: 82%;"></i></div></div>
+                    </div>
+                    <div class="okr-footer"><span>Owner: 总经办</span><span>Cycle: Q3</span></div>
+                  </div>
+                  <div class="okr-side">
+                    <div class="card okr-side-card">
+                      <h3>公司目标</h3>
+                      <p>提升高价值客户转化率，形成可复制行业方案。</p>
+                      <ul>
+                        <li>Q3 重点客户转化率提升 20%。</li>
+                        <li>沉淀 3 套行业销售方案和案例包。</li>
+                        <li>每月复盘试点客户推进质量。</li>
+                      </ul>
+                    </div>
+                    <div class="card okr-side-card">
+                      <h3>部门拆解</h3>
+                      <p>销售、市场、法务和交付分别绑定关键动作。</p>
+                      <ul>
+                        <li>销售：锁定 20 个高价值试点客户。</li>
+                        <li>市场：输出行业内容和活动素材。</li>
+                        <li>法务 / 交付：完成方案合规和交付模板。</li>
+                      </ul>
+                    </div>
+                    <div class="card okr-side-card">
+                      <h3>验收标准</h3>
+                      <p>明确里程碑、数据口径和复盘时间。</p>
+                      <ul>
+                        <li>周会检查负责人、阻塞和下一步动作。</li>
+                        <li>统一线索、转化、试点成功的数据口径。</li>
+                        <li>月底形成 OKR 进度和偏差原因报告。</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+    
+            <section class="clip workflow" id="email" data-start="25" data-duration="10" data-track-index="2">
+              <div>
+                <div class="label">MANAGEMENT LOOP</div>
+                <h1 class="title">分派跟进<br /><span class="accent">复盘闭环</span></h1>
+                <p class="copy">给创始团队和总经办持续追踪会议结论、风险提醒和执行反馈，形成管理闭环。</p>
+                <div class="audience-strip">
+                  <span class="audience-chip">创始团队</span>
+                  <span class="audience-chip">总经办</span>
+                  <span class="audience-chip">管理层</span>
+                </div>
+                <div class="meta"><div><span></span>自动识别阻塞和资源缺口</div><div><span></span>形成复盘材料与下一步动作</div></div>
+              </div>
+              <div class="interface">
+                <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 8h9"/><path d="M7 13h12"/><path d="M7 18h6"/></svg>Management Review</b><span class="pill">Looped</span></div>
+                <div class="body">
+                  <div class="email-box">
+                    <div class="subject">本周经营复盘：目标进度、风险阻塞与下周动作</div>
+                    <div style="height: 24px;"></div>
+                    <div class="line"></div><div class="line mid"></div><div class="line"></div><div class="line short"></div>
+                    <div class="card"><h3>阻塞提醒</h3><p>2 项跨部门依赖未确认，建议升级到周会决策。</p></div>
+                    <div class="card"><h3>复盘输出</h3><p>自动整理完成事项、偏差原因和下周责任人。</p></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+    
+            <section class="clip workflow" id="report" data-start="40" data-duration="10" data-track-index="2">
+              <div>
+                <div class="label">MARKET INTELLIGENCE</div>
+                <h1 class="title">内容情报<br /><span class="accent">爆款分析</span></h1>
+                <p class="copy">把全网平台的热门内容、达人账号、评论区和话题热点整理成可阅读、可复核、可执行的增长情报站。</p>
+                <div class="audience-strip">
+                  <span class="audience-chip">市场部</span>
+                  <span class="audience-chip">运营增长部</span>
+                  <span class="audience-chip">内容运营</span>
+                </div>
+                <div class="meta"><div><span></span>多平台账号、帖子和话题持续监控</div><div><span></span>把全网爆款信号转成选题和脚本假设</div></div>
+              </div>
+              <div class="interface">
+                <div class="topbar"><b><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>Information Monitoring</b><span class="pill">Analyzing</span></div>
+                <div class="body intel-stage">
+                  <div class="kanban intel-view intel-text-view">
+                  <div class="col">
+                    <h3>全网监控 <span>multi-platform</span></h3>
+                    <div class="source-row"><span>小红书</span><span>抖音</span><span>LinkedIn</span></div>
+                    <div class="task">
+                      <b>更新活跃度</b>
+                      <p>近 7 天更新 147 条，近 30 天更新 527 条，先筛出活跃内容供给池。</p>
+                      <div class="task-meta"><span>账号池</span><em class="task-score">37 成功</em></div>
+                    </div>
+                    <div class="task">
+                      <b>达人与账号发现</b>
+                      <p>围绕品牌、品类、竞品和用户场景建立跨平台候选种子池。</p>
+                      <div class="task-meta"><span>候选测试</span><em class="task-score">180 样本</em></div>
+                    </div>
+                    <div class="task">
+                      <b>排除原因透明</b>
+                      <p>平台来源、互动质量、账号类型和内容品类都保留复核口径。</p>
+                      <div class="task-meta"><span>可信口径</span><em class="task-score">可复核</em></div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <h3>爆款信号 <span>30 days</span></h3>
+                    <div class="source-row"><span>Top 内容</span><span>评论</span><span>搜索热度</span></div>
+                    <div class="task">
+                      <b>低理解成本</b>
+                      <p>高热内容通常一眼能看懂 glow、routine、self-care 或情绪梗。</p>
+                      <div class="task-meta"><span>核心发现</span><em class="task-score">高相关</em></div>
+                    </div>
+                    <div class="task">
+                      <b>评论区洞察</b>
+                      <p>12 条 Top 内容读取 344 条评论，拆出疑虑、购买意图和情绪反馈。</p>
+                      <div class="task-meta"><span>原始评论</span><em class="task-score">344 条</em></div>
+                    </div>
+                    <div class="task">
+                      <b>视频证据链</b>
+                      <p>选取 3 条 Top 内容下载视频并运行 ASR，避免只凭播放量判断爆款。</p>
+                      <div class="task-meta"><span>深拆样本</span><em class="task-score">3 条</em></div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <h3>增长机会 <span>70 topics</span></h3>
+                    <div class="source-row"><span>行业话题</span><span>竞品声量</span><span>用户需求</span></div>
+                    <div class="task">
+                      <b>话题热点聚类</b>
+                      <p>从平台标签、搜索词和评论高频词去重分析 70 条，提炼话题结构。</p>
+                      <div class="task-meta"><span>热点池</span><em class="task-score">70 条</em></div>
+                    </div>
+                    <div class="task">
+                      <b>内容结构复用</b>
+                      <p>把 routine、教程、结果展示、评论触发点转成可测试脚本。</p>
+                      <div class="task-meta"><span>脚本假设</span><em class="task-score">可执行</em></div>
+                    </div>
+                    <div class="task">
+                      <b>交付物回溯</b>
+                      <p>主报告、数据文件、达人深拆和话题深拆都能跳转复核。</p>
+                      <div class="task-meta"><span>交付报告</span><em class="task-score">已整理</em></div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="intel-view intel-dashboard">
+                    <div class="dash-metrics">
+                      <div class="metric-card"><span>平台样本</span><b>5</b><em>全网渠道</em></div>
+                      <div class="metric-card"><span>评论语料</span><b>344</b><em>购买意图/疑虑</em></div>
+                      <div class="metric-card"><span>热点主题</span><b>70</b><em>可复用选题</em></div>
+                      <div class="metric-card"><span>Top 视频</span><b>3</b><em>ASR 深拆</em></div>
+                    </div>
+                    <div class="dash-grid">
+                      <div class="dash-panel">
+                        <h3>爆款信号强度</h3>
+                        <p>把播放、评论密度、保存意图和低理解成本合成为优先级。</p>
+                        <div class="signal-chart">
+                          <div class="signal-bar" data-label="glow" style="height: 84%;"></div>
+                          <div class="signal-bar" data-label="routine" style="height: 72%;"></div>
+                          <div class="signal-bar" data-label="LED" style="height: 64%;"></div>
+                          <div class="signal-bar" data-label="before" style="height: 58%;"></div>
+                          <div class="signal-bar" data-label="dupe" style="height: 49%;"></div>
+                          <div class="signal-bar" data-label="ASR" style="height: 68%;"></div>
+                          <div class="signal-bar" data-label="save" style="height: 76%;"></div>
+                        </div>
+                      </div>
+                      <div class="dash-panel">
+                        <h3>话题热点聚类</h3>
+                        <p>从话题池里沉淀能进入脚本假设的内容方向。</p>
+                        <div class="topic-list">
+                          <div class="topic-row"><span>beauty tech</span><div class="topic-track"><i style="width: 92%;"></i></div><b>92</b></div>
+                          <div class="topic-row"><span>skin routine</span><div class="topic-track"><i style="width: 84%;"></i></div><b>84</b></div>
+                          <div class="topic-row"><span>self-care</span><div class="topic-track"><i style="width: 78%;"></i></div><b>78</b></div>
+                          <div class="topic-row"><span>LED mask</span><div class="topic-track"><i style="width: 71%;"></i></div><b>71</b></div>
+                          <div class="topic-row"><span>before/after</span><div class="topic-track"><i style="width: 65%;"></i></div><b>65</b></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dash-actions">
+    	                  <div class="action-card"><b>达人 shortlist</b><span>输出 12 个优先合作账号和排除原因。</span></div>
+                      <div class="action-card"><b>脚本假设</b><span>生成 8 个可测试开场和评论触发点。</span></div>
+                      <div class="action-card"><b>复核链路</b><span>报告、原始评论、视频 ASR 均可回溯。</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+    
+            <section class="clip workflow" id="social" data-start="50" data-duration="10" data-track-index="2">
+              <div>
+                <div class="label">BRAND CONTENT</div>
+                <h1 class="title">自媒体内容<br /><span class="accent">自动化生产</span></h1>
+                <p class="copy">把报告、案例或活动信息交给 Lawrence，它会按品牌口径改写成不同渠道能直接发布的版本。</p>
+                <div class="audience-strip">
+                  <span class="audience-chip">市场部</span>
+                  <span class="audience-chip">品牌运营</span>
+                  <span class="audience-chip">内容团队</span>
+                </div>
+                <div class="meta"><div><span></span>先保留品牌观点和禁用表述</div><div><span></span>再适配公众号、小红书、LinkedIn 和短视频</div></div>
+              </div>
+              <div class="interface">
+                <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 12h8"/><path d="M8 8h8"/><path d="M8 16h5"/></svg>Content Repurpose</b><span class="pill">4 Versions</span></div>
+                <div class="body">
+                  <div class="social-card">
+                    <div class="channel-card">
+                      <div class="channel-logo wechat" aria-hidden="true">
+                        <img src="assets/logo-wechat-public.svg" alt="" />
+                      </div>
+                      <div><h3>公众号长文</h3><p>写成完整观点文章：背景、案例、方法和行动建议。</p></div>
+                    </div>
+                    <div class="channel-card">
+                      <div class="channel-logo rednote" aria-hidden="true">
+                        <img src="assets/logo-rednote.svg" alt="" />
+                      </div>
+                      <div><h3>小红书短帖</h3><p>改成更轻的标题、分点和封面文案，方便转发收藏。</p></div>
+                    </div>
+                    <div class="channel-card">
+                      <div class="channel-logo linkedin">in</div>
+                      <div><h3>LinkedIn 帖文</h3><p>改成面向海外 B2B 受众的专业叙事和观点表达。</p></div>
+                    </div>
+                    <div class="channel-card video-channel">
+                      <div class="channel-logo-pair" aria-hidden="true">
+                        <div class="channel-logo douyin">
+                          <img src="assets/logo-douyin.svg" alt="" />
+                        </div>
+                        <div class="channel-logo channels">
+                          <img src="assets/logo-wechat-channels.svg" alt="" />
+                        </div>
+                      </div>
+                      <div><h3>短视频</h3><p>适配开场钩子、镜头节奏、字幕标题和结尾行动号召。</p></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+    
+            <section class="clip workflow" id="script" data-start="60" data-duration="10" data-track-index="2">
+              <div>
+                <div class="label">MARKETING REVIEW</div>
+                <h1 class="title">营销复盘<br /><span class="accent">数据和策略</span></h1>
+                <p class="copy">一轮内容发出去之后，Lawrence 帮团队看清楚：哪些内容有效、哪些渠道带来线索、下一轮应该怎么调整。</p>
+                <div class="audience-strip">
+                  <span class="audience-chip">市场部</span>
+                  <span class="audience-chip">增长运营</span>
+                  <span class="audience-chip">销售团队</span>
+                </div>
+                <div class="meta"><div><span></span>复盘内容表现和线索质量</div><div><span></span>给下一轮选题、渠道和话术建议</div></div>
+              </div>
+              <div class="interface">
+                <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 16 4-4 3 3 5-7"/></svg>Marketing Review</b><span class="pill">复盘中</span></div>
+                <div class="body script-review-body">
+                  <div class="review-step"><h3>营销复盘</h3><p>汇总公众号、短视频、LinkedIn 与私域触达表现。</p></div>
+                  <div class="review-step"><h3>数据分析</h3><p>对比阅读、点击、留资和销售跟进，找出有效内容。</p></div>
+                  <div class="review-step"><h3>策略建议</h3><p>沉淀人群、卖点、渠道和话术，指导下一轮动作。</p></div>
+                  <div class="review-card"><h3>内容表现</h3><p>识别高点击标题、案例开场和收藏点。</p></div>
+                  <div class="review-card"><h3>渠道表现</h3><p>判断获客、种草和转化渠道的不同节奏。</p></div>
+                  <div class="review-card"><h3>下一轮策略</h3><p>输出主题、人群和销售承接话术。</p></div>
+                </div>
+              </div>
+            </section>
+    
+            <div class="progress">
+              <span id="dot-meeting"></span><span id="dot-brief"></span><span id="dot-email"></span><span id="dot-report"></span><span id="dot-social"></span><span id="dot-script"></span>
+            </div>
+            <div class="flash-bar" id="flash-bar" data-layout-allow-overflow="true"></div>
           </div>
         </div>
-
-        <div class="clip part-title" id="part-marketing" data-start="20" data-duration="5" data-track-index="2">
-          <div class="part-title-card">
-            <div class="part-kicker">PART C · MARKETING GROWTH</div>
-            <div class="part-heading">营销增长场景</div>
-            <div class="part-sub">面向市场部和运营增长部，完成情报、内容、渠道与数据回流。</div>
-          </div>
-        </div>
-
-        <section class="clip workflow" id="meeting" data-start="5" data-duration="5" data-track-index="2">
-          <div>
-            <div class="label">STRATEGIC RESEARCH</div>
-            <h1 class="title">战略研究<br /><span class="accent">决策输入</span></h1>
-            <p class="copy">给创始团队、总经办和战略部门，把客户反馈、市场变化和竞品动作压缩成可讨论的决策材料。</p>
-            <div class="audience-strip">
-              <span class="audience-chip">创始团队</span>
-              <span class="audience-chip">总经办</span>
-              <span class="audience-chip">战略部门</span>
-            </div>
-            <div class="meta"><div><span></span>提炼关键趋势与机会窗口</div><div><span></span>输出可选策略和风险假设</div></div>
-          </div>
-          <div class="interface">
-            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-7"/></svg>Strategy Brief</b><span class="pill">Synthesizing</span></div>
-            <div class="body decision-body">
-              <div class="decision-card card"><span class="decision-tag">趋势</span><h3>客户真实反馈</h3><p>高价值需求从“合规”延伸到管理赋能。</p></div>
-              <div class="decision-card card"><span class="decision-tag">竞品</span><h3>市场动作归纳</h3><p>通用问答同质化明显，流程闭环仍是缺口。</p></div>
-              <div class="decision-card card"><span class="decision-tag">机会</span><h3>差异化切入点</h3><p>突出专业员工身份和可执行任务结果。</p></div>
-              <div class="decision-card card"><span class="decision-tag">判断</span><h3>战略叙事</h3><p>优先讲“组织里的数字员工”，降低模型参数对比。</p></div>
-              <div class="decision-card card"><span class="decision-tag">建议</span><h3>样板路径</h3><p>先以法律合规建立可信度，再扩展管理和增长。</p></div>
-              <div class="decision-card card"><span class="decision-tag">价值</span><h3>执行落地</h3><p>把战略输入转成任务、负责人和复盘口径。</p></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="clip workflow" id="brief" data-start="10" data-duration="5" data-track-index="2">
-          <div>
-            <div class="label">OKR ALIGNMENT</div>
-            <h1 class="title">目标对齐<br /><span class="accent">执行拆解</span></h1>
-            <p class="copy">帮助总经办、战略部门和各部门负责人，把战略想法拆成目标、责任人和验收标准。</p>
-            <div class="audience-strip">
-              <span class="audience-chip">总经办</span>
-              <span class="audience-chip">战略部门</span>
-              <span class="audience-chip">部门负责人</span>
-            </div>
-            <div class="meta"><div><span></span>对齐创始团队、高管和团队目标</div><div><span></span>自动生成责任链和推进节奏</div></div>
-          </div>
-          <div class="interface">
-            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>Execution Plan</b><span class="pill">Aligned</span></div>
-            <div class="body okr-body">
-              <div class="brief-cover">
-                <div class="okr-label">OKR EXECUTION MAP</div>
-                <strong>Q3 战略目标</strong>
-                <div class="okr-objective">
-                  <span>OBJECTIVE</span>
-                  <b>把高价值客户转化做成可复制行业方案</b>
-                </div>
-                <div class="okr-list">
-                  <div class="okr-row"><span>KR1 · 转化</span><b>重点客户转化率提升 20%</b><div class="okr-bar"><i style="width: 68%;"></i></div></div>
-                  <div class="okr-row"><span>KR2 · 方案</span><b>沉淀 3 套行业销售方案</b><div class="okr-bar"><i style="width: 46%;"></i></div></div>
-                  <div class="okr-row"><span>KR3 · 协同</span><b>销售、市场、法务周度复盘</b><div class="okr-bar"><i style="width: 82%;"></i></div></div>
-                </div>
-                <div class="okr-footer"><span>Owner: 总经办</span><span>Cycle: Q3</span></div>
-              </div>
-              <div class="okr-side">
-                <div class="card okr-side-card">
-                  <h3>公司目标</h3>
-                  <p>提升高价值客户转化率，形成可复制行业方案。</p>
-                  <ul>
-                    <li>Q3 重点客户转化率提升 20%。</li>
-                    <li>沉淀 3 套行业销售方案和案例包。</li>
-                    <li>每月复盘试点客户推进质量。</li>
-                  </ul>
-                </div>
-                <div class="card okr-side-card">
-                  <h3>部门拆解</h3>
-                  <p>销售、市场、法务和交付分别绑定关键动作。</p>
-                  <ul>
-                    <li>销售：锁定 20 个高价值试点客户。</li>
-                    <li>市场：输出行业内容和活动素材。</li>
-                    <li>法务 / 交付：完成方案合规和交付模板。</li>
-                  </ul>
-                </div>
-                <div class="card okr-side-card">
-                  <h3>验收标准</h3>
-                  <p>明确里程碑、数据口径和复盘时间。</p>
-                  <ul>
-                    <li>周会检查负责人、阻塞和下一步动作。</li>
-                    <li>统一线索、转化、试点成功的数据口径。</li>
-                    <li>月底形成 OKR 进度和偏差原因报告。</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="clip workflow" id="email" data-start="15" data-duration="5" data-track-index="2">
-          <div>
-            <div class="label">MANAGEMENT LOOP</div>
-            <h1 class="title">分派跟进<br /><span class="accent">复盘闭环</span></h1>
-            <p class="copy">给创始团队和总经办持续追踪会议结论、风险提醒和执行反馈，形成管理闭环。</p>
-            <div class="audience-strip">
-              <span class="audience-chip">创始团队</span>
-              <span class="audience-chip">总经办</span>
-              <span class="audience-chip">管理层</span>
-            </div>
-            <div class="meta"><div><span></span>自动识别阻塞和资源缺口</div><div><span></span>形成复盘材料与下一步动作</div></div>
-          </div>
-          <div class="interface">
-            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 8h9"/><path d="M7 13h12"/><path d="M7 18h6"/></svg>Management Review</b><span class="pill">Looped</span></div>
-            <div class="body">
-              <div class="email-box">
-                <div class="subject">本周经营复盘：目标进度、风险阻塞与下周动作</div>
-                <div style="height: 24px;"></div>
-                <div class="line"></div><div class="line mid"></div><div class="line"></div><div class="line short"></div>
-                <div class="card"><h3>阻塞提醒</h3><p>2 项跨部门依赖未确认，建议升级到周会决策。</p></div>
-                <div class="card"><h3>复盘输出</h3><p>自动整理完成事项、偏差原因和下周责任人。</p></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="clip workflow" id="report" data-start="25" data-duration="5" data-track-index="2">
-          <div>
-            <div class="label">MARKET INTELLIGENCE</div>
-            <h1 class="title">内容情报<br /><span class="accent">爆款分析</span></h1>
-            <p class="copy">把全网平台的热门内容、达人账号、评论区和话题热点整理成可阅读、可复核、可执行的增长情报站。</p>
-            <div class="audience-strip">
-              <span class="audience-chip">市场部</span>
-              <span class="audience-chip">运营增长部</span>
-              <span class="audience-chip">内容运营</span>
-            </div>
-            <div class="meta"><div><span></span>多平台账号、帖子和话题持续监控</div><div><span></span>把全网爆款信号转成选题和脚本假设</div></div>
-          </div>
-          <div class="interface">
-            <div class="topbar"><b><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>Information Monitoring</b><span class="pill">Analyzing</span></div>
-            <div class="body intel-stage">
-              <div class="kanban intel-view intel-text-view">
-              <div class="col">
-                <h3>全网监控 <span>multi-platform</span></h3>
-                <div class="source-row"><span>小红书</span><span>抖音</span><span>LinkedIn</span></div>
-                <div class="task">
-                  <b>更新活跃度</b>
-                  <p>近 7 天更新 147 条，近 30 天更新 527 条，先筛出活跃内容供给池。</p>
-                  <div class="task-meta"><span>账号池</span><em class="task-score">37 成功</em></div>
-                </div>
-                <div class="task">
-                  <b>达人与账号发现</b>
-                  <p>围绕品牌、品类、竞品和用户场景建立跨平台候选种子池。</p>
-                  <div class="task-meta"><span>候选测试</span><em class="task-score">180 样本</em></div>
-                </div>
-                <div class="task">
-                  <b>排除原因透明</b>
-                  <p>平台来源、互动质量、账号类型和内容品类都保留复核口径。</p>
-                  <div class="task-meta"><span>可信口径</span><em class="task-score">可复核</em></div>
-                </div>
-              </div>
-              <div class="col">
-                <h3>爆款信号 <span>30 days</span></h3>
-                <div class="source-row"><span>Top 内容</span><span>评论</span><span>搜索热度</span></div>
-                <div class="task">
-                  <b>低理解成本</b>
-                  <p>高热内容通常一眼能看懂 glow、routine、self-care 或情绪梗。</p>
-                  <div class="task-meta"><span>核心发现</span><em class="task-score">高相关</em></div>
-                </div>
-                <div class="task">
-                  <b>评论区洞察</b>
-                  <p>12 条 Top 内容读取 344 条评论，拆出疑虑、购买意图和情绪反馈。</p>
-                  <div class="task-meta"><span>原始评论</span><em class="task-score">344 条</em></div>
-                </div>
-                <div class="task">
-                  <b>视频证据链</b>
-                  <p>选取 3 条 Top 内容下载视频并运行 ASR，避免只凭播放量判断爆款。</p>
-                  <div class="task-meta"><span>深拆样本</span><em class="task-score">3 条</em></div>
-                </div>
-              </div>
-              <div class="col">
-                <h3>增长机会 <span>70 topics</span></h3>
-                <div class="source-row"><span>行业话题</span><span>竞品声量</span><span>用户需求</span></div>
-                <div class="task">
-                  <b>话题热点聚类</b>
-                  <p>从平台标签、搜索词和评论高频词去重分析 70 条，提炼话题结构。</p>
-                  <div class="task-meta"><span>热点池</span><em class="task-score">70 条</em></div>
-                </div>
-                <div class="task">
-                  <b>内容结构复用</b>
-                  <p>把 routine、教程、结果展示、评论触发点转成可测试脚本。</p>
-                  <div class="task-meta"><span>脚本假设</span><em class="task-score">可执行</em></div>
-                </div>
-                <div class="task">
-                  <b>交付物回溯</b>
-                  <p>主报告、数据文件、达人深拆和话题深拆都能跳转复核。</p>
-                  <div class="task-meta"><span>交付报告</span><em class="task-score">已整理</em></div>
-                </div>
-              </div>
-              </div>
-              <div class="intel-view intel-dashboard">
-                <div class="dash-metrics">
-                  <div class="metric-card"><span>平台样本</span><b>5</b><em>全网渠道</em></div>
-                  <div class="metric-card"><span>评论语料</span><b>344</b><em>购买意图/疑虑</em></div>
-                  <div class="metric-card"><span>热点主题</span><b>70</b><em>可复用选题</em></div>
-                  <div class="metric-card"><span>Top 视频</span><b>3</b><em>ASR 深拆</em></div>
-                </div>
-                <div class="dash-grid">
-                  <div class="dash-panel">
-                    <h3>爆款信号强度</h3>
-                    <p>把播放、评论密度、保存意图和低理解成本合成为优先级。</p>
-                    <div class="signal-chart">
-                      <div class="signal-bar" data-label="glow" style="height: 84%;"></div>
-                      <div class="signal-bar" data-label="routine" style="height: 72%;"></div>
-                      <div class="signal-bar" data-label="LED" style="height: 64%;"></div>
-                      <div class="signal-bar" data-label="before" style="height: 58%;"></div>
-                      <div class="signal-bar" data-label="dupe" style="height: 49%;"></div>
-                      <div class="signal-bar" data-label="ASR" style="height: 68%;"></div>
-                      <div class="signal-bar" data-label="save" style="height: 76%;"></div>
-                    </div>
-                  </div>
-                  <div class="dash-panel">
-                    <h3>话题热点聚类</h3>
-                    <p>从话题池里沉淀能进入脚本假设的内容方向。</p>
-                    <div class="topic-list">
-                      <div class="topic-row"><span>beauty tech</span><div class="topic-track"><i style="width: 92%;"></i></div><b>92</b></div>
-                      <div class="topic-row"><span>skin routine</span><div class="topic-track"><i style="width: 84%;"></i></div><b>84</b></div>
-                      <div class="topic-row"><span>self-care</span><div class="topic-track"><i style="width: 78%;"></i></div><b>78</b></div>
-                      <div class="topic-row"><span>LED mask</span><div class="topic-track"><i style="width: 71%;"></i></div><b>71</b></div>
-                      <div class="topic-row"><span>before/after</span><div class="topic-track"><i style="width: 65%;"></i></div><b>65</b></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="dash-actions">
-	                  <div class="action-card"><b>达人 shortlist</b><span>输出 12 个优先合作账号和排除原因。</span></div>
-                  <div class="action-card"><b>脚本假设</b><span>生成 8 个可测试开场和评论触发点。</span></div>
-                  <div class="action-card"><b>复核链路</b><span>报告、原始评论、视频 ASR 均可回溯。</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="clip workflow" id="social" data-start="30" data-duration="5" data-track-index="2">
-          <div>
-            <div class="label">BRAND CONTENT</div>
-            <h1 class="title">自媒体内容<br /><span class="accent">自动化生产</span></h1>
-            <p class="copy">把报告、案例或活动信息交给 Lawrence，它会按品牌口径改写成不同渠道能直接发布的版本。</p>
-            <div class="audience-strip">
-              <span class="audience-chip">市场部</span>
-              <span class="audience-chip">品牌运营</span>
-              <span class="audience-chip">内容团队</span>
-            </div>
-            <div class="meta"><div><span></span>先保留品牌观点和禁用表述</div><div><span></span>再适配公众号、小红书、LinkedIn 和短视频</div></div>
-          </div>
-          <div class="interface">
-            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 12h8"/><path d="M8 8h8"/><path d="M8 16h5"/></svg>Content Repurpose</b><span class="pill">4 Versions</span></div>
-            <div class="body">
-              <div class="social-card">
-                <div class="channel-card">
-                  <div class="channel-logo wechat" aria-hidden="true">
-                    <img src="assets/logo-wechat-public.svg" alt="" />
-                  </div>
-                  <div><h3>公众号长文</h3><p>写成完整观点文章：背景、案例、方法和行动建议。</p></div>
-                </div>
-                <div class="channel-card">
-                  <div class="channel-logo rednote" aria-hidden="true">
-                    <img src="assets/logo-rednote.svg" alt="" />
-                  </div>
-                  <div><h3>小红书短帖</h3><p>改成更轻的标题、分点和封面文案，方便转发收藏。</p></div>
-                </div>
-                <div class="channel-card">
-                  <div class="channel-logo linkedin">in</div>
-                  <div><h3>LinkedIn 帖文</h3><p>改成面向海外 B2B 受众的专业叙事和观点表达。</p></div>
-                </div>
-                <div class="channel-card video-channel">
-                  <div class="channel-logo-pair" aria-hidden="true">
-                    <div class="channel-logo douyin">
-                      <img src="assets/logo-douyin.svg" alt="" />
-                    </div>
-                    <div class="channel-logo channels">
-                      <img src="assets/logo-wechat-channels.svg" alt="" />
-                    </div>
-                  </div>
-                  <div><h3>短视频</h3><p>适配开场钩子、镜头节奏、字幕标题和结尾行动号召。</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="clip workflow" id="script" data-start="35" data-duration="7" data-track-index="2">
-          <div>
-            <div class="label">MARKETING REVIEW</div>
-            <h1 class="title">营销复盘<br /><span class="accent">数据和策略</span></h1>
-            <p class="copy">一轮内容发出去之后，Lawrence 帮团队看清楚：哪些内容有效、哪些渠道带来线索、下一轮应该怎么调整。</p>
-            <div class="audience-strip">
-              <span class="audience-chip">市场部</span>
-              <span class="audience-chip">增长运营</span>
-              <span class="audience-chip">销售团队</span>
-            </div>
-            <div class="meta"><div><span></span>复盘内容表现和线索质量</div><div><span></span>给下一轮选题、渠道和话术建议</div></div>
-          </div>
-          <div class="interface">
-            <div class="topbar"><b><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 16 4-4 3 3 5-7"/></svg>Marketing Review</b><span class="pill">复盘中</span></div>
-            <div class="body script-review-body">
-              <div class="review-step"><h3>营销复盘</h3><p>汇总公众号、短视频、LinkedIn 与私域触达表现。</p></div>
-              <div class="review-step"><h3>数据分析</h3><p>对比阅读、点击、留资和销售跟进，找出有效内容。</p></div>
-              <div class="review-step"><h3>策略建议</h3><p>沉淀人群、卖点、渠道和话术，指导下一轮动作。</p></div>
-              <div class="review-card"><h3>内容表现</h3><p>识别高点击标题、案例开场和收藏点。</p></div>
-              <div class="review-card"><h3>渠道表现</h3><p>判断获客、种草和转化渠道的不同节奏。</p></div>
-              <div class="review-card"><h3>下一轮策略</h3><p>输出主题、人群和销售承接话术。</p></div>
-            </div>
-          </div>
-        </section>
-
-        <div class="progress">
-          <span id="dot-meeting"></span><span id="dot-brief"></span><span id="dot-email"></span><span id="dot-report"></span><span id="dot-social"></span><span id="dot-script"></span>
-        </div>
-        <div class="flash-bar" id="flash-bar" data-layout-allow-overflow="true"></div>
-      </div>
-    </div>
 
     <script src="assets/gsap.min.js"></script>
     <script>
       window.__timelines = window.__timelines || {};
-      gsap.defaults({ ease: "power3.out" });
-
-      const tl = gsap.timeline({ paused: true });
-      const scenes = ["#meeting", "#brief", "#email", "#report", "#social", "#script"];
-      const dots = ["#dot-meeting", "#dot-brief", "#dot-email", "#dot-report", "#dot-social", "#dot-script"];
-	      const sceneStarts = [5, 10, 15, 25, 30, 35];
-	      const sceneHold = 5;
-
-      function flash(time) {
-        tl.fromTo("#flash-bar", { opacity: 0, x: 0 }, { opacity: 0.7, x: 2350, duration: 0.38, ease: "power2.inOut" }, time)
-          .to("#flash-bar", { opacity: 0, duration: 0.12 }, time + 0.38);
-      }
-
-      function activateDot(index, time) {
-        dots.forEach((dot, dotIndex) => {
-          tl.to(dot, { backgroundColor: dotIndex === index ? "#8b5a4a" : "rgba(139, 90, 74, 0.16)", duration: 0.16 }, time);
-        });
-      }
-
-      tl.fromTo("#stage", { opacity: 0 }, { opacity: 1, duration: 0.28 }, 0)
-        .fromTo("#part-management", { opacity: 0, y: 28, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "expo.out" }, 0.42)
-        .from("#part-management .part-kicker", { opacity: 0, y: 14, duration: 0.34 }, 0.72)
-        .from("#part-management .part-heading", { opacity: 0, y: 24, duration: 0.46, ease: "expo.out" }, 0.98)
-        .from("#part-management .part-sub", { opacity: 0, y: 18, duration: 0.4 }, 1.32)
-        .to("#part-management", { opacity: 0, y: -22, scale: 1.02, duration: 0.44, ease: "power2.inOut" }, 4.28)
-	        .fromTo("#part-marketing", { opacity: 0, y: 28, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "expo.out" }, 20.42)
-	        .from("#part-marketing .part-kicker", { opacity: 0, y: 14, duration: 0.34 }, 20.72)
-	        .from("#part-marketing .part-heading", { opacity: 0, y: 24, duration: 0.46, ease: "expo.out" }, 20.98)
-	        .from("#part-marketing .part-sub", { opacity: 0, y: 18, duration: 0.4 }, 21.32)
-	        .to("#part-marketing", { opacity: 0, y: -22, scale: 1.02, duration: 0.44, ease: "power2.inOut" }, 24.28);
-
-      scenes.forEach((scene, index) => {
-        const start = sceneStarts[index];
-        const end = start + (scene === "#script" ? 7 : sceneHold);
-        const contentItems = scene === "#meeting" || scene === "#brief"
-          ? `${scene} .note-row, ${scene} .task, ${scene} .beat`
-          : scene === "#social"
-          ? `${scene} .card, ${scene} .note-row, ${scene} .task, ${scene} .beat`
-          : `${scene} .card, ${scene} .note-row, ${scene} .task, ${scene} .beat, ${scene} .review-step, ${scene} .review-card, ${scene} .social-card, ${scene} .channel-card`;
-        const lineItems = `${scene} .line`;
-	        activateDot(index, start + 0.12);
-	        tl.fromTo(scene, { opacity: 0, y: 22, scale: 0.99 }, { opacity: 1, y: 0, scale: 1, duration: 0.82, ease: "power3.out" }, start)
-	          .from(`${scene} .label`, { opacity: 0, y: 16, duration: 0.42, ease: "power3.out" }, start + 0.14)
-	          .from(`${scene} .title`, { opacity: 0, x: -42, duration: 0.72, ease: "power3.out" }, start + 0.32)
-	          .from(`${scene} .copy`, { opacity: 0, x: -28, duration: 0.58, ease: "power3.out" }, start + 0.72)
-	          .from(`${scene} .audience-strip`, { opacity: 0, y: 22, scale: 0.98, duration: 0.5, ease: "power3.out" }, start + 1.04)
-	          .from(`${scene} .audience-chip`, { opacity: 0, y: 12, scale: 0.96, duration: 0.34, stagger: 0.06, ease: "back.out(1.12)" }, start + 1.22)
-	          .from(`${scene} .meta > div`, { opacity: 0, x: -18, duration: 0.42, stagger: 0.1, ease: "power3.out" }, start + 1.44)
-          .from(`${scene} .interface`, { opacity: 0, x: 72, y: 12, scale: 0.96, filter: "blur(8px)", duration: 1.05, ease: "power3.out" }, start + 0.3)
-          .from(`${scene} .topbar`, { opacity: 0, y: -18, duration: 0.52, ease: "power3.out" }, start + 0.76)
-          .from(scene === "#script" ? `${scene} .script-review-body` : scene === "#meeting" ? `${scene} .decision-body` : scene === "#brief" ? `${scene} .okr-body` : `${scene} .body > *`, { opacity: 0, y: 24, scale: 0.98, filter: "blur(6px)", duration: 0.68, stagger: 0.16, ease: "power3.out" }, start + 0.92)
-          .from(`${scene} .topbar svg`, { opacity: 0, scale: 0.72, rotation: -8, duration: 0.5, ease: "back.out(1.15)" }, start + 1.04)
-	        if (document.querySelector(contentItems)) {
-	          tl.from(contentItems, { opacity: 0, y: 24, scale: 0.97, filter: "blur(5px)", duration: 0.54, stagger: 0.12, ease: "power3.out" }, start + 1.34);
-	        }
-	        if (document.querySelector(lineItems)) {
-	          tl.from(lineItems, { opacity: 0, scaleX: 0, transformOrigin: "left center", duration: 0.34, stagger: 0.06 }, start + 1.5);
-	        }
-	        if (scene === "#report") {
-	          tl.to("#report .intel-text-view", { opacity: 0, y: -18, scale: 0.99, duration: 0.5, ease: "power2.inOut" }, start + 2.34)
-	            .fromTo("#report .intel-dashboard", { opacity: 0, y: 26, scale: 0.97, filter: "blur(8px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.68, ease: "power3.out" }, start + 2.52)
-	            .from("#report .metric-card", { opacity: 0, y: 18, scale: 0.96, duration: 0.4, stagger: 0.08, ease: "back.out(1.15)" }, start + 2.72)
-	            .from("#report .dash-panel", { opacity: 0, y: 22, scale: 0.97, duration: 0.46, stagger: 0.12, ease: "power3.out" }, start + 2.92)
-	            .from("#report .signal-bar", { scaleY: 0, transformOrigin: "bottom center", duration: 0.5, stagger: 0.065, ease: "power2.out" }, start + 3.14)
-	            .from("#report .topic-track i", { scaleX: 0, transformOrigin: "left center", duration: 0.48, stagger: 0.07, ease: "power2.out" }, start + 3.16)
-	            .from("#report .action-card", { opacity: 0, y: 18, scale: 0.96, duration: 0.4, stagger: 0.08, ease: "back.out(1.12)" }, start + 3.34);
-	        }
-	        if (scene === "#meeting") {
-	          tl.fromTo("#meeting .decision-card",
-	            { opacity: 0, y: 22, scale: 0.97, filter: "blur(5px)" },
-	            { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, stagger: 0.08, ease: "power3.out" },
-	            start + 1.22
-	          );
-	        }
-	        if (scene === "#brief") {
-	          tl.fromTo("#brief .brief-cover",
-	            { opacity: 0, x: -24, scale: 0.98, filter: "blur(6px)" },
-	            { opacity: 1, x: 0, scale: 1, filter: "blur(0px)", duration: 0.58, ease: "power3.out" },
-	            start + 1.08
-	          )
-	            .fromTo("#brief .okr-side-card",
-	              { opacity: 0, x: 24, scale: 0.97, filter: "blur(5px)" },
-	              { opacity: 1, x: 0, scale: 1, filter: "blur(0px)", duration: 0.48, stagger: 0.12, ease: "power3.out" },
-	              start + 1.28
-	            );
-	        }
-	        if (scene === "#social") {
-	          tl.fromTo("#social .social-card",
-	            { opacity: 0, y: 26, scale: 0.98, filter: "blur(6px)" },
-	            { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.56, ease: "power3.out" },
-	            start + 1.08
-	          )
-	            .fromTo("#social .channel-card",
-	              { opacity: 0, y: 22, scale: 0.97, filter: "blur(5px)" },
-	              { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, stagger: 0.12, ease: "power3.out" },
-	              start + 1.34
-	            )
-	            .fromTo("#social .channel-logo",
-	              { opacity: 0, y: 12, scale: 0.78, rotation: -6 },
-	              { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 0.42, stagger: 0.09, ease: "back.out(1.18)" },
-	              start + 1.58
-	            );
-	        }
-	        if (scene === "#script") {
-	          tl.to("#script", { opacity: 1, duration: 3.1, ease: "none" }, start + 3.9);
-	        }
-	        if (index < scenes.length - 1) {
-		          tl.to(scene, { opacity: 0, y: -18, scale: 0.994, duration: 0.72, ease: "power2.inOut" }, end - 0.72);
-	        }
-      });
-
-      window.__timelines["shot-08-professional-render"] = tl;
+            gsap.defaults({ ease: "power3.out" });
+      
+            const tl = gsap.timeline({ paused: true });
+            const scenes = ["#meeting", "#brief", "#email", "#report", "#social", "#script"];
+            const dots = ["#dot-meeting", "#dot-brief", "#dot-email", "#dot-report", "#dot-social", "#dot-script"];
+      	      const sceneStarts = [5, 15, 25, 40, 50, 60];
+      	      const sceneHold = 10;
+      
+            function flash(time) {
+              tl.fromTo("#flash-bar", { opacity: 0, x: 0 }, { opacity: 0.7, x: 2350, duration: 0.38, ease: "power2.inOut" }, time)
+                .to("#flash-bar", { opacity: 0, duration: 0.12 }, time + 0.38);
+            }
+      
+            function activateDot(index, time) {
+              dots.forEach((dot, dotIndex) => {
+                tl.to(dot, { backgroundColor: dotIndex === index ? "#8b5a4a" : "rgba(139, 90, 74, 0.16)", duration: 0.16 }, time);
+              });
+            }
+      
+            tl.fromTo("#stage", { opacity: 0 }, { opacity: 1, duration: 0.18 }, 0)
+              .fromTo("#part-management", { opacity: 0, y: 24, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.46, ease: "expo.out" }, 0.05)
+              .from("#part-management .part-kicker", { opacity: 0, y: 12, duration: 0.28 }, 0.16)
+              .from("#part-management .part-heading", { opacity: 0, y: 22, duration: 0.4, ease: "expo.out" }, 0.34)
+              .from("#part-management .part-sub", { opacity: 0, y: 16, duration: 0.34 }, 0.62)
+              .to("#part-management", { opacity: 0, y: -22, scale: 1.02, duration: 0.44, ease: "power2.inOut" }, 4.28)
+      	        .fromTo("#part-marketing", { opacity: 0, y: 28, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.58, ease: "expo.out" }, 35.42)
+      	        .from("#part-marketing .part-kicker", { opacity: 0, y: 14, duration: 0.34 }, 35.72)
+      	        .from("#part-marketing .part-heading", { opacity: 0, y: 24, duration: 0.46, ease: "expo.out" }, 35.98)
+      	        .from("#part-marketing .part-sub", { opacity: 0, y: 18, duration: 0.4 }, 36.32)
+      	        .to("#part-marketing", { opacity: 0, y: -22, scale: 1.02, duration: 0.44, ease: "power2.inOut" }, 39.28);
+      
+            scenes.forEach((scene, index) => {
+              const start = sceneStarts[index];
+              const end = start + sceneHold;
+              const contentItems = scene === "#meeting" || scene === "#brief"
+                ? `${scene} .note-row, ${scene} .task, ${scene} .beat`
+                : scene === "#social"
+                ? `${scene} .card, ${scene} .note-row, ${scene} .task, ${scene} .beat`
+                : `${scene} .card, ${scene} .note-row, ${scene} .task, ${scene} .beat, ${scene} .review-step, ${scene} .review-card, ${scene} .social-card, ${scene} .channel-card`;
+              const lineItems = `${scene} .line`;
+      	        activateDot(index, start + 0.12);
+      	        tl.fromTo(scene, { opacity: 0, y: 22, scale: 0.99 }, { opacity: 1, y: 0, scale: 1, duration: 0.82, ease: "power3.out" }, start)
+      	          .from(`${scene} .label`, { opacity: 0, y: 16, duration: 0.42, ease: "power3.out" }, start + 0.14)
+      	          .from(`${scene} .title`, { opacity: 0, x: -42, duration: 0.72, ease: "power3.out" }, start + 0.32)
+      	          .from(`${scene} .copy`, { opacity: 0, x: -28, duration: 0.58, ease: "power3.out" }, start + 0.72)
+      	          .from(`${scene} .audience-strip`, { opacity: 0, y: 22, scale: 0.98, duration: 0.5, ease: "power3.out" }, start + 1.04)
+      	          .from(`${scene} .audience-chip`, { opacity: 0, y: 12, scale: 0.96, duration: 0.34, stagger: 0.06, ease: "back.out(1.12)" }, start + 1.22)
+      	          .from(`${scene} .meta > div`, { opacity: 0, x: -18, duration: 0.42, stagger: 0.1, ease: "power3.out" }, start + 1.44)
+                .from(`${scene} .interface`, { opacity: 0, x: 72, y: 12, scale: 0.96, filter: "blur(8px)", duration: 1.05, ease: "power3.out" }, start + 0.3)
+                .from(`${scene} .topbar`, { opacity: 0, y: -18, duration: 0.52, ease: "power3.out" }, start + 0.76)
+                .from(scene === "#script" ? `${scene} .script-review-body` : scene === "#meeting" ? `${scene} .decision-body` : scene === "#brief" ? `${scene} .okr-body` : `${scene} .body > *`, { opacity: 0, y: 24, scale: 0.98, filter: "blur(6px)", duration: 0.68, stagger: 0.16, ease: "power3.out" }, start + 0.92)
+                .from(`${scene} .topbar svg`, { opacity: 0, scale: 0.72, rotation: -8, duration: 0.5, ease: "back.out(1.15)" }, start + 1.04)
+                .to(scene, { x: -8, y: -3, scale: 1.006, duration: sceneHold - 3.1, ease: "none" }, start + 2.35)
+      	        if (document.querySelector(contentItems)) {
+      	          tl.from(contentItems, { opacity: 0, y: 24, scale: 0.97, filter: "blur(5px)", duration: 0.54, stagger: 0.12, ease: "power3.out" }, start + 1.34);
+      	        }
+      	        if (document.querySelector(lineItems)) {
+      	          tl.from(lineItems, { opacity: 0, scaleX: 0, transformOrigin: "left center", duration: 0.34, stagger: 0.06 }, start + 1.5);
+      	        }
+      	        if (scene === "#report") {
+      	          tl.to("#report .intel-text-view", { opacity: 0, y: -18, scale: 0.99, duration: 0.5, ease: "power2.inOut" }, start + 4.6)
+      	            .fromTo("#report .intel-dashboard", { opacity: 0, y: 26, scale: 0.97, filter: "blur(8px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.68, ease: "power3.out" }, start + 4.78)
+      	            .from("#report .metric-card", { opacity: 0, y: 18, scale: 0.96, duration: 0.4, stagger: 0.08, ease: "back.out(1.15)" }, start + 4.98)
+      	            .from("#report .dash-panel", { opacity: 0, y: 22, scale: 0.97, duration: 0.46, stagger: 0.12, ease: "power3.out" }, start + 5.18)
+      	            .from("#report .signal-bar", { scaleY: 0, transformOrigin: "bottom center", duration: 0.5, stagger: 0.065, ease: "power2.out" }, start + 5.4)
+      	            .from("#report .topic-track i", { scaleX: 0, transformOrigin: "left center", duration: 0.48, stagger: 0.07, ease: "power2.out" }, start + 5.42)
+      	            .from("#report .action-card", { opacity: 0, y: 18, scale: 0.96, duration: 0.4, stagger: 0.08, ease: "back.out(1.12)" }, start + 5.6);
+      	        }
+      	        if (scene === "#meeting") {
+      	          tl.fromTo("#meeting .decision-card",
+      	            { opacity: 0, y: 22, scale: 0.97, filter: "blur(5px)" },
+      	            { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, stagger: 0.08, ease: "power3.out" },
+      	            start + 1.22
+      	          );
+      	        }
+      	        if (scene === "#brief") {
+      	          tl.fromTo("#brief .brief-cover",
+      	            { opacity: 0, x: -24, scale: 0.98, filter: "blur(6px)" },
+      	            { opacity: 1, x: 0, scale: 1, filter: "blur(0px)", duration: 0.58, ease: "power3.out" },
+      	            start + 1.08
+      	          )
+      	            .fromTo("#brief .okr-side-card",
+      	              { opacity: 0, x: 24, scale: 0.97, filter: "blur(5px)" },
+      	              { opacity: 1, x: 0, scale: 1, filter: "blur(0px)", duration: 0.48, stagger: 0.12, ease: "power3.out" },
+      	              start + 1.28
+      	            );
+      	        }
+      	        if (scene === "#social") {
+      	          tl.fromTo("#social .social-card",
+      	            { opacity: 0, y: 26, scale: 0.98, filter: "blur(6px)" },
+      	            { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.56, ease: "power3.out" },
+      	            start + 1.08
+      	          )
+      	            .fromTo("#social .channel-card",
+      	              { opacity: 0, y: 22, scale: 0.97, filter: "blur(5px)" },
+      	              { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.5, stagger: 0.12, ease: "power3.out" },
+      	              start + 1.34
+      	            )
+      	            .fromTo("#social .channel-logo",
+      	              { opacity: 0, y: 12, scale: 0.78, rotation: -6 },
+      	              { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 0.42, stagger: 0.09, ease: "back.out(1.18)" },
+      	              start + 1.58
+      	            );
+      	        }
+      	        if (scene === "#script") {
+      	          tl.to("#script", { opacity: 1, duration: 3.1, ease: "none" }, start + 3.9);
+      	        }
+      	        if (index < scenes.length - 1) {
+      		          tl.to(scene, { opacity: 0, y: -18, scale: 0.994, duration: 0.72, ease: "power2.inOut" }, end - 0.72);
+      	        }
+            });
+      
+            window.__timelines["shot-08-professional-render"] = tl;
     </script>
-  </body>
-</html>
+  </div>
+</template>

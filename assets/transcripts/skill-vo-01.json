@@ -1,0 +1,178 @@
+{
+  "id": "skill-vo-01",
+  "source": "assets/professional-skills-vo/line-01.wav",
+  "expectedText": null,
+  "recognizedText": "接下来,让我们看看数字员工的专业技能能力。",
+  "tokens": [
+    {
+      "text": "接",
+      "start": 0.04,
+      "end": 0.14,
+      "confidence": 0.992807
+    },
+    {
+      "text": "下",
+      "start": 0.21,
+      "end": 0.36,
+      "confidence": 0.999949
+    },
+    {
+      "text": "来",
+      "start": 0.36,
+      "end": 0.45,
+      "confidence": 0.999994
+    },
+    {
+      "text": "让",
+      "start": 0.77,
+      "end": 0.84,
+      "confidence": 0.994071
+    },
+    {
+      "text": "我们",
+      "start": 0.84,
+      "end": 1.12,
+      "confidence": 0.999905
+    },
+    {
+      "text": "看看",
+      "start": 1.22,
+      "end": 1.56,
+      "confidence": 0.998986
+    },
+    {
+      "text": "数",
+      "start": 1.62,
+      "end": 1.75,
+      "confidence": 0.152327
+    },
+    {
+      "text": "字",
+      "start": 1.9,
+      "end": 1.94,
+      "confidence": 0.906037
+    },
+    {
+      "text": "工",
+      "start": 2.12,
+      "end": 2.3,
+      "confidence": 0.99962
+    },
+    {
+      "text": "的",
+      "start": 2.3,
+      "end": 2.48,
+      "confidence": 0.999657
+    },
+    {
+      "text": "技",
+      "start": 2.84,
+      "end": 3,
+      "confidence": 0.992835
+    },
+    {
+      "text": "能",
+      "start": 3.06,
+      "end": 3.2,
+      "confidence": 0.999579
+    },
+    {
+      "text": "能",
+      "start": 3.2,
+      "end": 3.38,
+      "confidence": 0.894905
+    },
+    {
+      "text": "力",
+      "start": 3.38,
+      "end": 3.64,
+      "confidence": 0.999954
+    }
+  ],
+  "words": [
+    {
+      "text": "接",
+      "start": 0.04,
+      "end": 0.14,
+      "confidence": 0.992807
+    },
+    {
+      "text": "下",
+      "start": 0.21,
+      "end": 0.36,
+      "confidence": 0.999949
+    },
+    {
+      "text": "来",
+      "start": 0.36,
+      "end": 0.45,
+      "confidence": 0.999994
+    },
+    {
+      "text": "让",
+      "start": 0.77,
+      "end": 0.84,
+      "confidence": 0.994071
+    },
+    {
+      "text": "我们",
+      "start": 0.84,
+      "end": 1.12,
+      "confidence": 0.999905
+    },
+    {
+      "text": "看看",
+      "start": 1.22,
+      "end": 1.56,
+      "confidence": 0.998986
+    },
+    {
+      "text": "数",
+      "start": 1.62,
+      "end": 1.75,
+      "confidence": 0.152327
+    },
+    {
+      "text": "字",
+      "start": 1.9,
+      "end": 1.94,
+      "confidence": 0.906037
+    },
+    {
+      "text": "工",
+      "start": 2.12,
+      "end": 2.3,
+      "confidence": 0.99962
+    },
+    {
+      "text": "的",
+      "start": 2.3,
+      "end": 2.48,
+      "confidence": 0.999657
+    },
+    {
+      "text": "技",
+      "start": 2.84,
+      "end": 3,
+      "confidence": 0.992835
+    },
+    {
+      "text": "能",
+      "start": 3.06,
+      "end": 3.2,
+      "confidence": 0.999579
+    },
+    {
+      "text": "能",
+      "start": 3.2,
+      "end": 3.38,
+      "confidence": 0.894905
+    },
+    {
+      "text": "力",
+      "start": 3.38,
+      "end": 3.64,
+      "confidence": 0.999954
+    }
+  ]
+}

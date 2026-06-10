@@ -1,0 +1,88 @@
+{
+  "id": "narration-p13",
+  "source": "assets/narration/p13.wav",
+  "expectedText": "Lawrence 会先理解，再追问。",
+  "recognizedText": "劳任责会先理解再追问",
+  "tokens": [
+    {
+      "text": "任",
+      "start": 0.18,
+      "end": 0.33,
+      "confidence": 0.673593
+    },
+    {
+      "text": "会",
+      "start": 0.66,
+      "end": 0.74,
+      "confidence": 0.986822
+    },
+    {
+      "text": "先",
+      "start": 0.74,
+      "end": 0.93,
+      "confidence": 0.997826
+    },
+    {
+      "text": "理",
+      "start": 0.93,
+      "end": 1.12,
+      "confidence": 0.998369
+    },
+    {
+      "text": "解",
+      "start": 1.12,
+      "end": 1.28,
+      "confidence": 0.999983
+    },
+    {
+      "text": "再",
+      "start": 1.34,
+      "end": 1.52,
+      "confidence": 0.967104
+    },
+    {
+      "text": "追",
+      "start": 1.57,
+      "end": 1.67,
+      "confidence": 0.997164
+    },
+    {
+      "text": "问",
+      "start": 1.79,
+      "end": 1.88,
+      "confidence": 0.999922
+    }
+  ],
+  "words": [
+    {
+      "text": "Lawrence",
+      "start": 0.18,
+      "end": 1.087
+    },
+    {
+      "text": "会",
+      "start": 1.087,
+      "end": 1.2
+    },
+    {
+      "text": "先",
+      "start": 1.2,
+      "end": 1.313
+    },
+    {
+      "text": "理解",
+      "start": 1.313,
+      "end": 1.54
+    },
+    {
+      "text": "再",
+      "start": 1.54,
+      "end": 1.653
+    },
+    {
+      "text": "追问",
+      "start": 1.653,
+      "end": 1.88
+    }
+  ]
+}

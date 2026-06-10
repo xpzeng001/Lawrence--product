@@ -1,0 +1,353 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,920"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2920
+			},
+			"text": "专业能力神剑之后,会进入Vicious Behold,",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.974728,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,020",
+						"to": "00:00:00,110"
+					},
+					"offsets": {
+						"from": 20,
+						"to": 110
+					},
+					"id": 940,
+					"p": 0.759887,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,110",
+						"to": "00:00:00,160"
+					},
+					"offsets": {
+						"from": 110,
+						"to": 160
+					},
+					"id": 241,
+					"p": 0.999958,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,160",
+						"to": "00:00:00,270"
+					},
+					"offsets": {
+						"from": 160,
+						"to": 270
+					},
+					"id": 940,
+					"p": 0.928033,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,270",
+						"to": "00:00:00,320"
+					},
+					"offsets": {
+						"from": 270,
+						"to": 320
+					},
+					"id": 248,
+					"p": 0.999994,
+					"t_dtw": -1
+				},
+				{
+					"text": "能",
+					"timestamps": {
+						"from": "00:00:00,320",
+						"to": "00:00:00,480"
+					},
+					"offsets": {
+						"from": 320,
+						"to": 480
+					},
+					"id": 8225,
+					"p": 0.440192,
+					"t_dtw": -1
+				},
+				{
+					"text": "力",
+					"timestamps": {
+						"from": "00:00:00,480",
+						"to": "00:00:00,610"
+					},
+					"offsets": {
+						"from": 480,
+						"to": 610
+					},
+					"id": 13486,
+					"p": 0.997708,
+					"t_dtw": -1
+				},
+				{
+					"text": "神",
+					"timestamps": {
+						"from": "00:00:00,640",
+						"to": "00:00:00,790"
+					},
+					"offsets": {
+						"from": 640,
+						"to": 790
+					},
+					"id": 20432,
+					"p": 0.992591,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,820",
+						"to": "00:00:00,910"
+					},
+					"offsets": {
+						"from": 820,
+						"to": 910
+					},
+					"id": 5935,
+					"p": 0.956711,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,910",
+						"to": "00:00:00,960"
+					},
+					"offsets": {
+						"from": 910,
+						"to": 960
+					},
+					"id": 239,
+					"p": 0.999895,
+					"t_dtw": -1
+				},
+				{
+					"text": "之",
+					"timestamps": {
+						"from": "00:00:00,960",
+						"to": "00:00:01,120"
+					},
+					"offsets": {
+						"from": 960,
+						"to": 1120
+					},
+					"id": 9574,
+					"p": 0.999104,
+					"t_dtw": -1
+				},
+				{
+					"text": "后",
+					"timestamps": {
+						"from": "00:00:01,120",
+						"to": "00:00:01,320"
+					},
+					"offsets": {
+						"from": 1120,
+						"to": 1320
+					},
+					"id": 13547,
+					"p": 0.999969,
+					"t_dtw": -1
+				},
+				{
+					"text": ",",
+					"timestamps": {
+						"from": "00:00:01,320",
+						"to": "00:00:01,320"
+					},
+					"offsets": {
+						"from": 1320,
+						"to": 1320
+					},
+					"id": 11,
+					"p": 0.855594,
+					"t_dtw": -1
+				},
+				{
+					"text": "会",
+					"timestamps": {
+						"from": "00:00:01,640",
+						"to": "00:00:01,640"
+					},
+					"offsets": {
+						"from": 1640,
+						"to": 1640
+					},
+					"id": 12949,
+					"p": 0.727476,
+					"t_dtw": -1
+				},
+				{
+					"text": "进",
+					"timestamps": {
+						"from": "00:00:01,660",
+						"to": "00:00:01,770"
+					},
+					"offsets": {
+						"from": 1660,
+						"to": 1770
+					},
+					"id": 36700,
+					"p": 0.999262,
+					"t_dtw": -1
+				},
+				{
+					"text": "入",
+					"timestamps": {
+						"from": "00:00:01,830",
+						"to": "00:00:02,020"
+					},
+					"offsets": {
+						"from": 1830,
+						"to": 2020
+					},
+					"id": 14028,
+					"p": 0.998289,
+					"t_dtw": -1
+				},
+				{
+					"text": "V",
+					"timestamps": {
+						"from": "00:00:02,020",
+						"to": "00:00:02,080"
+					},
+					"offsets": {
+						"from": 2020,
+						"to": 2080
+					},
+					"id": 53,
+					"p": 0.369193,
+					"t_dtw": -1
+				},
+				{
+					"text": "icious",
+					"timestamps": {
+						"from": "00:00:02,080",
+						"to": "00:00:02,440"
+					},
+					"offsets": {
+						"from": 2080,
+						"to": 2440
+					},
+					"id": 3784,
+					"p": 0.668122,
+					"t_dtw": -1
+				},
+				{
+					"text": " Be",
+					"timestamps": {
+						"from": "00:00:02,570",
+						"to": "00:00:02,580"
+					},
+					"offsets": {
+						"from": 2570,
+						"to": 2580
+					},
+					"id": 879,
+					"p": 0.134219,
+					"t_dtw": -1
+				},
+				{
+					"text": "hold",
+					"timestamps": {
+						"from": "00:00:02,640",
+						"to": "00:00:02,890"
+					},
+					"offsets": {
+						"from": 2640,
+						"to": 2890
+					},
+					"id": 4104,
+					"p": 0.299933,
+					"t_dtw": -1
+				},
+				{
+					"text": ",",
+					"timestamps": {
+						"from": "00:00:02,920",
+						"to": "00:00:02,920"
+					},
+					"offsets": {
+						"from": 2920,
+						"to": 2920
+					},
+					"id": 11,
+					"p": 0.463364,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_146]",
+					"timestamps": {
+						"from": "00:00:02,920",
+						"to": "00:00:02,920"
+					},
+					"offsets": {
+						"from": 2920,
+						"to": 2920
+					},
+					"id": 50511,
+					"p": 0.998797,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

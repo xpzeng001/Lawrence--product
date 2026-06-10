@@ -1,0 +1,325 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:03,160"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 3160
+			},
+			"text": "开场先讲清楚,劳任辞不是一个聊天框。",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.966281,
+					"t_dtw": -1
+				},
+				{
+					"text": "开",
+					"timestamps": {
+						"from": "00:00:00,050",
+						"to": "00:00:00,190"
+					},
+					"offsets": {
+						"from": 50,
+						"to": 190
+					},
+					"id": 18937,
+					"p": 0.589983,
+					"t_dtw": -1
+				},
+				{
+					"text": "场",
+					"timestamps": {
+						"from": "00:00:00,250",
+						"to": "00:00:00,360"
+					},
+					"offsets": {
+						"from": 250,
+						"to": 360
+					},
+					"id": 50255,
+					"p": 0.913628,
+					"t_dtw": -1
+				},
+				{
+					"text": "先",
+					"timestamps": {
+						"from": "00:00:00,440",
+						"to": "00:00:00,580"
+					},
+					"offsets": {
+						"from": 440,
+						"to": 580
+					},
+					"id": 10108,
+					"p": 0.87982,
+					"t_dtw": -1
+				},
+				{
+					"text": "讲",
+					"timestamps": {
+						"from": "00:00:00,640",
+						"to": "00:00:00,780"
+					},
+					"offsets": {
+						"from": 640,
+						"to": 780
+					},
+					"id": 39255,
+					"p": 0.98924,
+					"t_dtw": -1
+				},
+				{
+					"text": "清楚",
+					"timestamps": {
+						"from": "00:00:00,830",
+						"to": "00:00:01,200"
+					},
+					"offsets": {
+						"from": 830,
+						"to": 1200
+					},
+					"id": 38433,
+					"p": 0.86357,
+					"t_dtw": -1
+				},
+				{
+					"text": ",",
+					"timestamps": {
+						"from": "00:00:01,200",
+						"to": "00:00:01,210"
+					},
+					"offsets": {
+						"from": 1200,
+						"to": 1210
+					},
+					"id": 11,
+					"p": 0.575688,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,420",
+						"to": "00:00:01,420"
+					},
+					"offsets": {
+						"from": 1420,
+						"to": 1420
+					},
+					"id": 5087,
+					"p": 0.107778,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,470",
+						"to": "00:00:01,470"
+					},
+					"offsets": {
+						"from": 1470,
+						"to": 1470
+					},
+					"id": 111,
+					"p": 0.999945,
+					"t_dtw": -1
+				},
+				{
+					"text": "任",
+					"timestamps": {
+						"from": "00:00:01,480",
+						"to": "00:00:01,630"
+					},
+					"offsets": {
+						"from": 1480,
+						"to": 1630
+					},
+					"id": 26443,
+					"p": 0.886204,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,630",
+						"to": "00:00:01,740"
+					},
+					"offsets": {
+						"from": 1630,
+						"to": 1740
+					},
+					"id": 9830,
+					"p": 0.117295,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,740",
+						"to": "00:00:01,790"
+					},
+					"offsets": {
+						"from": 1740,
+						"to": 1790
+					},
+					"id": 252,
+					"p": 0.983741,
+					"t_dtw": -1
+				},
+				{
+					"text": "不是",
+					"timestamps": {
+						"from": "00:00:01,790",
+						"to": "00:00:02,030"
+					},
+					"offsets": {
+						"from": 1790,
+						"to": 2030
+					},
+					"id": 7296,
+					"p": 0.879648,
+					"t_dtw": -1
+				},
+				{
+					"text": "一个",
+					"timestamps": {
+						"from": "00:00:02,150",
+						"to": "00:00:02,440"
+					},
+					"offsets": {
+						"from": 2150,
+						"to": 2440
+					},
+					"id": 20182,
+					"p": 0.993146,
+					"t_dtw": -1
+				},
+				{
+					"text": "聊",
+					"timestamps": {
+						"from": "00:00:02,490",
+						"to": "00:00:02,610"
+					},
+					"offsets": {
+						"from": 2490,
+						"to": 2610
+					},
+					"id": 40096,
+					"p": 0.876486,
+					"t_dtw": -1
+				},
+				{
+					"text": "天",
+					"timestamps": {
+						"from": "00:00:02,610",
+						"to": "00:00:02,710"
+					},
+					"offsets": {
+						"from": 2610,
+						"to": 2710
+					},
+					"id": 6135,
+					"p": 0.949294,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,800",
+						"to": "00:00:02,880"
+					},
+					"offsets": {
+						"from": 2800,
+						"to": 2880
+					},
+					"id": 21416,
+					"p": 0.533196,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,880",
+						"to": "00:00:02,920"
+					},
+					"offsets": {
+						"from": 2880,
+						"to": 2920
+					},
+					"id": 228,
+					"p": 0.99999,
+					"t_dtw": -1
+				},
+				{
+					"text": "。",
+					"timestamps": {
+						"from": "00:00:03,040",
+						"to": "00:00:03,160"
+					},
+					"offsets": {
+						"from": 3040,
+						"to": 3160
+					},
+					"id": 1543,
+					"p": 0.520969,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_158]",
+					"timestamps": {
+						"from": "00:00:03,160",
+						"to": "00:00:03,160"
+					},
+					"offsets": {
+						"from": 3160,
+						"to": 3160
+					},
+					"id": 50523,
+					"p": 0.478222,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

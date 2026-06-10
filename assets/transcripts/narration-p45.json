@@ -1,0 +1,92 @@
+{
+  "id": "narration-p45",
+  "source": "assets/narration/p45.wav",
+  "expectedText": "最后，是课程培训和场景陪跑。",
+  "recognizedText": "最后,是课程培训和差劲陪跑。",
+  "tokens": [
+    {
+      "text": "最",
+      "start": 0.03,
+      "end": 0.14,
+      "confidence": 0.994973
+    },
+    {
+      "text": "后",
+      "start": 0.18,
+      "end": 0.29,
+      "confidence": 0.999979
+    },
+    {
+      "text": "是",
+      "start": 0.58,
+      "end": 0.66,
+      "confidence": 0.954104
+    },
+    {
+      "text": "程",
+      "start": 0.84,
+      "end": 1.02,
+      "confidence": 0.999567
+    },
+    {
+      "text": "和",
+      "start": 1.38,
+      "end": 1.55,
+      "confidence": 0.999548
+    },
+    {
+      "text": "差",
+      "start": 1.58,
+      "end": 1.74,
+      "confidence": 0.158851
+    },
+    {
+      "text": "跑",
+      "start": 2.1,
+      "end": 2.36,
+      "confidence": 0.906604
+    }
+  ],
+  "words": [
+    {
+      "text": "最后",
+      "start": 0.03,
+      "end": 0.418
+    },
+    {
+      "text": "是",
+      "start": 0.418,
+      "end": 0.612
+    },
+    {
+      "text": "课程",
+      "start": 0.612,
+      "end": 1
+    },
+    {
+      "text": "培训",
+      "start": 1,
+      "end": 1.388
+    },
+    {
+      "text": "和",
+      "start": 1.388,
+      "end": 1.582
+    },
+    {
+      "text": "场景",
+      "start": 1.582,
+      "end": 1.97
+    },
+    {
+      "text": "陪",
+      "start": 1.97,
+      "end": 2.164
+    },
+    {
+      "text": "跑",
+      "start": 2.164,
+      "end": 2.36
+    }
+  ]
+}

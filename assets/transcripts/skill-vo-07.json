@@ -1,0 +1,190 @@
+{
+  "id": "skill-vo-07",
+  "source": "assets/professional-skills-vo/line-07.wav",
+  "expectedText": null,
+  "recognizedText": "不追法律合规,他也能进入战略和内部管理流程。",
+  "tokens": [
+    {
+      "text": "不",
+      "start": 0,
+      "end": 0.09,
+      "confidence": 0.308262
+    },
+    {
+      "text": "追",
+      "start": 0.14,
+      "end": 0.26,
+      "confidence": 0.39094
+    },
+    {
+      "text": "法",
+      "start": 0.31,
+      "end": 0.41,
+      "confidence": 0.892727
+    },
+    {
+      "text": "合",
+      "start": 0.55,
+      "end": 0.69,
+      "confidence": 0.901244
+    },
+    {
+      "text": "也",
+      "start": 1.26,
+      "end": 1.31,
+      "confidence": 0.995765
+    },
+    {
+      "text": "能",
+      "start": 1.31,
+      "end": 1.47,
+      "confidence": 0.995137
+    },
+    {
+      "text": "进",
+      "start": 1.47,
+      "end": 1.62,
+      "confidence": 0.991991
+    },
+    {
+      "text": "入",
+      "start": 1.62,
+      "end": 1.79,
+      "confidence": 0.998561
+    },
+    {
+      "text": "和",
+      "start": 2.11,
+      "end": 2.27,
+      "confidence": 0.986228
+    },
+    {
+      "text": "内",
+      "start": 2.27,
+      "end": 2.43,
+      "confidence": 0.991728
+    },
+    {
+      "text": "部",
+      "start": 2.43,
+      "end": 2.59,
+      "confidence": 0.998154
+    },
+    {
+      "text": "管",
+      "start": 2.59,
+      "end": 2.75,
+      "confidence": 0.980281
+    },
+    {
+      "text": "理",
+      "start": 2.75,
+      "end": 2.91,
+      "confidence": 0.999884
+    },
+    {
+      "text": "流",
+      "start": 2.91,
+      "end": 3.07,
+      "confidence": 0.981956
+    },
+    {
+      "text": "程",
+      "start": 3.07,
+      "end": 3.32,
+      "confidence": 0.99988
+    }
+  ],
+  "words": [
+    {
+      "text": "不",
+      "start": 0,
+      "end": 0.09,
+      "confidence": 0.308262
+    },
+    {
+      "text": "追",
+      "start": 0.14,
+      "end": 0.26,
+      "confidence": 0.39094
+    },
+    {
+      "text": "法",
+      "start": 0.31,
+      "end": 0.41,
+      "confidence": 0.892727
+    },
+    {
+      "text": "合",
+      "start": 0.55,
+      "end": 0.69,
+      "confidence": 0.901244
+    },
+    {
+      "text": "也",
+      "start": 1.26,
+      "end": 1.31,
+      "confidence": 0.995765
+    },
+    {
+      "text": "能",
+      "start": 1.31,
+      "end": 1.47,
+      "confidence": 0.995137
+    },
+    {
+      "text": "进",
+      "start": 1.47,
+      "end": 1.62,
+      "confidence": 0.991991
+    },
+    {
+      "text": "入",
+      "start": 1.62,
+      "end": 1.79,
+      "confidence": 0.998561
+    },
+    {
+      "text": "和",
+      "start": 2.11,
+      "end": 2.27,
+      "confidence": 0.986228
+    },
+    {
+      "text": "内",
+      "start": 2.27,
+      "end": 2.43,
+      "confidence": 0.991728
+    },
+    {
+      "text": "部",
+      "start": 2.43,
+      "end": 2.59,
+      "confidence": 0.998154
+    },
+    {
+      "text": "管",
+      "start": 2.59,
+      "end": 2.75,
+      "confidence": 0.980281
+    },
+    {
+      "text": "理",
+      "start": 2.75,
+      "end": 2.91,
+      "confidence": 0.999884
+    },
+    {
+      "text": "流",
+      "start": 2.91,
+      "end": 3.07,
+      "confidence": 0.981956
+    },
+    {
+      "text": "程",
+      "start": 3.07,
+      "end": 3.32,
+      "confidence": 0.99988
+    }
+  ]
+}

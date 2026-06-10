@@ -1,0 +1,297 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:01,740"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 1740
+			},
+			"text": "任务就变成了可执行委托。",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.975483,
+					"t_dtw": -1
+				},
+				{
+					"text": "任",
+					"timestamps": {
+						"from": "00:00:00,020",
+						"to": "00:00:00,150"
+					},
+					"offsets": {
+						"from": 20,
+						"to": 150
+					},
+					"id": 26443,
+					"p": 0.924059,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,150",
+						"to": "00:00:00,250"
+					},
+					"offsets": {
+						"from": 150,
+						"to": 250
+					},
+					"id": 5087,
+					"p": 0.995205,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,250",
+						"to": "00:00:00,250"
+					},
+					"offsets": {
+						"from": 250,
+						"to": 250
+					},
+					"id": 94,
+					"p": 1,
+					"t_dtw": -1
+				},
+				{
+					"text": "就",
+					"timestamps": {
+						"from": "00:00:00,300",
+						"to": "00:00:00,420"
+					},
+					"offsets": {
+						"from": 300,
+						"to": 420
+					},
+					"id": 3111,
+					"p": 0.992237,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,470",
+						"to": "00:00:00,550"
+					},
+					"offsets": {
+						"from": 470,
+						"to": 550
+					},
+					"id": 2129,
+					"p": 0.998765,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,550",
+						"to": "00:00:00,600"
+					},
+					"offsets": {
+						"from": 550,
+						"to": 600
+					},
+					"id": 246,
+					"p": 1,
+					"t_dtw": -1
+				},
+				{
+					"text": "成",
+					"timestamps": {
+						"from": "00:00:00,600",
+						"to": "00:00:00,750"
+					},
+					"offsets": {
+						"from": 600,
+						"to": 750
+					},
+					"id": 11336,
+					"p": 0.99859,
+					"t_dtw": -1
+				},
+				{
+					"text": "了",
+					"timestamps": {
+						"from": "00:00:00,750",
+						"to": "00:00:00,900"
+					},
+					"offsets": {
+						"from": 750,
+						"to": 900
+					},
+					"id": 2289,
+					"p": 0.998795,
+					"t_dtw": -1
+				},
+				{
+					"text": "可",
+					"timestamps": {
+						"from": "00:00:00,900",
+						"to": "00:00:01,050"
+					},
+					"offsets": {
+						"from": 900,
+						"to": 1050
+					},
+					"id": 4429,
+					"p": 0.966372,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,050",
+						"to": "00:00:01,120"
+					},
+					"offsets": {
+						"from": 1050,
+						"to": 1120
+					},
+					"id": 3416,
+					"p": 0.994194,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,170",
+						"to": "00:00:01,200"
+					},
+					"offsets": {
+						"from": 1170,
+						"to": 1200
+					},
+					"id": 100,
+					"p": 0.9998,
+					"t_dtw": -1
+				},
+				{
+					"text": "行",
+					"timestamps": {
+						"from": "00:00:01,200",
+						"to": "00:00:01,350"
+					},
+					"offsets": {
+						"from": 1200,
+						"to": 1350
+					},
+					"id": 8082,
+					"p": 0.998731,
+					"t_dtw": -1
+				},
+				{
+					"text": "委",
+					"timestamps": {
+						"from": "00:00:01,350",
+						"to": "00:00:01,500"
+					},
+					"offsets": {
+						"from": 1350,
+						"to": 1500
+					},
+					"id": 44230,
+					"p": 0.971441,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,500",
+						"to": "00:00:01,590"
+					},
+					"offsets": {
+						"from": 1500,
+						"to": 1590
+					},
+					"id": 3416,
+					"p": 0.992212,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,660",
+						"to": "00:00:01,740"
+					},
+					"offsets": {
+						"from": 1660,
+						"to": 1740
+					},
+					"id": 246,
+					"p": 0.999897,
+					"t_dtw": -1
+				},
+				{
+					"text": "。",
+					"timestamps": {
+						"from": "00:00:01,740",
+						"to": "00:00:01,740"
+					},
+					"offsets": {
+						"from": 1740,
+						"to": 1740
+					},
+					"id": 1543,
+					"p": 0.681059,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_87]",
+					"timestamps": {
+						"from": "00:00:01,740",
+						"to": "00:00:01,740"
+					},
+					"offsets": {
+						"from": 1740,
+						"to": 1740
+					},
+					"id": 50452,
+					"p": 0.671417,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

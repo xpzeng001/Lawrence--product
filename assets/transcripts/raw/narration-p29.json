@@ -1,0 +1,269 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:01,980"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 1980
+			},
+			"text": "和研究你客户市场和竞品",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.934483,
+					"t_dtw": -1
+				},
+				{
+					"text": "和",
+					"timestamps": {
+						"from": "00:00:00,070",
+						"to": "00:00:00,170"
+					},
+					"offsets": {
+						"from": 70,
+						"to": 170
+					},
+					"id": 12565,
+					"p": 0.146302,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,170",
+						"to": "00:00:00,280"
+					},
+					"offsets": {
+						"from": 170,
+						"to": 280
+					},
+					"id": 23230,
+					"p": 0.944548,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,280",
+						"to": "00:00:00,330"
+					},
+					"offsets": {
+						"from": 280,
+						"to": 330
+					},
+					"id": 242,
+					"p": 0.999996,
+					"t_dtw": -1
+				},
+				{
+					"text": "究",
+					"timestamps": {
+						"from": "00:00:00,330",
+						"to": "00:00:00,500"
+					},
+					"offsets": {
+						"from": 330,
+						"to": 500
+					},
+					"id": 44704,
+					"p": 0.98667,
+					"t_dtw": -1
+				},
+				{
+					"text": "你",
+					"timestamps": {
+						"from": "00:00:00,500",
+						"to": "00:00:00,670"
+					},
+					"offsets": {
+						"from": 500,
+						"to": 670
+					},
+					"id": 2166,
+					"p": 0.599688,
+					"t_dtw": -1
+				},
+				{
+					"text": "客",
+					"timestamps": {
+						"from": "00:00:00,670",
+						"to": "00:00:00,840"
+					},
+					"offsets": {
+						"from": 670,
+						"to": 840
+					},
+					"id": 32316,
+					"p": 0.983014,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,840",
+						"to": "00:00:00,950"
+					},
+					"offsets": {
+						"from": 840,
+						"to": 950
+					},
+					"id": 1486,
+					"p": 0.999985,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,950",
+						"to": "00:00:01,050"
+					},
+					"offsets": {
+						"from": 950,
+						"to": 1050
+					},
+					"id": 115,
+					"p": 0.998967,
+					"t_dtw": -1
+				},
+				{
+					"text": "市",
+					"timestamps": {
+						"from": "00:00:01,180",
+						"to": "00:00:01,240"
+					},
+					"offsets": {
+						"from": 1180,
+						"to": 1240
+					},
+					"id": 27261,
+					"p": 0.634173,
+					"t_dtw": -1
+				},
+				{
+					"text": "场",
+					"timestamps": {
+						"from": "00:00:01,240",
+						"to": "00:00:01,420"
+					},
+					"offsets": {
+						"from": 1240,
+						"to": 1420
+					},
+					"id": 50255,
+					"p": 0.995636,
+					"t_dtw": -1
+				},
+				{
+					"text": "和",
+					"timestamps": {
+						"from": "00:00:01,420",
+						"to": "00:00:01,600"
+					},
+					"offsets": {
+						"from": 1420,
+						"to": 1600
+					},
+					"id": 12565,
+					"p": 0.93028,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,600",
+						"to": "00:00:01,720"
+					},
+					"offsets": {
+						"from": 1600,
+						"to": 1720
+					},
+					"id": 11957,
+					"p": 0.896266,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,720",
+						"to": "00:00:01,780"
+					},
+					"offsets": {
+						"from": 1720,
+						"to": 1780
+					},
+					"id": 252,
+					"p": 0.996594,
+					"t_dtw": -1
+				},
+				{
+					"text": "品",
+					"timestamps": {
+						"from": "00:00:01,780",
+						"to": "00:00:01,980"
+					},
+					"offsets": {
+						"from": 1780,
+						"to": 1980
+					},
+					"id": 30246,
+					"p": 0.968034,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_99]",
+					"timestamps": {
+						"from": "00:00:01,980",
+						"to": "00:00:01,980"
+					},
+					"offsets": {
+						"from": 1980,
+						"to": 1980
+					},
+					"id": 50464,
+					"p": 0.288455,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

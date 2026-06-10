@@ -1,0 +1,297 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,820"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2820
+			},
+			"text": "客户也可以在安全工作之中使用这些能力。",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.974668,
+					"t_dtw": -1
+				},
+				{
+					"text": "客",
+					"timestamps": {
+						"from": "00:00:00,070",
+						"to": "00:00:00,130"
+					},
+					"offsets": {
+						"from": 70,
+						"to": 130
+					},
+					"id": 32316,
+					"p": 0.976604,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,190",
+						"to": "00:00:00,250"
+					},
+					"offsets": {
+						"from": 190,
+						"to": 250
+					},
+					"id": 1486,
+					"p": 0.999928,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,250",
+						"to": "00:00:00,300"
+					},
+					"offsets": {
+						"from": 250,
+						"to": 300
+					},
+					"id": 115,
+					"p": 0.999357,
+					"t_dtw": -1
+				},
+				{
+					"text": "也可以",
+					"timestamps": {
+						"from": "00:00:00,300",
+						"to": "00:00:00,770"
+					},
+					"offsets": {
+						"from": 300,
+						"to": 770
+					},
+					"id": 47935,
+					"p": 0.996864,
+					"t_dtw": -1
+				},
+				{
+					"text": "在",
+					"timestamps": {
+						"from": "00:00:00,770",
+						"to": "00:00:00,920"
+					},
+					"offsets": {
+						"from": 770,
+						"to": 920
+					},
+					"id": 3581,
+					"p": 0.999426,
+					"t_dtw": -1
+				},
+				{
+					"text": "安全",
+					"timestamps": {
+						"from": "00:00:00,920",
+						"to": "00:00:01,190"
+					},
+					"offsets": {
+						"from": 920,
+						"to": 1190
+					},
+					"id": 45466,
+					"p": 0.997289,
+					"t_dtw": -1
+				},
+				{
+					"text": "工作",
+					"timestamps": {
+						"from": "00:00:01,250",
+						"to": "00:00:01,540"
+					},
+					"offsets": {
+						"from": 1250,
+						"to": 1540
+					},
+					"id": 41315,
+					"p": 0.999413,
+					"t_dtw": -1
+				},
+				{
+					"text": "之",
+					"timestamps": {
+						"from": "00:00:01,540",
+						"to": "00:00:01,690"
+					},
+					"offsets": {
+						"from": 1540,
+						"to": 1690
+					},
+					"id": 9574,
+					"p": 0.475428,
+					"t_dtw": -1
+				},
+				{
+					"text": "中",
+					"timestamps": {
+						"from": "00:00:01,690",
+						"to": "00:00:01,880"
+					},
+					"offsets": {
+						"from": 1690,
+						"to": 1880
+					},
+					"id": 5975,
+					"p": 0.999497,
+					"t_dtw": -1
+				},
+				{
+					"text": "使",
+					"timestamps": {
+						"from": "00:00:01,960",
+						"to": "00:00:02,050"
+					},
+					"offsets": {
+						"from": 1960,
+						"to": 2050
+					},
+					"id": 22982,
+					"p": 0.956463,
+					"t_dtw": -1
+				},
+				{
+					"text": "用",
+					"timestamps": {
+						"from": "00:00:02,050",
+						"to": "00:00:02,200"
+					},
+					"offsets": {
+						"from": 2050,
+						"to": 2200
+					},
+					"id": 9254,
+					"p": 0.999964,
+					"t_dtw": -1
+				},
+				{
+					"text": "这",
+					"timestamps": {
+						"from": "00:00:02,200",
+						"to": "00:00:02,350"
+					},
+					"offsets": {
+						"from": 2200,
+						"to": 2350
+					},
+					"id": 5562,
+					"p": 0.985455,
+					"t_dtw": -1
+				},
+				{
+					"text": "些",
+					"timestamps": {
+						"from": "00:00:02,350",
+						"to": "00:00:02,500"
+					},
+					"offsets": {
+						"from": 2350,
+						"to": 2500
+					},
+					"id": 13824,
+					"p": 0.999495,
+					"t_dtw": -1
+				},
+				{
+					"text": "能",
+					"timestamps": {
+						"from": "00:00:02,500",
+						"to": "00:00:02,650"
+					},
+					"offsets": {
+						"from": 2500,
+						"to": 2650
+					},
+					"id": 8225,
+					"p": 0.803467,
+					"t_dtw": -1
+				},
+				{
+					"text": "力",
+					"timestamps": {
+						"from": "00:00:02,650",
+						"to": "00:00:02,810"
+					},
+					"offsets": {
+						"from": 2650,
+						"to": 2810
+					},
+					"id": 13486,
+					"p": 0.999897,
+					"t_dtw": -1
+				},
+				{
+					"text": "。",
+					"timestamps": {
+						"from": "00:00:02,820",
+						"to": "00:00:02,820"
+					},
+					"offsets": {
+						"from": 2820,
+						"to": 2820
+					},
+					"id": 1543,
+					"p": 0.731606,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_141]",
+					"timestamps": {
+						"from": "00:00:02,820",
+						"to": "00:00:02,820"
+					},
+					"offsets": {
+						"from": 2820,
+						"to": 2820
+					},
+					"id": 50506,
+					"p": 0.463264,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

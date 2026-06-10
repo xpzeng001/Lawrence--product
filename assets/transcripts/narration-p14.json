@@ -1,0 +1,87 @@
+{
+  "id": "narration-p14",
+  "source": "assets/narration/p14.wav",
+  "expectedText": "任务就变成了可执行委托。",
+  "recognizedText": "任务就变成了可执行委托。",
+  "tokens": [
+    {
+      "text": "任",
+      "start": 0.02,
+      "end": 0.15,
+      "confidence": 0.924059
+    },
+    {
+      "text": "就",
+      "start": 0.3,
+      "end": 0.42,
+      "confidence": 0.992237
+    },
+    {
+      "text": "成",
+      "start": 0.6,
+      "end": 0.75,
+      "confidence": 0.99859
+    },
+    {
+      "text": "了",
+      "start": 0.75,
+      "end": 0.9,
+      "confidence": 0.998795
+    },
+    {
+      "text": "可",
+      "start": 0.9,
+      "end": 1.05,
+      "confidence": 0.966372
+    },
+    {
+      "text": "行",
+      "start": 1.2,
+      "end": 1.35,
+      "confidence": 0.998731
+    },
+    {
+      "text": "委",
+      "start": 1.35,
+      "end": 1.5,
+      "confidence": 0.971441
+    }
+  ],
+  "words": [
+    {
+      "text": "任务",
+      "start": 0.02,
+      "end": 0.289
+    },
+    {
+      "text": "就",
+      "start": 0.289,
+      "end": 0.424
+    },
+    {
+      "text": "变成",
+      "start": 0.424,
+      "end": 0.693
+    },
+    {
+      "text": "了",
+      "start": 0.693,
+      "end": 0.828
+    },
+    {
+      "text": "可",
+      "start": 0.828,
+      "end": 0.963
+    },
+    {
+      "text": "执行",
+      "start": 0.963,
+      "end": 1.232
+    },
+    {
+      "text": "委托",
+      "start": 1.232,
+      "end": 1.5
+    }
+  ]
+}

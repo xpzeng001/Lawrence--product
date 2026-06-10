@@ -1,0 +1,122 @@
+{
+  "id": "narration-p09",
+  "source": "assets/narration/p09.wav",
+  "expectedText": "入口不同，后面进入同一套任务流程。",
+  "recognizedText": "入口不同,后面进入同一套任务流程。",
+  "tokens": [
+    {
+      "text": "入",
+      "start": 0.02,
+      "end": 0.1,
+      "confidence": 0.728277
+    },
+    {
+      "text": "口",
+      "start": 0.2,
+      "end": 0.4,
+      "confidence": 0.959756
+    },
+    {
+      "text": "不同",
+      "start": 0.4,
+      "end": 0.64,
+      "confidence": 0.635421
+    },
+    {
+      "text": "后",
+      "start": 0.98,
+      "end": 1.05,
+      "confidence": 0.814519
+    },
+    {
+      "text": "面",
+      "start": 1.05,
+      "end": 1.2,
+      "confidence": 0.998226
+    },
+    {
+      "text": "进",
+      "start": 1.2,
+      "end": 1.35,
+      "confidence": 0.997303
+    },
+    {
+      "text": "入",
+      "start": 1.35,
+      "end": 1.5,
+      "confidence": 0.999735
+    },
+    {
+      "text": "同",
+      "start": 1.5,
+      "end": 1.65,
+      "confidence": 0.93705
+    },
+    {
+      "text": "一",
+      "start": 1.65,
+      "end": 1.8,
+      "confidence": 0.980148
+    },
+    {
+      "text": "任",
+      "start": 1.95,
+      "end": 2.1,
+      "confidence": 0.996713
+    },
+    {
+      "text": "流",
+      "start": 2.25,
+      "end": 2.4,
+      "confidence": 0.99413
+    },
+    {
+      "text": "程",
+      "start": 2.4,
+      "end": 2.6,
+      "confidence": 0.999733
+    }
+  ],
+  "words": [
+    {
+      "text": "入口",
+      "start": 0.02,
+      "end": 0.364
+    },
+    {
+      "text": "不同",
+      "start": 0.364,
+      "end": 0.708
+    },
+    {
+      "text": "后面",
+      "start": 0.708,
+      "end": 1.052
+    },
+    {
+      "text": "进入",
+      "start": 1.052,
+      "end": 1.396
+    },
+    {
+      "text": "同",
+      "start": 1.396,
+      "end": 1.568
+    },
+    {
+      "text": "一套",
+      "start": 1.568,
+      "end": 1.912
+    },
+    {
+      "text": "任务",
+      "start": 1.912,
+      "end": 2.256
+    },
+    {
+      "text": "流程",
+      "start": 2.256,
+      "end": 2.6
+    }
+  ]
+}

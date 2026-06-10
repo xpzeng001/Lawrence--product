@@ -1,0 +1,108 @@
+{
+  "id": "narration-p22",
+  "source": "assets/narration/p22.wav",
+  "expectedText": "敏感资料先脱敏，再进入处理链路。",
+  "recognizedText": "敏感资料先脱明,再进入处理链路。",
+  "tokens": [
+    {
+      "text": "感",
+      "start": 0.16,
+      "end": 0.31,
+      "confidence": 0.999973
+    },
+    {
+      "text": "料",
+      "start": 0.48,
+      "end": 0.64,
+      "confidence": 0.999293
+    },
+    {
+      "text": "先",
+      "start": 0.64,
+      "end": 0.8,
+      "confidence": 0.925186
+    },
+    {
+      "text": "明",
+      "start": 0.96,
+      "end": 1.17,
+      "confidence": 0.482593
+    },
+    {
+      "text": "进",
+      "start": 1.5,
+      "end": 1.63,
+      "confidence": 0.999268
+    },
+    {
+      "text": "入",
+      "start": 1.64,
+      "end": 1.76,
+      "confidence": 0.999693
+    },
+    {
+      "text": "理",
+      "start": 1.99,
+      "end": 2.13,
+      "confidence": 0.999895
+    },
+    {
+      "text": "路",
+      "start": 2.28,
+      "end": 2.5,
+      "confidence": 0.994048
+    }
+  ],
+  "words": [
+    {
+      "text": "敏感",
+      "start": 0.16,
+      "end": 0.494
+    },
+    {
+      "text": "资料",
+      "start": 0.494,
+      "end": 0.828
+    },
+    {
+      "text": "先",
+      "start": 0.828,
+      "end": 0.995
+    },
+    {
+      "text": "脱",
+      "start": 0.995,
+      "end": 1.162
+    },
+    {
+      "text": "敏",
+      "start": 1.162,
+      "end": 1.329
+    },
+    {
+      "text": "再",
+      "start": 1.329,
+      "end": 1.496
+    },
+    {
+      "text": "进入",
+      "start": 1.496,
+      "end": 1.83
+    },
+    {
+      "text": "处理",
+      "start": 1.83,
+      "end": 2.164
+    },
+    {
+      "text": "链",
+      "start": 2.164,
+      "end": 2.331
+    },
+    {
+      "text": "路",
+      "start": 2.331,
+      "end": 2.5
+    }
+  ]
+}

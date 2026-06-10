@@ -1,0 +1,157 @@
+{
+  "id": "narration-p27",
+  "source": "assets/narration/p27.wav",
+  "expectedText": "尽调和合规监控，把风险图谱和处置任务串起来。",
+  "recognizedText": "进调和合规监控,把风险图图和数据任务算起来。",
+  "tokens": [
+    {
+      "text": "进",
+      "start": 0.04,
+      "end": 0.16,
+      "confidence": 0.552216
+    },
+    {
+      "text": "和",
+      "start": 0.33,
+      "end": 0.5,
+      "confidence": 0.926319
+    },
+    {
+      "text": "合",
+      "start": 0.5,
+      "end": 0.64,
+      "confidence": 0.987747
+    },
+    {
+      "text": "控",
+      "start": 0.99,
+      "end": 1.24,
+      "confidence": 0.999943
+    },
+    {
+      "text": "把",
+      "start": 1.53,
+      "end": 1.54,
+      "confidence": 0.743425
+    },
+    {
+      "text": "风",
+      "start": 1.54,
+      "end": 1.72,
+      "confidence": 0.729985
+    },
+    {
+      "text": "和",
+      "start": 2.29,
+      "end": 2.39,
+      "confidence": 0.995247
+    },
+    {
+      "text": "数",
+      "start": 2.44,
+      "end": 2.57,
+      "confidence": 0.439811
+    },
+    {
+      "text": "任",
+      "start": 2.8,
+      "end": 2.97,
+      "confidence": 0.989302
+    },
+    {
+      "text": "算",
+      "start": 3.19,
+      "end": 3.32,
+      "confidence": 0.620042
+    },
+    {
+      "text": "起",
+      "start": 3.43,
+      "end": 3.52,
+      "confidence": 0.986495
+    },
+    {
+      "text": "来",
+      "start": 3.52,
+      "end": 3.65,
+      "confidence": 0.999994
+    }
+  ],
+  "words": [
+    {
+      "text": "尽",
+      "start": 0.04,
+      "end": 0.221
+    },
+    {
+      "text": "调和",
+      "start": 0.221,
+      "end": 0.582
+    },
+    {
+      "text": "合",
+      "start": 0.582,
+      "end": 0.762
+    },
+    {
+      "text": "规",
+      "start": 0.762,
+      "end": 0.943
+    },
+    {
+      "text": "监",
+      "start": 0.943,
+      "end": 1.123
+    },
+    {
+      "text": "控",
+      "start": 1.123,
+      "end": 1.304
+    },
+    {
+      "text": "把",
+      "start": 1.304,
+      "end": 1.485
+    },
+    {
+      "text": "风险",
+      "start": 1.485,
+      "end": 1.846
+    },
+    {
+      "text": "图",
+      "start": 1.846,
+      "end": 2.026
+    },
+    {
+      "text": "谱",
+      "start": 2.026,
+      "end": 2.206
+    },
+    {
+      "text": "和",
+      "start": 2.206,
+      "end": 2.386
+    },
+    {
+      "text": "处置",
+      "start": 2.386,
+      "end": 2.747
+    },
+    {
+      "text": "任务",
+      "start": 2.747,
+      "end": 3.108
+    },
+    {
+      "text": "串",
+      "start": 3.108,
+      "end": 3.288
+    },
+    {
+      "text": "起来",
+      "start": 3.288,
+      "end": 3.65
+    }
+  ]
+}

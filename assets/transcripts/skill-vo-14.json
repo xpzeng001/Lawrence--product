@@ -1,0 +1,166 @@
+{
+  "id": "skill-vo-14",
+  "source": "assets/professional-skills-vo/line-14.wav",
+  "expectedText": null,
+  "recognizedText": "最后,呈现营销信息,形成可执行的转化策略建立。",
+  "tokens": [
+    {
+      "text": "最",
+      "start": 0.04,
+      "end": 0.14,
+      "confidence": 0.945002
+    },
+    {
+      "text": "后",
+      "start": 0.19,
+      "end": 0.3,
+      "confidence": 0.999958
+    },
+    {
+      "text": "现",
+      "start": 0.68,
+      "end": 0.87,
+      "confidence": 0.937047
+    },
+    {
+      "text": "信",
+      "start": 1.27,
+      "end": 1.4,
+      "confidence": 0.998233
+    },
+    {
+      "text": "息",
+      "start": 1.48,
+      "end": 1.61,
+      "confidence": 0.999916
+    },
+    {
+      "text": "形",
+      "start": 1.8,
+      "end": 1.81,
+      "confidence": 0.792592
+    },
+    {
+      "text": "成",
+      "start": 2.1,
+      "end": 2.16,
+      "confidence": 0.992646
+    },
+    {
+      "text": "可",
+      "start": 2.18,
+      "end": 2.34,
+      "confidence": 0.995763
+    },
+    {
+      "text": "行",
+      "start": 2.62,
+      "end": 2.7,
+      "confidence": 0.999371
+    },
+    {
+      "text": "的",
+      "start": 2.7,
+      "end": 2.84,
+      "confidence": 0.982977
+    },
+    {
+      "text": "化",
+      "start": 3.07,
+      "end": 3.24,
+      "confidence": 0.866845
+    },
+    {
+      "text": "建",
+      "start": 3.7,
+      "end": 3.78,
+      "confidence": 0.998875
+    },
+    {
+      "text": "立",
+      "start": 3.78,
+      "end": 3.92,
+      "confidence": 0.988376
+    }
+  ],
+  "words": [
+    {
+      "text": "最",
+      "start": 0.04,
+      "end": 0.14,
+      "confidence": 0.945002
+    },
+    {
+      "text": "后",
+      "start": 0.19,
+      "end": 0.3,
+      "confidence": 0.999958
+    },
+    {
+      "text": "现",
+      "start": 0.68,
+      "end": 0.87,
+      "confidence": 0.937047
+    },
+    {
+      "text": "信",
+      "start": 1.27,
+      "end": 1.4,
+      "confidence": 0.998233
+    },
+    {
+      "text": "息",
+      "start": 1.48,
+      "end": 1.61,
+      "confidence": 0.999916
+    },
+    {
+      "text": "形",
+      "start": 1.8,
+      "end": 1.81,
+      "confidence": 0.792592
+    },
+    {
+      "text": "成",
+      "start": 2.1,
+      "end": 2.16,
+      "confidence": 0.992646
+    },
+    {
+      "text": "可",
+      "start": 2.18,
+      "end": 2.34,
+      "confidence": 0.995763
+    },
+    {
+      "text": "行",
+      "start": 2.62,
+      "end": 2.7,
+      "confidence": 0.999371
+    },
+    {
+      "text": "的",
+      "start": 2.7,
+      "end": 2.84,
+      "confidence": 0.982977
+    },
+    {
+      "text": "化",
+      "start": 3.07,
+      "end": 3.24,
+      "confidence": 0.866845
+    },
+    {
+      "text": "建",
+      "start": 3.7,
+      "end": 3.78,
+      "confidence": 0.998875
+    },
+    {
+      "text": "立",
+      "start": 3.78,
+      "end": 3.92,
+      "confidence": 0.988376
+    }
+  ]
+}

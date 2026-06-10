@@ -1,0 +1,96 @@
+{
+  "id": "narration-p47",
+  "source": "assets/narration/p47.wav",
+  "expectedText": "陪跑中沉淀模板、检查项和专属 Skill。",
+  "recognizedText": "肥泡中呈现无感检查项和专属",
+  "tokens": [
+    {
+      "text": "中",
+      "start": 0.32,
+      "end": 0.48,
+      "confidence": 0.982617
+    },
+    {
+      "text": "现",
+      "start": 0.65,
+      "end": 0.82,
+      "confidence": 0.93913
+    },
+    {
+      "text": "无",
+      "start": 0.82,
+      "end": 0.99,
+      "confidence": 0.220634
+    },
+    {
+      "text": "感",
+      "start": 0.99,
+      "end": 1.22,
+      "confidence": 0.267661
+    },
+    {
+      "text": "查",
+      "start": 1.41,
+      "end": 1.57,
+      "confidence": 0.994953
+    },
+    {
+      "text": "和",
+      "start": 1.8,
+      "end": 2,
+      "confidence": 0.54801
+    }
+  ],
+  "words": [
+    {
+      "text": "陪",
+      "start": 0.32,
+      "end": 0.413
+    },
+    {
+      "text": "跑",
+      "start": 0.413,
+      "end": 0.506
+    },
+    {
+      "text": "中",
+      "start": 0.506,
+      "end": 0.599
+    },
+    {
+      "text": "沉淀",
+      "start": 0.599,
+      "end": 0.786
+    },
+    {
+      "text": "模板",
+      "start": 0.786,
+      "end": 0.973
+    },
+    {
+      "text": "检查",
+      "start": 0.973,
+      "end": 1.16
+    },
+    {
+      "text": "项",
+      "start": 1.16,
+      "end": 1.253
+    },
+    {
+      "text": "和",
+      "start": 1.253,
+      "end": 1.346
+    },
+    {
+      "text": "专属",
+      "start": 1.346,
+      "end": 1.533
+    },
+    {
+      "text": "Skill",
+      "start": 1.533,
+      "end": 2
+    }
+  ]
+}

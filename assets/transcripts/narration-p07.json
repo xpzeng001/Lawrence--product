@@ -1,0 +1,119 @@
+{
+  "id": "narration-p07",
+  "source": "assets/narration/p07.wav",
+  "expectedText": "电脑、账号、邮箱和任务系统，组成它的工位。",
+  "recognizedText": "电脑、账号、邮箱和任务系统,组成它的中位。",
+  "tokens": [
+    {
+      "text": "电",
+      "start": 0,
+      "end": 0.15,
+      "confidence": 0.793103
+    },
+    {
+      "text": "号",
+      "start": 0.66,
+      "end": 0.75,
+      "confidence": 0.999741
+    },
+    {
+      "text": "和",
+      "start": 1.25,
+      "end": 1.32,
+      "confidence": 0.98661
+    },
+    {
+      "text": "任",
+      "start": 1.35,
+      "end": 1.5,
+      "confidence": 0.966663
+    },
+    {
+      "text": "系",
+      "start": 1.65,
+      "end": 1.75,
+      "confidence": 0.998704
+    },
+    {
+      "text": "成",
+      "start": 2.3,
+      "end": 2.48,
+      "confidence": 0.999498
+    },
+    {
+      "text": "它的",
+      "start": 2.48,
+      "end": 2.84,
+      "confidence": 0.788182
+    },
+    {
+      "text": "中",
+      "start": 2.84,
+      "end": 3.02,
+      "confidence": 0.814915
+    },
+    {
+      "text": "位",
+      "start": 3.02,
+      "end": 3.19,
+      "confidence": 0.39548
+    }
+  ],
+  "words": [
+    {
+      "text": "电脑",
+      "start": 0,
+      "end": 0.375
+    },
+    {
+      "text": "账",
+      "start": 0.375,
+      "end": 0.563
+    },
+    {
+      "text": "号",
+      "start": 0.563,
+      "end": 0.751
+    },
+    {
+      "text": "邮箱",
+      "start": 0.751,
+      "end": 1.126
+    },
+    {
+      "text": "和",
+      "start": 1.126,
+      "end": 1.314
+    },
+    {
+      "text": "任务",
+      "start": 1.314,
+      "end": 1.689
+    },
+    {
+      "text": "系统",
+      "start": 1.689,
+      "end": 2.064
+    },
+    {
+      "text": "组成",
+      "start": 2.064,
+      "end": 2.439
+    },
+    {
+      "text": "它的",
+      "start": 2.439,
+      "end": 2.814
+    },
+    {
+      "text": "工",
+      "start": 2.814,
+      "end": 3.002
+    },
+    {
+      "text": "位",
+      "start": 3.002,
+      "end": 3.19
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:01,600"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 1600
+			},
+			"text": "是一位伦理,是法律合规。",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.953913,
+					"t_dtw": -1
+				},
+				{
+					"text": "是",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,130"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 130
+					},
+					"id": 1541,
+					"p": 0.0663461,
+					"t_dtw": -1
+				},
+				{
+					"text": "一",
+					"timestamps": {
+						"from": "00:00:00,130",
+						"to": "00:00:00,260"
+					},
+					"offsets": {
+						"from": 130,
+						"to": 260
+					},
+					"id": 2257,
+					"p": 0.587878,
+					"t_dtw": -1
+				},
+				{
+					"text": "位",
+					"timestamps": {
+						"from": "00:00:00,260",
+						"to": "00:00:00,390"
+					},
+					"offsets": {
+						"from": 260,
+						"to": 390
+					},
+					"id": 11160,
+					"p": 0.635754,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,390",
+						"to": "00:00:00,480"
+					},
+					"offsets": {
+						"from": 390,
+						"to": 480
+					},
+					"id": 7384,
+					"p": 0.244987,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,480",
+						"to": "00:00:00,520"
+					},
+					"offsets": {
+						"from": 480,
+						"to": 520
+					},
+					"id": 99,
+					"p": 0.813834,
+					"t_dtw": -1
+				},
+				{
+					"text": "理",
+					"timestamps": {
+						"from": "00:00:00,520",
+						"to": "00:00:00,630"
+					},
+					"offsets": {
+						"from": 520,
+						"to": 630
+					},
+					"id": 13876,
+					"p": 0.95423,
+					"t_dtw": -1
+				},
+				{
+					"text": ",",
+					"timestamps": {
+						"from": "00:00:00,770",
+						"to": "00:00:00,770"
+					},
+					"offsets": {
+						"from": 770,
+						"to": 770
+					},
+					"id": 11,
+					"p": 0.518051,
+					"t_dtw": -1
+				},
+				{
+					"text": "是",
+					"timestamps": {
+						"from": "00:00:00,900",
+						"to": "00:00:00,900"
+					},
+					"offsets": {
+						"from": 900,
+						"to": 900
+					},
+					"id": 1541,
+					"p": 0.202084,
+					"t_dtw": -1
+				},
+				{
+					"text": "法",
+					"timestamps": {
+						"from": "00:00:00,930",
+						"to": "00:00:01,020"
+					},
+					"offsets": {
+						"from": 930,
+						"to": 1020
+					},
+					"id": 11148,
+					"p": 0.539074,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,070",
+						"to": "00:00:01,120"
+					},
+					"offsets": {
+						"from": 1070,
+						"to": 1120
+					},
+					"id": 2172,
+					"p": 0.997151,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,120",
+						"to": "00:00:01,160"
+					},
+					"offsets": {
+						"from": 1120,
+						"to": 1160
+					},
+					"id": 233,
+					"p": 0.999962,
+					"t_dtw": -1
+				},
+				{
+					"text": "合",
+					"timestamps": {
+						"from": "00:00:01,160",
+						"to": "00:00:01,290"
+					},
+					"offsets": {
+						"from": 1160,
+						"to": 1290
+					},
+					"id": 14245,
+					"p": 0.681573,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,290",
+						"to": "00:00:01,380"
+					},
+					"offsets": {
+						"from": 1290,
+						"to": 1380
+					},
+					"id": 6758,
+					"p": 0.967589,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,380",
+						"to": "00:00:01,420"
+					},
+					"offsets": {
+						"from": 1380,
+						"to": 1420
+					},
+					"id": 226,
+					"p": 0.99999,
+					"t_dtw": -1
+				},
+				{
+					"text": "。",
+					"timestamps": {
+						"from": "00:00:01,420",
+						"to": "00:00:01,600"
+					},
+					"offsets": {
+						"from": 1420,
+						"to": 1600
+					},
+					"id": 1543,
+					"p": 0.499724,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_80]",
+					"timestamps": {
+						"from": "00:00:01,600",
+						"to": "00:00:01,600"
+					},
+					"offsets": {
+						"from": 1600,
+						"to": 1600
+					},
+					"id": 50445,
+					"p": 0.436163,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

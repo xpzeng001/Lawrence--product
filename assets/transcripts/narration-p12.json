@@ -1,0 +1,110 @@
+{
+  "id": "narration-p12",
+  "source": "assets/narration/p12.wav",
+  "expectedText": "文字再明确截止时间和交付标准。",
+  "recognizedText": "请不吝点赞 订阅 转发 打赏支持明镜与点点栏目",
+  "tokens": [
+    {
+      "text": "请",
+      "start": 0,
+      "end": 0.11,
+      "confidence": 0.0188454
+    },
+    {
+      "text": "不",
+      "start": 0.11,
+      "end": 0.22,
+      "confidence": 0.366428
+    },
+    {
+      "text": "点",
+      "start": 0.33,
+      "end": 0.43,
+      "confidence": 0.999756
+    },
+    {
+      "text": "发",
+      "start": 0.83,
+      "end": 0.9,
+      "confidence": 0.998452
+    },
+    {
+      "text": "打",
+      "start": 0.95,
+      "end": 1.05,
+      "confidence": 0.999727
+    },
+    {
+      "text": "支持",
+      "start": 1.15,
+      "end": 1.36,
+      "confidence": 0.999849
+    },
+    {
+      "text": "明",
+      "start": 1.36,
+      "end": 1.48,
+      "confidence": 0.999933
+    },
+    {
+      "text": "点",
+      "start": 1.71,
+      "end": 1.79,
+      "confidence": 0.999693
+    },
+    {
+      "text": "点",
+      "start": 1.79,
+      "end": 1.9,
+      "confidence": 0.999672
+    },
+    {
+      "text": "目",
+      "start": 2.02,
+      "end": 2.23,
+      "confidence": 0.999861
+    }
+  ],
+  "words": [
+    {
+      "text": "文字",
+      "start": 0,
+      "end": 0.319
+    },
+    {
+      "text": "再",
+      "start": 0.319,
+      "end": 0.478
+    },
+    {
+      "text": "明确",
+      "start": 0.478,
+      "end": 0.797
+    },
+    {
+      "text": "截止",
+      "start": 0.797,
+      "end": 1.116
+    },
+    {
+      "text": "时间",
+      "start": 1.116,
+      "end": 1.435
+    },
+    {
+      "text": "和",
+      "start": 1.435,
+      "end": 1.594
+    },
+    {
+      "text": "交付",
+      "start": 1.594,
+      "end": 1.913
+    },
+    {
+      "text": "标准",
+      "start": 1.913,
+      "end": 2.23
+    }
+  ]
+}

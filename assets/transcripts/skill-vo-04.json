@@ -1,0 +1,190 @@
+{
+  "id": "skill-vo-04",
+  "source": "assets/professional-skills-vo/line-04.wav",
+  "expectedText": null,
+  "recognizedText": "合同审查中、快速识别风险条款、定位问题来源。",
+  "tokens": [
+    {
+      "text": "合",
+      "start": 0.06,
+      "end": 0.15,
+      "confidence": 0.986073
+    },
+    {
+      "text": "同",
+      "start": 0.23,
+      "end": 0.38,
+      "confidence": 0.993337
+    },
+    {
+      "text": "查",
+      "start": 0.56,
+      "end": 0.75,
+      "confidence": 0.999672
+    },
+    {
+      "text": "中",
+      "start": 0.75,
+      "end": 0.91,
+      "confidence": 0.998725
+    },
+    {
+      "text": "快",
+      "start": 1.27,
+      "end": 1.36,
+      "confidence": 0.949378
+    },
+    {
+      "text": "速",
+      "start": 1.36,
+      "end": 1.56,
+      "confidence": 0.999941
+    },
+    {
+      "text": "别",
+      "start": 1.75,
+      "end": 1.95,
+      "confidence": 0.9983
+    },
+    {
+      "text": "风",
+      "start": 1.95,
+      "end": 2.15,
+      "confidence": 0.995615
+    },
+    {
+      "text": "条",
+      "start": 2.36,
+      "end": 2.47,
+      "confidence": 0.566575
+    },
+    {
+      "text": "款",
+      "start": 2.56,
+      "end": 2.73,
+      "confidence": 0.879023
+    },
+    {
+      "text": "定",
+      "start": 3.03,
+      "end": 3.1,
+      "confidence": 0.194781
+    },
+    {
+      "text": "位",
+      "start": 3.1,
+      "end": 3.27,
+      "confidence": 0.999298
+    },
+    {
+      "text": "问题",
+      "start": 3.27,
+      "end": 3.61,
+      "confidence": 0.997162
+    },
+    {
+      "text": "来",
+      "start": 3.61,
+      "end": 3.78,
+      "confidence": 0.989081
+    },
+    {
+      "text": "源",
+      "start": 3.78,
+      "end": 3.98,
+      "confidence": 0.999928
+    }
+  ],
+  "words": [
+    {
+      "text": "合",
+      "start": 0.06,
+      "end": 0.15,
+      "confidence": 0.986073
+    },
+    {
+      "text": "同",
+      "start": 0.23,
+      "end": 0.38,
+      "confidence": 0.993337
+    },
+    {
+      "text": "查",
+      "start": 0.56,
+      "end": 0.75,
+      "confidence": 0.999672
+    },
+    {
+      "text": "中",
+      "start": 0.75,
+      "end": 0.91,
+      "confidence": 0.998725
+    },
+    {
+      "text": "快",
+      "start": 1.27,
+      "end": 1.36,
+      "confidence": 0.949378
+    },
+    {
+      "text": "速",
+      "start": 1.36,
+      "end": 1.56,
+      "confidence": 0.999941
+    },
+    {
+      "text": "别",
+      "start": 1.75,
+      "end": 1.95,
+      "confidence": 0.9983
+    },
+    {
+      "text": "风",
+      "start": 1.95,
+      "end": 2.15,
+      "confidence": 0.995615
+    },
+    {
+      "text": "条",
+      "start": 2.36,
+      "end": 2.47,
+      "confidence": 0.566575
+    },
+    {
+      "text": "款",
+      "start": 2.56,
+      "end": 2.73,
+      "confidence": 0.879023
+    },
+    {
+      "text": "定",
+      "start": 3.03,
+      "end": 3.1,
+      "confidence": 0.194781
+    },
+    {
+      "text": "位",
+      "start": 3.1,
+      "end": 3.27,
+      "confidence": 0.999298
+    },
+    {
+      "text": "问题",
+      "start": 3.27,
+      "end": 3.61,
+      "confidence": 0.997162
+    },
+    {
+      "text": "来",
+      "start": 3.61,
+      "end": 3.78,
+      "confidence": 0.989081
+    },
+    {
+      "text": "源",
+      "start": 3.78,
+      "end": 3.98,
+      "confidence": 0.999928
+    }
+  ]
+}

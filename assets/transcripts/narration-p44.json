@@ -1,0 +1,114 @@
+{
+  "id": "narration-p44",
+  "source": "assets/narration/p44.wav",
+  "expectedText": "权限、日志、审计和数据边界，都保持可控。",
+  "recognizedText": "全线日志审计和数据编辑都保持合控。",
+  "tokens": [
+    {
+      "text": "全",
+      "start": 0.02,
+      "end": 0.19,
+      "confidence": 0.562706
+    },
+    {
+      "text": "日",
+      "start": 0.37,
+      "end": 0.44,
+      "confidence": 0.871157
+    },
+    {
+      "text": "志",
+      "start": 0.56,
+      "end": 0.75,
+      "confidence": 0.387189
+    },
+    {
+      "text": "和",
+      "start": 1.16,
+      "end": 1.27,
+      "confidence": 0.998079
+    },
+    {
+      "text": "数",
+      "start": 1.32,
+      "end": 1.42,
+      "confidence": 0.999449
+    },
+    {
+      "text": "保",
+      "start": 2.39,
+      "end": 2.56,
+      "confidence": 0.99935
+    },
+    {
+      "text": "持",
+      "start": 2.56,
+      "end": 2.78,
+      "confidence": 0.998108
+    },
+    {
+      "text": "合",
+      "start": 2.78,
+      "end": 3,
+      "confidence": 0.454521
+    },
+    {
+      "text": "控",
+      "start": 3,
+      "end": 3.22,
+      "confidence": 0.798216
+    }
+  ],
+  "words": [
+    {
+      "text": "权限",
+      "start": 0.02,
+      "end": 0.42
+    },
+    {
+      "text": "日志",
+      "start": 0.42,
+      "end": 0.82
+    },
+    {
+      "text": "审计",
+      "start": 0.82,
+      "end": 1.22
+    },
+    {
+      "text": "和",
+      "start": 1.22,
+      "end": 1.42
+    },
+    {
+      "text": "数据",
+      "start": 1.42,
+      "end": 1.82
+    },
+    {
+      "text": "边界",
+      "start": 1.82,
+      "end": 2.22
+    },
+    {
+      "text": "都",
+      "start": 2.22,
+      "end": 2.42
+    },
+    {
+      "text": "保持",
+      "start": 2.42,
+      "end": 2.82
+    },
+    {
+      "text": "可",
+      "start": 2.82,
+      "end": 3.02
+    },
+    {
+      "text": "控",
+      "start": 3.02,
+      "end": 3.22
+    }
+  ]
+}

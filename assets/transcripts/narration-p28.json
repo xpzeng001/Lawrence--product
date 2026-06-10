@@ -1,0 +1,81 @@
+{
+  "id": "narration-p28",
+  "source": "assets/narration/p28.wav",
+  "expectedText": "战略管理，是把判断变成执行。",
+  "recognizedText": "战略管理,是把判断变成执行。",
+  "tokens": [
+    {
+      "text": "管",
+      "start": 0.32,
+      "end": 0.49,
+      "confidence": 0.636149
+    },
+    {
+      "text": "理",
+      "start": 0.49,
+      "end": 0.64,
+      "confidence": 0.999775
+    },
+    {
+      "text": "是",
+      "start": 0.93,
+      "end": 0.98,
+      "confidence": 0.872341
+    },
+    {
+      "text": "把",
+      "start": 0.99,
+      "end": 1.16,
+      "confidence": 0.99747
+    },
+    {
+      "text": "成",
+      "start": 1.7,
+      "end": 1.92,
+      "confidence": 0.999073
+    },
+    {
+      "text": "行",
+      "start": 2.04,
+      "end": 2.16,
+      "confidence": 0.999767
+    }
+  ],
+  "words": [
+    {
+      "text": "战略",
+      "start": 0.32,
+      "end": 0.627
+    },
+    {
+      "text": "管理",
+      "start": 0.627,
+      "end": 0.934
+    },
+    {
+      "text": "是",
+      "start": 0.934,
+      "end": 1.087
+    },
+    {
+      "text": "把",
+      "start": 1.087,
+      "end": 1.24
+    },
+    {
+      "text": "判断",
+      "start": 1.24,
+      "end": 1.547
+    },
+    {
+      "text": "变成",
+      "start": 1.547,
+      "end": 1.854
+    },
+    {
+      "text": "执行",
+      "start": 1.854,
+      "end": 2.16
+    }
+  ]
+}

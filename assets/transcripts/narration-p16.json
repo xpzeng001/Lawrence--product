@@ -1,0 +1,121 @@
+{
+  "id": "narration-p16",
+  "source": "assets/narration/p16.wav",
+  "expectedText": "读取文件，抽取条款、事实和风险点。",
+  "recognizedText": "读取文件,收取条款,事实和风险简。",
+  "tokens": [
+    {
+      "text": "取",
+      "start": 0.22,
+      "end": 0.31,
+      "confidence": 0.999805
+    },
+    {
+      "text": "文",
+      "start": 0.31,
+      "end": 0.43,
+      "confidence": 0.999693
+    },
+    {
+      "text": "件",
+      "start": 0.5,
+      "end": 0.62,
+      "confidence": 0.999796
+    },
+    {
+      "text": "收",
+      "start": 0.91,
+      "end": 0.92,
+      "confidence": 0.907891
+    },
+    {
+      "text": "取",
+      "start": 0.94,
+      "end": 1.05,
+      "confidence": 0.991995
+    },
+    {
+      "text": "条",
+      "start": 1.17,
+      "end": 1.24,
+      "confidence": 0.946606
+    },
+    {
+      "text": "款",
+      "start": 1.33,
+      "end": 1.42,
+      "confidence": 0.993621
+    },
+    {
+      "text": "事",
+      "start": 1.54,
+      "end": 1.68,
+      "confidence": 0.891204
+    },
+    {
+      "text": "实",
+      "start": 1.8,
+      "end": 1.88,
+      "confidence": 0.999716
+    },
+    {
+      "text": "和",
+      "start": 1.88,
+      "end": 2.05,
+      "confidence": 0.998731
+    },
+    {
+      "text": "风",
+      "start": 2.05,
+      "end": 2.2,
+      "confidence": 0.98615
+    }
+  ],
+  "words": [
+    {
+      "text": "读",
+      "start": 0.22,
+      "end": 0.361
+    },
+    {
+      "text": "取",
+      "start": 0.361,
+      "end": 0.502
+    },
+    {
+      "text": "文件",
+      "start": 0.502,
+      "end": 0.785
+    },
+    {
+      "text": "抽取",
+      "start": 0.785,
+      "end": 1.068
+    },
+    {
+      "text": "条款",
+      "start": 1.068,
+      "end": 1.351
+    },
+    {
+      "text": "事实",
+      "start": 1.351,
+      "end": 1.634
+    },
+    {
+      "text": "和",
+      "start": 1.634,
+      "end": 1.775
+    },
+    {
+      "text": "风险",
+      "start": 1.775,
+      "end": 2.058
+    },
+    {
+      "text": "点",
+      "start": 2.058,
+      "end": 2.2
+    }
+  ]
+}

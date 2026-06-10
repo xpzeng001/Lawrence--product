@@ -1,0 +1,353 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,840"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2840
+			},
+			"text": "读取文件,收取条款,事实和风险简。",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.935727,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,100"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 100
+					},
+					"id": 5233,
+					"p": 0.224,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,100",
+						"to": "00:00:00,110"
+					},
+					"offsets": {
+						"from": 100,
+						"to": 110
+					},
+					"id": 119,
+					"p": 0.969782,
+					"t_dtw": -1
+				},
+				{
+					"text": "取",
+					"timestamps": {
+						"from": "00:00:00,220",
+						"to": "00:00:00,310"
+					},
+					"offsets": {
+						"from": 220,
+						"to": 310
+					},
+					"id": 29436,
+					"p": 0.999805,
+					"t_dtw": -1
+				},
+				{
+					"text": "文",
+					"timestamps": {
+						"from": "00:00:00,310",
+						"to": "00:00:00,430"
+					},
+					"offsets": {
+						"from": 310,
+						"to": 430
+					},
+					"id": 17174,
+					"p": 0.999693,
+					"t_dtw": -1
+				},
+				{
+					"text": "件",
+					"timestamps": {
+						"from": "00:00:00,500",
+						"to": "00:00:00,620"
+					},
+					"offsets": {
+						"from": 500,
+						"to": 620
+					},
+					"id": 20485,
+					"p": 0.999796,
+					"t_dtw": -1
+				},
+				{
+					"text": ",",
+					"timestamps": {
+						"from": "00:00:00,750",
+						"to": "00:00:00,750"
+					},
+					"offsets": {
+						"from": 750,
+						"to": 750
+					},
+					"id": 11,
+					"p": 0.561357,
+					"t_dtw": -1
+				},
+				{
+					"text": "收",
+					"timestamps": {
+						"from": "00:00:00,910",
+						"to": "00:00:00,920"
+					},
+					"offsets": {
+						"from": 910,
+						"to": 920
+					},
+					"id": 18681,
+					"p": 0.907891,
+					"t_dtw": -1
+				},
+				{
+					"text": "取",
+					"timestamps": {
+						"from": "00:00:00,940",
+						"to": "00:00:01,050"
+					},
+					"offsets": {
+						"from": 940,
+						"to": 1050
+					},
+					"id": 29436,
+					"p": 0.991995,
+					"t_dtw": -1
+				},
+				{
+					"text": "条",
+					"timestamps": {
+						"from": "00:00:01,170",
+						"to": "00:00:01,240"
+					},
+					"offsets": {
+						"from": 1170,
+						"to": 1240
+					},
+					"id": 48837,
+					"p": 0.946606,
+					"t_dtw": -1
+				},
+				{
+					"text": "款",
+					"timestamps": {
+						"from": "00:00:01,330",
+						"to": "00:00:01,420"
+					},
+					"offsets": {
+						"from": 1330,
+						"to": 1420
+					},
+					"id": 48798,
+					"p": 0.993621,
+					"t_dtw": -1
+				},
+				{
+					"text": ",",
+					"timestamps": {
+						"from": "00:00:01,520",
+						"to": "00:00:01,540"
+					},
+					"offsets": {
+						"from": 1520,
+						"to": 1540
+					},
+					"id": 11,
+					"p": 0.763359,
+					"t_dtw": -1
+				},
+				{
+					"text": "事",
+					"timestamps": {
+						"from": "00:00:01,540",
+						"to": "00:00:01,680"
+					},
+					"offsets": {
+						"from": 1540,
+						"to": 1680
+					},
+					"id": 6973,
+					"p": 0.891204,
+					"t_dtw": -1
+				},
+				{
+					"text": "实",
+					"timestamps": {
+						"from": "00:00:01,800",
+						"to": "00:00:01,880"
+					},
+					"offsets": {
+						"from": 1800,
+						"to": 1880
+					},
+					"id": 24726,
+					"p": 0.999716,
+					"t_dtw": -1
+				},
+				{
+					"text": "和",
+					"timestamps": {
+						"from": "00:00:01,880",
+						"to": "00:00:02,050"
+					},
+					"offsets": {
+						"from": 1880,
+						"to": 2050
+					},
+					"id": 12565,
+					"p": 0.998731,
+					"t_dtw": -1
+				},
+				{
+					"text": "风",
+					"timestamps": {
+						"from": "00:00:02,050",
+						"to": "00:00:02,200"
+					},
+					"offsets": {
+						"from": 2050,
+						"to": 2200
+					},
+					"id": 47209,
+					"p": 0.98615,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,250",
+						"to": "00:00:02,330"
+					},
+					"offsets": {
+						"from": 2250,
+						"to": 2330
+					},
+					"id": 8842,
+					"p": 0.999009,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,330",
+						"to": "00:00:02,370"
+					},
+					"offsets": {
+						"from": 2330,
+						"to": 2370
+					},
+					"id": 102,
+					"p": 1,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,380",
+						"to": "00:00:02,490"
+					},
+					"offsets": {
+						"from": 2380,
+						"to": 2490
+					},
+					"id": 11249,
+					"p": 0.62415,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,490",
+						"to": "00:00:02,540"
+					},
+					"offsets": {
+						"from": 2490,
+						"to": 2540
+					},
+					"id": 222,
+					"p": 0.998713,
+					"t_dtw": -1
+				},
+				{
+					"text": "。",
+					"timestamps": {
+						"from": "00:00:02,540",
+						"to": "00:00:02,840"
+					},
+					"offsets": {
+						"from": 2540,
+						"to": 2840
+					},
+					"id": 1543,
+					"p": 0.374729,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_142]",
+					"timestamps": {
+						"from": "00:00:02,840",
+						"to": "00:00:02,840"
+					},
+					"offsets": {
+						"from": 2840,
+						"to": 2840
+					},
+					"id": 50507,
+					"p": 0.399972,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

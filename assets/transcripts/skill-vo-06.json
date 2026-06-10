@@ -1,0 +1,154 @@
+{
+  "id": "skill-vo-06",
+  "source": "assets/professional-skills-vo/line-06.wav",
+  "expectedText": null,
+  "recognizedText": "合规事项持续监控,异常变化及时提醒,降低风险。",
+  "tokens": [
+    {
+      "text": "合",
+      "start": 0.05,
+      "end": 0.14,
+      "confidence": 0.962676
+    },
+    {
+      "text": "事",
+      "start": 0.38,
+      "end": 0.48,
+      "confidence": 0.952765
+    },
+    {
+      "text": "持",
+      "start": 0.72,
+      "end": 0.87,
+      "confidence": 0.992797
+    },
+    {
+      "text": "控",
+      "start": 1.31,
+      "end": 1.44,
+      "confidence": 0.999943
+    },
+    {
+      "text": "常",
+      "start": 1.74,
+      "end": 1.89,
+      "confidence": 0.999939
+    },
+    {
+      "text": "化",
+      "start": 2.12,
+      "end": 2.28,
+      "confidence": 0.999291
+    },
+    {
+      "text": "及",
+      "start": 2.28,
+      "end": 2.44,
+      "confidence": 0.941327
+    },
+    {
+      "text": "时",
+      "start": 2.49,
+      "end": 2.62,
+      "confidence": 0.807895
+    },
+    {
+      "text": "提",
+      "start": 2.65,
+      "end": 2.82,
+      "confidence": 0.945545
+    },
+    {
+      "text": "醒",
+      "start": 2.82,
+      "end": 3,
+      "confidence": 0.998399
+    },
+    {
+      "text": "低",
+      "start": 3.44,
+      "end": 3.48,
+      "confidence": 0.998557
+    },
+    {
+      "text": "风",
+      "start": 3.48,
+      "end": 3.66,
+      "confidence": 0.998121
+    }
+  ],
+  "words": [
+    {
+      "text": "合",
+      "start": 0.05,
+      "end": 0.14,
+      "confidence": 0.962676
+    },
+    {
+      "text": "事",
+      "start": 0.38,
+      "end": 0.48,
+      "confidence": 0.952765
+    },
+    {
+      "text": "持",
+      "start": 0.72,
+      "end": 0.87,
+      "confidence": 0.992797
+    },
+    {
+      "text": "控",
+      "start": 1.31,
+      "end": 1.44,
+      "confidence": 0.999943
+    },
+    {
+      "text": "常",
+      "start": 1.74,
+      "end": 1.89,
+      "confidence": 0.999939
+    },
+    {
+      "text": "化",
+      "start": 2.12,
+      "end": 2.28,
+      "confidence": 0.999291
+    },
+    {
+      "text": "及",
+      "start": 2.28,
+      "end": 2.44,
+      "confidence": 0.941327
+    },
+    {
+      "text": "时",
+      "start": 2.49,
+      "end": 2.62,
+      "confidence": 0.807895
+    },
+    {
+      "text": "提",
+      "start": 2.65,
+      "end": 2.82,
+      "confidence": 0.945545
+    },
+    {
+      "text": "醒",
+      "start": 2.82,
+      "end": 3,
+      "confidence": 0.998399
+    },
+    {
+      "text": "低",
+      "start": 3.44,
+      "end": 3.48,
+      "confidence": 0.998557
+    },
+    {
+      "text": "风",
+      "start": 3.48,
+      "end": 3.66,
+      "confidence": 0.998121
+    }
+  ]
+}

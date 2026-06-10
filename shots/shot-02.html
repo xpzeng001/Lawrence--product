@@ -159,22 +159,80 @@
         font-weight: 850;
       }
 
-      .generic-lines {
+      .generic-response {
         margin-top: 34px;
-        display: grid;
-        gap: 20px;
+        padding: 26px 28px;
+        border: 1px solid rgba(232, 226, 220, 0.98);
+        border-radius: 24px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 245, 242, 0.92));
+        box-shadow: 0 16px 38px rgba(44, 36, 33, 0.06);
       }
 
-      .generic-line {
-        height: 20px;
+      .generic-response-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        color: var(--foreground);
+        font-size: 22px;
+        font-weight: 900;
+      }
+
+      .generic-response-head span {
+        padding: 7px 11px;
         border-radius: 999px;
-        background: linear-gradient(90deg, #ede7e3, #f6f2ef);
+        background: rgba(139, 90, 74, 0.08);
+        color: var(--primary);
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.04em;
       }
 
-      .generic-line:nth-child(1) { width: 86%; }
-      .generic-line:nth-child(2) { width: 74%; }
-      .generic-line:nth-child(3) { width: 92%; }
-      .generic-line:nth-child(4) { width: 68%; }
+      .generic-response-copy {
+        margin-top: 16px;
+        color: rgba(44, 36, 33, 0.68);
+        font-size: 19px;
+        line-height: 1.48;
+        font-weight: 700;
+      }
+
+      .generic-response-list {
+        margin-top: 18px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .generic-response-item {
+        display: grid;
+        grid-template-columns: 22px 1fr;
+        gap: 10px;
+        align-items: start;
+        color: rgba(44, 36, 33, 0.72);
+        font-size: 17px;
+        line-height: 1.36;
+        font-weight: 720;
+      }
+
+      .generic-response-item::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        margin-top: 8px;
+        border-radius: 50%;
+        background: rgba(139, 90, 74, 0.42);
+        box-shadow: 0 0 0 5px rgba(139, 90, 74, 0.08);
+      }
+
+      .stream-cursor {
+        display: inline-block;
+        width: 8px;
+        height: 18px;
+        margin-left: 5px;
+        border-radius: 999px;
+        background: rgba(139, 90, 74, 0.62);
+        vertical-align: -3px;
+      }
 
       .misread-copy h1 {
         margin-top: 28px;
@@ -442,6 +500,7 @@
         height: 100%;
         padding: 0;
         border: 0;
+        border-radius: 0;
         background: transparent;
         box-shadow: none;
       }
@@ -459,7 +518,7 @@
 
       .org-chart {
         position: relative;
-        height: 780px;
+        height: 760px;
         margin-top: 0;
       }
 
@@ -472,14 +531,15 @@
 
       .org-link {
         fill: none;
-        stroke: rgba(44, 36, 33, 0.62);
-        stroke-width: 3;
+        stroke: rgba(139, 90, 74, 0.34);
+        stroke-width: 2.2;
         stroke-linecap: round;
+        stroke-linejoin: round;
       }
 
       .org-link.strong {
-        stroke: rgba(44, 36, 33, 0.76);
-        stroke-width: 4;
+        stroke: rgba(139, 90, 74, 0.48);
+        stroke-width: 3;
       }
 
       .org-node {
@@ -488,17 +548,19 @@
         width: 238px;
         min-height: 118px;
         padding: 20px 24px;
-        border-radius: 14px;
-        border: 1px solid rgba(232, 226, 220, 0.96);
-        background: linear-gradient(180deg, #fffefd, #f8f5f2);
-        box-shadow: 0 18px 38px rgba(44, 36, 33, 0.07);
+        border-radius: 18px;
+        border: 1px solid rgba(139, 90, 74, 0.1);
+        background: rgba(255, 255, 255, 0.86);
+        box-shadow: 0 18px 44px rgba(44, 36, 33, 0.07);
         text-align: center;
+        backdrop-filter: blur(10px);
       }
 
       .org-node b {
         display: block;
         color: var(--foreground);
-        font-size: 24px;
+        font-size: 23px;
+        line-height: 1.1;
         font-weight: 920;
       }
 
@@ -513,23 +575,24 @@
 
       .org-node.company {
         left: 50%;
-        top: 0;
-        width: 360px;
-        min-height: 86px;
+        top: 2px;
+        width: 388px;
+        min-height: 96px;
         transform: translateX(-50%);
-        background: linear-gradient(180deg, #f3efeb, #ebe4de);
         border-color: rgba(139, 90, 74, 0.18);
-        box-shadow: 0 18px 38px rgba(44, 36, 33, 0.07);
+        background: #fffaf7;
+        box-shadow: 0 24px 62px rgba(44, 36, 33, 0.1);
       }
 
       .org-node.department {
-        top: 198px;
-        min-height: 82px;
-        background: linear-gradient(180deg, #f3efeb, #ebe4de);
-        border-color: rgba(139, 90, 74, 0.18);
+        top: 214px;
+        min-height: 78px;
+        background: rgba(255, 255, 255, 0.92);
+        border-color: rgba(139, 90, 74, 0.15);
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 0 14px 34px rgba(44, 36, 33, 0.06);
       }
 
       .org-node.sales-dept { left: 171px; }
@@ -542,8 +605,9 @@
         min-height: 106px;
         padding: 17px 14px;
         color: #fff;
-        background: linear-gradient(180deg, var(--primary), var(--primary-dark));
-        box-shadow: 0 22px 58px rgba(139, 90, 74, 0.24);
+        border-color: rgba(139, 90, 74, 0.36);
+        background: #8b5a4a;
+        box-shadow: 0 24px 68px rgba(139, 90, 74, 0.26);
       }
 
       .org-node.member {
@@ -551,6 +615,7 @@
         width: 146px;
         min-height: 106px;
         padding: 17px 12px;
+        background: rgba(255, 255, 255, 0.78);
       }
 
       .org-node.member b,
@@ -563,13 +628,13 @@
         font-size: 15px;
       }
 
-      .org-node.sales-a { left: 30px; }
+      .org-node.sales-a { left: 36px; }
       .org-node.sales-lawrence { left: 203px; }
-      .org-node.sales-b { left: 418px; }
+      .org-node.sales-b { left: 412px; }
       .org-node.legal-a { left: 620px; }
       .org-node.legal-lawrence { left: 793px; }
       .org-node.legal-b { left: 1008px; }
-      .org-node.ops-a { left: 1210px; }
+      .org-node.ops-a { left: 1216px; }
       .org-node.ops-lawrence { left: 1383px; }
       .org-node.ops-b { left: 1598px; }
 
@@ -608,11 +673,15 @@
             </div>
             <div class="chat-content">
               <div class="input-box">帮我写一段客户方案。</div>
-              <div class="generic-lines">
-                <div class="generic-line"></div>
-                <div class="generic-line"></div>
-                <div class="generic-line"></div>
-                <div class="generic-line"></div>
+              <div class="generic-response">
+                <div class="generic-response-head">客户方案初稿 <span>通用回答</span></div>
+                <div class="generic-response-copy">以下是一段适用于多数客户沟通场景的方案文案，可根据行业和预算再做调整。</div>
+                <div class="generic-response-list">
+                  <div class="generic-response-item">强调产品能力与服务优势，提升客户信任感。</div>
+                  <div class="generic-response-item">加入合作流程、交付周期和后续支持说明。</div>
+                  <div class="generic-response-item">结尾设置预约沟通，引导客户进入下一步。</div>
+                </div>
+                <span class="stream-cursor"></span>
               </div>
             </div>
           </div>
@@ -692,25 +761,25 @@
             <div class="org-chart">
               <svg class="org-links" viewBox="0 0 1780 780" preserveAspectRatio="none" aria-hidden="true">
                 <path class="org-link strong" d="M890 86 L890 158" />
-                <path class="org-link strong" d="M290 158 L1470 158" />
-                <path class="org-link strong" d="M290 158 L290 198" />
-                <path class="org-link strong" d="M890 158 L890 198" />
-                <path class="org-link strong" d="M1470 158 L1470 198" />
-                <path class="org-link" d="M290 280 L290 380" />
-                <path class="org-link" d="M80 380 L500 380" />
-                <path class="org-link" d="M80 380 L80 482" />
+        <path class="org-link strong" d="M290 160 L1470 160" />
+        <path class="org-link strong" d="M290 160 L290 214" />
+        <path class="org-link strong" d="M890 160 L890 214" />
+        <path class="org-link strong" d="M1470 160 L1470 214" />
+        <path class="org-link" d="M290 292 L290 380" />
+                <path class="org-link" d="M109 380 L485 380" />
+                <path class="org-link" d="M109 380 L109 482" />
                 <path class="org-link" d="M290 380 L290 482" />
-                <path class="org-link" d="M500 380 L500 482" />
-                <path class="org-link" d="M890 280 L890 380" />
+                <path class="org-link" d="M485 380 L485 482" />
+                <path class="org-link" d="M890 292 L890 380" />
                 <path class="org-link" d="M680 380 L1100 380" />
                 <path class="org-link" d="M680 380 L680 482" />
                 <path class="org-link" d="M890 380 L890 482" />
                 <path class="org-link" d="M1100 380 L1100 482" />
-                <path class="org-link" d="M1470 280 L1470 380" />
-                <path class="org-link" d="M1260 380 L1680 380" />
-                <path class="org-link" d="M1260 380 L1260 482" />
+                <path class="org-link" d="M1470 292 L1470 380" />
+                <path class="org-link" d="M1289 380 L1671 380" />
+                <path class="org-link" d="M1289 380 L1289 482" />
                 <path class="org-link" d="M1470 380 L1470 482" />
-                <path class="org-link" d="M1680 380 L1680 482" />
+                <path class="org-link" d="M1671 380 L1671 482" />
               </svg>
               <div class="org-node company"><b>公司组织架构</b><span>岗位、权限与协作链</span></div>
               <div class="org-node department sales-dept"><b>销售部</b></div>
@@ -740,7 +809,13 @@
       tl.from("#misread-scene", { opacity: 0, y: 42, scale: 0.985, filter: "blur(10px)", duration: 0.7, ease: "expo.out" }, 0.28)
         .from(".chat-window", { opacity: 0, x: -72, duration: 0.66, ease: "expo.out" }, 0.55)
         .from(".input-box", { opacity: 0, y: 20, duration: 0.42 }, 1.08)
-        .from(".generic-line", { opacity: 0, scaleX: 0, transformOrigin: "left center", duration: 0.34, stagger: 0.15 }, 1.62)
+        .from(".generic-response", { opacity: 0, y: 20, scale: 0.98, filter: "blur(8px)", duration: 0.42 }, 1.62)
+        .from(".generic-response-head", { opacity: 0, y: 10, duration: 0.22 }, 1.82)
+        .from(".generic-response-copy", { opacity: 0, y: 10, clipPath: "inset(0% 100% 0% 0%)", duration: 0.48, ease: "power2.out" }, 2.08)
+        .from(".generic-response-item", { opacity: 0, y: 10, clipPath: "inset(0% 100% 0% 0%)", duration: 0.36, stagger: 0.34, ease: "power2.out" }, 2.58)
+        .fromTo(".stream-cursor", { opacity: 0 }, { opacity: 1, duration: 0.12 }, 2.04)
+        .to(".stream-cursor", { opacity: 0.18, duration: 0.24, repeat: 5, yoyo: true, ease: "none" }, 2.18)
+        .to(".stream-cursor", { opacity: 0, duration: 0.18 }, 3.92)
         .from(".misread-copy .kicker", { opacity: 0, y: 16, duration: 0.34 }, 2.1)
         .from(".misread-copy h1 span", { opacity: 0, y: 32, filter: "blur(8px)", duration: 0.54, stagger: 0.16, ease: "expo.out" }, 2.32)
         .to(".chat-window", { opacity: 0.34, scale: 0.985, duration: 0.42 }, 4.95)

@@ -1,0 +1,94 @@
+{
+  "id": "skill-vo-05",
+  "source": "assets/professional-skills-vo/line-05.wav",
+  "expectedText": null,
+  "recognizedText": "企业禁销时,穿透股权关系,疏离关键主体联络。",
+  "tokens": [
+    {
+      "text": "时",
+      "start": 0.65,
+      "end": 0.82,
+      "confidence": 0.989421
+    },
+    {
+      "text": "透",
+      "start": 1.2,
+      "end": 1.32,
+      "confidence": 0.75341
+    },
+    {
+      "text": "关",
+      "start": 1.76,
+      "end": 1.91,
+      "confidence": 0.99571
+    },
+    {
+      "text": "系",
+      "start": 1.97,
+      "end": 2.13,
+      "confidence": 0.999832
+    },
+    {
+      "text": "关",
+      "start": 2.7,
+      "end": 2.89,
+      "confidence": 0.997208
+    },
+    {
+      "text": "主",
+      "start": 3.08,
+      "end": 3.27,
+      "confidence": 0.99538
+    },
+    {
+      "text": "体",
+      "start": 3.27,
+      "end": 3.46,
+      "confidence": 0.967938
+    }
+  ],
+  "words": [
+    {
+      "text": "时",
+      "start": 0.65,
+      "end": 0.82,
+      "confidence": 0.989421
+    },
+    {
+      "text": "透",
+      "start": 1.2,
+      "end": 1.32,
+      "confidence": 0.75341
+    },
+    {
+      "text": "关",
+      "start": 1.76,
+      "end": 1.91,
+      "confidence": 0.99571
+    },
+    {
+      "text": "系",
+      "start": 1.97,
+      "end": 2.13,
+      "confidence": 0.999832
+    },
+    {
+      "text": "关",
+      "start": 2.7,
+      "end": 2.89,
+      "confidence": 0.997208
+    },
+    {
+      "text": "主",
+      "start": 3.08,
+      "end": 3.27,
+      "confidence": 0.99538
+    },
+    {
+      "text": "体",
+      "start": 3.27,
+      "end": 3.46,
+      "confidence": 0.967938
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Professional Skills Closing</title>
+    <style>
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #faf8f6;
+        font-family: Inter, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      }
+
+      #professional-skills-closing {
+        position: relative;
+        overflow: hidden;
+        width: 1920px;
+        height: 1080px;
+        background:
+          linear-gradient(90deg, rgba(139, 90, 74, 0.05) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(139, 90, 74, 0.04) 1px, transparent 1px),
+          #faf8f6;
+        background-size: 160px 160px;
+        color: #2c2421;
+      }
+
+      .clip { position: absolute; inset: 0; }
+
+      .closing-card {
+        display: grid;
+        place-items: stretch;
+        padding: 152px 176px 120px;
+        z-index: 12;
+        background:
+          radial-gradient(circle at 80% 28%, rgba(139,90,74,0.12), transparent 34%),
+          radial-gradient(circle at 22% 72%, rgba(31,159,104,0.08), transparent 30%);
+      }
+
+      .closing-wrap {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        align-items: center;
+        gap: 58px;
+      }
+
+      .closing-main {
+        max-width: 1220px;
+      }
+
+      .closing-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: #8b5a4a;
+        font-size: 22px;
+        font-weight: 930;
+        letter-spacing: 0.08em;
+      }
+
+      .closing-eyebrow::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #8b5a4a;
+        box-shadow: 0 0 0 9px rgba(139,90,74,0.1);
+      }
+
+      .closing-title {
+        margin: 32px 0 0;
+        max-width: 1180px;
+        color: #2c2421;
+        font-size: 78px;
+        line-height: 1.16;
+        font-weight: 950;
+        letter-spacing: 0;
+      }
+
+      .closing-title span {
+        color: #8b5a4a;
+      }
+
+      .closing-rule {
+        margin-top: 42px;
+        width: 680px;
+        height: 5px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #8b5a4a, #d0a04f, #1f9f68);
+      }
+
+      .closing-points {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .closing-point {
+        min-height: 132px;
+        padding: 26px 28px;
+        border-radius: 24px;
+        border: 1px solid rgba(139,90,74,0.12);
+        background: rgba(255,255,255,0.72);
+        box-shadow: 0 20px 54px rgba(44,36,33,0.07);
+      }
+
+      .closing-point b {
+        display: block;
+        color: #2c2421;
+        font-size: 24px;
+        line-height: 1.2;
+        font-weight: 930;
+      }
+
+      .closing-point span {
+        display: block;
+        margin-top: 12px;
+        color: rgba(92,82,77,0.8);
+        font-size: 16px;
+        line-height: 1.45;
+        font-weight: 740;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="professional-skills-closing"
+      data-composition-id="professional-skills-closing"
+      data-start="0"
+      data-duration="6"
+      data-width="1920"
+      data-height="1080"
+    >
+      <section id="chapter-closing" class="clip closing-card" data-start="0" data-duration="6" data-track-index="4">
+        <div class="closing-wrap">
+          <div class="closing-main">
+            <div class="closing-eyebrow">WISELAW AI DIGITAL WORKER</div>
+            <h1 class="closing-title">让专业能力沉入流程，<br /><span>让每一次业务动作都有据可依。</span></h1>
+            <div class="closing-rule"></div>
+          </div>
+          <div class="closing-points">
+            <div class="closing-point"><b>专业判断</b><span>把法律、管理和营销能力嵌入真实工作流。</span></div>
+            <div class="closing-point"><b>过程留痕</b><span>每一步输入、依据和结论都能追踪复核。</span></div>
+            <div class="closing-point"><b>持续交付</b><span>从单点任务走向稳定、可复用的业务执行。</span></div>
+          </div>
+        </div>
+      </section>
+      <audio id="skill-vo-15" data-start="0.5" data-duration="4.191" data-track-index="221" src="../assets/professional-skills-vo/line-15.wav" data-volume="1"></audio>
+    </div>
+
+    <script src="../assets/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo("#chapter-closing", { opacity: 0, y: 18, filter: "blur(3px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.52, ease: "power3.out" }, 0)
+        .from("#chapter-closing .closing-eyebrow", { opacity: 0, y: 16, duration: 0.34 }, 0.36)
+        .from("#chapter-closing .closing-title", { opacity: 0, y: 34, duration: 0.62, ease: "expo.out" }, 0.62)
+        .from("#chapter-closing .closing-rule", { opacity: 0, scaleX: 0, transformOrigin: "left center", duration: 0.54, ease: "power3.out" }, 1.06)
+        .from("#chapter-closing .closing-point", { opacity: 0, y: 24, scale: 0.97, duration: 0.52, stagger: 0.1, ease: "power3.out" }, 1.34);
+
+      window.__timelines["professional-skills-closing"] = tl;
+    </script>
+  </body>
+</html>

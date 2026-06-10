@@ -1865,7 +1865,7 @@
               <div class="v2-module-title">独立工作区</div>
               <article class="v2-user-zone v2-user-a">
                 <div class="v2-user-head">
-                  <div class="v2-user-name">用户 A <span class="v2-chip">安全容器</span></div>
+                  <div class="v2-user-name">用户 A <span class="v2-chip">独立工作区</span></div>
                   <div class="v2-lock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
                 </div>
                 <div class="v2-workspace-list">
@@ -1876,7 +1876,7 @@
               </article>
               <article class="v2-user-zone v2-user-b">
                 <div class="v2-user-head">
-                  <div class="v2-user-name">用户 B <span class="v2-chip">安全容器</span></div>
+                  <div class="v2-user-name">用户 B <span class="v2-chip">独立工作区</span></div>
                   <div class="v2-lock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
                 </div>
                 <div class="v2-workspace-list">
@@ -1897,10 +1897,10 @@
                   <div class="v2-task-card">
                     <b>任务卡片 · 案件 001</b>
                     <p>从用户 A 工作区生成任务包，只携带授权材料、任务指令和必要上下文。</p>
-                    <div class="v2-token-row"><span class="v2-token">文件切片</span><span class="v2-token">脱敏标签</span><span class="v2-token">最小权限</span></div>
+                    <div class="v2-token-row"><span class="v2-token">文件处理</span><span class="v2-token">脱敏标签</span><span class="v2-token">最小权限</span></div>
                   </div>
                   <div class="v2-node-row">
-                    <div class="v2-node"><div class="v2-node-icon"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/></svg></div><b>读取材料</b><span>切片、脱敏、索引</span></div>
+                    <div class="v2-node"><div class="v2-node-icon"><svg viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5"/></svg></div><b>读取材料</b><span>处理、脱敏、索引</span></div>
                     <div class="v2-node"><div class="v2-node-icon"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14" rx="2"/><path d="m9 15 2 2 4-5"/></svg></div><b>执行任务</b><span>工具调用节点运行</span></div>
                     <div class="v2-node"><div class="v2-node-icon"><svg viewBox="0 0 24 24"><path d="M9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5"/></svg></div><b>复核结果</b><span>校验节点确认返回</span></div>
                   </div>
@@ -2018,7 +2018,7 @@
               </div>
               <div class="process-stack">
                 <article class="process-card">
-                  <b>文件切片</b>
+                  <b>文件处理</b>
                   <p>合同、邮件、资料先在本地拆分为可控片段。</p>
                 </article>
                 <article class="process-card">
@@ -2066,11 +2066,11 @@
             </section>
             <section class="flow-col local">
               <h3>本地小模型</h3>
-              <p>切片、脱敏、混淆、映射表都在本地完成。</p>
+              <p>处理、脱敏、混淆、映射表都在本地完成。</p>
               <div class="local-lanes">
                 <article class="flow-card slice-pack">
                   <span class="flow-step">1</span>
-                  <h4><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></span>本地切片</h4>
+                  <h4><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></span>本地处理</h4>
                   <div class="flow-slices"><span class="flow-slice">片段 A</span><span class="flow-slice">片段 B</span><span class="flow-slice">片段 C</span><span class="flow-slice">片段 D</span></div>
                 </article>
                 <div class="local-arrow arrow-slice-redact"></div>
@@ -2090,7 +2090,7 @@
                 <article class="flow-card secure-pack">
                   <span class="flow-step">3</span>
                   <h4><span class="flow-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg></span>安全任务包</h4>
-                  <div class="secure-tags"><span>已切片</span><span>已脱敏</span><span>已混淆</span></div>
+                  <div class="secure-tags"><span>已处理</span><span>已脱敏</span><span>已混淆</span></div>
                 </article>
                 <article class="flow-card map-pack">
                   <span class="flow-step">留本地</span>
@@ -2108,11 +2108,11 @@
             <div class="flow-route route-in"></div>
             <div class="flow-route route-cloud"></div>
             <div class="flow-route route-return"></div>
-            <div class="moving-safe-pack"><b>安全任务包</b><span>已切片 · 已脱敏 · 已混淆</span></div>
+            <div class="moving-safe-pack"><b>安全任务包</b><span>已处理 · 已脱敏 · 已混淆</span></div>
             <div class="moving-safe-result"><b>脱敏分析结果</b><span>客户 A · 公司 X · 人员 1 · 项目 Alpha</span></div>
             <div class="final-result"><b>最终报告</b><span>云端结果返回本地后，由本地映射表还原业务信息并交付。</span></div>
             <div class="delivery-list"><span>原文留本地</span><span>敏感不上云</span><span>映射不上云</span><span>结果本地还原</span></div>
-            <div class="flow-summary">本地切片｜本地脱敏｜数据混淆｜云端推理｜本地还原</div>
+            <div class="flow-summary">本地处理｜本地脱敏｜数据混淆｜云端推理｜本地还原</div>
           </div>
         </section>
       </div>

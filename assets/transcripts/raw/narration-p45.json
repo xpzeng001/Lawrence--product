@@ -1,0 +1,339 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,360"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2360
+			},
+			"text": "最后,是课程培训和差劲陪跑。",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.922173,
+					"t_dtw": -1
+				},
+				{
+					"text": "最",
+					"timestamps": {
+						"from": "00:00:00,030",
+						"to": "00:00:00,140"
+					},
+					"offsets": {
+						"from": 30,
+						"to": 140
+					},
+					"id": 8661,
+					"p": 0.994973,
+					"t_dtw": -1
+				},
+				{
+					"text": "后",
+					"timestamps": {
+						"from": "00:00:00,180",
+						"to": "00:00:00,290"
+					},
+					"offsets": {
+						"from": 180,
+						"to": 290
+					},
+					"id": 13547,
+					"p": 0.999979,
+					"t_dtw": -1
+				},
+				{
+					"text": ",",
+					"timestamps": {
+						"from": "00:00:00,480",
+						"to": "00:00:00,480"
+					},
+					"offsets": {
+						"from": 480,
+						"to": 480
+					},
+					"id": 11,
+					"p": 0.805219,
+					"t_dtw": -1
+				},
+				{
+					"text": "是",
+					"timestamps": {
+						"from": "00:00:00,580",
+						"to": "00:00:00,660"
+					},
+					"offsets": {
+						"from": 580,
+						"to": 660
+					},
+					"id": 1541,
+					"p": 0.954104,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,660",
+						"to": "00:00:00,680"
+					},
+					"offsets": {
+						"from": 660,
+						"to": 680
+					},
+					"id": 5233,
+					"p": 0.997115,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,780",
+						"to": "00:00:00,840"
+					},
+					"offsets": {
+						"from": 780,
+						"to": 840
+					},
+					"id": 122,
+					"p": 0.999964,
+					"t_dtw": -1
+				},
+				{
+					"text": "程",
+					"timestamps": {
+						"from": "00:00:00,840",
+						"to": "00:00:01,020"
+					},
+					"offsets": {
+						"from": 840,
+						"to": 1020
+					},
+					"id": 29649,
+					"p": 0.999567,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,020",
+						"to": "00:00:01,140"
+					},
+					"offsets": {
+						"from": 1020,
+						"to": 1140
+					},
+					"id": 16262,
+					"p": 0.996582,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,140",
+						"to": "00:00:01,200"
+					},
+					"offsets": {
+						"from": 1140,
+						"to": 1200
+					},
+					"id": 117,
+					"p": 0.999899,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,200",
+						"to": "00:00:01,320"
+					},
+					"offsets": {
+						"from": 1200,
+						"to": 1320
+					},
+					"id": 7422,
+					"p": 0.999754,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,320",
+						"to": "00:00:01,380"
+					},
+					"offsets": {
+						"from": 1320,
+						"to": 1380
+					},
+					"id": 255,
+					"p": 0.999992,
+					"t_dtw": -1
+				},
+				{
+					"text": "和",
+					"timestamps": {
+						"from": "00:00:01,380",
+						"to": "00:00:01,550"
+					},
+					"offsets": {
+						"from": 1380,
+						"to": 1550
+					},
+					"id": 12565,
+					"p": 0.999548,
+					"t_dtw": -1
+				},
+				{
+					"text": "差",
+					"timestamps": {
+						"from": "00:00:01,580",
+						"to": "00:00:01,740"
+					},
+					"offsets": {
+						"from": 1580,
+						"to": 1740
+					},
+					"id": 21679,
+					"p": 0.158851,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,740",
+						"to": "00:00:01,860"
+					},
+					"offsets": {
+						"from": 1740,
+						"to": 1860
+					},
+					"id": 5087,
+					"p": 0.48428,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,860",
+						"to": "00:00:01,920"
+					},
+					"offsets": {
+						"from": 1860,
+						"to": 1920
+					},
+					"id": 110,
+					"p": 0.999754,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,920",
+						"to": "00:00:01,940"
+					},
+					"offsets": {
+						"from": 1920,
+						"to": 1940
+					},
+					"id": 8842,
+					"p": 0.74257,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:02,030",
+						"to": "00:00:02,100"
+					},
+					"offsets": {
+						"from": 2030,
+						"to": 2100
+					},
+					"id": 103,
+					"p": 0.999987,
+					"t_dtw": -1
+				},
+				{
+					"text": "跑",
+					"timestamps": {
+						"from": "00:00:02,100",
+						"to": "00:00:02,360"
+					},
+					"offsets": {
+						"from": 2100,
+						"to": 2360
+					},
+					"id": 32585,
+					"p": 0.906604,
+					"t_dtw": -1
+				},
+				{
+					"text": "。",
+					"timestamps": {
+						"from": "00:00:02,360",
+						"to": "00:00:02,360"
+					},
+					"offsets": {
+						"from": 2360,
+						"to": 2360
+					},
+					"id": 1543,
+					"p": 0.949194,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_118]",
+					"timestamps": {
+						"from": "00:00:02,360",
+						"to": "00:00:02,360"
+					},
+					"offsets": {
+						"from": 2360,
+						"to": 2360
+					},
+					"id": 50483,
+					"p": 0.618168,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

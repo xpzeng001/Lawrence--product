@@ -1,0 +1,116 @@
+{
+  "id": "narration-p19",
+  "source": "assets/narration/p19.wav",
+  "expectedText": "大模型只是大脑，不等于完整员工。",
+  "recognizedText": "大模型只是大脑,不等于完整员工。",
+  "tokens": [
+    {
+      "text": "大",
+      "start": 0,
+      "end": 0.13,
+      "confidence": 0.231686
+    },
+    {
+      "text": "模",
+      "start": 0.13,
+      "end": 0.21,
+      "confidence": 0.977055
+    },
+    {
+      "text": "型",
+      "start": 0.28,
+      "end": 0.39,
+      "confidence": 0.996023
+    },
+    {
+      "text": "只是",
+      "start": 0.39,
+      "end": 0.65,
+      "confidence": 0.45707
+    },
+    {
+      "text": "大",
+      "start": 0.68,
+      "end": 0.79,
+      "confidence": 0.177348
+    },
+    {
+      "text": "不",
+      "start": 1.23,
+      "end": 1.26,
+      "confidence": 0.878352
+    },
+    {
+      "text": "等",
+      "start": 1.26,
+      "end": 1.44,
+      "confidence": 0.154187
+    },
+    {
+      "text": "于",
+      "start": 1.44,
+      "end": 1.62,
+      "confidence": 0.928346
+    },
+    {
+      "text": "完",
+      "start": 1.62,
+      "end": 1.76,
+      "confidence": 0.634998
+    },
+    {
+      "text": "整",
+      "start": 1.82,
+      "end": 1.98,
+      "confidence": 0.999924
+    },
+    {
+      "text": "工",
+      "start": 2.16,
+      "end": 2.34,
+      "confidence": 0.999983
+    }
+  ],
+  "words": [
+    {
+      "text": "大",
+      "start": 0,
+      "end": 0.167
+    },
+    {
+      "text": "模型",
+      "start": 0.167,
+      "end": 0.501
+    },
+    {
+      "text": "只是",
+      "start": 0.501,
+      "end": 0.835
+    },
+    {
+      "text": "大脑",
+      "start": 0.835,
+      "end": 1.169
+    },
+    {
+      "text": "不",
+      "start": 1.169,
+      "end": 1.336
+    },
+    {
+      "text": "等于",
+      "start": 1.336,
+      "end": 1.67
+    },
+    {
+      "text": "完整",
+      "start": 1.67,
+      "end": 2.004
+    },
+    {
+      "text": "员工",
+      "start": 2.004,
+      "end": 2.34
+    }
+  ]
+}

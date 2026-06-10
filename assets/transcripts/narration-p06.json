@@ -1,0 +1,121 @@
+{
+  "id": "narration-p06",
+  "source": "assets/narration/p06.wav",
+  "expectedText": "第一步，是给数字员工配置企业身份。",
+  "recognizedText": "第一步,是给数字员工配置企业身份。",
+  "tokens": [
+    {
+      "text": "第一",
+      "start": 0,
+      "end": 0.33,
+      "confidence": 0.363177
+    },
+    {
+      "text": "步",
+      "start": 0.33,
+      "end": 0.38,
+      "confidence": 0.990915
+    },
+    {
+      "text": "是",
+      "start": 0.66,
+      "end": 0.75,
+      "confidence": 0.904408
+    },
+    {
+      "text": "给",
+      "start": 0.75,
+      "end": 0.9,
+      "confidence": 0.652083
+    },
+    {
+      "text": "数",
+      "start": 0.9,
+      "end": 1.05,
+      "confidence": 0.897821
+    },
+    {
+      "text": "字",
+      "start": 1.05,
+      "end": 1.2,
+      "confidence": 0.800915
+    },
+    {
+      "text": "工",
+      "start": 1.35,
+      "end": 1.5,
+      "confidence": 0.747527
+    },
+    {
+      "text": "配",
+      "start": 1.5,
+      "end": 1.62,
+      "confidence": 0.63438
+    },
+    {
+      "text": "置",
+      "start": 1.71,
+      "end": 1.79,
+      "confidence": 0.976923
+    },
+    {
+      "text": "身",
+      "start": 2.1,
+      "end": 2.25,
+      "confidence": 0.985456
+    },
+    {
+      "text": "份",
+      "start": 2.25,
+      "end": 2.4,
+      "confidence": 0.999464
+    }
+  ],
+  "words": [
+    {
+      "text": "第",
+      "start": 0,
+      "end": 0.16
+    },
+    {
+      "text": "一步",
+      "start": 0.16,
+      "end": 0.48
+    },
+    {
+      "text": "是",
+      "start": 0.48,
+      "end": 0.64
+    },
+    {
+      "text": "给",
+      "start": 0.64,
+      "end": 0.8
+    },
+    {
+      "text": "数字",
+      "start": 0.8,
+      "end": 1.12
+    },
+    {
+      "text": "员工",
+      "start": 1.12,
+      "end": 1.44
+    },
+    {
+      "text": "配置",
+      "start": 1.44,
+      "end": 1.76
+    },
+    {
+      "text": "企业",
+      "start": 1.76,
+      "end": 2.08
+    },
+    {
+      "text": "身份",
+      "start": 2.08,
+      "end": 2.4
+    }
+  ]
+}

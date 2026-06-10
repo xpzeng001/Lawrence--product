@@ -1,0 +1,137 @@
+{
+  "id": "narration-p21",
+  "source": "assets/narration/p21.wav",
+  "expectedText": "文件、任务、账号、工具、记忆和审计，都在这里连接。",
+  "recognizedText": "文件、任务、账号、工具、记忆和神迹,都在这里连接。",
+  "tokens": [
+    {
+      "text": "文",
+      "start": 0,
+      "end": 0.14,
+      "confidence": 0.919009
+    },
+    {
+      "text": "件",
+      "start": 0.14,
+      "end": 0.28,
+      "confidence": 0.999472
+    },
+    {
+      "text": "任",
+      "start": 0.46,
+      "end": 0.56,
+      "confidence": 0.999139
+    },
+    {
+      "text": "号",
+      "start": 1.01,
+      "end": 1.1,
+      "confidence": 0.999931
+    },
+    {
+      "text": "工",
+      "start": 1.24,
+      "end": 1.38,
+      "confidence": 0.998607
+    },
+    {
+      "text": "具",
+      "start": 1.38,
+      "end": 1.52,
+      "confidence": 0.999754
+    },
+    {
+      "text": "记",
+      "start": 1.72,
+      "end": 1.8,
+      "confidence": 0.956687
+    },
+    {
+      "text": "和",
+      "start": 1.97,
+      "end": 2.07,
+      "confidence": 0.999073
+    },
+    {
+      "text": "神",
+      "start": 2.07,
+      "end": 2.21,
+      "confidence": 0.969631
+    },
+    {
+      "text": "在",
+      "start": 2.69,
+      "end": 2.75,
+      "confidence": 0.999762
+    },
+    {
+      "text": "这里",
+      "start": 2.75,
+      "end": 3.03,
+      "confidence": 0.999258
+    },
+    {
+      "text": "接",
+      "start": 3.16,
+      "end": 3.3,
+      "confidence": 0.973077
+    }
+  ],
+  "words": [
+    {
+      "text": "文件",
+      "start": 0,
+      "end": 0.347
+    },
+    {
+      "text": "任务",
+      "start": 0.347,
+      "end": 0.694
+    },
+    {
+      "text": "账",
+      "start": 0.694,
+      "end": 0.868
+    },
+    {
+      "text": "号",
+      "start": 0.868,
+      "end": 1.042
+    },
+    {
+      "text": "工具",
+      "start": 1.042,
+      "end": 1.389
+    },
+    {
+      "text": "记忆",
+      "start": 1.389,
+      "end": 1.736
+    },
+    {
+      "text": "和",
+      "start": 1.736,
+      "end": 1.91
+    },
+    {
+      "text": "审计",
+      "start": 1.91,
+      "end": 2.257
+    },
+    {
+      "text": "都在",
+      "start": 2.257,
+      "end": 2.604
+    },
+    {
+      "text": "这里",
+      "start": 2.604,
+      "end": 2.951
+    },
+    {
+      "text": "连接",
+      "start": 2.951,
+      "end": 3.3
+    }
+  ]
+}

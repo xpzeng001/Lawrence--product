@@ -1,0 +1,138 @@
+{
+  "id": "narration-p43",
+  "source": "assets/narration/p43.wav",
+  "expectedText": "客户也可以在安全工作区中使用这些能力。",
+  "recognizedText": "客户也可以在安全工作之中使用这些能力。",
+  "tokens": [
+    {
+      "text": "客",
+      "start": 0.07,
+      "end": 0.13,
+      "confidence": 0.976604
+    },
+    {
+      "text": "也可以",
+      "start": 0.3,
+      "end": 0.77,
+      "confidence": 0.996864
+    },
+    {
+      "text": "在",
+      "start": 0.77,
+      "end": 0.92,
+      "confidence": 0.999426
+    },
+    {
+      "text": "安全",
+      "start": 0.92,
+      "end": 1.19,
+      "confidence": 0.997289
+    },
+    {
+      "text": "工作",
+      "start": 1.25,
+      "end": 1.54,
+      "confidence": 0.999413
+    },
+    {
+      "text": "之",
+      "start": 1.54,
+      "end": 1.69,
+      "confidence": 0.475428
+    },
+    {
+      "text": "中",
+      "start": 1.69,
+      "end": 1.88,
+      "confidence": 0.999497
+    },
+    {
+      "text": "使",
+      "start": 1.96,
+      "end": 2.05,
+      "confidence": 0.956463
+    },
+    {
+      "text": "用",
+      "start": 2.05,
+      "end": 2.2,
+      "confidence": 0.999964
+    },
+    {
+      "text": "这",
+      "start": 2.2,
+      "end": 2.35,
+      "confidence": 0.985455
+    },
+    {
+      "text": "些",
+      "start": 2.35,
+      "end": 2.5,
+      "confidence": 0.999495
+    },
+    {
+      "text": "能",
+      "start": 2.5,
+      "end": 2.65,
+      "confidence": 0.803467
+    },
+    {
+      "text": "力",
+      "start": 2.65,
+      "end": 2.81,
+      "confidence": 0.999897
+    }
+  ],
+  "words": [
+    {
+      "text": "客户",
+      "start": 0.07,
+      "end": 0.374
+    },
+    {
+      "text": "也可以",
+      "start": 0.374,
+      "end": 0.831
+    },
+    {
+      "text": "在",
+      "start": 0.831,
+      "end": 0.983
+    },
+    {
+      "text": "安全",
+      "start": 0.983,
+      "end": 1.287
+    },
+    {
+      "text": "工作",
+      "start": 1.287,
+      "end": 1.591
+    },
+    {
+      "text": "区",
+      "start": 1.591,
+      "end": 1.743
+    },
+    {
+      "text": "中",
+      "start": 1.743,
+      "end": 1.895
+    },
+    {
+      "text": "使用",
+      "start": 1.895,
+      "end": 2.199
+    },
+    {
+      "text": "这些",
+      "start": 2.199,
+      "end": 2.503
+    },
+    {
+      "text": "能力",
+      "start": 2.503,
+      "end": 2.81
+    }
+  ]
+}

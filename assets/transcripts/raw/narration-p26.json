@@ -1,0 +1,325 @@
+{
+	"systeminfo": "WHISPER : COREML = 0 | OPENVINO = 0 | Metal : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | DOTPROD = 1 | ACCELERATE = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "large",
+		"multilingual": true,
+		"vocab": 51866,
+		"audio": {
+			"ctx": 1500,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1280,
+			"head": 20,
+			"layer": 32
+		},
+		"mels": 128,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/xp/.cache/hyperframes/whisper/models/ggml-large-v3.bin",
+		"language": "zh",
+		"translate": false
+	},
+	"result": {
+		"language": "zh"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,720"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2720
+			},
+			"text": "法律研究保留法规案例和引用关系",
+			"tokens": [
+				{
+					"text": "[_BEG_]",
+					"timestamps": {
+						"from": "00:00:00,000",
+						"to": "00:00:00,000"
+					},
+					"offsets": {
+						"from": 0,
+						"to": 0
+					},
+					"id": 50365,
+					"p": 0.914794,
+					"t_dtw": -1
+				},
+				{
+					"text": "法",
+					"timestamps": {
+						"from": "00:00:00,060",
+						"to": "00:00:00,150"
+					},
+					"offsets": {
+						"from": 60,
+						"to": 150
+					},
+					"id": 11148,
+					"p": 0.937711,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,150",
+						"to": "00:00:00,250"
+					},
+					"offsets": {
+						"from": 150,
+						"to": 250
+					},
+					"id": 2172,
+					"p": 0.999554,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,250",
+						"to": "00:00:00,300"
+					},
+					"offsets": {
+						"from": 250,
+						"to": 300
+					},
+					"id": 233,
+					"p": 0.99996,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,300",
+						"to": "00:00:00,400"
+					},
+					"offsets": {
+						"from": 300,
+						"to": 400
+					},
+					"id": 23230,
+					"p": 0.998586,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:00,400",
+						"to": "00:00:00,440"
+					},
+					"offsets": {
+						"from": 400,
+						"to": 440
+					},
+					"id": 242,
+					"p": 1,
+					"t_dtw": -1
+				},
+				{
+					"text": "究",
+					"timestamps": {
+						"from": "00:00:00,500",
+						"to": "00:00:00,620"
+					},
+					"offsets": {
+						"from": 500,
+						"to": 620
+					},
+					"id": 44704,
+					"p": 0.999266,
+					"t_dtw": -1
+				},
+				{
+					"text": "保",
+					"timestamps": {
+						"from": "00:00:00,620",
+						"to": "00:00:00,640"
+					},
+					"offsets": {
+						"from": 620,
+						"to": 640
+					},
+					"id": 24302,
+					"p": 0.54721,
+					"t_dtw": -1
+				},
+				{
+					"text": "留",
+					"timestamps": {
+						"from": "00:00:00,920",
+						"to": "00:00:01,000"
+					},
+					"offsets": {
+						"from": 920,
+						"to": 1000
+					},
+					"id": 24456,
+					"p": 0.999428,
+					"t_dtw": -1
+				},
+				{
+					"text": "法",
+					"timestamps": {
+						"from": "00:00:01,000",
+						"to": "00:00:01,190"
+					},
+					"offsets": {
+						"from": 1000,
+						"to": 1190
+					},
+					"id": 11148,
+					"p": 0.996166,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,190",
+						"to": "00:00:01,310"
+					},
+					"offsets": {
+						"from": 1190,
+						"to": 1310
+					},
+					"id": 6758,
+					"p": 0.996571,
+					"t_dtw": -1
+				},
+				{
+					"text": "�",
+					"timestamps": {
+						"from": "00:00:01,310",
+						"to": "00:00:01,370"
+					},
+					"offsets": {
+						"from": 1310,
+						"to": 1370
+					},
+					"id": 226,
+					"p": 0.999996,
+					"t_dtw": -1
+				},
+				{
+					"text": "案",
+					"timestamps": {
+						"from": "00:00:01,370",
+						"to": "00:00:01,490"
+					},
+					"offsets": {
+						"from": 1370,
+						"to": 1490
+					},
+					"id": 28899,
+					"p": 0.96383,
+					"t_dtw": -1
+				},
+				{
+					"text": "例",
+					"timestamps": {
+						"from": "00:00:01,610",
+						"to": "00:00:01,750"
+					},
+					"offsets": {
+						"from": 1610,
+						"to": 1750
+					},
+					"id": 17797,
+					"p": 0.999649,
+					"t_dtw": -1
+				},
+				{
+					"text": "和",
+					"timestamps": {
+						"from": "00:00:01,750",
+						"to": "00:00:01,940"
+					},
+					"offsets": {
+						"from": 1750,
+						"to": 1940
+					},
+					"id": 12565,
+					"p": 0.984828,
+					"t_dtw": -1
+				},
+				{
+					"text": "引",
+					"timestamps": {
+						"from": "00:00:01,940",
+						"to": "00:00:02,130"
+					},
+					"offsets": {
+						"from": 1940,
+						"to": 2130
+					},
+					"id": 41301,
+					"p": 0.933465,
+					"t_dtw": -1
+				},
+				{
+					"text": "用",
+					"timestamps": {
+						"from": "00:00:02,130",
+						"to": "00:00:02,310"
+					},
+					"offsets": {
+						"from": 2130,
+						"to": 2310
+					},
+					"id": 9254,
+					"p": 0.986246,
+					"t_dtw": -1
+				},
+				{
+					"text": "关",
+					"timestamps": {
+						"from": "00:00:02,370",
+						"to": "00:00:02,510"
+					},
+					"offsets": {
+						"from": 2370,
+						"to": 2510
+					},
+					"id": 28053,
+					"p": 0.905162,
+					"t_dtw": -1
+				},
+				{
+					"text": "系",
+					"timestamps": {
+						"from": "00:00:02,510",
+						"to": "00:00:02,680"
+					},
+					"offsets": {
+						"from": 2510,
+						"to": 2680
+					},
+					"id": 25368,
+					"p": 0.999615,
+					"t_dtw": -1
+				},
+				{
+					"text": "[_TT_136]",
+					"timestamps": {
+						"from": "00:00:02,720",
+						"to": "00:00:02,720"
+					},
+					"offsets": {
+						"from": 2720,
+						"to": 2720
+					},
+					"id": 50501,
+					"p": 0.22852,
+					"t_dtw": -1
+				}
+			]
+		}
+	]
+}

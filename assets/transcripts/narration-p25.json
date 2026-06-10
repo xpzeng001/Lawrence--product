@@ -1,0 +1,104 @@
+{
+  "id": "narration-p25",
+  "source": "assets/narration/p25.wav",
+  "expectedText": "合同审查，定位付款、终止和责任风险。",
+  "recognizedText": "合同审查,尽未付款,终止核责任风险。",
+  "tokens": [
+    {
+      "text": "合",
+      "start": 0.06,
+      "end": 0.14,
+      "confidence": 0.989285
+    },
+    {
+      "text": "同",
+      "start": 0.22,
+      "end": 0.37,
+      "confidence": 0.997126
+    },
+    {
+      "text": "查",
+      "start": 0.56,
+      "end": 0.73,
+      "confidence": 0.999735
+    },
+    {
+      "text": "未",
+      "start": 1.03,
+      "end": 1.17,
+      "confidence": 0.948692
+    },
+    {
+      "text": "付",
+      "start": 1.17,
+      "end": 1.31,
+      "confidence": 0.888844
+    },
+    {
+      "text": "款",
+      "start": 1.34,
+      "end": 1.43,
+      "confidence": 0.975318
+    },
+    {
+      "text": "止",
+      "start": 1.81,
+      "end": 1.9,
+      "confidence": 0.489374
+    },
+    {
+      "text": "任",
+      "start": 2.2,
+      "end": 2.35,
+      "confidence": 0.999256
+    },
+    {
+      "text": "风",
+      "start": 2.37,
+      "end": 2.5,
+      "confidence": 0.987022
+    }
+  ],
+  "words": [
+    {
+      "text": "合同",
+      "start": 0.06,
+      "end": 0.385
+    },
+    {
+      "text": "审查",
+      "start": 0.385,
+      "end": 0.71
+    },
+    {
+      "text": "定位",
+      "start": 0.71,
+      "end": 1.035
+    },
+    {
+      "text": "付款",
+      "start": 1.035,
+      "end": 1.36
+    },
+    {
+      "text": "终止",
+      "start": 1.36,
+      "end": 1.685
+    },
+    {
+      "text": "和",
+      "start": 1.685,
+      "end": 1.848
+    },
+    {
+      "text": "责任",
+      "start": 1.848,
+      "end": 2.173
+    },
+    {
+      "text": "风险",
+      "start": 2.173,
+      "end": 2.5
+    }
+  ]
+}

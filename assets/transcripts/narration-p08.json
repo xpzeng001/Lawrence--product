@@ -1,0 +1,135 @@
+{
+  "id": "narration-p08",
+  "source": "assets/narration/p08.wav",
+  "expectedText": "飞书、企微、钉钉、邮件和桌面端，都可以成为入口。",
+  "recognizedText": "飞书、乞微、证经、邮件和桌面端,都可以成为入口。",
+  "tokens": [
+    {
+      "text": "微",
+      "start": 0.6,
+      "end": 0.75,
+      "confidence": 0.205955
+    },
+    {
+      "text": "经",
+      "start": 1.05,
+      "end": 1.2,
+      "confidence": 0.26696
+    },
+    {
+      "text": "件",
+      "start": 1.53,
+      "end": 1.65,
+      "confidence": 0.999335
+    },
+    {
+      "text": "和",
+      "start": 1.65,
+      "end": 1.8,
+      "confidence": 0.975761
+    },
+    {
+      "text": "面",
+      "start": 1.95,
+      "end": 2.09,
+      "confidence": 0.999933
+    },
+    {
+      "text": "可以",
+      "start": 2.61,
+      "end": 2.9,
+      "confidence": 0.973435
+    },
+    {
+      "text": "成",
+      "start": 2.9,
+      "end": 3.06,
+      "confidence": 0.942286
+    },
+    {
+      "text": "为",
+      "start": 3.06,
+      "end": 3.22,
+      "confidence": 0.999752
+    },
+    {
+      "text": "入",
+      "start": 3.22,
+      "end": 3.38,
+      "confidence": 0.984677
+    },
+    {
+      "text": "口",
+      "start": 3.38,
+      "end": 3.6,
+      "confidence": 0.999079
+    }
+  ],
+  "words": [
+    {
+      "text": "飞",
+      "start": 0.6,
+      "end": 0.758
+    },
+    {
+      "text": "书",
+      "start": 0.758,
+      "end": 0.916
+    },
+    {
+      "text": "企",
+      "start": 0.916,
+      "end": 1.074
+    },
+    {
+      "text": "微",
+      "start": 1.074,
+      "end": 1.232
+    },
+    {
+      "text": "钉",
+      "start": 1.232,
+      "end": 1.39
+    },
+    {
+      "text": "钉",
+      "start": 1.39,
+      "end": 1.548
+    },
+    {
+      "text": "邮件",
+      "start": 1.548,
+      "end": 1.864
+    },
+    {
+      "text": "和",
+      "start": 1.864,
+      "end": 2.022
+    },
+    {
+      "text": "桌面",
+      "start": 2.022,
+      "end": 2.338
+    },
+    {
+      "text": "端",
+      "start": 2.338,
+      "end": 2.496
+    },
+    {
+      "text": "都可以",
+      "start": 2.496,
+      "end": 2.97
+    },
+    {
+      "text": "成为",
+      "start": 2.97,
+      "end": 3.286
+    },
+    {
+      "text": "入口",
+      "start": 3.286,
+      "end": 3.6
+    }
+  ]
+}

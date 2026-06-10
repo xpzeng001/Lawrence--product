@@ -1,0 +1,81 @@
+{
+  "id": "narration-p24",
+  "source": "assets/narration/p24.wav",
+  "expectedText": "第一类能力，是法律合规。",
+  "recognizedText": "是一位伦理,是法律合规。",
+  "tokens": [
+    {
+      "text": "是",
+      "start": 0,
+      "end": 0.13,
+      "confidence": 0.0663461
+    },
+    {
+      "text": "一",
+      "start": 0.13,
+      "end": 0.26,
+      "confidence": 0.587878
+    },
+    {
+      "text": "位",
+      "start": 0.26,
+      "end": 0.39,
+      "confidence": 0.635754
+    },
+    {
+      "text": "理",
+      "start": 0.52,
+      "end": 0.63,
+      "confidence": 0.95423
+    },
+    {
+      "text": "法",
+      "start": 0.93,
+      "end": 1.02,
+      "confidence": 0.539074
+    },
+    {
+      "text": "合",
+      "start": 1.16,
+      "end": 1.29,
+      "confidence": 0.681573
+    }
+  ],
+  "words": [
+    {
+      "text": "第一",
+      "start": 0,
+      "end": 0.258
+    },
+    {
+      "text": "类",
+      "start": 0.258,
+      "end": 0.387
+    },
+    {
+      "text": "能力",
+      "start": 0.387,
+      "end": 0.645
+    },
+    {
+      "text": "是",
+      "start": 0.645,
+      "end": 0.774
+    },
+    {
+      "text": "法律",
+      "start": 0.774,
+      "end": 1.032
+    },
+    {
+      "text": "合",
+      "start": 1.032,
+      "end": 1.161
+    },
+    {
+      "text": "规",
+      "start": 1.161,
+      "end": 1.29
+    }
+  ]
+}

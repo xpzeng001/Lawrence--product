@@ -1,0 +1,214 @@
+{
+  "id": "skill-vo-13",
+  "source": "assets/professional-skills-vo/line-13.wav",
+  "expectedText": null,
+  "recognizedText": "最媒体内容也能快速生成,保持风格统一和学习输出。",
+  "tokens": [
+    {
+      "text": "最",
+      "start": 0.04,
+      "end": 0.16,
+      "confidence": 0.649178
+    },
+    {
+      "text": "体",
+      "start": 0.32,
+      "end": 0.48,
+      "confidence": 0.977985
+    },
+    {
+      "text": "内",
+      "start": 0.48,
+      "end": 0.64,
+      "confidence": 0.997769
+    },
+    {
+      "text": "容",
+      "start": 0.64,
+      "end": 0.8,
+      "confidence": 0.999981
+    },
+    {
+      "text": "也",
+      "start": 0.8,
+      "end": 0.96,
+      "confidence": 0.99858
+    },
+    {
+      "text": "能",
+      "start": 0.96,
+      "end": 1.12,
+      "confidence": 0.999112
+    },
+    {
+      "text": "快",
+      "start": 1.12,
+      "end": 1.2,
+      "confidence": 0.996212
+    },
+    {
+      "text": "速",
+      "start": 1.28,
+      "end": 1.43,
+      "confidence": 0.999977
+    },
+    {
+      "text": "生",
+      "start": 1.47,
+      "end": 1.58,
+      "confidence": 0.988397
+    },
+    {
+      "text": "成",
+      "start": 1.61,
+      "end": 1.81,
+      "confidence": 0.997798
+    },
+    {
+      "text": "持",
+      "start": 2.1,
+      "end": 2.25,
+      "confidence": 0.984647
+    },
+    {
+      "text": "风",
+      "start": 2.25,
+      "end": 2.4,
+      "confidence": 0.91484
+    },
+    {
+      "text": "格",
+      "start": 2.44,
+      "end": 2.55,
+      "confidence": 0.999868
+    },
+    {
+      "text": "一",
+      "start": 2.78,
+      "end": 2.89,
+      "confidence": 0.999695
+    },
+    {
+      "text": "和",
+      "start": 2.89,
+      "end": 3.05,
+      "confidence": 0.991862
+    },
+    {
+      "text": "学",
+      "start": 3.05,
+      "end": 3.19,
+      "confidence": 0.884573
+    },
+    {
+      "text": "出",
+      "start": 3.6,
+      "end": 3.69,
+      "confidence": 0.999319
+    }
+  ],
+  "words": [
+    {
+      "text": "最",
+      "start": 0.04,
+      "end": 0.16,
+      "confidence": 0.649178
+    },
+    {
+      "text": "体",
+      "start": 0.32,
+      "end": 0.48,
+      "confidence": 0.977985
+    },
+    {
+      "text": "内",
+      "start": 0.48,
+      "end": 0.64,
+      "confidence": 0.997769
+    },
+    {
+      "text": "容",
+      "start": 0.64,
+      "end": 0.8,
+      "confidence": 0.999981
+    },
+    {
+      "text": "也",
+      "start": 0.8,
+      "end": 0.96,
+      "confidence": 0.99858
+    },
+    {
+      "text": "能",
+      "start": 0.96,
+      "end": 1.12,
+      "confidence": 0.999112
+    },
+    {
+      "text": "快",
+      "start": 1.12,
+      "end": 1.2,
+      "confidence": 0.996212
+    },
+    {
+      "text": "速",
+      "start": 1.28,
+      "end": 1.43,
+      "confidence": 0.999977
+    },
+    {
+      "text": "生",
+      "start": 1.47,
+      "end": 1.58,
+      "confidence": 0.988397
+    },
+    {
+      "text": "成",
+      "start": 1.61,
+      "end": 1.81,
+      "confidence": 0.997798
+    },
+    {
+      "text": "持",
+      "start": 2.1,
+      "end": 2.25,
+      "confidence": 0.984647
+    },
+    {
+      "text": "风",
+      "start": 2.25,
+      "end": 2.4,
+      "confidence": 0.91484
+    },
+    {
+      "text": "格",
+      "start": 2.44,
+      "end": 2.55,
+      "confidence": 0.999868
+    },
+    {
+      "text": "一",
+      "start": 2.78,
+      "end": 2.89,
+      "confidence": 0.999695
+    },
+    {
+      "text": "和",
+      "start": 2.89,
+      "end": 3.05,
+      "confidence": 0.991862
+    },
+    {
+      "text": "学",
+      "start": 3.05,
+      "end": 3.19,
+      "confidence": 0.884573
+    },
+    {
+      "text": "出",
+      "start": 3.6,
+      "end": 3.69,
+      "confidence": 0.999319
+    }
+  ]
+}

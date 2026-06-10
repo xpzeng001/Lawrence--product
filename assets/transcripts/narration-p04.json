@@ -1,0 +1,138 @@
+{
+  "id": "narration-p04",
+  "source": "assets/narration/p04.wav",
+  "expectedText": "所以我们看的不是功能清单，而是工作方式。",
+  "recognizedText": "所以我们看的不是功能清单,而是工作方式。",
+  "tokens": [
+    {
+      "text": "所以",
+      "start": 0.06,
+      "end": 0.3,
+      "confidence": 0.996873
+    },
+    {
+      "text": "我们",
+      "start": 0.3,
+      "end": 0.5,
+      "confidence": 0.945666
+    },
+    {
+      "text": "看",
+      "start": 0.61,
+      "end": 0.72,
+      "confidence": 0.990769
+    },
+    {
+      "text": "的",
+      "start": 0.77,
+      "end": 0.86,
+      "confidence": 0.857171
+    },
+    {
+      "text": "不是",
+      "start": 0.91,
+      "end": 1.2,
+      "confidence": 0.997659
+    },
+    {
+      "text": "功",
+      "start": 1.2,
+      "end": 1.35,
+      "confidence": 0.646892
+    },
+    {
+      "text": "能",
+      "start": 1.35,
+      "end": 1.48,
+      "confidence": 0.996251
+    },
+    {
+      "text": "清",
+      "start": 1.53,
+      "end": 1.65,
+      "confidence": 0.890038
+    },
+    {
+      "text": "单",
+      "start": 1.65,
+      "end": 1.8,
+      "confidence": 0.886213
+    },
+    {
+      "text": "是",
+      "start": 2.09,
+      "end": 2.16,
+      "confidence": 0.999868
+    },
+    {
+      "text": "工作",
+      "start": 2.2,
+      "end": 2.45,
+      "confidence": 0.995718
+    },
+    {
+      "text": "方",
+      "start": 2.53,
+      "end": 2.6,
+      "confidence": 0.998184
+    },
+    {
+      "text": "式",
+      "start": 2.6,
+      "end": 2.74,
+      "confidence": 0.999924
+    }
+  ],
+  "words": [
+    {
+      "text": "所以",
+      "start": 0.06,
+      "end": 0.358
+    },
+    {
+      "text": "我们",
+      "start": 0.358,
+      "end": 0.656
+    },
+    {
+      "text": "看",
+      "start": 0.656,
+      "end": 0.805
+    },
+    {
+      "text": "的",
+      "start": 0.805,
+      "end": 0.954
+    },
+    {
+      "text": "不是",
+      "start": 0.954,
+      "end": 1.252
+    },
+    {
+      "text": "功能",
+      "start": 1.252,
+      "end": 1.55
+    },
+    {
+      "text": "清单",
+      "start": 1.55,
+      "end": 1.848
+    },
+    {
+      "text": "而是",
+      "start": 1.848,
+      "end": 2.146
+    },
+    {
+      "text": "工作",
+      "start": 2.146,
+      "end": 2.444
+    },
+    {
+      "text": "方式",
+      "start": 2.444,
+      "end": 2.74
+    }
+  ]
+}

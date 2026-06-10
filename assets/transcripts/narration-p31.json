@@ -1,0 +1,58 @@
+{
+  "id": "narration-p31",
+  "source": "assets/narration/p31.wav",
+  "expectedText": "再跟进阻塞与复盘。",
+  "recognizedText": "在跟建筑筛捋复盘",
+  "tokens": [
+    {
+      "text": "在",
+      "start": 0.03,
+      "end": 0.16,
+      "confidence": 0.453754
+    },
+    {
+      "text": "跟",
+      "start": 0.16,
+      "end": 0.26,
+      "confidence": 0.971215
+    },
+    {
+      "text": "建",
+      "start": 0.33,
+      "end": 0.45,
+      "confidence": 0.665
+    }
+  ],
+  "words": [
+    {
+      "text": "再",
+      "start": 0.03,
+      "end": 0.083
+    },
+    {
+      "text": "跟进",
+      "start": 0.083,
+      "end": 0.188
+    },
+    {
+      "text": "阻塞",
+      "start": 0.188,
+      "end": 0.293
+    },
+    {
+      "text": "与",
+      "start": 0.293,
+      "end": 0.345
+    },
+    {
+      "text": "复",
+      "start": 0.345,
+      "end": 0.397
+    },
+    {
+      "text": "盘",
+      "start": 0.397,
+      "end": 0.45
+    }
+  ]
+}

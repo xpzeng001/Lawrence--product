@@ -1,0 +1,143 @@
+{
+  "id": "narration-p46",
+  "source": "assets/narration/p46.wav",
+  "expectedText": "团队不是只学工具，而是把 Lawrence 放进真实业务。",
+  "recognizedText": "团队不是指协同剧,而是把Lawrence放进真实业务。",
+  "tokens": [
+    {
+      "text": "不是",
+      "start": 0.3,
+      "end": 0.57,
+      "confidence": 0.995556
+    },
+    {
+      "text": "指",
+      "start": 0.61,
+      "end": 0.7,
+      "confidence": 0.588646
+    },
+    {
+      "text": "同",
+      "start": 0.9,
+      "end": 1.02,
+      "confidence": 0.563812
+    },
+    {
+      "text": "而",
+      "start": 1.49,
+      "end": 1.5,
+      "confidence": 0.853234
+    },
+    {
+      "text": "是",
+      "start": 1.5,
+      "end": 1.68,
+      "confidence": 0.999884
+    },
+    {
+      "text": "把",
+      "start": 1.68,
+      "end": 1.85,
+      "confidence": 0.997708
+    },
+    {
+      "text": "L",
+      "start": 1.91,
+      "end": 1.92,
+      "confidence": 0.409719
+    },
+    {
+      "text": "aw",
+      "start": 1.92,
+      "end": 2.04,
+      "confidence": 0.793954
+    },
+    {
+      "text": "rence",
+      "start": 2.04,
+      "end": 2.24,
+      "confidence": 0.871712
+    },
+    {
+      "text": "放",
+      "start": 2.37,
+      "end": 2.46,
+      "confidence": 0.8432
+    },
+    {
+      "text": "进",
+      "start": 2.57,
+      "end": 2.67,
+      "confidence": 0.998645
+    },
+    {
+      "text": "真",
+      "start": 2.73,
+      "end": 2.86,
+      "confidence": 0.989338
+    },
+    {
+      "text": "实",
+      "start": 2.9,
+      "end": 3.03,
+      "confidence": 0.999716
+    }
+  ],
+  "words": [
+    {
+      "text": "团队",
+      "start": 0.3,
+      "end": 0.518
+    },
+    {
+      "text": "不是",
+      "start": 0.518,
+      "end": 0.736
+    },
+    {
+      "text": "只",
+      "start": 0.736,
+      "end": 0.845
+    },
+    {
+      "text": "学",
+      "start": 0.845,
+      "end": 0.954
+    },
+    {
+      "text": "工具",
+      "start": 0.954,
+      "end": 1.172
+    },
+    {
+      "text": "而是",
+      "start": 1.172,
+      "end": 1.39
+    },
+    {
+      "text": "把",
+      "start": 1.39,
+      "end": 1.499
+    },
+    {
+      "text": "Lawrence",
+      "start": 1.499,
+      "end": 2.373
+    },
+    {
+      "text": "放进",
+      "start": 2.373,
+      "end": 2.591
+    },
+    {
+      "text": "真实",
+      "start": 2.591,
+      "end": 2.809
+    },
+    {
+      "text": "业务",
+      "start": 2.809,
+      "end": 3.03
+    }
+  ]
+}

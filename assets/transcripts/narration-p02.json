@@ -1,0 +1,109 @@
+{
+  "id": "narration-p02",
+  "source": "assets/narration/p02.wav",
+  "expectedText": "它更像能上岗的专业数字员工。",
+  "recognizedText": "而更像能上岗的专业数字员工",
+  "tokens": [
+    {
+      "text": "而",
+      "start": 0.05,
+      "end": 0.14,
+      "confidence": 0.150366
+    },
+    {
+      "text": "更",
+      "start": 0.19,
+      "end": 0.31,
+      "confidence": 0.988144
+    },
+    {
+      "text": "像",
+      "start": 0.32,
+      "end": 0.47,
+      "confidence": 0.59651
+    },
+    {
+      "text": "能",
+      "start": 0.47,
+      "end": 0.64,
+      "confidence": 0.126732
+    },
+    {
+      "text": "上",
+      "start": 0.64,
+      "end": 0.8,
+      "confidence": 0.993625
+    },
+    {
+      "text": "的",
+      "start": 0.96,
+      "end": 1.12,
+      "confidence": 0.942183
+    },
+    {
+      "text": "数",
+      "start": 1.44,
+      "end": 1.6,
+      "confidence": 0.979481
+    },
+    {
+      "text": "字",
+      "start": 1.6,
+      "end": 1.76,
+      "confidence": 0.998847
+    },
+    {
+      "text": "工",
+      "start": 1.92,
+      "end": 2.16,
+      "confidence": 0.999798
+    }
+  ],
+  "words": [
+    {
+      "text": "它",
+      "start": 0.05,
+      "end": 0.212
+    },
+    {
+      "text": "更像",
+      "start": 0.212,
+      "end": 0.537
+    },
+    {
+      "text": "能",
+      "start": 0.537,
+      "end": 0.699
+    },
+    {
+      "text": "上",
+      "start": 0.699,
+      "end": 0.861
+    },
+    {
+      "text": "岗",
+      "start": 0.861,
+      "end": 1.023
+    },
+    {
+      "text": "的",
+      "start": 1.023,
+      "end": 1.185
+    },
+    {
+      "text": "专业",
+      "start": 1.185,
+      "end": 1.51
+    },
+    {
+      "text": "数字",
+      "start": 1.51,
+      "end": 1.835
+    },
+    {
+      "text": "员工",
+      "start": 1.835,
+      "end": 2.16
+    }
+  ]
+}

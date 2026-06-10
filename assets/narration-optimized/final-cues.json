@@ -1,0 +1,530 @@
+[
+  {
+    "id": "optimized-vo-01",
+    "start": 15.35,
+    "text": "Lawrence 不是聊天框而是能上岗的数字员工",
+    "source": "assets/narration-optimized/audio/optimized-vo-01.wav",
+    "duration": 3.549,
+    "end": 18.899
+  },
+  {
+    "id": "optimized-vo-02",
+    "start": 20.1,
+    "text": "它有身份有权限也能进入企业流程",
+    "source": "assets/narration-optimized/audio/optimized-vo-02.wav",
+    "duration": 3.354,
+    "end": 23.454
+  },
+  {
+    "id": "optimized-vo-03",
+    "start": 24.8,
+    "text": "用户可以像交代同事一样直接交代任务",
+    "source": "assets/narration-optimized/audio/optimized-vo-03.wav",
+    "duration": 3.038,
+    "end": 27.838
+  },
+  {
+    "id": "optimized-vo-04",
+    "start": 29.1,
+    "text": "从身份入口技能到协作流程都会被连接起来",
+    "source": "assets/narration-optimized/audio/optimized-vo-04.wav",
+    "duration": 3.786,
+    "end": 32.886
+  },
+  {
+    "id": "optimized-vo-05",
+    "start": 33.1,
+    "text": "先建立这个概念再看它怎么接入企业",
+    "source": "assets/narration-optimized/audio/optimized-vo-05.wav",
+    "duration": 2.927,
+    "end": 36.027
+  },
+  {
+    "id": "optimized-vo-06",
+    "start": 36.35,
+    "text": "第一步是配置数字员工身份",
+    "source": "assets/narration-optimized/audio/optimized-vo-06.wav",
+    "duration": 2.49,
+    "end": 38.84
+  },
+  {
+    "id": "optimized-vo-07",
+    "start": 39.1,
+    "text": "账号邮箱权限和系统组成它的数字工位",
+    "source": "assets/narration-optimized/audio/optimized-vo-07.wav",
+    "duration": 3.658,
+    "end": 42.758
+  },
+  {
+    "id": "optimized-vo-08",
+    "start": 44,
+    "text": "飞书企微钉钉和邮件都可以成为任务入口",
+    "source": "assets/narration-optimized/audio/optimized-vo-08.wav",
+    "duration": 3.583,
+    "end": 47.583
+  },
+  {
+    "id": "optimized-vo-09",
+    "start": 49.1,
+    "text": "入口可以不同但后面会进入同一套流程",
+    "source": "assets/narration-optimized/audio/optimized-vo-09.wav",
+    "duration": 3.263,
+    "end": 52.363
+  },
+  {
+    "id": "optimized-vo-10",
+    "start": 53.2,
+    "text": "入口统一之后任务就可以被规范接收",
+    "source": "assets/narration-optimized/audio/optimized-vo-10.wav",
+    "duration": 3.071,
+    "end": 56.271
+  },
+  {
+    "id": "optimized-vo-11",
+    "start": 58.1,
+    "text": "交代任务时需要说清目标材料和限制条件",
+    "source": "assets/narration-optimized/audio/optimized-vo-11.wav",
+    "duration": 3.578,
+    "end": 61.678
+  },
+  {
+    "id": "optimized-vo-12",
+    "start": 62.8,
+    "text": "语音可以说明背景文件可以补充事实",
+    "source": "assets/narration-optimized/audio/optimized-vo-12.wav",
+    "duration": 3.118,
+    "end": 65.918
+  },
+  {
+    "id": "optimized-vo-13",
+    "start": 66.5,
+    "text": "文字再明确时间范围和交付标准",
+    "source": "assets/narration-optimized/audio/optimized-vo-13.wav",
+    "duration": 2.718,
+    "end": 69.218
+  },
+  {
+    "id": "optimized-vo-14",
+    "start": 70,
+    "text": "Lawrence 会先理解任务再追问缺失信息",
+    "source": "assets/narration-optimized/audio/optimized-vo-14.wav",
+    "duration": 3.071,
+    "end": 73.071
+  },
+  {
+    "id": "optimized-vo-15",
+    "start": 73.2,
+    "text": "交代清楚后任务进入后台工作区",
+    "source": "assets/narration-optimized/audio/optimized-vo-15.wav",
+    "duration": 2.762,
+    "end": 75.962
+  },
+  {
+    "id": "optimized-vo-16",
+    "start": 76,
+    "text": "从这一刻开始它会从理解转入执行",
+    "source": "assets/narration-optimized/audio/optimized-vo-16.wav",
+    "duration": 3.194,
+    "end": 79.194
+  },
+  {
+    "id": "optimized-vo-17",
+    "start": 85.2,
+    "text": "第一步调用企业记忆对齐规则客户背景和沟通记录",
+    "source": "assets/narration-optimized/audio/optimized-vo-17.wav",
+    "duration": 4.266,
+    "end": 89.466
+  },
+  {
+    "id": "optimized-vo-18",
+    "start": 90,
+    "text": "第二步核查法规制度和审批权限把边界核清楚",
+    "source": "assets/narration-optimized/audio/optimized-vo-18.wav",
+    "duration": 4.186,
+    "end": 94.186
+  },
+  {
+    "id": "optimized-vo-19",
+    "start": 94.65,
+    "text": "第三步复核质量成本和材料清单标出缺失和风险",
+    "source": "assets/narration-optimized/audio/optimized-vo-19.wav",
+    "duration": 4.09,
+    "end": 98.74
+  },
+  {
+    "id": "optimized-vo-66",
+    "start": 98.75,
+    "text": "最后生成交付文件并附带审批记录和修改依据返回",
+    "source": "assets/narration-optimized/audio/optimized-vo-66.wav",
+    "duration": 3.994,
+    "end": 102.744
+  },
+  {
+    "id": "optimized-vo-20",
+    "start": 102.82,
+    "text": "稳定工作需要安全工作区",
+    "source": "assets/narration-optimized/audio/optimized-vo-20.wav",
+    "duration": 2.558,
+    "end": 105.378
+  },
+  {
+    "id": "optimized-vo-21",
+    "start": 105.65,
+    "text": "这里统一管理账号工具文件和记忆",
+    "source": "assets/narration-optimized/audio/optimized-vo-21.wav",
+    "duration": 2.826,
+    "end": 108.476
+  },
+  {
+    "id": "optimized-vo-22",
+    "start": 109.8,
+    "text": "每一次调用都可以追踪权限和过程",
+    "source": "assets/narration-optimized/audio/optimized-vo-22.wav",
+    "duration": 3.038,
+    "end": 112.838
+  },
+  {
+    "id": "optimized-vo-23",
+    "start": 114.6,
+    "text": "任务进入后会被拆成标准任务包",
+    "source": "assets/narration-optimized/audio/optimized-vo-23.wav",
+    "duration": 2.847,
+    "end": 117.447
+  },
+  {
+    "id": "optimized-vo-24",
+    "start": 119.5,
+    "text": "用户案件和项目彼此隔离",
+    "source": "assets/narration-optimized/audio/optimized-vo-24.wav",
+    "duration": 2.446,
+    "end": 121.946
+  },
+  {
+    "id": "optimized-vo-25",
+    "start": 124.6,
+    "text": "敏感信息会先脱敏再进入处理链路",
+    "source": "assets/narration-optimized/audio/optimized-vo-25.wav",
+    "duration": 3.118,
+    "end": 127.718
+  },
+  {
+    "id": "optimized-vo-26",
+    "start": 129.6,
+    "text": "系统会记录输入依据动作和结果",
+    "source": "assets/narration-optimized/audio/optimized-vo-26.wav",
+    "duration": 2.671,
+    "end": 132.271
+  },
+  {
+    "id": "optimized-vo-27",
+    "start": 134.7,
+    "text": "所以每一次输出都可以被企业复核和审计",
+    "source": "assets/narration-optimized/audio/optimized-vo-27.wav",
+    "duration": 3.294,
+    "end": 137.994
+  },
+  {
+    "id": "optimized-vo-28",
+    "start": 139.6,
+    "text": "团队看到的不只是结果还有完整过程",
+    "source": "assets/narration-optimized/audio/optimized-vo-28.wav",
+    "duration": 3.018,
+    "end": 142.618
+  },
+  {
+    "id": "optimized-vo-29",
+    "start": 144.6,
+    "text": "有了身份权限和审计专业能力才可以稳定运行",
+    "source": "assets/narration-optimized/audio/optimized-vo-29.wav",
+    "duration": 3.727,
+    "end": 148.327
+  },
+  {
+    "id": "optimized-vo-30",
+    "start": 148.4,
+    "text": "下面从法律合规开始看它怎么处理专业任务",
+    "source": "assets/narration-optimized/audio/optimized-vo-30.wav",
+    "duration": 3.695,
+    "end": 152.095
+  },
+  {
+    "id": "optimized-vo-31",
+    "start": 153.4,
+    "text": "法律合规最重要的是可解释可追踪",
+    "source": "assets/narration-optimized/audio/optimized-vo-31.wav",
+    "duration": 3.023,
+    "end": 156.423
+  },
+  {
+    "id": "optimized-vo-32",
+    "start": 158.6,
+    "text": "Lawrence 会沉淀依据风险和处理动作",
+    "source": "assets/narration-optimized/audio/optimized-vo-32.wav",
+    "duration": 3.117,
+    "end": 161.717
+  },
+  {
+    "id": "optimized-vo-64",
+    "start": 163.6,
+    "text": "它不只是给答案而是把判断过程留下来",
+    "source": "assets/narration-optimized/audio/optimized-vo-64.wav",
+    "duration": 3.066,
+    "end": 166.666
+  },
+  {
+    "id": "optimized-vo-33",
+    "start": 166.85,
+    "text": "所以团队拿到的是可以继续执行的材料",
+    "source": "assets/narration-optimized/audio/optimized-vo-33.wav",
+    "duration": 3.086,
+    "end": 169.936
+  },
+  {
+    "id": "optimized-vo-63",
+    "start": 170.6,
+    "text": "这套基础决定了专业任务能不能放心交给它",
+    "source": "assets/narration-optimized/audio/optimized-vo-63.wav",
+    "duration": 3.498,
+    "end": 174.098
+  },
+  {
+    "id": "optimized-vo-34",
+    "start": 175.1,
+    "text": "现在把这套能力放到具体场景里",
+    "source": "assets/narration-optimized/audio/optimized-vo-34.wav",
+    "duration": 2.799,
+    "end": 177.899
+  },
+  {
+    "id": "optimized-vo-35",
+    "start": 180.2,
+    "text": "先看法律合规风险如何被定位",
+    "source": "assets/narration-optimized/audio/optimized-vo-35.wav",
+    "duration": 2.799,
+    "end": 182.999
+  },
+  {
+    "id": "optimized-vo-65",
+    "start": 183.35,
+    "text": "四个场景依次展开",
+    "source": "assets/narration-optimized/audio/optimized-vo-65.wav",
+    "duration": 1.806,
+    "end": 185.156
+  },
+  {
+    "id": "skill-vo-contract",
+    "start": 185.4,
+    "text": "合同审查最怕只看到问题却不知道怎么改Lawrence 会定位付款终止和责任风险给出依据修订建议和谈判清单",
+    "source": "assets/professional-skills-vo-detailed/contract.wav",
+    "duration": 9.279,
+    "end": 194.679
+  },
+  {
+    "id": "skill-vo-research",
+    "start": 195.4,
+    "text": "法律研究的难点是结论必须可引用可复核Lawrence 会同步检索法规和案例保留引用链路输出研究意见",
+    "source": "assets/professional-skills-vo-detailed/research.wav",
+    "duration": 8.431,
+    "end": 203.831
+  },
+  {
+    "id": "skill-vo-diligence",
+    "start": 205.4,
+    "text": "企业尽调不能只看公司名称Lawrence 会穿透股权关联方和历史风险把主体关系整理成清晰的风险图谱",
+    "source": "assets/professional-skills-vo-detailed/diligence.wav",
+    "duration": 8.713,
+    "end": 214.113
+  },
+  {
+    "id": "skill-vo-compliance",
+    "start": 215.4,
+    "text": "合规风险会持续变化人工很难长期盯住Lawrence 会监控新规和异常信号提醒处置并留下审计记录",
+    "source": "assets/professional-skills-vo-detailed/compliance.wav",
+    "duration": 8.607,
+    "end": 224.007
+  },
+  {
+    "id": "optimized-vo-40",
+    "start": 225.1,
+    "text": "从法律判断再往前一步就是管理决策和执行闭环",
+    "source": "assets/narration-optimized/audio/optimized-vo-40.wav",
+    "duration": 3.978,
+    "end": 229.078
+  },
+  {
+    "id": "skill-vo-strategy",
+    "start": 230.4,
+    "text": "战略研究最怕资料很多但判断很散Lawrence 会整合客户反馈市场变化和竞品动作提炼可讨论的策略选项",
+    "source": "assets/professional-skills-vo-detailed/strategy.wav",
+    "duration": 8.762,
+    "end": 239.162
+  },
+  {
+    "id": "skill-vo-okr",
+    "start": 240.4,
+    "text": "目标对齐的关键是把想法拆成动作Lawrence 会生成目标负责人节点和验收标准让团队知道下一步怎么推进",
+    "source": "assets/professional-skills-vo-detailed/okr.wav",
+    "duration": 8.526,
+    "end": 248.926
+  },
+  {
+    "id": "skill-vo-followup",
+    "start": 250.4,
+    "text": "管理闭环最容易断在跟进环节Lawrence 会追踪会议结论阻塞问题和责任人沉淀复盘材料和下一步动作",
+    "source": "assets/professional-skills-vo-detailed/followup.wav",
+    "duration": 8.01,
+    "end": 258.41
+  },
+  {
+    "id": "optimized-vo-44",
+    "start": 260.4,
+    "text": "当内部管理跑顺增长场景也可以被流程化",
+    "source": "assets/narration-optimized/audio/optimized-vo-44.wav",
+    "duration": 3.594,
+    "end": 263.994
+  },
+  {
+    "id": "skill-vo-intelligence",
+    "start": 265.4,
+    "text": "内容增长不能只靠灵感Lawrence 会持续监控平台账号和热门话题把爆款信号整理成选题和脚本假设",
+    "source": "assets/professional-skills-vo-detailed/intelligence.wav",
+    "duration": 7.998,
+    "end": 273.398
+  },
+  {
+    "id": "skill-vo-repurpose",
+    "start": 275.4,
+    "text": "自媒体生产最耗时间的是反复改口径Lawrence 会保留品牌观点再适配公众号小红书LinkedIn 和短视频版本",
+    "source": "assets/professional-skills-vo-detailed/repurpose.wav",
+    "duration": 8.858,
+    "end": 284.258
+  },
+  {
+    "id": "skill-vo-marketing-review",
+    "start": 285.4,
+    "text": "营销复盘要看清内容渠道和线索质量Lawrence 会对比数据表现提炼有效卖点并给出下一轮策略建议",
+    "source": "assets/professional-skills-vo-detailed/marketing-review.wav",
+    "duration": 8.335,
+    "end": 293.735
+  },
+  {
+    "id": "optimized-vo-48",
+    "start": 295.2,
+    "text": "这些能力最终都会回到一点让专业判断进入业务流程",
+    "source": "assets/narration-optimized/audio/optimized-vo-48.wav",
+    "duration": 4.186,
+    "end": 299.386
+  },
+  {
+    "id": "optimized-vo-49",
+    "start": 299.7,
+    "text": "接下来把这套流程能力放到出海场景",
+    "source": "assets/narration-optimized/audio/optimized-vo-49.wav",
+    "duration": 3.13,
+    "end": 302.83
+  },
+  {
+    "id": "optimized-vo-50",
+    "start": 304,
+    "text": "企业出海的难点是多法域多时区以及持续变化的风险",
+    "source": "assets/narration-optimized/audio/optimized-vo-50.wav",
+    "duration": 4.553,
+    "end": 308.553
+  },
+  {
+    "id": "optimized-vo-51",
+    "start": 309.2,
+    "text": "Lawrence 会把法律合规和运营判断放进流程",
+    "source": "assets/narration-optimized/audio/optimized-vo-51.wav",
+    "duration": 3.389,
+    "end": 312.589
+  },
+  {
+    "id": "optimized-vo-52",
+    "start": 314.2,
+    "text": "再连接专家资源和风险看板形成长期陪跑",
+    "source": "assets/narration-optimized/audio/optimized-vo-52.wav",
+    "duration": 3.93,
+    "end": 318.13
+  },
+  {
+    "id": "optimized-vo-53",
+    "start": 319.9,
+    "text": "出海陪跑之后能力还要沉淀成可复用的 Skill",
+    "source": "assets/narration-optimized/audio/optimized-vo-53.wav",
+    "duration": 3.77,
+    "end": 323.67
+  },
+  {
+    "id": "optimized-vo-54",
+    "start": 325.4,
+    "text": "每一个 Skill都是可审核的工作资产",
+    "source": "assets/narration-optimized/audio/optimized-vo-54.wav",
+    "duration": 2.91,
+    "end": 328.31
+  },
+  {
+    "id": "optimized-vo-55",
+    "start": 329.5,
+    "text": "里面包含模板清单标准和安全边界",
+    "source": "assets/narration-optimized/audio/optimized-vo-55.wav",
+    "duration": 3.134,
+    "end": 332.634
+  },
+  {
+    "id": "optimized-vo-56",
+    "start": 333.7,
+    "text": "经过真实业务验证后Skill 会持续升级",
+    "source": "assets/narration-optimized/audio/optimized-vo-56.wav",
+    "duration": 3.146,
+    "end": 336.846
+  },
+  {
+    "id": "optimized-vo-57",
+    "start": 337.9,
+    "text": "这些 Skill 被复用之后还需要团队真正会用",
+    "source": "assets/narration-optimized/audio/optimized-vo-57.wav",
+    "duration": 3.578,
+    "end": 341.478
+  },
+  {
+    "id": "optimized-vo-58",
+    "start": 343.3,
+    "text": "所以最后一段是课程培训和场景陪跑",
+    "source": "assets/narration-optimized/audio/optimized-vo-58.wav",
+    "duration": 3.31,
+    "end": 346.61
+  },
+  {
+    "id": "optimized-vo-59",
+    "start": 347.5,
+    "text": "团队不是只学工具而是跑通真实业务",
+    "source": "assets/narration-optimized/audio/optimized-vo-59.wav",
+    "duration": 2.986,
+    "end": 350.486
+  },
+  {
+    "id": "optimized-vo-60",
+    "start": 352.1,
+    "text": "陪跑过程中会沉淀模板检查项和专属 Skill",
+    "source": "assets/narration-optimized/audio/optimized-vo-60.wav",
+    "duration": 3.946,
+    "end": 356.046
+  },
+  {
+    "id": "optimized-vo-61",
+    "start": 356.5,
+    "text": "只有能力进入日常流程数字员工才真正成为团队成员",
+    "source": "assets/narration-optimized/audio/optimized-vo-61.wav",
+    "duration": 4.378,
+    "end": 360.878
+  },
+  {
+    "id": "optimized-vo-62",
+    "start": 361.7,
+    "text": "最终WiseLaw 交付的不是一个工具而是可落地可验证可持续升级的专业数字员工",
+    "source": "assets/narration-optimized/audio/optimized-vo-62.wav",
+    "duration": 6.026,
+    "end": 367.726
+  }
+]

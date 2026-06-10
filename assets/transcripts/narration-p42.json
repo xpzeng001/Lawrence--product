@@ -1,0 +1,91 @@
+{
+  "id": "narration-p42",
+  "source": "assets/narration/p42.wav",
+  "expectedText": "每个 Skill 都可以审核、验证，并持续升级。",
+  "recognizedText": "每个SP就可以审核验证并持续升级。",
+  "tokens": [
+    {
+      "text": "每",
+      "start": 0,
+      "end": 0.21,
+      "confidence": 0.956818
+    },
+    {
+      "text": "个",
+      "start": 0.21,
+      "end": 0.22,
+      "confidence": 0.995461
+    },
+    {
+      "text": "SP",
+      "start": 0.43,
+      "end": 0.56,
+      "confidence": 0.454547
+    },
+    {
+      "text": "就可以",
+      "start": 0.56,
+      "end": 1.19,
+      "confidence": 0.626472
+    },
+    {
+      "text": "持",
+      "start": 2.24,
+      "end": 2.42,
+      "confidence": 0.414444
+    },
+    {
+      "text": "升",
+      "start": 2.6,
+      "end": 2.78,
+      "confidence": 0.994156
+    }
+  ],
+  "words": [
+    {
+      "text": "每",
+      "start": 0,
+      "end": 0.146
+    },
+    {
+      "text": "个",
+      "start": 0.146,
+      "end": 0.292
+    },
+    {
+      "text": "Skill",
+      "start": 0.292,
+      "end": 1.024
+    },
+    {
+      "text": "都可以",
+      "start": 1.024,
+      "end": 1.463
+    },
+    {
+      "text": "审核",
+      "start": 1.463,
+      "end": 1.756
+    },
+    {
+      "text": "验证",
+      "start": 1.756,
+      "end": 2.049
+    },
+    {
+      "text": "并",
+      "start": 2.049,
+      "end": 2.195
+    },
+    {
+      "text": "持续",
+      "start": 2.195,
+      "end": 2.488
+    },
+    {
+      "text": "升级",
+      "start": 2.488,
+      "end": 2.78
+    }
+  ]
+}

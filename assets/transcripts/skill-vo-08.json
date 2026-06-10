@@ -1,0 +1,142 @@
+{
+  "id": "skill-vo-08",
+  "source": "assets/professional-skills-vo/line-08.wav",
+  "expectedText": null,
+  "recognizedText": "面向战略研究,整合资料,提炼观点,辅助管理决策。",
+  "tokens": [
+    {
+      "text": "面",
+      "start": 0,
+      "end": 0.15,
+      "confidence": 0.937473
+    },
+    {
+      "text": "向",
+      "start": 0.22,
+      "end": 0.34,
+      "confidence": 0.99648
+    },
+    {
+      "text": "究",
+      "start": 0.82,
+      "end": 1.06,
+      "confidence": 0.99979
+    },
+    {
+      "text": "合",
+      "start": 1.38,
+      "end": 1.51,
+      "confidence": 0.999701
+    },
+    {
+      "text": "料",
+      "start": 1.67,
+      "end": 1.84,
+      "confidence": 0.999964
+    },
+    {
+      "text": "提",
+      "start": 1.95,
+      "end": 2,
+      "confidence": 0.976208
+    },
+    {
+      "text": "观",
+      "start": 2.28,
+      "end": 2.43,
+      "confidence": 0.994385
+    },
+    {
+      "text": "点",
+      "start": 2.47,
+      "end": 2.62,
+      "confidence": 0.999613
+    },
+    {
+      "text": "助",
+      "start": 3.19,
+      "end": 3.26,
+      "confidence": 0.999977
+    },
+    {
+      "text": "管",
+      "start": 3.26,
+      "end": 3.46,
+      "confidence": 0.969731
+    },
+    {
+      "text": "理",
+      "start": 3.48,
+      "end": 3.68,
+      "confidence": 0.999996
+    }
+  ],
+  "words": [
+    {
+      "text": "面",
+      "start": 0,
+      "end": 0.15,
+      "confidence": 0.937473
+    },
+    {
+      "text": "向",
+      "start": 0.22,
+      "end": 0.34,
+      "confidence": 0.99648
+    },
+    {
+      "text": "究",
+      "start": 0.82,
+      "end": 1.06,
+      "confidence": 0.99979
+    },
+    {
+      "text": "合",
+      "start": 1.38,
+      "end": 1.51,
+      "confidence": 0.999701
+    },
+    {
+      "text": "料",
+      "start": 1.67,
+      "end": 1.84,
+      "confidence": 0.999964
+    },
+    {
+      "text": "提",
+      "start": 1.95,
+      "end": 2,
+      "confidence": 0.976208
+    },
+    {
+      "text": "观",
+      "start": 2.28,
+      "end": 2.43,
+      "confidence": 0.994385
+    },
+    {
+      "text": "点",
+      "start": 2.47,
+      "end": 2.62,
+      "confidence": 0.999613
+    },
+    {
+      "text": "助",
+      "start": 3.19,
+      "end": 3.26,
+      "confidence": 0.999977
+    },
+    {
+      "text": "管",
+      "start": 3.26,
+      "end": 3.46,
+      "confidence": 0.969731
+    },
+    {
+      "text": "理",
+      "start": 3.48,
+      "end": 3.68,
+      "confidence": 0.999996
+    }
+  ]
+}

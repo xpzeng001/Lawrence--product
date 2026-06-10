@@ -1,0 +1,144 @@
+{
+  "id": "narration-p05",
+  "source": "assets/narration/p05.wav",
+  "expectedText": "从身份、工位到技能，形成一套完整协作。",
+  "recognizedText": "从身份中未到技能,形成一套完整协作。",
+  "tokens": [
+    {
+      "text": "从",
+      "start": 0.08,
+      "end": 0.17,
+      "confidence": 0.974433
+    },
+    {
+      "text": "身",
+      "start": 0.18,
+      "end": 0.36,
+      "confidence": 0.996727
+    },
+    {
+      "text": "份",
+      "start": 0.36,
+      "end": 0.54,
+      "confidence": 0.997986
+    },
+    {
+      "text": "中",
+      "start": 0.54,
+      "end": 0.72,
+      "confidence": 0.883044
+    },
+    {
+      "text": "未",
+      "start": 0.72,
+      "end": 0.9,
+      "confidence": 0.42623
+    },
+    {
+      "text": "到",
+      "start": 0.9,
+      "end": 1.08,
+      "confidence": 0.916237
+    },
+    {
+      "text": "技",
+      "start": 1.08,
+      "end": 1.25,
+      "confidence": 0.426989
+    },
+    {
+      "text": "能",
+      "start": 1.25,
+      "end": 1.46,
+      "confidence": 0.999992
+    },
+    {
+      "text": "形",
+      "start": 1.74,
+      "end": 1.75,
+      "confidence": 0.613284
+    },
+    {
+      "text": "成",
+      "start": 1.82,
+      "end": 1.92,
+      "confidence": 0.991204
+    },
+    {
+      "text": "一",
+      "start": 1.97,
+      "end": 2.12,
+      "confidence": 0.93726
+    },
+    {
+      "text": "完",
+      "start": 2.35,
+      "end": 2.48,
+      "confidence": 0.999683
+    },
+    {
+      "text": "整",
+      "start": 2.48,
+      "end": 2.66,
+      "confidence": 0.998951
+    },
+    {
+      "text": "作",
+      "start": 2.87,
+      "end": 3.1,
+      "confidence": 0.99883
+    }
+  ],
+  "words": [
+    {
+      "text": "从",
+      "start": 0.08,
+      "end": 0.269
+    },
+    {
+      "text": "身份",
+      "start": 0.269,
+      "end": 0.647
+    },
+    {
+      "text": "工",
+      "start": 0.647,
+      "end": 0.836
+    },
+    {
+      "text": "位",
+      "start": 0.836,
+      "end": 1.025
+    },
+    {
+      "text": "到",
+      "start": 1.025,
+      "end": 1.214
+    },
+    {
+      "text": "技能",
+      "start": 1.214,
+      "end": 1.591
+    },
+    {
+      "text": "形成",
+      "start": 1.591,
+      "end": 1.968
+    },
+    {
+      "text": "一套",
+      "start": 1.968,
+      "end": 2.345
+    },
+    {
+      "text": "完整",
+      "start": 2.345,
+      "end": 2.723
+    },
+    {
+      "text": "协作",
+      "start": 2.723,
+      "end": 3.1
+    }
+  ]
+}

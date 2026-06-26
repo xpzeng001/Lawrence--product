@@ -1,0 +1,1650 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lawrence MG Animation · Overnight Contract</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      :root {
+        --bg: #faf8f6;
+        --fg: #2c2421;
+        --muted: #5c524d;
+        --primary: #8b5a4a;
+        --primary-dark: #74493c;
+        --border: #e8e2dc;
+        --soft: #f5f2ef;
+        --cool: #6b7b8f;
+        --success: #00a544;
+        --gold: #d0a04f;
+        --danger: #b45c52;
+        --night: #293240;
+      }
+
+      * { box-sizing: border-box; }
+
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: Inter, "SF Pro Display", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      }
+
+      #main {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse 42% 34% at 72% 18%, rgba(139,90,74,0.12), transparent 68%),
+          radial-gradient(ellipse 42% 36% at 20% 78%, rgba(31,159,104,0.08), transparent 70%),
+          linear-gradient(180deg, #fbf9f7 0%, #f4efeb 56%, #ece5df 100%);
+      }
+
+      .clip { position: absolute; inset: 0; }
+
+      .grid {
+        opacity: 0.46;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(139,90,74,0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(139,90,74,0.045) 1px, transparent 1px);
+        background-size: 120px 96px;
+        mask-image: radial-gradient(circle at center, #000 20%, transparent 80%);
+      }
+
+      .bug {
+        z-index: 70;
+        left: 78px;
+        top: 54px;
+        right: auto;
+        bottom: auto;
+        width: auto;
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 0 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(139,90,74,0.16);
+        background: rgba(255,255,255,0.82);
+        box-shadow: 0 14px 34px rgba(44,36,33,0.08);
+        color: var(--primary-dark);
+        font-size: 16px;
+        font-weight: 920;
+      }
+
+      .bug::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--danger);
+        box-shadow: 0 0 0 7px rgba(180,92,82,0.12);
+      }
+
+      .brand {
+        z-index: 70;
+        left: auto;
+        top: 52px;
+        right: 76px;
+        bottom: auto;
+        width: 196px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+      }
+
+      .brand img {
+        width: 184px;
+        max-height: 48px;
+        object-fit: contain;
+      }
+
+      .scene {
+        z-index: 5;
+        padding: 118px 118px 92px;
+      }
+
+      .night {
+        background:
+          radial-gradient(circle at 78% 28%, rgba(180,92,82,0.16), transparent 22%),
+          linear-gradient(135deg, #222a34 0%, #31333a 48%, #2b2726 100%);
+        color: #fff;
+      }
+
+      .morning {
+        opacity: 0;
+        background:
+          radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,255,255,0.86), transparent 68%),
+          linear-gradient(180deg, rgba(255,248,236,0.88), rgba(250,248,246,0.82));
+      }
+
+      .clock {
+        position: absolute;
+        left: 144px;
+        top: 142px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .clock strong {
+        font-size: 96px;
+        line-height: 1;
+        font-weight: 950;
+        letter-spacing: 0;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .clock span {
+        color: rgba(255,255,255,0.78);
+        font-size: 24px;
+        font-weight: 820;
+      }
+
+      .mail-stage {
+        position: absolute;
+        left: 430px;
+        top: 178px;
+        width: 1320px;
+        height: 610px;
+      }
+
+      .world-card {
+        position: absolute;
+        left: 120px;
+        top: 64px;
+        width: 980px;
+        height: 420px;
+        border-radius: 30px;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(255,255,255,0.1);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 28px 70px rgba(0,0,0,0.18);
+      }
+
+      .world-card::before {
+        content: "收件箱";
+        position: absolute;
+        left: 34px;
+        top: 28px;
+        color: rgba(255,255,255,0.86);
+        font-size: 22px;
+        font-weight: 940;
+        letter-spacing: 0;
+      }
+
+      .world-card::after {
+        content: "新合同邮件";
+        position: absolute;
+        left: 34px;
+        top: 76px;
+        width: 268px;
+        height: 54px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        color: rgba(255,255,255,0.9);
+        background: rgba(255,255,255,0.12);
+        font-size: 20px;
+        font-weight: 840;
+      }
+
+      .canada-dot {
+        position: absolute;
+        left: 224px;
+        top: 228px;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: var(--danger);
+        box-shadow: 0 0 0 16px rgba(180,92,82,0.16), 0 18px 42px rgba(0,0,0,0.22);
+      }
+
+      .canada-dot::after {
+        content: "CA";
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-size: 22px;
+        font-weight: 950;
+      }
+
+      .route {
+        position: absolute;
+        left: 284px;
+        top: 244px;
+        width: 640px;
+        height: 160px;
+        pointer-events: none;
+      }
+
+      .route path {
+        fill: none;
+        stroke: rgba(255,255,255,0.78);
+        stroke-width: 5;
+        stroke-linecap: round;
+        stroke-dasharray: 18 16;
+      }
+
+      .mail-icon {
+        position: absolute;
+        left: 522px;
+        top: 202px;
+        width: 118px;
+        height: 118px;
+        border-radius: 32px;
+        display: grid;
+        place-items: center;
+        color: var(--primary);
+        background: #fff;
+        box-shadow: 0 22px 52px rgba(0,0,0,0.2);
+      }
+
+      .mail-icon svg {
+        width: 58px;
+        height: 58px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .mail-card {
+        position: absolute;
+        right: 92px;
+        top: 152px;
+        width: 520px;
+        height: 286px;
+        border-radius: 28px;
+        background: #fff;
+        color: var(--fg);
+        box-shadow: 0 32px 74px rgba(0,0,0,0.24);
+        padding: 30px;
+      }
+
+      .mail-top {
+        display: flex;
+        justify-content: space-between;
+        color: var(--primary);
+        font-size: 22px;
+        font-weight: 920;
+      }
+
+      .line {
+        height: 15px;
+        margin-top: 18px;
+        border-radius: 999px;
+        background: rgba(139,90,74,0.16);
+      }
+
+      .line.short { width: 62%; }
+      .line.mid { width: 82%; }
+
+      .pdf {
+        position: absolute;
+        left: 28px;
+        bottom: 28px;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        height: 56px;
+        padding: 0 20px;
+        border-radius: 16px;
+        background: rgba(180,92,82,0.1);
+        color: var(--danger);
+        font-size: 20px;
+        font-weight: 940;
+      }
+
+      .pdf::before {
+        content: "PDF";
+        width: 40px;
+        height: 30px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: var(--danger);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .flow-scene {
+        opacity: 0;
+        background: rgba(250,248,246,0.86);
+      }
+
+      .flow-title {
+        position: absolute;
+        left: 116px;
+        top: 142px;
+        width: 430px;
+      }
+
+      .flow-title h1 {
+        margin: 0;
+        font-size: 58px;
+        line-height: 1.08;
+        font-weight: 940;
+        letter-spacing: 0;
+      }
+
+      .flow-title p {
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 24px;
+        line-height: 1.38;
+        font-weight: 760;
+      }
+
+      .automation-board {
+        position: absolute;
+        left: 570px;
+        top: 120px;
+        width: 1240px;
+        height: 800px;
+      }
+
+      .core {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 8;
+        width: 230px;
+        height: 230px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        display: grid;
+        place-items: center;
+        text-align: center;
+        background: rgba(255,255,255,0.96);
+        border: 1px solid rgba(139,90,74,0.18);
+        box-shadow: 0 30px 74px rgba(44,36,33,0.14), 0 0 0 28px rgba(208,160,79,0.08);
+      }
+
+      .core-mark {
+        position: relative;
+        width: 116px;
+        height: 116px;
+        border-radius: 32px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        box-shadow: 0 18px 42px rgba(139,90,74,0.22);
+      }
+
+      .core-bot {
+        position: absolute;
+        left: 18px;
+        top: 16px;
+        width: 52px;
+        height: 52px;
+        color: #fff;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .core-doc {
+        position: absolute;
+        right: -10px;
+        bottom: -8px;
+        width: 58px;
+        height: 70px;
+        border-radius: 12px;
+        background: #fff;
+        border: 1px solid rgba(139,90,74,0.14);
+        box-shadow: 0 18px 32px rgba(44,36,33,0.18);
+      }
+
+      .core-doc::before {
+        content: "";
+        position: absolute;
+        left: 12px;
+        top: 13px;
+        width: 34px;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(183,91,78,0.18);
+      }
+
+      .core-doc::after {
+        content: "";
+        position: absolute;
+        left: 12px;
+        top: 30px;
+        width: 30px;
+        height: 23px;
+        border-top: 7px solid rgba(92,81,76,0.14);
+        border-bottom: 7px solid rgba(92,81,76,0.14);
+      }
+
+      .core-check {
+        position: absolute;
+        right: -15px;
+        top: -12px;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        background: #b75b4e;
+        box-shadow: 0 10px 22px rgba(183,91,78,0.24);
+      }
+
+      .core-check svg {
+        width: 20px;
+        height: 20px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2.4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .core-ring {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 6;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px dashed rgba(139,90,74,0.22);
+      }
+
+      .node {
+        position: absolute;
+        z-index: 7;
+        width: 210px;
+        height: 170px;
+        border-radius: 28px;
+        display: grid;
+        place-items: center;
+        gap: 8px;
+        padding: 18px;
+        text-align: center;
+        background: rgba(255,255,255,0.92);
+        border: 1px solid rgba(139,90,74,0.14);
+        box-shadow: 0 24px 58px rgba(44,36,33,0.12);
+      }
+
+      .node svg {
+        width: 58px;
+        height: 58px;
+        fill: none;
+        stroke: var(--primary);
+        stroke-width: 2.4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .node span {
+        display: block;
+        color: var(--muted);
+        font-size: 17px;
+        font-weight: 840;
+      }
+
+      .node.mail { left: 110px; top: 76px; }
+      .node.assign { right: 120px; top: 76px; }
+      .node.law { right: 72px; bottom: 100px; }
+      .node.risk { left: 122px; bottom: 100px; }
+
+      .flow-line {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 4;
+        width: 370px;
+        height: 4px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, transparent, rgba(31,159,104,0.56), transparent);
+        transform-origin: left center;
+        opacity: 0;
+      }
+
+      .flow-line.one { transform: rotate(-144deg); }
+      .flow-line.two { transform: rotate(-36deg); }
+      .flow-line.three { transform: rotate(38deg); }
+      .flow-line.four { transform: rotate(144deg); }
+
+      .packet {
+        position: absolute;
+        z-index: 10;
+        left: 0;
+        top: 0;
+        width: 104px;
+        height: 128px;
+        border-radius: 18px;
+        background: #fff;
+        border: 1px solid rgba(139,90,74,0.16);
+        box-shadow: 0 22px 50px rgba(44,36,33,0.14);
+      }
+
+      .packet::before {
+        content: "CONTRACT";
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        top: 18px;
+        height: 22px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        background: rgba(180,92,82,0.1);
+        color: var(--danger);
+        font-size: 9px;
+        font-weight: 950;
+      }
+
+      .packet::after {
+        content: "";
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        top: 58px;
+        height: 46px;
+        border-radius: 8px;
+        background:
+          linear-gradient(rgba(139,90,74,0.18) 0 0) 0 0 / 100% 8px no-repeat,
+          linear-gradient(rgba(139,90,74,0.12) 0 0) 0 20px / 80% 8px no-repeat,
+          linear-gradient(rgba(139,90,74,0.12) 0 0) 0 40px / 64% 8px no-repeat;
+      }
+
+      .contract-scene,
+      .reply-scene {
+        opacity: 0;
+      }
+
+      .document-zone {
+        position: absolute;
+        left: 170px;
+        top: 138px;
+        width: 720px;
+        height: 760px;
+      }
+
+      .contract-page {
+        position: absolute;
+        inset: 0;
+        padding: 48px 56px;
+        border-radius: 30px;
+        background: rgba(255,255,255,0.96);
+        border: 1px solid rgba(139,90,74,0.14);
+        box-shadow: 0 32px 82px rgba(44,36,33,0.14);
+        overflow: hidden;
+      }
+
+      .doc-head {
+        display: grid;
+        gap: 8px;
+        padding-bottom: 22px;
+        border-bottom: 1px solid rgba(139,90,74,0.14);
+        margin-bottom: 22px;
+      }
+
+      .doc-title-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--primary-dark);
+        font-size: 22px;
+        font-weight: 940;
+      }
+
+      .doc-meta {
+        display: flex;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.35;
+        font-weight: 760;
+      }
+
+      .party-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .party-box {
+        min-height: 76px;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid rgba(139,90,74,0.12);
+        background: rgba(245,242,239,0.55);
+      }
+
+      .party-box b {
+        display: block;
+        color: var(--fg);
+        font-size: 13px;
+        font-weight: 920;
+      }
+
+      .party-box span {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.35;
+        font-weight: 720;
+      }
+
+      .clause {
+        position: relative;
+        margin-top: 12px;
+        padding: 12px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(139,90,74,0.08);
+        background: rgba(255,255,255,0.72);
+      }
+
+      .clause h3 {
+        margin: 0 0 7px;
+        color: var(--primary-dark);
+        font-size: 13px;
+        line-height: 1.2;
+        font-weight: 940;
+      }
+
+      .clause p {
+        margin: 0;
+        color: #4f4540;
+        font-size: 10.5px;
+        line-height: 1.42;
+        font-weight: 650;
+      }
+
+      .clause.risk-row {
+        background: rgba(180,92,82,0.055);
+        border-color: rgba(180,92,82,0.18);
+        outline: 0 solid rgba(180,92,82,0);
+      }
+
+      .scan {
+        position: absolute;
+        z-index: 6;
+        left: 0;
+        top: 82px;
+        width: 100%;
+        height: 70px;
+        border-radius: 20px;
+        background: linear-gradient(180deg, transparent, rgba(208,160,79,0.2), transparent);
+        opacity: 0;
+      }
+
+      .callouts {
+        position: absolute;
+        right: 148px;
+        top: 182px;
+        width: 640px;
+        display: grid;
+        gap: 28px;
+      }
+
+      .callout {
+        min-height: 116px;
+        padding: 26px 30px;
+        border-radius: 24px;
+        background: rgba(255,255,255,0.94);
+        border: 1px solid rgba(180,92,82,0.16);
+        box-shadow: 0 22px 54px rgba(44,36,33,0.1);
+      }
+
+      .callout strong {
+        display: block;
+        color: var(--danger);
+        font-size: 26px;
+        font-weight: 940;
+      }
+
+      .callout span {
+        display: block;
+        margin-top: 10px;
+        width: 88%;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.34;
+        font-weight: 760;
+      }
+
+      .reply-layout {
+        position: absolute;
+        inset: 126px 130px 118px;
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 54px;
+        align-items: center;
+      }
+
+      .bundle {
+        position: relative;
+        height: 640px;
+      }
+
+      .mini-doc {
+        position: absolute;
+        left: 34px;
+        top: 26px;
+        width: 350px;
+        height: 248px;
+        border-radius: 22px;
+        padding: 22px 24px;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid rgba(139,90,74,0.14);
+        box-shadow: 0 26px 60px rgba(44,36,33,0.12);
+      }
+
+      .mini-doc.two { left: 290px; top: 128px; }
+      .mini-doc.three { left: 112px; top: 282px; }
+
+      .doc-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        color: var(--primary);
+        font-size: 13px;
+        font-weight: 940;
+        text-transform: uppercase;
+      }
+
+      .doc-pill {
+        flex: 0 0 auto;
+        height: 28px;
+        padding: 0 10px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        color: var(--danger);
+        background: rgba(180,92,82,0.1);
+        font-size: 12px;
+        font-weight: 920;
+      }
+
+      .mini-doc h3 {
+        margin: 14px 0 6px;
+        color: var(--fg);
+        font-size: 22px;
+        line-height: 1.08;
+        font-weight: 950;
+      }
+
+      .mini-doc p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.3;
+        font-weight: 760;
+      }
+
+      .doc-table {
+        margin-top: 12px;
+        display: grid;
+        gap: 7px;
+      }
+
+      .doc-row {
+        display: grid;
+        grid-template-columns: 54px 1fr auto;
+        align-items: center;
+        gap: 10px;
+        height: 22px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1;
+        font-weight: 820;
+      }
+
+      .doc-row b {
+        color: var(--fg);
+        font-weight: 940;
+      }
+
+      .doc-row span {
+        min-width: 0;
+        white-space: nowrap;
+      }
+
+      .doc-row i {
+        width: 76px;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(139,90,74,0.13);
+      }
+
+      .doc-row.warn i { background: rgba(180,92,82,0.22); }
+
+      .ready-pack {
+        position: absolute;
+        left: 74px;
+        bottom: 34px;
+        width: 540px;
+        height: 138px;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 44px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: #fff;
+        box-shadow: 0 30px 70px rgba(139,90,74,0.24);
+      }
+
+      .ready-pack strong {
+        font-size: 34px;
+        line-height: 1;
+        font-weight: 940;
+      }
+
+      .ready-pack span {
+        margin-top: 14px;
+        color: rgba(255,255,255,0.78);
+        font-size: 18px;
+        font-weight: 760;
+      }
+
+      .email-window {
+        position: relative;
+        height: 680px;
+        border-radius: 34px;
+        padding: 38px 42px;
+        background: rgba(255,255,255,0.96);
+        border: 1px solid rgba(139,90,74,0.14);
+        box-shadow: 0 32px 82px rgba(44,36,33,0.14);
+      }
+
+      .email-window h2 {
+        margin: 0 0 26px;
+        font-size: 38px;
+        font-weight: 940;
+      }
+
+      .email-field {
+        height: 44px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        border-bottom: 1px solid rgba(139,90,74,0.12);
+        color: var(--muted);
+        font-size: 16px;
+        font-weight: 760;
+      }
+
+      .email-field b {
+        width: 70px;
+        color: var(--primary);
+        font-weight: 940;
+      }
+
+      .email-field span {
+        min-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: var(--fg);
+        font-weight: 820;
+      }
+
+      .email-body {
+        margin-top: 22px;
+        display: grid;
+        gap: 13px;
+        max-width: 720px;
+        color: var(--fg);
+        font-size: 17px;
+        line-height: 1.34;
+        font-weight: 720;
+      }
+
+      .email-body p {
+        margin: 0;
+      }
+
+      .email-body strong {
+        color: var(--primary-dark);
+        font-weight: 940;
+      }
+
+      .email-list {
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 8px;
+        list-style: none;
+      }
+
+      .email-list li {
+        display: grid;
+        grid-template-columns: 18px 1fr;
+        gap: 9px;
+        align-items: start;
+      }
+
+      .email-list li::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        margin-top: 7px;
+        border-radius: 50%;
+        background: var(--danger);
+      }
+
+      .attachments {
+        margin-top: 22px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .attachment {
+        height: 40px;
+        padding: 0 14px;
+        border-radius: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--primary-dark);
+        background: rgba(139,90,74,0.09);
+        font-size: 13px;
+        font-weight: 860;
+      }
+
+      .attachment::before {
+        content: "PDF";
+        width: 34px;
+        height: 24px;
+        border-radius: 7px;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        background: var(--danger);
+        font-size: 10px;
+        font-weight: 950;
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 9px;
+        height: 28px;
+        border-radius: 999px;
+        background: var(--primary);
+        opacity: 0;
+      }
+
+      .send {
+        position: absolute;
+        right: 42px;
+        bottom: 42px;
+        height: 72px;
+        min-width: 206px;
+        padding: 0 32px;
+        border-radius: 22px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--success), #087f3e);
+        color: #fff;
+        box-shadow: 0 20px 48px rgba(31,159,104,0.24);
+        font-size: 26px;
+        font-weight: 940;
+      }
+
+      .device-duo {
+        position: absolute;
+        left: 116px;
+        top: 132px;
+        width: 880px;
+        height: 700px;
+      }
+
+      .repo-phone {
+        position: absolute;
+        left: 0;
+        top: 64px;
+        width: 312px;
+        height: 612px;
+        border-radius: 40px;
+        padding: 10px;
+        background:
+          linear-gradient(145deg, rgba(255,255,255,0.32), rgba(28,26,25,0.08)),
+          #191817;
+        box-shadow:
+          0 30px 70px rgba(44,36,33,0.22),
+          0 0 0 2px rgba(255,255,255,0.18) inset,
+          0 0 0 6px #171615 inset;
+      }
+
+      .repo-phone::before,
+      .repo-phone::after {
+        content: "";
+        position: absolute;
+        left: -4px;
+        width: 4px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #242220, #11100f);
+      }
+
+      .repo-phone::before { top: 116px; height: 50px; }
+      .repo-phone::after { top: 184px; height: 68px; }
+
+      .repo-phone-screen {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 32px;
+        background:
+          radial-gradient(circle at 78% 6%, rgba(139,90,74,0.08), transparent 34%),
+          linear-gradient(180deg, #fffefd 0%, #f7f3ef 100%);
+      }
+
+      .repo-phone-island {
+        position: absolute;
+        left: 50%;
+        top: 13px;
+        width: 76px;
+        height: 20px;
+        border-radius: 999px;
+        background: #050505;
+        transform: translateX(-50%);
+      }
+
+      .phone-status {
+        height: 52px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 19px 22px 0;
+        color: #151312;
+        font-size: 11px;
+        font-weight: 860;
+      }
+
+      .phone-head {
+        height: 48px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid rgba(232,226,220,0.7);
+        color: #2c2421;
+        font-size: 14px;
+        font-weight: 940;
+      }
+
+      .phone-head span {
+        color: var(--success);
+        font-size: 11px;
+        font-weight: 850;
+      }
+
+      .phone-chat {
+        padding: 24px 22px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .phone-bubble {
+        min-height: 72px;
+        padding: 16px;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 12px 26px rgba(44,36,33,0.08);
+        color: var(--fg);
+        font-size: 14px;
+        line-height: 1.25;
+        font-weight: 780;
+      }
+
+      .phone-bubble.ai {
+        background: #f0f6fb;
+      }
+
+      .phone-bubble strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--primary-dark);
+        font-size: 15px;
+        font-weight: 940;
+      }
+
+      .phone-bubble span {
+        display: block;
+        color: var(--muted);
+      }
+
+      .bubble-line {
+        height: 8px;
+        margin: 6px 0;
+        border-radius: 999px;
+        background: rgba(139,90,74,0.16);
+      }
+
+      .bubble-line.short { width: 62%; }
+
+      .phone-file {
+        height: 58px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 12px;
+        background: rgba(180,92,82,0.08);
+        color: var(--danger);
+        font-size: 13px;
+        font-weight: 940;
+      }
+
+      .phone-file::before {
+        content: "PDF";
+        width: 32px;
+        height: 26px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        background: #ef4444;
+        color: #fff;
+        font-size: 10px;
+      }
+
+      .repo-mac {
+        position: absolute;
+        right: 0;
+        top: 138px;
+        width: 690px;
+        height: 386px;
+        filter: drop-shadow(0 30px 70px rgba(44,36,33,0.16));
+      }
+
+      .repo-mac img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .repo-mac-screen {
+        position: absolute;
+        left: 79px;
+        top: 24px;
+        width: 532px;
+        height: 330px;
+        z-index: 2;
+        overflow: hidden;
+        border-radius: 3px;
+        background: linear-gradient(180deg, #fffefd, #f7f3ef);
+        padding: 30px;
+      }
+
+      .mac-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--fg);
+        font-size: 20px;
+        font-weight: 940;
+      }
+
+      .mac-badge {
+        height: 26px;
+        padding: 0 10px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        background: rgba(31,159,104,0.1);
+        color: var(--success);
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .mac-task {
+        margin-top: 14px;
+        min-height: 58px;
+        border-radius: 14px;
+        padding: 8px 14px;
+        background: rgba(139,90,74,0.07);
+      }
+
+      .mac-task-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        color: var(--fg);
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .mac-task-head span {
+        color: var(--primary);
+        font-size: 12px;
+        font-weight: 920;
+      }
+
+      .mac-task small {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.1;
+        font-weight: 760;
+      }
+
+      .mac-progress {
+        height: 6px;
+        margin-top: 6px;
+        border-radius: 999px;
+        background: rgba(139,90,74,0.12);
+        overflow: hidden;
+      }
+
+      .mac-progress i {
+        display: block;
+        width: 78%;
+        height: 100%;
+        border-radius: inherit;
+        background: rgba(139,90,74,0.55);
+      }
+
+      .device-arrow {
+        position: absolute;
+        left: 302px;
+        top: 354px;
+        width: 188px;
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, rgba(139,90,74,0.2), rgba(139,90,74,0.62));
+        transform-origin: left center;
+      }
+
+      .device-arrow::after {
+        content: "";
+        position: absolute;
+        right: -3px;
+        top: -6px;
+        width: 14px;
+        height: 14px;
+        border-top: 3px solid rgba(139,90,74,0.62);
+        border-right: 3px solid rgba(139,90,74,0.62);
+        transform: rotate(45deg);
+      }
+
+      .confirm-card {
+        position: absolute;
+        right: 108px;
+        top: 272px;
+        width: 760px;
+        min-height: 440px;
+        padding: 58px;
+        border-radius: 36px;
+        background: rgba(255,255,255,0.96);
+        border: 1px solid rgba(139,90,74,0.14);
+        box-shadow: 0 32px 82px rgba(44,36,33,0.14);
+      }
+
+      .confirm-card h2 {
+        margin: 0;
+        font-size: 60px;
+        line-height: 1.08;
+        font-weight: 950;
+      }
+
+      .confirm-card p {
+        margin: 26px 0 0;
+        color: var(--muted);
+        font-size: 29px;
+        line-height: 1.36;
+        font-weight: 760;
+      }
+
+      .confirm-button {
+        margin-top: 48px;
+        width: 320px;
+        height: 86px;
+        border-radius: 24px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: #fff;
+        box-shadow: 0 22px 54px rgba(139,90,74,0.24);
+        font-size: 31px;
+        font-weight: 940;
+      }
+
+      .caption {
+        z-index: 80;
+        top: auto;
+        left: 190px;
+        right: 190px;
+        bottom: 38px;
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 28px;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.9);
+        border: 1px solid rgba(139,90,74,0.16);
+        box-shadow: 0 20px 50px rgba(44,36,33,0.12);
+        color: var(--fg);
+        font-size: 28px;
+        line-height: 1.3;
+        font-weight: 820;
+        text-align: center;
+      }
+
+      .caption.night-caption {
+        color: #fff;
+        background: rgba(41,50,64,0.66);
+        border-color: rgba(255,255,255,0.14);
+      }
+
+      .wipe {
+        z-index: 75;
+        opacity: 0;
+        transform: translateX(-2300px) skewX(-15deg);
+        background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.96) 30%, rgba(208,160,79,0.26) 54%, rgba(255,255,255,0.84) 70%, transparent 100%);
+        filter: blur(0.5px);
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="tv-interview-contract-night" data-start="0" data-duration="30" data-width="1920" data-height="1080" data-fps="30">
+      <div id="background-grid" class="clip grid" data-start="0" data-duration="30" data-track-index="0"></div>
+
+      <section id="scene-night" class="clip scene night" data-start="0" data-duration="6.2" data-track-index="2">
+        <div class="clock"><strong>03:00</strong><span>加拿大客户来信</span></div>
+        <div class="mail-stage">
+          <div class="world-card"></div>
+          <div class="canada-dot"></div>
+          <svg class="route" viewBox="0 0 640 160" aria-hidden="true"><path d="M20 90 C170 28 310 28 468 84 C530 106 578 112 620 84" /></svg>
+          <div class="mail-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div class="mail-card">
+            <div class="mail-top"><span>多伦多客户</span><span>03:00</span></div>
+            <div class="line mid"></div>
+            <div class="line"></div>
+            <div class="line short"></div>
+            <div class="pdf">Canada · EN Contract</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scene-flow" class="clip scene flow-scene" data-start="5.8" data-duration="12.2" data-track-index="3">
+        <div class="flow-title">
+          <h1>Lawrence 自动接管</h1>
+          <p>合同进入后台流程，每个节点只留下必要的视觉状态。</p>
+        </div>
+        <div class="automation-board">
+          <div class="flow-line one"></div>
+          <div class="flow-line two"></div>
+          <div class="flow-line three"></div>
+          <div class="flow-line four"></div>
+          <div class="core-ring"></div>
+          <div class="core">
+            <div class="core-mark">
+              <svg class="core-bot" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+              <div class="core-doc"></div>
+              <div class="core-check"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg></div>
+            </div>
+          </div>
+          <div class="node mail">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>识别邮件</span>
+          </div>
+          <div class="node assign">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 21a8 8 0 0 0-16 0"/><circle cx="10" cy="8" r="5"/><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"/></svg>
+            <span>分派法务</span>
+          </div>
+          <div class="node law">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+            <span>查阅当地法律</span>
+          </div>
+          <div class="node risk">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+            <span>标注风险</span>
+          </div>
+          <div id="contract-packet" class="packet"></div>
+        </div>
+      </section>
+
+      <section id="scene-contract" class="clip scene contract-scene" data-start="17.2" data-duration="6.8" data-track-index="4">
+        <div class="document-zone">
+          <div class="contract-page">
+            <div class="doc-head">
+              <div class="doc-title-line"><span>MASTER SERVICE AGREEMENT</span><span>Ontario, Canada</span></div>
+              <div class="doc-meta"><span>Contract No. CA-2026-0418</span><span>Effective Date: July 1, 2026</span></div>
+            </div>
+            <div class="party-grid">
+              <div class="party-box">
+                <b>Client</b>
+                <span>Maple Retail Technologies Inc.<br />88 King Street West, Toronto, ON</span>
+              </div>
+              <div class="party-box">
+                <b>Provider</b>
+                <span>Wiselaw Global Services Limited<br />Hong Kong SAR</span>
+              </div>
+            </div>
+            <div class="clause">
+              <h3>1. Scope of Services</h3>
+              <p>The Provider shall deliver contract automation, legal operations support, and document review services for the Client's cross-border procurement workflow.</p>
+            </div>
+            <div class="clause risk-row">
+              <h3>5. Limitation of Liability</h3>
+              <p>Provider's total aggregate liability shall not exceed CAD 15,000, including indirect loss, business interruption, lost profit, and any claim arising from data processing errors.</p>
+            </div>
+            <div class="clause risk-row">
+              <h3>8. Governing Law and Venue</h3>
+              <p>This Agreement shall be governed solely by the laws of Ontario, Canada. Any dispute shall be submitted exclusively to the courts located in Toronto.</p>
+            </div>
+            <div class="clause">
+              <h3>10. Service Levels</h3>
+              <p>Provider shall respond to priority requests within two business days, unless otherwise agreed in a written statement of work.</p>
+            </div>
+            <div class="clause risk-row">
+              <h3>12. Confidentiality and Data Handling</h3>
+              <p>Client materials may be stored on third-party infrastructure for up to 24 months after termination unless deletion is requested in writing.</p>
+            </div>
+            <div class="scan"></div>
+          </div>
+        </div>
+        <div class="callouts">
+          <div class="callout"><strong>责任上限</strong><span>提高赔偿上限，排除数据与保密责任限制</span></div>
+          <div class="callout"><strong>管辖法律</strong><span>加入中立仲裁，明确跨境执行路径</span></div>
+          <div class="callout"><strong>数据处理</strong><span>缩短留存期限，并要求删除 SLA</span></div>
+        </div>
+      </section>
+
+      <section id="scene-reply" class="clip scene reply-scene" data-start="23" data-duration="5.2" data-track-index="5">
+        <div class="reply-layout">
+          <div class="bundle">
+            <div class="mini-doc one">
+              <div class="doc-head"><span>风险审阅</span><span class="doc-pill">3 高</span></div>
+              <h3>加拿大英文合同</h3>
+              <p>Maple Retail / 服务协议</p>
+              <div class="doc-table">
+                <div class="doc-row warn"><b>5.2</b><span>责任上限 CAD 15,000</span><i></i></div>
+                <div class="doc-row warn"><b>8.1</b><span>仅限安省法院</span><i></i></div>
+                <div class="doc-row"><b>12.4</b><span>数据留存 24 个月</span><i></i></div>
+              </div>
+            </div>
+            <div class="mini-doc two">
+              <div class="doc-head"><span>修改建议</span><span class="doc-pill">就绪</span></div>
+              <h3>修改摘要</h3>
+              <p>责任上限、管辖地、删除 SLA</p>
+              <div class="doc-table">
+                <div class="doc-row"><b>A1</b><span>保密责任不受上限限制</span><i></i></div>
+                <div class="doc-row"><b>A2</b><span>增加中立仲裁条款</span><i></i></div>
+                <div class="doc-row"><b>A3</b><span>30 天删除窗口</span><i></i></div>
+              </div>
+            </div>
+            <div class="mini-doc three">
+              <div class="doc-head"><span>回复草稿</span><span class="doc-pill">英文</span></div>
+              <h3>客户邮件</h3>
+              <p>已附修改意见，等待确认。</p>
+              <div class="doc-table">
+                <div class="doc-row"><b>To</b><span>legal@mapleretail.ca</span><i></i></div>
+                <div class="doc-row"><b>CC</b><span>sales@wiselaw.ai</span><i></i></div>
+                <div class="doc-row"><b>主题</b><span>合同审阅意见</span><i></i></div>
+              </div>
+            </div>
+            <div class="ready-pack"><strong>方案包</strong><span>风险审阅 · 修改建议 · 英文回复草稿</span></div>
+          </div>
+          <div class="email-window">
+            <h2>回复草稿</h2>
+            <div class="email-field"><b>收件人</b><span>Emma Chen &lt;legal@mapleretail.ca&gt;</span></div>
+            <div class="email-field"><b>主题</b><span>Review comments for CA-2026-0418 Service Agreement</span></div>
+            <div class="email-body">
+              <p>Hi Emma,</p>
+              <p>We reviewed the draft agreement and attached our proposed edits:</p>
+              <ul class="email-list">
+                <li><span><strong>Clause 5.2</strong>: raise liability cap; carve out data claims.</span></li>
+                <li><span><strong>Clause 8.1</strong>: add arbitration before Ontario venue.</span></li>
+                <li><span><strong>Clause 12.4</strong>: shorten retention to 90 days.</span></li>
+              </ul>
+              <p>Please confirm whether these edits are acceptable for the next redline.</p>
+              <div class="attachments">
+                <div class="attachment">Risk Review</div>
+                <div class="attachment">Redline Notes</div>
+              </div>
+            </div>
+            <span class="cursor"></span>
+            <div class="send">待确认发送</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scene-morning" class="clip scene morning" data-start="27.6" data-duration="2.4" data-track-index="6">
+        <div class="device-duo">
+          <div class="repo-phone">
+            <div class="repo-phone-screen">
+              <div class="repo-phone-island"></div>
+              <div class="phone-status"><span>9:41</span><span>▮▮▮ ◠ ▭</span></div>
+              <div class="phone-head">Lawrence <span>在线</span></div>
+              <div class="phone-chat">
+                <div class="phone-bubble"><strong>Overnight Review</strong><span>CA-2026-0418 已完成审阅</span></div>
+                <div class="phone-file">Solution_Pack_CA.pdf</div>
+                <div class="phone-bubble ai"><strong>待确认</strong><span>3 个风险点 · 2 份附件 · 英文回复已草拟</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="device-arrow"></div>
+          <div class="repo-mac">
+            <img src="assets/macbook.svg" alt="MacBook Pro" />
+            <div class="repo-mac-screen">
+              <div class="mac-title"><span>Lawrence 工作区</span><span class="mac-badge">READY</span></div>
+              <div class="mac-task"><div class="mac-task-head"><b>风险审阅</b><span>3 高</span></div><small>责任上限 / 管辖地 / 数据留存</small><div class="mac-progress"><i></i></div></div>
+              <div class="mac-task"><div class="mac-task-head"><b>修改建议</b><span>就绪</span></div><small>提高上限、仲裁条款、删除 SLA</small><div class="mac-progress"><i></i></div></div>
+              <div class="mac-task"><div class="mac-task-head"><b>回复草稿</b><span>英文</span></div><small>收件人：legal@mapleretail.ca</small><div class="mac-progress"><i></i></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="confirm-card">
+          <h2>清晨，只需确认</h2>
+          <p>待办被收束成一份方案：风险摘要、修改建议、法律依据和英文回复。</p>
+          <div class="confirm-button">确认发送</div>
+        </div>
+      </section>
+
+      <div id="caption-1" class="clip caption night-caption" data-start="0.6" data-duration="5.2" data-track-index="40">凌晨三点，加拿大客户的英文合同抵达。</div>
+      <div id="caption-2" class="clip caption" data-start="6.4" data-duration="5.8" data-track-index="41">Lawrence 被唤醒，合同开始自动流转。</div>
+      <div id="caption-3" class="clip caption" data-start="17.8" data-duration="5.6" data-track-index="42">风险条款被扫描、框选，并生成修改建议。</div>
+      <div id="caption-4" class="clip caption" data-start="24.2" data-duration="4.2" data-track-index="43">清晨之前，英文回复已经准备好。</div>
+
+      <div id="wipe-1" class="clip wipe" data-start="5.55" data-duration="1.2" data-track-index="70" data-layout-allow-overflow="true"></div>
+      <div id="wipe-2" class="clip wipe" data-start="16.95" data-duration="1.2" data-track-index="71" data-layout-allow-overflow="true"></div>
+      <div id="wipe-3" class="clip wipe" data-start="22.75" data-duration="1.2" data-track-index="72" data-layout-allow-overflow="true"></div>
+      <div id="wipe-4" class="clip wipe" data-start="27.35" data-duration="1.0" data-track-index="73" data-layout-allow-overflow="true"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      tl.from("#scene-night .clock", { x: -36, opacity: 0, duration: 0.62, ease: "expo.out" }, 0.35);
+      tl.from("#scene-night .world-card", { y: 24, scale: 0.96, opacity: 0, duration: 0.62, ease: "power3.out" }, 0.72);
+      tl.from("#scene-night .canada-dot", { scale: 0, opacity: 0, duration: 0.42, ease: "back.out(2)" }, 1.12);
+      tl.from("#scene-night .route path", { strokeDashoffset: 640, opacity: 0, duration: 0.82, ease: "power2.out" }, 1.34);
+      tl.from("#scene-night .mail-icon", { x: -360, y: 48, scale: 0.55, rotation: -10, opacity: 0, duration: 0.86, ease: "back.out(1.5)" }, 1.52);
+      tl.from("#scene-night .mail-card", { x: 86, y: 24, scale: 0.88, opacity: 0, duration: 0.62, ease: "back.out(1.45)" }, 2.18);
+      tl.from("#scene-night .pdf", { y: 18, opacity: 0, duration: 0.34, ease: "power2.out" }, 2.74);
+      tl.to("#scene-night .mail-card", { scale: 1.025, duration: 0.22, repeat: 1, yoyo: true, ease: "sine.inOut" }, 3.12);
+      tl.from("#caption-1", { y: 18, opacity: 0, duration: 0.32, ease: "power2.out" }, 0.6);
+
+      tl.to("#wipe-1", { x: 4300, opacity: 1, duration: 1.0, ease: "power3.inOut" }, 5.55);
+      tl.set("#scene-flow", { opacity: 1 }, 5.8);
+      tl.from("#scene-flow .flow-title", { x: -36, opacity: 0, duration: 0.55, ease: "expo.out" }, 6.25);
+      tl.from("#scene-flow .core", { scale: 0.6, opacity: 0, duration: 0.62, ease: "back.out(1.8)" }, 6.45);
+      tl.from("#scene-flow .core-ring", { scale: 0.72, opacity: 0, duration: 0.62, ease: "sine.out" }, 6.55);
+      tl.to("#scene-flow .core-ring", { rotation: 120, duration: 10.6, ease: "none" }, 6.8);
+      tl.from("#scene-flow .flow-line", { scaleX: 0, opacity: 0, duration: 0.45, stagger: 0.14, ease: "power2.out" }, 6.9);
+      tl.from("#scene-flow .node", { y: 28, opacity: 0, scale: 0.9, duration: 0.48, stagger: 0.16, ease: "back.out(1.6)" }, 7.05);
+      tl.fromTo("#contract-packet", { x: 160, y: 128, opacity: 0, scale: 0.8 }, { x: 540, y: 338, opacity: 1, scale: 1, duration: 1.0, ease: "power2.inOut" }, 7.65);
+      tl.to("#contract-packet", { x: 978, y: 128, duration: 1.1, ease: "power2.inOut" }, 8.95);
+      tl.to("#scene-flow .node.assign", { scale: 1.08, duration: 0.22, repeat: 1, yoyo: true, ease: "sine.inOut" }, 9.68);
+      tl.to("#contract-packet", { x: 1000, y: 584, duration: 1.1, ease: "power2.inOut" }, 10.55);
+      tl.to("#scene-flow .node.law", { scale: 1.08, duration: 0.22, repeat: 1, yoyo: true, ease: "sine.inOut" }, 11.22);
+      tl.to("#contract-packet", { x: 170, y: 584, duration: 1.2, ease: "power2.inOut" }, 12.25);
+      tl.to("#scene-flow .node.risk", { scale: 1.08, duration: 0.22, repeat: 1, yoyo: true, ease: "sine.inOut" }, 13.0);
+      tl.to("#contract-packet", { x: 540, y: 338, scale: 0.82, duration: 1.0, ease: "power2.inOut" }, 14.1);
+      tl.to("#scene-flow .core", { scale: 1.08, duration: 0.24, repeat: 4, yoyo: true, ease: "sine.inOut" }, 14.4);
+      tl.from("#caption-2", { y: 18, opacity: 0, duration: 0.32, ease: "power2.out" }, 6.4);
+
+      tl.to("#wipe-2", { x: 4300, opacity: 1, duration: 1.0, ease: "power3.inOut" }, 16.95);
+      tl.set("#scene-contract", { opacity: 1 }, 17.2);
+      tl.from("#scene-contract .contract-page", { x: -80, opacity: 0, rotation: -2, duration: 0.68, ease: "power3.out" }, 17.55);
+      tl.from("#scene-contract .party-box", { y: 18, opacity: 0, duration: 0.34, stagger: 0.08, ease: "power2.out" }, 18.0);
+      tl.from("#scene-contract .clause", { y: 22, opacity: 0, duration: 0.34, stagger: 0.08, ease: "power2.out" }, 18.16);
+      tl.fromTo("#scene-contract .scan", { y: 0, opacity: 0 }, { y: 500, opacity: 1, duration: 1.35, ease: "sine.inOut" }, 18.55);
+      tl.to("#scene-contract .risk-row", { outlineWidth: 5, outlineColor: "rgba(180,92,82,0.55)", backgroundColor: "rgba(180,92,82,0.2)", duration: 0.28, stagger: 0.22, ease: "power2.out" }, 19.2);
+      tl.from("#scene-contract .callout", { x: 80, opacity: 0, scale: 0.94, duration: 0.42, stagger: 0.18, ease: "back.out(1.5)" }, 19.35);
+      tl.from("#scene-contract .callout span", { y: 8, opacity: 0, duration: 0.3, stagger: 0.14, ease: "power2.out" }, 20.0);
+      tl.from("#caption-3", { y: 18, opacity: 0, duration: 0.32, ease: "power2.out" }, 17.8);
+
+      tl.to("#wipe-3", { x: 4300, opacity: 1, duration: 1.0, ease: "power3.inOut" }, 22.75);
+      tl.set("#scene-reply", { opacity: 1 }, 23.0);
+      tl.from("#scene-reply .mini-doc", { y: -60, opacity: 0, rotation: -4, duration: 0.42, stagger: 0.14, ease: "back.out(1.6)" }, 23.25);
+      tl.from("#scene-reply .doc-row", { scaleX: 0, opacity: 0, transformOrigin: "left center", duration: 0.22, stagger: 0.035, ease: "power2.out" }, 23.72);
+      tl.from("#scene-reply .ready-pack", { y: 54, opacity: 0, scale: 0.86, duration: 0.55, ease: "back.out(1.7)" }, 23.85);
+      tl.from("#scene-reply .email-window", { x: 80, opacity: 0, duration: 0.58, ease: "power3.out" }, 23.55);
+      tl.from("#scene-reply .email-field", { scaleX: 0, opacity: 0, transformOrigin: "left center", duration: 0.28, stagger: 0.12, ease: "power2.out" }, 24.05);
+      tl.from("#scene-reply .email-body p, #scene-reply .email-list li", { y: 14, opacity: 0, duration: 0.24, stagger: 0.07, ease: "power2.out" }, 24.35);
+      tl.from("#scene-reply .attachment", { y: 14, opacity: 0, scale: 0.92, duration: 0.24, stagger: 0.08, ease: "back.out(1.4)" }, 25.02);
+      tl.to("#scene-reply .cursor", { opacity: 1, duration: 0.16, repeat: 8, yoyo: true, ease: "steps(1)" }, 24.95);
+      tl.from("#scene-reply .send", { y: 28, opacity: 0, scale: 0.92, duration: 0.45, ease: "back.out(1.6)" }, 25.28);
+      tl.to("#scene-reply .send", { scale: 1.04, duration: 0.22, repeat: 5, yoyo: true, ease: "sine.inOut" }, 25.8);
+      tl.from("#caption-4", { y: 18, opacity: 0, duration: 0.32, ease: "power2.out" }, 24.2);
+
+      tl.to("#wipe-4", { x: 4300, opacity: 1, duration: 0.88, ease: "power3.inOut" }, 27.35);
+      tl.set("#scene-morning", { opacity: 1 }, 27.6);
+      tl.from("#scene-morning .device-duo", { x: -80, opacity: 0, scale: 0.96, duration: 0.55, ease: "power3.out" }, 27.82);
+      tl.from("#scene-morning .device-arrow", { scaleX: 0, opacity: 0, duration: 0.38, ease: "power2.out" }, 28.18);
+      tl.from("#scene-morning .mac-progress i", { scaleX: 0, transformOrigin: "left center", duration: 0.38, stagger: 0.08, ease: "power2.out" }, 28.28);
+      tl.from("#scene-morning .confirm-card", { x: 90, opacity: 0, scale: 0.96, duration: 0.6, ease: "back.out(1.4)" }, 28.0);
+      tl.from("#scene-morning .confirm-button", { y: 26, opacity: 0, duration: 0.34, ease: "power2.out" }, 28.65);
+      tl.to("#scene-morning .confirm-button", { scale: 1.04, duration: 0.22, repeat: 3, yoyo: true, ease: "sine.inOut" }, 29.1);
+
+      window.__timelines["tv-interview-contract-night"] = tl;
+
+      if (new URLSearchParams(window.location.search).get("autoplay") === "1") {
+        tl.play(0);
+      }
+    </script>
+  </body>
+</html>
